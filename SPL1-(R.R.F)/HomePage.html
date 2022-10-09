@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>R.R.F Home Page</title>
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
 
@@ -15,16 +14,27 @@
   box-sizing: border-box;
 }
 
-body {
+/*body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(247, 203, 137);
+  background-color:rgb(233, 146, 250); ;
+}*/
+
+body{
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  height: 100vh;
+  margin: 0;
+  padding: 2%;
+  background-color: rgb(233, 146, 250);
+  font-family: 'Knewave', cursive;
 }
 
 
 /* Style the search field */
 form.example input[type=text] {
-  padding: 10px;
+  padding: 3%;
   font-size: 17px;
   border: 1px solid rgb(9, 14, 63);
   float: left;
@@ -35,9 +45,9 @@ form.example input[type=text] {
 /* Style the submit button */
 form.example button {
   float: left;
-  width: 10%;
-  padding: 10px;
-  background: #e96d08;
+  width: 13%;
+  padding: 3%;
+  background: rgb(129,20,120);
   color: white;
   font-size: 17px;
   border: 1px solid rgb(9, 22, 92);
@@ -46,7 +56,7 @@ form.example button {
 }
 
 form.example button:hover {
-  background: #ee2906;
+  background: rgb(128,78,123);
 }
 
 /* Clear floats */
@@ -61,13 +71,14 @@ form.example::after {
   border: none;
   outline: none;
   padding: 12px 16px;
-  background-color: #e96d08;
+  background-color: rgb(129,20,120);
   cursor: pointer;
+  color: white;
 }
 
 /* Add a light grey background on mouse-over */
 .btn:hover {
-  background-color: #ee2906;
+  background-color: rgb(128,78,123);
 }
 
 /* Add a dark background to the active button */
