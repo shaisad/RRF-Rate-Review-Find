@@ -11,7 +11,7 @@
 <style>
 
 *{
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
 /*body {
@@ -27,62 +27,70 @@ body{
   height: 100vh;
   margin: 0;
   padding: 2%;
-  background-color: rgb(233, 146, 250);
+  background-color: rgb(163, 190, 241);
   font-family: 'Knewave', cursive;
 }
 
 
-/* Style the search field */
-form.example input[type=text] {
+/* search field */
+
+
+
+form.Submit input[type=text] {
   padding: 3%;
   font-size: 17px;
   border: 1px solid rgb(9, 14, 63);
   float: left;
-  width: 60%;
+  width: 45rem;
+  height: 1rem;
   background: #f1f1f1;
+  
 }
 
-/* Style the submit button */
-form.example button {
+/* submit button 
+form.Submit button {
   float: left;
-  width: 13%;
-  padding: 3%;
-  background: rgb(129,20,120);
+  width: 5%;
+  padding: 1%;
+  background:rgb(35, 97, 155) ;
   color: white;
   font-size: 17px;
   border: 1px solid rgb(9, 22, 92);
-  border-left: none; /* Prevent double borders */
   cursor: pointer;
 }
 
-form.example button:hover {
-  background: rgb(128,78,123);
-}
+form.Submit button:hover {
+  background:rgb(70, 90, 145) ;
+}*/
 
-/* Clear floats */
-form.example::after {
+/* Clear floats 
+form.Submit::after {
   content: "";
   clear: both;
   display: table;
-}
+} */
 
-/* Style the buttons */
+/* buttons */
 .btn {
   border: none;
   outline: none;
-  padding: 12px 16px;
-  background-color: rgb(129,20,120);
+  padding: 16px 20px;
+  background-color: rgb(35, 97, 155);
   cursor: pointer;
   color: white;
+  right: 90rem;
+  top: 20rem;
+
+  
 }
 
-/* Add a light grey background on mouse-over */
+
 .btn:hover {
-  background-color: rgb(128,78,123);
+  background-color:rgb(70, 90, 145) ;
 }
 
-/* Add a dark background to the active button */
-.btn.active {
+
+.btn.show {
   background-color: #666;
   color: white;
 }
@@ -92,14 +100,14 @@ form.example::after {
 
 <body>
  
-    <form class="example" action="activate.php">
+    <form class="Submit" action="activate.php">
         <input type="text" placeholder="Search here..." name="search">
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
 
       <div id="myBtnContainer">
        
-        <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+        <button class="btn show" onclick="filterSelection('all')"> Show all</button>
         <button class="btn" onclick="filterSelection('top rated')"> Top Rated</button>
         <button class="btn" onclick="filterSelection('price')"> Price Range</button>
         <button class="btn" onclick="filterSelection('location')"> Location</button>

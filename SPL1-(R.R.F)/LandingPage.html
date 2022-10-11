@@ -11,12 +11,15 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(233, 146, 250);
+  background-image: url("backgroundimage1.jpg");
+  background-size: cover;
+  
+  
 }
 
 .navigationBar {
   overflow: hidden;
-  background-color: rgb(129, 20, 120);
+  background-color: rgb(35, 97, 155);
 }
 
 .navigationBar a {
@@ -29,8 +32,21 @@ body {
   font-size: 20px;
 }
 
+.navigationBar select {
+  float: left;
+  display: block;
+  color: white ;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: rgb(35, 97, 155);
+}
+
+
+
 .navigationBar a:hover {
-  background-color:rgb(128, 78, 123) ;
+  background-color:rgb(70, 90, 145) ;
   color: white;
 }
 
@@ -40,35 +56,51 @@ body {
   margin-bottom: 1rem;
   text-align: center;
   font-style: italic;
-  color:rgb(129, 20, 120) ;
+  color:rgb(35, 97, 155) ;
 }
 
-.rrf p{
+.rrf  {
   font-size: 2rem;
-  font:caption;
+  
   text-align: center;
-  color: rgb(129, 20, 120);
+  color: rgb(70, 90, 145);
+  
 }
+
+.intrText u {
+  color: rgb(236, 240, 42);
+}
+
 
 </style>
 </head>
 
 <body>
 
+
 <div class="navigationBar" id="navBar">
   <a href="HomePage.html" target="_self">Home</a>
-  <a href="SignUp.html" target="_self">Sign Up</a>
+  
+ <form class="signup">
+  <select name="SignUp" id="Sign">
+    <option value="SignUp"><a href="SignUp.html" target="_self">User Sign In</a></option>
+    <option value="SignUp">Restaurant Sign In</option>
+    
+  </select>
+ </form>
+
+
   <a href="#about" target="_self">About</a>
   <a href="#help" target="_self">Help</a>
  </div>
 
   <div class="intrText">
-    <p>R.R.F</p>
+    <u><p>R.R.F</p></u>
  </div>
 
 <div class="rrf">
   <p>
-    Rate Review Find
+    <b>Rate Review Find</b>
   </p>
 </div>
     
