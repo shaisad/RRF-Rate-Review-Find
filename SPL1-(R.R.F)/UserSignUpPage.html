@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Register</title>
+		<title>Log In</title>
 		</head>
 
     <style>
@@ -15,80 +15,103 @@
   	-moz-osx-font-smoothing: grayscale;
 }
 body {
-  	background-color: #435165;
+  	background-color: #96b3db;
   	margin: 0;
 }
-.register {
+.UserSignUp {
   	width: 400px;
   	background-color: #ffffff;
-  	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+  	box-shadow: 20px rgba(88, 88, 102, 0.3);
   	margin: 100px auto;
+	border-radius: 50px;
+	border: 10px;
 }
-.register h1 {
+.UserSignUp h1 {
   	text-align: center;
-  	color: #5b6574;
+  	color: #3060a8;
   	font-size: 24px;
   	padding: 20px 0 20px 0;
   	border-bottom: 1px solid #dee0e4;
 }
-.register form {
+.UserSignUp form {
   	display: flex;
   	flex-wrap: wrap;
   	justify-content: center;
   	padding-top: 20px;
+	border-radius: 60px;
 }
-.register form label {
+.UserSignUp form label {
   	display: flex;
   	justify-content: center;
   	align-items: center;
   	width: 50px;
  	height: 50px;
-  	background-color: #3274d6;
+  	background-color: #4c6ea0;
   	color: #ffffff;
+	border-radius: 40px;
 }
-.register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+.UserSignUp form input[type="password"], .UserSignUp form input[type="text"], .UserSignUp form input[type="email"] {
   	width: 310px;
   	height: 50px;
-  	border: 1px solid #dee0e4;
+  	border: 3px solid #8193b8;
   	margin-bottom: 20px;
   	padding: 0 15px;
+	border-radius: 60px;
 }
-.register form input[type="submit"] {
+.UserSignUp form input[type="submit"] {
   	width: 100%;
   	padding: 15px;
   	margin-top: 20px;
-  	background-color: #3274d6;
+  	background-color: #4671b3;
  	border: 0;
   	cursor: pointer;
   	font-weight: bold;
   	color: #ffffff;
   	transition: background-color 0.2s;
+    border-radius: 40px;
 }
-.register form input[type="submit"]:hover {
+.UserSignUp form input[type="submit"]:hover {
 	background-color: #2868c7;
   	transition: background-color 0.2s;
+}
+
+.UserSignUp {
+	font-size: 10px;
 }
 
     </style>
 	
     <body>
-		<div class="register">
-			<h1>Register</h1>
-			<form action="register.php" method="post" autocomplete="off">
+		<div class="UserSignUp">
+			<h1>User Sign Up</h1>
+			<form action="connect.php" method="post" autocomplete="off">
 				<label for="username">
 					<i class="fas fa-user"></i>
 				</label>
 				<input type="text" name="username" placeholder="Username" id="username" required>
+                <label for="location">
+					<i class="#"></i>
+				</label>
+				<input type="text" name="location" placeholder="Location" id="location" required>
+                <label for="email">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="email" name="email" placeholder="Email" id="email" required>
+                
 				<label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
-				<label for="email">
-					<i class="fas fa-envelope"></i>
+				
+				<label for="confirm">
+					<i class="fas fa-lock"></i>
 				</label>
-				<input type="email" name="email" placeholder="Email" id="email" required>
-				<input type="submit" value="Register">
+				<input type="password" name="confirm" placeholder="Confirm Password" id="ConfirmPassword" required>
+				
+				<input type="submit" value="Sign Up">
 			</form>
 		</div>
+
+		
 	</body>
 </html>

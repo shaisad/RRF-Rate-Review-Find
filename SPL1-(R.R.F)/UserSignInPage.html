@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Log In</title>
+		</head>
+
+    <style>
+
+* {
+  	box-sizing: border-box;
+  	font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+  	font-size: 16px;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+}
+body {
+  	background-color: #96b3db;
+  	margin: 0;
+}
+.UserSignIn {
+  	width: 400px;
+  	background-color: #ffffff;
+  	box-shadow: 20px rgba(88, 88, 102, 0.3);
+  	margin: 100px auto;
+	border-radius: 50px;
+	border: 10px;
+}
+.UserSignIn h1 {
+  	text-align: center;
+  	color: #3060a8;
+  	font-size: 24px;
+  	padding: 20px 0 20px 0;
+  	border-bottom: 1px solid #dee0e4;
+}
+.UserSignIn form {
+  	display: flex;
+  	flex-wrap: wrap;
+  	justify-content: center;
+  	padding-top: 20px;
+	border-radius: 60px;
+}
+.UserSignIn form label {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	width: 50px;
+ 	height: 50px;
+  	background-color: #4c6ea0;
+  	color: #ffffff;
+	border-radius: 40px;
+}
+.UserSignIn form input[type="password"], .UserSignIn form input[type="text"], .UserSignIn form input[type="email"] {
+  	width: 310px;
+  	height: 50px;
+  	border: 3px solid #8193b8;
+  	margin-bottom: 20px;
+  	padding: 0 15px;
+	border-radius: 60px;
+}
+.UserSignIn form input[type="submit"] {
+  	width: 100%;
+  	padding: 15px;
+  	margin-top: 20px;
+  	background-color: #4671b3;
+ 	border: 0;
+  	cursor: pointer;
+  	font-weight: bold;
+  	color: #ffffff;
+  	transition: background-color 0.2s;
+}
+.UserSignIn form input[type="submit"]:hover {
+	background-color: #2868c7;
+  	transition: background-color 0.2s;
+}
+
+.UserSignIn  {
+	font-size: 10px;
+}
+
+    </style>
+	
+    <body>
+		<div class="UserSignIn">
+			<h1>User Log In</h1>
+			<form action="connect.php" method="post" autocomplete="off">
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="username" required>
+                <label for="email">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="email" name="email" placeholder="Email" id="email" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="password" required>
+				<label for="ConfirmPassword">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="ConfirmPassword" placeholder="Confirm Password" id="ConfirmPassword" required>
+				
+				<input type="submit" value="Log In">
+
+				<div class="SignUpHere">
+
+					<p>Don't have an account. <a href="UserSignUpPage.html">Sign up here.</a></p>
+			
+					</div>
+			
+			</form>
+		</div>
+
+		
+	</body>
+</html>

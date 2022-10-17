@@ -19,30 +19,17 @@ body {
 
 .navigationBar {
   overflow: hidden;
-  background-color: rgb(35, 97, 155);
 }
 
 .navigationBar a {
   float: left;
   display: block;
-  color: white;
+  color: rgb(35, 97, 155);
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 30px;
 }
-
-.navigationBar select {
-  float: left;
-  display: block;
-  color: white ;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  background-color: rgb(35, 97, 155);
-}
-
 
 
 .navigationBar a:hover {
@@ -57,18 +44,83 @@ body {
   text-align: center;
   font-style: italic;
   color:rgb(35, 97, 155) ;
+  animation-duration: 4s;
+  animation-name: intro;
 }
 
+@keyframes intro {
+  0%   {color: red;}
+  25%  {color: rgb(255, 187, 0);}
+  50%  {color: rgb(27, 122, 56);}
+  
+}
+
+
 .rrf  {
-  font-size: 2rem;
+  font-size: 100%;
   
   text-align: center;
   color: rgb(70, 90, 145);
+  animation-duration: 4s;
+  animation-name: RRF;
+
+}
+
+@keyframes RRF {
+  25%  {color:rgb(238, 134, 37); left:200px; top:0px;}
+}
+
+
+.dropbtn {
+  background-color: rgb(70, 90, 145);
+  color: white;
+  padding: 16px;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  left: 1150px;
+  bottom: 50px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(35, 97, 155);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 12px;
+  text-decoration: none;
+  display: block;
   
 }
 
-.intrText u {
-  color: rgb(236, 240, 42);
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: rgb(70, 90, 145);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: rgb(35, 97, 155);
 }
 
 
@@ -79,28 +131,27 @@ body {
 
 
 <div class="navigationBar" id="navBar">
-  <a href="HomePage2.html" target="_self">Home</a>
-  
- <form class="signup">
-  <select name="SignUp" id="Sign" onchange="location = this.value;">
-    <option value="SignUp.html">User Sign In</option>
-    <option value="SignUp">Restaurant Sign In</option>
-    
-  </select>
- </form>
-
-
-  <a href="#about" target="_self">About</a>
+  <a href="HomePage.html" target="_self">Home</a>
+   <a href="#about" target="_self">About</a>
   <a href="#help" target="_self">Help</a>
  </div>
 
+ <div class="dropdown">
+
+  <button class="dropbtn">Log In</button>
+  <div class="dropdown-content">
+    <a href="UserSignInPage.html">User Log In</a>
+    <a href="RestaurantSignInPage.html">Restaurant Log In</a>
+  </div>
+</div>
+
   <div class="intrText">
-    <u><p>R.R.F</p></u>
+    <p>R.R.F</p>
  </div>
 
 <div class="rrf">
   <p>
-    <b>Rate Review Find</b>
+    <b>Rate. Review. Find.</b>
   </p>
 </div>
     
