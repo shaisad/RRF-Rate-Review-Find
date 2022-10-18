@@ -57,6 +57,7 @@ body {
  	height: 50px;
   	background-color: #4c6ea0;
   	color: #ffffff;
+	position: absolute;
 	
 }
 .RestUserSignUp form input[type="password"], .RestUserSignUp form input[type="text"], .RestUserSignUp form input[type="email"] {
@@ -99,45 +100,29 @@ body {
 		<div class="RestUserSignUp">
 			<h1>Restaurant Sign Up</h1>
 			<form action="register.php" method="post" autocomplete="off">
-				<label for="restusername">
-					<i class="fas fa-user"></i>
-				</label>
+				
 				<input type="text" name="restusername" placeholder="Restaurant's Name" id="restusername" required>
 
-                <label for="location">
-					<i class="#"></i>
-				</label>
+                
 				<input type="text" name="location" placeholder="Location" id="location" required>
                 
-
-                <label for="email">
-					<i class="fas fa-envelope"></i>
-				</label>
 				<input type="email" name="email" placeholder="Restaurant's Email" id="email" required>
 
-                
-                <label for="ServedCatagory">
-					<i class="#"></i>
-				</label>
-				<input type="text" name="ServedCatagory" placeholder="Select Served Food Catagory" id="ServedCatagory" required>
-
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
+            
 				<input type="password" name="password" placeholder="Password" id="password" required>
 				<span class="eye-btn"><i class="bi bi-eye-slash" 
                     id="togglePassword"></i></span>
 				
 				
-				<label for="ConfirmPassword">
-					<i class="fas fa-lock"></i>
-				</label>
 				<input type="password" name="ConfirmPassword" placeholder="Confirm Password" id="ConfirmPassword" required>
 				<span class="eye-btn"><i class="bi bi-eye-slash" 
                     id="togglePassword"></i></span>
+
+				<input type="file" name="rest_image" required class="res_image">	
 				
                 
 				<input type="submit" value="Sign Up" onclick="myFunction()"/>
+
                 <script>
                     function myFunction(){
                         window.location.href="HomePage.html";
