@@ -12,7 +12,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("backgroundimage1.jpg");
+  background-image: url("bg.jpg");
   background-size: cover;
   
   
@@ -25,28 +25,34 @@ body {
 .navigationBar a {
   float: left;
   display: block;
-  color: rgb(35, 97, 155);
+  color:rgb(80, 31, 19) ;
   text-align: center;
   padding: 16px 16px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 22px;
 }
-
 
 .navigationBar a:hover {
-  background-color:rgb(70, 90, 145) ;
+  background-color: rgb(80, 31, 19) ;
   color: white;
+  border-radius: 40px;
 }
 
-
 .intrText p {
-  font-size: 8rem;
+  font-size: 120px;
   margin-bottom: 1rem;
   text-align: center;
   font-style: italic;
-  color:rgb(35, 97, 155) ;
+  color:rgb(80, 31, 19) ;
   animation-duration: 4s;
   animation-name: intro;
+  position: relative;
+  right: 450px;
+  top: 60px;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 6px rgb(80, 31, 19);
+  
 }
 
 @keyframes intro {
@@ -56,29 +62,14 @@ body {
   
 }
 
-
-.rrf  {
-  font-size: 100%;
-  
-  text-align: center;
-  color: rgb(70, 90, 145);
-  animation-duration: 4s;
-  animation-name: RRF;
-
-}
-
-@keyframes RRF {
-  25%  {color:rgb(238, 134, 37); left:200px; top:0px;}
-}
-
-
 .dropbtn {
-  background-color: rgb(70, 90, 145);
+  background-color:rgb(80, 31, 19);
   color: white;
   padding: 16px;
   font-size: 22px;
   border: none;
   cursor: pointer;
+  border-radius: 30px;
 }
 
 
@@ -86,14 +77,14 @@ body {
   position: relative;
   display: inline-block;
   left: 1100px;
-  bottom: 50px;
+  bottom: 40px;
 }
 
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgb(35, 97, 155);
+  background-color :rgb(80, 31, 19);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -110,7 +101,7 @@ body {
 
 .dropdown-content a:hover {
   background-color: #f1f1f1;
-  color: rgb(70, 90, 145);
+  color :rgb(80, 31, 19);
 }
 
 
@@ -118,17 +109,10 @@ body {
   display: block;
 }
 
-
-.dropdown:hover .dropbtn {
-  background-color: rgb(35, 97, 155);
-}
-
-
 </style>
 </head>
 
 <body>
-
 
 <div class="navigationBar" id="navBar">
   <a href="HomePageBefore.html" target="_self">Home</a>
@@ -143,17 +127,14 @@ body {
     <a href="UserSignInPage.html">User Log In</a>
     <a href="RestaurantSignInPage.html">Restaurant Log In</a>
   </div>
+
+</div>
+
 </div>
 
   <div class="intrText">
     <p>R.R.F</p>
  </div>
-
-<div class="rrf">
-  <p>
-    <b>Rate. Review. Find.</b>
-  </p>
-</div>
     
 </body>
 </html>
