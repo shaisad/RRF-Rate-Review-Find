@@ -237,13 +237,37 @@ img {
         <button class="btnn" onclick="filterSelection('food catagory')"> Food Catagory</button>
         
     </div>
+
+    <?php
+
+$host = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbname = "rrf";
+
+$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+if (mysqli_connect_error())
+{
+  die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
+}
+
+      $query = "SELECT * FROM restaurant where status=1";
+      $query_run = mysqli_query($conn, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+
+      if($check_user){
+
+        while($row = mysqli_fetch_assoc($query_run)){
+             
+            ?>
  
     <div class="card">
-        <img src="#" alt="restimage" style="width:100%">
+        <img src="<?php echo "/image".$row['restimage']; ?>" alt="restimage" style="width:100%">
         <div class="container">
-          <h4><b>Restaurant's Name</b></h4> 
-          <p>Location</p> 
-          <p>Catagory/Description</p> 
+          <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
+          <p><?php echo $row['location']; ?></p> 
+          <p><?php echo $row['foodcategory']; ?></p> 
           <p><button class="cardbtn">Rate Here
 
             <div class="rate">
@@ -267,6 +291,12 @@ img {
 
         </div>
       </div>
+      <?php
+    
+
+        }
+      }
+      ?> 
       
     
 </body>
