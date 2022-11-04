@@ -263,7 +263,7 @@ if (mysqli_connect_error())
             ?>
  
     <div class="card">
-        <img src="<?php echo "/image".$row['restimage']; ?>" alt="restimage" style="width:100%">
+        <img src="./image/<?php echo $data['restimage']; ?>" alt="restimage" style="width:100%">
         <div class="container">
           <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
           <p><?php echo $row['location']; ?></p> 

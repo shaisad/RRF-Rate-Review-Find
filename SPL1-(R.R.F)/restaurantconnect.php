@@ -14,6 +14,9 @@
   $confirm = $_POST['confirm'];
   $status = '0';
   $restimage = $_POST['restimage'];
+  $restimage = $_FILES["restimage"]["name"];
+  $folder = "./image/".$restimage;
+  $tempname = $_FILES["restimage"]["tmp_name"];
   
 
   //$regularexpression = "/^[a-zA-Z\d]+$/";
@@ -155,3 +158,15 @@
     echo "All fields are required.";
     die();
   }
+ 
+  if (move_uploaded_file($tempname, $folder)) {
+
+    echo "<h3>  Image uploaded successfully!</h3>";
+
+} else {
+
+    echo "<h3>  Failed to upload image!</h3>";
+
+}
+
+?>
