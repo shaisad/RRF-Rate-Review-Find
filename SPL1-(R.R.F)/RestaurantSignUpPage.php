@@ -27,7 +27,7 @@ body {
   	background-color: #96b3db;
   	margin: 0;
 }
-.UserSignUp {
+.RestUserSignUp {
   	width: 400px;
   	background-color: #ffffff;
   	box-shadow: 20px rgba(88, 88, 102, 0.3);
@@ -35,21 +35,21 @@ body {
 	border-radius: 50px;
 	border: 10px;
 }
-.UserSignUp h1 {
+.RestUserSignUp h1 {
   	text-align: center;
   	color: #3060a8;
   	font-size: 24px;
   	padding: 20px 0 20px 0;
   	border-bottom: 1px solid #dee0e4;
 }
-.UserSignUp form {
+.RestUserSignUp form {
   	display: flex;
   	flex-wrap: wrap;
   	justify-content: center;
   	padding-top: 20px;
 	border-radius: 60px;
 }
-.UserSignUp form label {
+.RestUserSignUp form label {
   	display: flex;
   	justify-content: center;
   	align-items: center;
@@ -57,9 +57,10 @@ body {
  	height: 50px;
   	background-color: #4c6ea0;
   	color: #ffffff;
-	border-radius: 40px;
+	position: absolute;
+	
 }
-.UserSignUp form input[type="password"], .UserSignUp form input[type="text"], .UserSignUp form input[type="email"] {
+.RestUserSignUp form input[type="password"], .RestUserSignUp form input[type="text"], .RestUserSignUp form input[type="email"] {
   	width: 310px;
   	height: 50px;
   	border: 3px solid #8193b8;
@@ -67,7 +68,7 @@ body {
   	padding: 0 15px;
 	border-radius: 60px;
 }
-.UserSignUp form input[type="submit"] {
+.RestUserSignUp form input[type="submit"] {
   	width: 100%;
   	padding: 15px;
   	margin-top: 20px;
@@ -77,14 +78,13 @@ body {
   	font-weight: bold;
   	color: #ffffff;
   	transition: background-color 0.2s;
-    border-radius: 40px;
 }
-.UserSignUp form input[type="submit"]:hover {
+.RestUserSignUp form input[type="submit"]:hover {
 	background-color: #2868c7;
   	transition: background-color 0.2s;
 }
 
-.UserSignUp {
+.RestUserSignUp  {
 	font-size: 10px;
 }
 
@@ -97,38 +97,33 @@ body {
     </style>
 	
     <body>
-		<div class="UserSignUp">
-			<h1>User Sign Up</h1>
-			<form action="connect.php" method="post" autocomplete="off">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
-                <label for="location">
-					<i class="#"></i>
-				</label>
-				<input type="text" name="location" placeholder="Location" id="location" required>
-                <label for="email">
-					<i class="fas fa-envelope"></i>
-				</label>
-				<input type="email" name="email" placeholder="Email" id="email" required>
+		<div class="RestUserSignUp">
+			<h1>Restaurant Sign Up</h1>
+			<form action="" method="post" autocomplete="off">
+				
+				<input type="text" name="restusername" placeholder="Restaurant's Name" id="restusername" required>
+
                 
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
+				<input type="text" name="location" placeholder="Location" id="location" required>
+                
+				<input type="email" name="email" placeholder="Restaurant's Email" id="email" required>
+
+            
 				<input type="password" name="password" placeholder="Password" id="password" required>
 				<span class="eye-btn"><i class="bi bi-eye-slash" 
                     id="togglePassword"></i></span>
 				
 				
-				<label for="confirm">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="confirm" placeholder="Confirm Password" id="ConfirmPassword" required>
+				<input type="password" name="ConfirmPassword" placeholder="Confirm Password" id="ConfirmPassword" required>
 				<span class="eye-btn"><i class="bi bi-eye-slash" 
                     id="togglePassword"></i></span>
+
+					<input type="file" name="restaurantimage" id="restaurantimage"/><br>
 				
-				<input type="submit" value="Sign Up">
+                
+				<input type="submit" name="signup" value="Sign Up"/>
+
+            
 			</form>
 		</div>
 
@@ -151,29 +146,28 @@ body {
 				// Toggle the eye and bi-eye icon
 				this.classList.toggle('bi-eye');
 			});
+		</script>
 
-			
-
-const togglePassword1 = document
-				.querySelector('#togglePassword1');
-	  
-			const ConfirmPassword = document.querySelector('#ConfirmPassword');
-	  
-			togglePassword1.addEventListener('click', () => {
-	  
-				// Toggle the type attribute using
-				// getAttribure() method
-				const type = password
-					.getAttribute('type') === 'ConfirmPassword' ?
-					'text' : 'password';
-					  
-				password.setAttribute('type', type);
-	  
-				// Toggle the eye and bi-eye icon
-				this.classList.toggle('bi-eye');
-			});
-
-</script>
 		
 	</body>
 </html>
+
+<?php
+
+$conn = mysqli_connect("localhoast", "root", "");
+$db = mysqli_select_db($conn, 'restaurant');
+
+if(isset($_POST['signup']))
+{
+	$file = addslashes(file_get_contents($FILES["restaurantimage"]["tmp_name"]));
+	$restaurantname = $_POST['restaurantname'];
+	$location = $_POST['location'];
+	$mail = $_POST['restaurantmail'];
+	
+	$query = "INSERT INTO 'restaurant' ('restaurantimage', 'restaurantname', 'location', 'mail') VALUES ('$file', '$restaurantname', '$location', '$mail') ";
+	$query_run = mysqli_query($conn, $query);
+
+}
+
+?>
+
