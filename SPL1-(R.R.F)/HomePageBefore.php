@@ -213,7 +213,7 @@ img {
     </div>
     
     <div class="sidebar">
-        <a href="RestaurantProfile.html"><i class="fa fa-fw fa-user"></i>My Profile</a>
+        <a href="restaurant.html"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="#reset"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
@@ -222,7 +222,10 @@ img {
     <div class="search">
         
            <div class="search-box">
-              <input type="text" placeholder="Type to search..."> </div>
+            <form action="search.php" method="post">
+              <input type="text" placeholder="Type to search...">
+           </form>
+           </div>
            <div class="search-btn">
               <i class="fa fa-search"></i> </div>
     </div>
@@ -236,7 +239,31 @@ img {
         <button class="btnn" onclick="filterSelection('location')"> Location</button>
         <button class="btnn" onclick="filterSelection('food catagory')"> Food Catagory</button>
         
-    </div>
+     </div>
+
+<?php
+
+$host = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbname = "rrf";
+
+$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+if (mysqli_connect_error())
+{
+  die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
+}
+
+      $query = "SELECT * FROM restaurant where status=1";
+      $query_run = mysqli_query($conn, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+
+      if($check_user){
+
+        while($row = mysqli_fetch_assoc($query_run)){
+             
+            ?>
  
     <div class="card">
         <img src="#" alt="restimage" style="width:100%">
@@ -266,9 +293,22 @@ img {
 
         </div>
       </div>
+      <?php
+    
+
+        }
+      }
       
     
 </body>
 
 
 </html>
+
+
+
+
+
+    
+
+   
