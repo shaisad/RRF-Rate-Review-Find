@@ -268,8 +268,8 @@ if (mysqli_connect_error())
     <div class="card">
         <img src="#" alt="restimage" style="width:100%">
         <div class="container">
-          <h4><b>Restaurant's Name</b></h4> 
-          <p>Catagory/Description</p> 
+        <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
+                 <p class="card-text"><?php echo $row['location']; ?></p>
           <p><button class="cardbtn">Rate Here
 
             <div class="rate">
