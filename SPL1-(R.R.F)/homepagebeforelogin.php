@@ -235,10 +235,10 @@ if (mysqli_connect_error())
     <div class="card">
         <img src="#" alt="restimage" style="width:100%">
         <div class="container">
-        <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
-                 <p class="card-text"><?php echo $row['location']; ?></p>
+        <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
+          <p><?php echo $row['location']; ?></p> 
+          <p><?php echo $row['foodcategory']; ?></p> 
           <p><button class="cardbtn">Rate Here
-
             <div class="rate">
                 <input type="radio" id="star5" name="rate" value="5" />
                 <label for="star5" title="text">5 stars</label>

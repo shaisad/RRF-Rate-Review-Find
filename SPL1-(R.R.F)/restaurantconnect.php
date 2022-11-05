@@ -13,6 +13,10 @@
   $password = $_POST['password'];
   $confirm = $_POST['confirm'];
   $status = '0';
+  $restimage = $_POST['restimage'];
+  $restimage = $_FILES["restimage"]["name"];
+  $folder = "./image/".$restimage;
+  $tempname = $_FILES["restimage"]["tmp_name"];
   
 
   //$regularexpression = "/^[a-zA-Z\d]+$/";
@@ -60,7 +64,7 @@
   }
 
 
-  if(!empty($restaurantname) && !empty($location)  && !empty($email) && !empty($foodcategory) && !empty($password) && !empty($confirm))
+  if(!empty($restaurantname) && !empty($location)  && !empty($email) && !empty($foodcategory) && !empty($password) && !empty($confirm) && !empty($restimage))
   {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
       ?>      
@@ -104,7 +108,7 @@
       {
         
         // correct $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $INSERT= "INSERT Into restaurant (restaurantname, location, email, foodcategory, password, code, status) values ('$restaurantname','$location','$email','$foodcategory','$password', '$code', 0)";
+        $INSERT= "INSERT Into restaurant (restaurantname, location, email, foodcategory, password, code, status, restimage) values ('$restaurantname','$location','$email','$foodcategory','$password', '$code', 0, '$restimage')";
 
         //$stmt = $conn->prepare($SELECT);
         //$stmt->bind_param("s", $email);
@@ -154,3 +158,15 @@
     echo "All fields are required.";
     die();
   }
+ 
+  if (move_uploaded_file($tempname, $folder)) {
+
+    echo "<h3>  Image uploaded successfully!</h3>";
+
+} else {
+
+    echo "<h3>  Failed to upload image!</h3>";
+
+}
+
+?>

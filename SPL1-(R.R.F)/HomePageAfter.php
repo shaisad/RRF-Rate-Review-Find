@@ -213,7 +213,7 @@ img {
     </div>
     
     <div class="sidebar">
-        <a href="RestaurantProfile.html"><i class="fa fa-fw fa-user"></i>My Profile</a>
+        <a href="RestaurantProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="#reset"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
@@ -237,13 +237,57 @@ img {
         <button class="btnn" onclick="filterSelection('food catagory')"> Food Catagory</button>
         
     </div>
+
+    <?php
+
+$host = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbname = "rrf";
+
+$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+if (mysqli_connect_error())
+{
+  die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
+}
+
+      $query = "SELECT * FROM restaurant where status=1";
+      $query_run = mysqli_query($conn, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+
+      if($check_user){
+
+        while($row = mysqli_fetch_assoc($query_run)){
+             
+            ?>
  
     <div class="card">
-        <img src="#" alt="restimage" style="width:100%">
+      
+      <?php
+
+$query = " select * from restaurant ";
+
+$result = mysqli_query($db, $query);
+
+
+while ($data = mysqli_fetch_assoc($result)) {
+
+?>
+
+    <img src="./image/<?php echo $data['restimage']; ?>"  alt="restimage" style="width:100%">
+
+
+<?php
+
+}
+
+?>
+        
         <div class="container">
-          <h4><b>Restaurant's Name</b></h4> 
-          <p>Location</p> 
-          <p>Catagory/Description</p> 
+          <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
+          <p><?php echo $row['location']; ?></p> 
+          <p><?php echo $row['foodcategory']; ?></p> 
           <p><button class="cardbtn">Rate Here
 
             <div class="rate">
@@ -267,6 +311,12 @@ img {
 
         </div>
       </div>
+      <?php
+    
+
+        }
+      }
+      ?> 
       
     
 </body>
