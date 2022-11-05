@@ -41,7 +41,7 @@
 
     $mail->Username = "rrfratereviewfind@gmail.com";
 
-    $mail->Password = "izcofomssnnpgazg";
+    $mail->Password = "etlcjkrbuqitxism";
 
     $mail->isHTML(true);
 
