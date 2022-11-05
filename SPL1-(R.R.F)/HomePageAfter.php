@@ -263,7 +263,27 @@ if (mysqli_connect_error())
             ?>
  
     <div class="card">
-        <img src="./image/<?php echo $data['restimage']; ?>" alt="restimage" style="width:100%">
+      
+      <?php
+
+$query = " select * from restaurant ";
+
+$result = mysqli_query($db, $query);
+
+
+while ($data = mysqli_fetch_assoc($result)) {
+
+?>
+
+    <img src="./image/<?php echo $data['restimage']; ?>"  alt="restimage" style="width:100%">
+
+
+<?php
+
+}
+
+?>
+        
         <div class="container">
           <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
           <p><?php echo $row['location']; ?></p> 
