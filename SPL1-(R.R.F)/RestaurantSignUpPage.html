@@ -133,10 +133,14 @@ body {
 				<span class="eye-btn"><i class="bi bi-eye-slash" 
                     id="togglePassword"></i></span>
 
-				<h5>Insert Image Here:</h5><input type="file" name="restimage" required class="res_image">	
+		    <form action="imageconnect.php" method="post" autocomplete="off">
+
+				<h5>Insert Image Here:</h5><input type="file" name="filename" value="" />
 				
-                
-				<input type="submit" value="Sign Up" onclick="myFunction()"/>
+				<input type="submit" value="Sign Up" name="upload" onclick="myFunction()"/>
+
+			</form>
+				
 
                 <script>
                     function myFunction(){

@@ -264,18 +264,13 @@ if (mysqli_connect_error())
  
     <div class="card">
       
-      <?php
+    <?php
 
-$query = " select * from restaurant ";
-
-$result = mysqli_query($db, $query);
-
-
-while ($data = mysqli_fetch_assoc($result)) {
+while ($data = mysqli_fetch_assoc($query_run)) {
 
 ?>
 
-    <img src="./image/<?php echo $data['restimage']; ?>"  alt="restimage" style="width:100%">
+    <img src="./image/<?php echo $data['restimage']; ?>">
 
 
 <?php
