@@ -210,7 +210,6 @@ img {
 
     </div>
     
-<<<<<<< HEAD:SPL1-(R.R.F)/HomePageBefore.html
     <div class="sidebar">
         <a href="MyProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
