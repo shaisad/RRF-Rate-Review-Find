@@ -47,7 +47,7 @@
     $mail->setFrom("rrfratereviewfind@gmail.com");
 
     $mail->Body = "Dear restaurant, Thank you for registering. Click the link to verify your email
-                   <a href='http://localhost/SPL1--R.R.F/SPL1-(R.R.F)/restaurantverify.php?email=$email&code=$code'> Verify </a>";
+                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/restaurantverify.php?email=$email&code=$code'> Verify </a>";
 
     $mail->addAddress($email);
 
@@ -105,7 +105,7 @@
       {
         
         // correct $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $INSERT= "INSERT Into restaurant (restaurantname, location, email, password, code, status) values ('$restaurantname','$location','$email','$foodcategory','$password', '$code', 0)";
+        $INSERT= "INSERT Into restaurant (restaurantname, location, email, password, code, status) values ('$restaurantname','$location','$email','$password', '$code', 0)";
 
         //$stmt = $conn->prepare($SELECT);
         //$stmt->bind_param("s", $email);
