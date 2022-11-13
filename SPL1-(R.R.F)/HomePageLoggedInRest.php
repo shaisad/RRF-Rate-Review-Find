@@ -238,7 +238,9 @@ img {
         
     </div>
 
-    <?php
+
+    
+  <?php
 
 $host = "localhost";
 $dbUsername = "root";
@@ -263,28 +265,28 @@ if (mysqli_connect_error())
             ?>
  
     <div class="card">
-      
+
+    <form action="image.php" method="post" autocomplete="off">
+
     <?php
 
-while ($data = mysqli_fetch_assoc($query_run)) {
+        $query = " select * from image where image.imageid = restaurant.imageid ";
+        $result = mysqli_query($db, $query);
+        while ($data = mysqli_fetch_assoc($result)) {
 
-?>
+        ?>
 
-    <img src="./image/<?php echo $data['restimage']; ?>">
+            <img src="./image/<?php echo $data['filename']; ?>">
+        <?php
+       }
 
+        ?>
 
-<?php
-
-}
-
-?>
-        
         <div class="container">
-          <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
+        <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
           <p><?php echo $row['location']; ?></p> 
           <p><?php echo $row['foodcategory']; ?></p> 
           <p><button class="cardbtn">Rate Here
-
             <div class="rate">
                 <input type="radio" id="star5" name="rate" value="5" />
                 <label for="star5" title="text">5 stars</label>
@@ -312,9 +314,15 @@ while ($data = mysqli_fetch_assoc($query_run)) {
         }
       }
       ?> 
+  
       
+
+       
     
 </body>
 
 
 </html>
+
+
+

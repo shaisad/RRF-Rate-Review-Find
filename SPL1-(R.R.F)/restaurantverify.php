@@ -25,9 +25,13 @@ if(isset($_GET['code']))
         {
             $update = "UPDATE restaurant SET status = 1 WHERE code = '$code' LIMIT 1";
             if (mysqli_query($conn, $update)){
-                echo "Account verified.";
-                
+                ?>
+                 <script>alert("Logged in as restaurant")</script>
+				 
+                <?php
+                header("Location: image.php");
                 exit;
+				
             }
             else{
                 echo "Error 1";

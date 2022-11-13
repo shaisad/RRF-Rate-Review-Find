@@ -25,7 +25,13 @@ if(isset($_GET['code']))
         {
             $update = "UPDATE user SET status = 1 WHERE code = '$code' LIMIT 1";
             if (mysqli_query($conn, $update)){
-                echo "Account verified.";
+                ?>
+                 <script>alert("Account verified successfully.")</script>
+				 
+                <?php
+                header("Location: HomePageLoggedInUser.php");
+                exit;
+				
             }
             else{
                 echo "Error 1";

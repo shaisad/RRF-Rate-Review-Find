@@ -123,7 +123,7 @@ error_reporting();
 
           <div class="btn" id="btn">
             <a href="#" target="_self">Add Menu</a>
-             <a href="#" target="_self">Update Profile</a>
+             <a href="image.php" target="_self">Add Image</a>
            </div>
           
           
