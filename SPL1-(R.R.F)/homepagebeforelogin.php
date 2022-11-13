@@ -222,16 +222,6 @@ img {
         
            <div class="search-box">
               <input type="text" placeholder="Type to search for restaurants and foods..."> </div>
-=======
-    
-    <div class="search">
-        
-           <div class="search-box">
-            <form action="search.php" method="post">
-              <input type="text" placeholder="Type to search...">
-           </form>
-           </div>
->>>>>>> 7b40ad3e7ee89d63383f60a4498b461e8f837b00:SPL1-(R.R.F)/homepagebeforelogin.php
            <div class="search-btn">
               <i class="fa fa-search"></i> </div>
     </div>
