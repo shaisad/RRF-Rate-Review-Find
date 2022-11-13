@@ -209,13 +209,6 @@ img {
         <img class="rrflogo" src="cover.png" alt="logo">
 
     </div>
-    
-    <div class="sidebar">
-        <a href="MyProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
-        <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
-        <a href="#reset"><i class="fa fa-fw fa-key"></i>Reset Password</a>
-        <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
-      </div>
       
     <div class="search">
         
