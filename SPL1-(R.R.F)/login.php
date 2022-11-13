@@ -76,7 +76,7 @@ if (isset($email) && isset($password)) {
             	            $_SESSION['restaurantname'] = $row['restaurantname'];
 							//$_SESSION['foodcategory'] = $row['foodcategory'];
 							echo "successful";
-							//header("Location: loggedinrestaurant.php");
+							header("Location: HomePageLoggedInRest.php");
 		                    exit();
             }else{
 				echo "Account not verified.";
