@@ -24,7 +24,7 @@
   	-moz-osx-font-smoothing: grayscale;
 }
 body {
-  	background-color: #96b3db;
+  	background-color: rgb(240, 221, 136);
   	margin: 0;
 }
 .RestUserSignUp {
@@ -37,7 +37,7 @@ body {
 }
 .RestUserSignUp h1 {
   	text-align: center;
-  	color: #3060a8;
+  	color: rgb(80, 31, 19);
   	font-size: 24px;
   	padding: 20px 0 20px 0;
   	border-bottom: 1px solid #dee0e4;
@@ -55,7 +55,7 @@ body {
   	align-items: center;
   	width: 50px;
  	height: 50px;
-  	background-color: #4c6ea0;
+  	background-color:rgb(80, 31, 19);
   	color: #ffffff;
 	position: absolute;
 	
@@ -63,7 +63,7 @@ body {
 .RestUserSignUp form input[type="password"], .RestUserSignUp form input[type="text"], .RestUserSignUp form input[type="email"] {
   	width: 310px;
   	height: 50px;
-  	border: 3px solid #8193b8;
+  	border: 3px solid rgb(80, 31, 19);
   	margin-bottom: 20px;
   	padding: 0 15px;
 	border-radius: 60px;
@@ -72,7 +72,7 @@ body {
   	width: 100%;
   	padding: 15px;
   	margin-top: 20px;
-  	background-color: #4671b3;
+  	background-color: rgb(80, 31, 19);
  	border: 0;
   	cursor: pointer;
   	font-weight: bold;
@@ -80,7 +80,7 @@ body {
   	transition: background-color 0.2s;
 }
 .RestUserSignUp form input[type="submit"]:hover {
-	background-color: #2868c7;
+	background-color: rgb(82, 42, 32);
   	transition: background-color 0.2s;
 }
 
@@ -94,14 +94,29 @@ body {
 	top: 10px;
  }
 
+ img {
+    width: 180px;
+    height: 80px;
+    top: 350px;
+    left: 100px;
+}
+
     </style>
 	
     <body>
 		<div class="RestUserSignUp">
-			<h1>Restaurant Sign Up</h1>
-			<form action="register.php" method="post" autocomplete="off">
+
+			
+
+			<h1><div class="logo">
+
+				<img class="rrflogo" src="coverW.png" alt="logo">
+		
+			</div>Restaurant Sign Up</h1>
+			
+			<form action="restaurantconnect.php" method="post" autocomplete="off">
 				
-				<input type="text" name="restusername" placeholder="Restaurant's Name" id="restusername" required>
+				<input type="text" name="restaurantname" placeholder="Restaurant's Name" id="restusername" required>
 
                 
 				<input type="text" name="location" placeholder="Location" id="location" required>
@@ -114,18 +129,22 @@ body {
                     id="togglePassword"></i></span>
 				
 				
-				<input type="password" name="ConfirmPassword" placeholder="Confirm Password" id="ConfirmPassword" required>
+				<input type="password" name="confirm" placeholder="Confirm Password" id="ConfirmPassword" required>
 				<span class="eye-btn"><i class="bi bi-eye-slash" 
                     id="togglePassword"></i></span>
 
-				<input type="file" name="rest_image" required class="res_image">	
+		    <form action="imageconnect.php" method="post" autocomplete="off">
+
+				<h5>Insert Image Here:</h5><input type="file" name="filename" value="" />
 				
-                
-				<input type="submit" value="Sign Up" onclick="myFunction()"/>
+				<input type="submit" value="Sign Up" name="upload" onclick="myFunction()"/>
+
+			</form>
+				
 
                 <script>
                     function myFunction(){
-                        window.location.href="HomePage.html";
+                        window.location.href="HomePageAfter.php";
                     }
                 </script>
 

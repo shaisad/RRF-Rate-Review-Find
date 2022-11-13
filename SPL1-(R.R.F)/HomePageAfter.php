@@ -11,31 +11,6 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <title>RRF Home Page</title>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script>
-      $(document).ready(function(){
-          $('.search-box input[type="text"]').on("keyup input", function(){
-              /* Get input value on change */
-              var inputVal = $(this).val();
-              var resultDropdown = $(this).siblings(".result");
-              if(inputVal.length){
-                  $.get("backend-search.php", {term: inputVal}).done(function(data){
-                      // Display the returned data in browser
-                      resultDropdown.html(data);
-                  });
-              } else{
-                  resultDropdown.empty();
-              }
-          });
-          
-          // Set search input value on click of result item
-          $(document).on("click", ".result p", function(){
-              $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-              $(this).parent(".result").empty();
-          });
-      });
-      </script>
 </head>
 
 
@@ -77,7 +52,7 @@ body{
 .search-btn {
     position: relative;
     left: 630px;
-    bottom: 33px;
+    bottom: 45px;
     height: 50px;
     width: 70px;
     color: rgb(80, 31, 19) ;
@@ -238,16 +213,16 @@ img {
     </div>
     
     <div class="sidebar">
-        <a href="MyProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
+        <a href="RestaurantProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="#reset"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div>
-      
+
     <div class="search">
         
            <div class="search-box">
-              <input type="text" placeholder="Type to search for restaurants and foods..."> </div>
+              <input type="text" placeholder="Type to search..."> </div>
            <div class="search-btn">
               <i class="fa fa-search"></i> </div>
     </div>
@@ -262,12 +237,52 @@ img {
         <button class="btnn" onclick="filterSelection('food catagory')"> Food Catagory</button>
         
     </div>
+
+    <?php
+
+$host = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbname = "rrf";
+
+$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+if (mysqli_connect_error())
+{
+  die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
+}
+
+      $query = "SELECT * FROM restaurant where status=1";
+      $query_run = mysqli_query($conn, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+
+      if($check_user){
+
+        while($row = mysqli_fetch_assoc($query_run)){
+             
+            ?>
  
     <div class="card">
-        <img src="#" alt="restimage" style="width:100%">
+      
+    <?php
+
+while ($data = mysqli_fetch_assoc($query_run)) {
+
+?>
+
+    <img src="./image/<?php echo $data['restimage']; ?>">
+
+
+<?php
+
+}
+
+?>
+        
         <div class="container">
-          <h4><b>Restaurant's Name</b></h4> 
-          <p>Catagory/Description</p> 
+          <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
+          <p><?php echo $row['location']; ?></p> 
+          <p><?php echo $row['foodcategory']; ?></p> 
           <p><button class="cardbtn">Rate Here
 
             <div class="rate">
@@ -291,6 +306,12 @@ img {
 
         </div>
       </div>
+      <?php
+    
+
+        }
+      }
+      ?> 
       
     
 </body>
