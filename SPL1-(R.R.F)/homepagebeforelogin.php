@@ -11,6 +11,31 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <title>RRF Home Page</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script>
+      $(document).ready(function(){
+          $('.search-box input[type="text"]').on("keyup input", function(){
+              /* Get input value on change */
+              var inputVal = $(this).val();
+              var resultDropdown = $(this).siblings(".result");
+              if(inputVal.length){
+                  $.get("backend-search.php", {term: inputVal}).done(function(data){
+                      // Display the returned data in browser
+                      resultDropdown.html(data);
+                  });
+              } else{
+                  resultDropdown.empty();
+              }
+          });
+          
+          // Set search input value on click of result item
+          $(document).on("click", ".result p", function(){
+              $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+              $(this).parent(".result").empty();
+          });
+      });
+      </script>
 </head>
 
 
@@ -185,14 +210,17 @@ img {
 
     </div>
     
-    
+    <div class="sidebar">
+        <a href="MyProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
+        <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
+        <a href="#reset"><i class="fa fa-fw fa-key"></i>Reset Password</a>
+        <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
+      </div>
+      
     <div class="search">
         
            <div class="search-box">
-            <form action="search.php" method="post">
-              <input type="text" placeholder="Type to search...">
-           </form>
-           </div>
+              <input type="text" placeholder="Type to search for restaurants and foods..."> </div>
            <div class="search-btn">
               <i class="fa fa-search"></i> </div>
     </div>
