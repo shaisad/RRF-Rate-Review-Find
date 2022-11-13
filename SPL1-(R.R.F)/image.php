@@ -17,7 +17,7 @@ if (isset($_POST['upload'])) {
     $folder = "./image/" . $filename;
  
 
-    $db = mysqli_connect("localhost", "root", "", "geeksforgeeks");
+    $db = mysqli_connect("localhost", "root", "", "rrf");
  
 
     // Get all the submitted data from the form
