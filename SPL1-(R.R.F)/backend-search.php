@@ -1,18 +1,25 @@
 <?php
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "", "rrf");
+
+
+$sname= "localhost";
+  $uname= "root";
+  $password = "";
+  
+  $db_name = "rrf";
+  
+  $conn = mysqli_connect($sname, $uname, $password, $db_name);
+  
+ if (!$conn) {
+    echo "Connection failed!";
+  }
  
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
- 
+
+
 if(isset($_REQUEST["term"])){
-    // Prepare a select statement
+    
     $sql = "SELECT * FROM restaurant WHERE restaurantname LIKE ?";
     
-    if($stmt = mysqli_prepare($link, $sql)){
+    if($stmt = mysqli_prepare($conn, $sql)){
         // Bind variables to the prepared statement as parameters
         mysqli_stmt_bind_param($stmt, "s", $param_term);
         
@@ -42,5 +49,5 @@ if(isset($_REQUEST["term"])){
 }
  
 // close connection
-mysqli_close($link);
+mysqli_close($conn);
 ?>

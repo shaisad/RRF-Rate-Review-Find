@@ -11,6 +11,30 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <title>RRF Home Page</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script>
+      $(document).ready(function(){
+          $('.search-box input[type="text"]').on("keyup input", function(){
+              /* Get input value on change */
+              var inputVal = $(this).val();
+              var resultDropdown = $(this).siblings(".result");
+              if(inputVal.length){
+                  $.get("backend-search.php", {term: inputVal}).done(function(data){
+                      // Display the returned data in browser
+                      resultDropdown.html(data);
+                  });
+              } else{
+                  resultDropdown.empty();
+              }
+          });
+          
+          // Set search input value on click of result item
+          $(document).on("click", ".result p", function(){
+              $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+              $(this).parent(".result").empty();
+          });
+      });
+      </script>
 </head>
 
 
@@ -222,8 +246,9 @@ img {
     <div class="search">
         
            <div class="search-box">
-              <input type="text" placeholder="Type to search..."> </div>
+              <input type="text" placeholder="Type to search for restaurants and foods..."> </div>
            <div class="search-btn">
+           <div class = "result"></div> 
               <i class="fa fa-search"></i> </div>
     </div>
 
@@ -234,7 +259,7 @@ img {
         <button class="btnn" onclick="filterSelection('top rated')"> Top Rated</button>
         <button class="btnn" onclick="filterSelection('price')"> Price Range</button>
         <button class="btnn" onclick="filterSelection('location')"> Location</button>
-        <button class="btnn" onclick="filterSelection('food catagory')"> Food Catagory</button>
+        <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
         
     </div>
 
@@ -264,8 +289,9 @@ if (mysqli_connect_error())
              
             ?>
  
-    <div class="card">
+        <div class="card">
 
+<<<<<<< HEAD
     <form action="image.php" method="post" autocomplete="off">
 <?php
     $img = mysqli_query($conn, "SELECT * FROM student_table");
@@ -275,6 +301,23 @@ if (mysqli_connect_error())
       
     }     
 ?>
+=======
+        <form action="image.php" method="post" autocomplete="off">
+
+       <?php
+
+        $query = " select * from image where image.imageid = restaurant.imageid ";
+        $result = mysqli_query($db, $query);
+        while ($data = mysqli_fetch_assoc($result)) {
+
+        ?>
+
+            <img src="./image/<?php echo $data['filename']; ?>">
+        <?php
+       }
+
+        ?>
+>>>>>>> 9d84f007a0e78780442de397781de41ae73f5fc2
 
         <div class="container">
         <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
