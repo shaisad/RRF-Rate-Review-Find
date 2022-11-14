@@ -237,7 +237,7 @@ img {
 
     
     
-    <div class="sidebar">
+    <!-- <div class="sidebar">
 
     <div class="logo">
 
@@ -248,13 +248,13 @@ img {
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
-      </div>
+      </div> -->
 
   
     <div class="container mt-5">
         <div class="card-header alert alert-warning text-center mb-3"></div>
-           <div class="search">
-              <div class="search-box">
+           <!-- <div class="search">
+              <div class="search-box"> -->
                  <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food and restaurant...">
                     <div class="search-btn">
                        <i class="fa fa-search"></i> </div>
