@@ -337,7 +337,7 @@ if (mysqli_connect_error())
         <div class="container">
         <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
           <p><?php echo $row['location']; ?></p> 
-          <p><?php echo $row['foodcategory']; ?></p> 
+        
           <p><button class="cardbtn">Rate Here
             <div class="rate">
                 <input type="radio" id="star5" name="rate" value="5" />
