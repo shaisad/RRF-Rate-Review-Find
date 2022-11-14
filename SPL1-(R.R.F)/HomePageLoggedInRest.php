@@ -322,15 +322,15 @@ if (mysqli_connect_error())
 
            <?php
 
-              $conn = mysqli_connect("localhost", "root", "", "rrf");
-              $img = mysqli_query($conn, "SELECT * FROM image, restaurant WHERE image.imageid = restaurant.imageid");
+              //$conn = mysqli_connect("localhost", "root", "", "rrf");
+              $img = mysqli_query($conn, "SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1");
               
               while ($row = mysqli_fetch_array($img)) {     
 
                     echo "<img src='image/".$row['filename']."' >";   
  
                     }     
-              ?>
+            ?>
 
         <div class="container">
         <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
