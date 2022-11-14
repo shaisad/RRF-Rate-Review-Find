@@ -97,7 +97,7 @@ body{
   color: rgb(80, 31, 19);
   position: relative;
   left: 200px;
-  bottom: 100px;
+  bottom: 50px;
   border-radius: 10px;
 }
 
@@ -228,31 +228,7 @@ img {
 }
 
 </style>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script>
-      $(document).ready(function(){
-          $('.search-box input[type="text"]').on("keyup input", function(){
-              /* Get input value on change */
-              var inputVal = $(this).val();
-              var resultDropdown = $(this).siblings(".result");
-              if(inputVal.length){
-                  $.get("backend-search.php", {term: inputVal}).done(function(data){
-                      // Display the returned data in browser
-                      resultDropdown.html(data);
-                  });
-              } else{
-                  resultDropdown.empty();
-              }
-          });
-          
-          // Set search input value on click of result item
-          $(document).on("click", ".result p", function(){
-              $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-              $(this).parent(".result").empty();
-          });
-      });
-      </script>
- </head>
+</head>
 
 
 <body>
@@ -270,19 +246,45 @@ img {
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div>
 
-    <div class="search">
-        
-           <div class="search-box">
-              <input type="text" placeholder="Type to search for restaurants and foods..."> </div>
-              <div class = "result"></div>
-           
-           <div class="search-btn">
+    
+      <div class="container mt-5" style="max-width: 555px">
+        <div class="card-header alert alert-warning text-center mb-3">
             
-              <i class="fa fa-search"></i> </div>
+        </div>
+        <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off"
+            placeholder="Search ...">
+        <div id="search_result"></div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#live_search").keyup(function () {
+                var query = $(this).val();
+                if (query != "") {
+                    $.ajax({
+                        url: 'backend-search.php',
+                        method: 'POST',
+                        data: {
+                            query: query
+                        },
+                        success: function (data) {
+                            $('#search_result').html(data);
+                            $('#search_result').css('display', 'block');
+                            $("#live_search").focusout(function () {
+                                $('#search_result').css('display', 'none');
+                            });
+                            $("#live_search").focusin(function () {
+                                $('#search_result').css('display', 'block');
+                            });
+                        }
+                    });
+                } else {
+                    $('#search_result').css('display', 'none');
+                }
+            });
+        });
+    </script>
 
-
-    <div id="myBtnContainer">
        
         <button class="btnn show" onclick="filterSelection('all')"> Show all</button>
         <button class="btnn" onclick="filterSelection('top rated')"> Top Rated</button>
@@ -322,21 +324,6 @@ if (mysqli_connect_error())
 
     
 
-        <form action="image.php" method="post" autocomplete="off">
-
-       <?php
-
-        $query = " select * from image where image.imageid = restaurant.imageid ";
-        $result = mysqli_query($db, $query);
-        while ($data = mysqli_fetch_assoc($result)) {
-
-        ?>
-
-            <img src="./image/<?php echo $data['filename']; ?>">
-        <?php
-       }
-
-        ?>
 
 
         <div class="container">
