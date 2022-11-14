@@ -70,7 +70,7 @@ if (isset($_POST['upload'])) {
 
             <div class="form-group">
 
-                <button class="btn btn-primary" type="submit" name="upload">UPLOAD</button>
+                <button class="btn btn-primary" type="submit" name="upload">Upload Image</button>
 
             </div>
 

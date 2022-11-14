@@ -320,6 +320,17 @@ if (mysqli_connect_error())
  
         <div class="card">
 
+<<<<<<< HEAD
+    <form action="image.php" method="post" autocomplete="off">
+<?php
+    $img = mysqli_query($conn, "SELECT * FROM student_table");
+     while ($row = mysqli_fetch_array($img)) {     
+		
+      	echo "<img src='images/".$row['imagename']."' >";   
+      
+    }     
+?>
+=======
         <form action="image.php" method="post" autocomplete="off">
 
        <?php
@@ -335,6 +346,7 @@ if (mysqli_connect_error())
        }
 
         ?>
+>>>>>>> 9d84f007a0e78780442de397781de41ae73f5fc2
 
         <div class="container">
         <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
