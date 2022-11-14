@@ -13,41 +13,28 @@ $sname= "localhost";
     echo "Connection failed!";
   }
  
-
-
-if(isset($_REQUEST["term"])){
-    
-    $sql = "SELECT * FROM restaurant WHERE restaurantname LIKE ?";
-    
-    if($stmt = mysqli_prepare($conn, $sql)){
-        // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "s", $param_term);
-        
-        // Set parameters
-        $param_term = $_REQUEST["term"] . '%';
-        
-        // Attempt to execute the prepared statement
-        if(mysqli_stmt_execute($stmt)){
-            $result = mysqli_stmt_get_result($stmt);
-            
-            // Check number of rows in the result set
-            if(mysqli_num_rows($result) > 0){
-                // Fetch result rows as an associative array
-                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                    echo "<p>" . $row["restaurantname"] . "</p>";
-                }
-            } else{
-                echo "<p>No matches found</p>";
-            }
-        } else{
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-        }
+  if (isset($_POST['query'])) {
+    $query = "SELECT restaurantname FROM restaurant WHERE restaurantname LIKE '{$_POST['query']}%' OR location LIKE '{$_POST['query']}%'  LIMIT 100";
+    $result = mysqli_query($conn, $query);
+  if (mysqli_num_rows($result) > 0) {
+      while ($res = mysqli_fetch_array($result)) {
+        echo $res['restaurantname']. "<br/>";
+      
+      
     }
-     
-    // Close statement
-    mysqli_stmt_close($stmt);
+  } else {
+    echo "
+    <div class='alert alert-danger mt-3 text-center' role='alert'>
+        not found
+    </div>
+    ";
+  }
+
+
+
 }
- 
-// close connection
-mysqli_close($conn);
 ?>
+
+
+            
+     
