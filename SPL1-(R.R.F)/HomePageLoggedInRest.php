@@ -242,7 +242,7 @@ img {
     <div class="sidebar">
         <a href="RestaurantProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
-        <a href="#reset"><i class="fa fa-fw fa-key"></i>Reset Password</a>
+        <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div>
 
@@ -322,9 +322,17 @@ if (mysqli_connect_error())
  
         <div class="card">
 
-    
+           <?php
 
+              //$conn = mysqli_connect("localhost", "root", "", "rrf");
+              $img = mysqli_query($conn, "SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1");
+              
+              while ($row = mysqli_fetch_array($img)) {     
 
+                    echo "<img src='image/".$row['filename']."' >";   
+ 
+                    }     
+            ?>
 
         <div class="container">
         <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
