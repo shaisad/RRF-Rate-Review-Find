@@ -114,12 +114,7 @@ error_reporting();
             ?>
           </div>
 
-          <div class = "attribute">
-            <label>Food Category:</label>
-            <?php
-              echo $_SESSION['foodcategory'];
-            ?>
-          </div>
+          
 
           <div class="btn" id="btn">
             <a href="#" target="_self">Add Menu</a>

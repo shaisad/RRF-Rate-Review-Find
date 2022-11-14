@@ -74,7 +74,8 @@ if (isset($email) && isset($password)) {
 							$_SESSION['email'] = $row['email'];
 							$_SESSION['password'] = $row['password'];
             	            $_SESSION['restaurantname'] = $row['restaurantname'];
-							//$_SESSION['foodcategory'] = $row['foodcategory'];
+							$_SESSION['location'] = $row['location'];
+							
 							echo "successful";
 							header("Location: HomePageLoggedInRest.php");
 		                    exit();
