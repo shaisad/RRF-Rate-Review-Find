@@ -251,19 +251,16 @@ img {
       </div>
 
   
-      <div class="container mt-5">
-        <div class="card-header alert alert-warning text-center mb-3">
-            
-        </div>
-      <div class="search">
-        <div class="search-box">
-        <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off"
-            placeholder="Search for food and restaurant...">
-            <div class="search-btn">
-              <i class="fa fa-search"></i> </div>
-            </div>
+    <div class="container mt-5">
+        <div class="card-header alert alert-warning text-center mb-3"></div>
+           <div class="search">
+              <div class="search-box">
+                 <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food and restaurant...">
+                    <div class="search-btn">
+                       <i class="fa fa-search"></i> </div>
+              </div>
         
-        <div id="search_result"></div>
+         <div id="search_result"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
