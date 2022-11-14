@@ -77,8 +77,8 @@ body{
 
 .search-btn {
     position: relative;
-    left: 630px;
-    bottom: 45px;
+    left: 550px;
+    bottom: 35px;
     height: 50px;
     width: 70px;
     color: rgb(80, 31, 19) ;
@@ -247,12 +247,14 @@ img {
       </div>
 
     
-      <div class="container mt-5" style="max-width: 555px">
-        <div class="card-header alert alert-warning text-center mb-3">
-            
-        </div>
+      <div class="search">
+        <div class="search-box">
         <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off"
-            placeholder="Search ...">
+            placeholder="Search for food and restaurant...">
+            <div class="search-btn">
+              <i class="fa fa-search"></i> </div>
+            </div>
+        
         <div id="search_result"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

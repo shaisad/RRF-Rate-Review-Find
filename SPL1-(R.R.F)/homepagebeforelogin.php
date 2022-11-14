@@ -32,6 +32,10 @@ body{
     position: relative;
     left: 250px;
     bottom: 70px;
+    height: 50px;
+    width: 600px;
+    color: #fff;
+
 }
 
 .search-box input{
@@ -187,7 +191,7 @@ img {
 
     </div>
       
-    <div class="container mt-5" style="max-width: 555px">
+    <div class="search" >
         <div class="card-header alert alert-warning text-center mb-3">
             
         </div>
