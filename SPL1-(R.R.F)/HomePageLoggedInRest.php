@@ -322,22 +322,18 @@ if (mysqli_connect_error())
 
     
 
-        <form action="image.php" method="post" autocomplete="off">
+        
 
        <?php
 
-        $query = " select * from image where image.imageid = restaurant.imageid ";
-        $result = mysqli_query($db, $query);
-        while ($data = mysqli_fetch_assoc($result)) {
+$conn = mysqli_connect("localhost", "root", "", "rrf");
+$img = mysqli_query($conn, "SELECT * FROM image WHERE image.imageid = restaurant.imageid");
+while ($row = mysqli_fetch_array($img)) {     
 
-        ?>
-
-            <img src="./image/<?php echo $data['filename']; ?>">
-        <?php
-       }
-
-        ?>
-
+   echo "<img src='images/".$row['imagename']."' >";   
+ 
+}     
+?>
 
         <div class="container">
         <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
