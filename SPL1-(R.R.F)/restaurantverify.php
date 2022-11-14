@@ -29,7 +29,7 @@ if(isset($_GET['code']))
                  <script>alert("Logged in as restaurant")</script>
 				 
                 <?php
-                header("Location: image1.php");
+                header("Location: image1.html");
                 exit;
 				
             }
