@@ -251,7 +251,7 @@ img {
       </div>
 
   
-      <div class="container mt-5" style="max-width: 555px">
+      <div class="container mt-5">
         <div class="card-header alert alert-warning text-center mb-3">
             
         </div>
