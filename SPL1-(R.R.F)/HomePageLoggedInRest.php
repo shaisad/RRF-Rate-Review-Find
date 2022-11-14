@@ -250,7 +250,11 @@ img {
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div>
 
-    
+  
+      <div class="container mt-5" style="max-width: 555px">
+        <div class="card-header alert alert-warning text-center mb-3">
+            
+        </div>
       <div class="search">
         <div class="search-box">
         <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off"
