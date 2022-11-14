@@ -322,17 +322,25 @@ if (mysqli_connect_error())
  
         <div class="card">
 
-           <?php
-
-              //$conn = mysqli_connect("localhost", "root", "", "rrf");
-              $img = mysqli_query($conn, "SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1");
-              
-              while ($row = mysqli_fetch_array($img)) {     
-
-                    echo "<img src='image/".$row['filename']."' >";   
+          <?php 
+              // Include the database configuration file  
+               require_once 'dbConfig.php'; 
  
-                    }     
-            ?>
+              // Get image data from database 
+               $result = $db->query("SELECT image FROM images ORDER BY id ASC WHERE status=1"); 
+              // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
+          ?>
+
+        <?php if($result->num_rows > 0){ ?> 
+              
+             <?php while($row = $result->fetch_assoc()){ ?> 
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
+             <?php } ?> 
+             
+             <?php }else{ ?> 
+            <p class="status error">Image(s) not found...</p> 
+            <?php } 
+          ?>
 
         <div class="container">
         <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
