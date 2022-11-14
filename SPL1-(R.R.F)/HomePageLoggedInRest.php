@@ -267,20 +267,14 @@ if (mysqli_connect_error())
     <div class="card">
 
     <form action="image.php" method="post" autocomplete="off">
-
-    <?php
-
-        $query = " select * from image where image.imageid = restaurant.imageid ";
-        $result = mysqli_query($db, $query);
-        while ($data = mysqli_fetch_assoc($result)) {
-
-        ?>
-
-            <img src="./image/<?php echo $data['filename']; ?>">
-        <?php
-       }
-
-        ?>
+<?php
+    $img = mysqli_query($conn, "SELECT * FROM student_table");
+     while ($row = mysqli_fetch_array($img)) {     
+		
+      	echo "<img src='images/".$row['imagename']."' >";   
+      
+    }     
+?>
 
         <div class="container">
         <h4><b><?php echo $row['restaurantname']; ?></b></h4> 

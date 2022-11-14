@@ -110,6 +110,7 @@ img {
   overflow-x: hidden;
   border: 1px solid rgb(241, 191, 114);
   background-color: rgb(241, 191, 114);
+  overflow-y: scroll;
   
 }
 
