@@ -214,10 +214,11 @@ img {
         
            <div class="search-box">
               <input type="text" placeholder="Type to search for restaurants and foods..."> </div>
-           <div class="search-btn">
-           <div class = "result"></div> 
+              <div class = "result"></div> 
+              <div class="search-btn">
+           
               <i class="fa fa-search"></i> </div>
-            <div class = "result"></div>  
+            
     </div>
 
 
