@@ -131,10 +131,9 @@ img {
   width: 180px;
   position: fixed;
   z-index: 1;
-  top: 85px;
+  top: 0;
   left: 0;
   overflow-x: hidden;
-  border: 1px solid rgb(241, 191, 114);
   background-color: rgb(241, 191, 114);
   
 }
@@ -233,13 +232,15 @@ img {
 
 <body>
 
+    
+    
+    <div class="sidebar">
+
     <div class="logo">
 
         <img class="rrflogo" src="cover.png" alt="logo">
 
     </div>
-    
-    <div class="sidebar">
         <a href="RestaurantProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
