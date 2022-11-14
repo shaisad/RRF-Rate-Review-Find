@@ -25,12 +25,11 @@ body{
     overflow-x: hidden;
 }
 
-.search{
+ .search{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    left: 250px;
-    bottom: 70px;
+    
 }
 
 .search-box input[type="text"]{
@@ -47,12 +46,15 @@ body{
     height: 50px;
     width: 600px;
     color: #fff;
+    position: relative;
+    left: 200px;
+    top: 10px;
 }
-
+/*
 .search-box input[type="text"], .result{
         width: 100%;
         box-sizing: border-box;
-    }
+    } */
 
 
 .result{
@@ -77,7 +79,7 @@ body{
 
 .search-btn {
     position: relative;
-    left: 550px;
+    left: 630px;
     bottom: 35px;
     height: 50px;
     width: 70px;
@@ -97,7 +99,7 @@ body{
   color: rgb(80, 31, 19);
   position: relative;
   left: 200px;
-  bottom: 50px;
+  top: 25px;
   border-radius: 10px;
 }
 
@@ -160,6 +162,7 @@ img {
   position: relative;
   left: 200px;
   background-color: white;
+  top: 45px;
 }
 
 .card:hover {
