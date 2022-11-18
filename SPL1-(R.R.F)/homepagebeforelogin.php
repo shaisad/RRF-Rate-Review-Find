@@ -99,8 +99,6 @@ body{
 
 img {
     width: 180px;
-    top: 300px;
-    left: 100px;
 }
 
 .card {
