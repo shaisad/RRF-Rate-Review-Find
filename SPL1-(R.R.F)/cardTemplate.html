@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>R.R.F</title>
 </head>
 
 <body>
-<form class="form-signin" id="signup" method="POST"
+<!-- <form class="form-signin" id="signup" method="POST"
     enctype="multipart/form-data" action="/resturant/addresturant">
 
 
@@ -35,11 +38,11 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
 
 
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-4">
         <div class="form-group">
           <label for="state">Select State</label>
@@ -47,7 +50,7 @@
           </select>
         </div>
       </div>
-    </div>  
+    </div>   -->
 // another one
     <div class="container">
       <div class="row gy-3 my-3">
@@ -56,12 +59,33 @@
         <div class="card"> 
          <img src="#" class="card-img-top" alt="image">
          <div class="card-body">
-             <h5 class="card-title">Card title</h5>
-             <p class="card-text">example</p>
-             <a href="#" class="btn btn-primary">details</a>
+             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
+             <p class="card-text"><?php echo $row['location']; ?></p>
+
+             <p><button class="cardbtn">Rate Here
+              <div class="rate">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
+  
+            </button></p>
+            <p><button class="cardbtn">Write a review..
+            </button></p>
+  
+             
          </div>
         </div>
        </div>
+      </div>
+      </div>
      
        <div class="col-sm-6 col-md-3">
          <div class="card"> 
@@ -90,8 +114,58 @@
 
 </form>
 
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 
 </html>
+
+
+/// previous card
+
+<!-- <div class="container">
+        <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
+          <p><?php echo $row['location']; ?></p> 
+        
+          <p><button class="cardbtn">Rate Here
+            <div class="rate">
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text">5 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text">4 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text">2 stars</label>
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text">1 star</label>
+              </div>
+
+          </button></p>
+          <p><button class="cardbtn">Write a review..
+          </button></p>
+
+          
+
+        </div> -->
 
     

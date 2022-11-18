@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 <!-- Bootstrap CSS -->
@@ -47,8 +48,8 @@ body{
     width: 600px;
     color: #fff;
     position: relative;
-    left: 200px;
-    top: 10px;
+    left: 100px;
+    bottom: 15px;
 }
 /*
 .search-box input[type="text"], .result{
@@ -79,7 +80,7 @@ body{
 
 .search-btn {
     position: relative;
-    left: 630px;
+    left: 550px;
     bottom: 35px;
     height: 50px;
     width: 70px;
@@ -98,8 +99,8 @@ body{
   cursor: pointer;
   color: rgb(80, 31, 19);
   position: relative;
-  left: 200px;
-  top: 25px;
+  left: 105px;
+  top: 10px;
   border-radius: 10px;
 }
 
@@ -237,7 +238,7 @@ img {
 
     
     
-    <!-- <div class="sidebar">
+     <div class="sidebar">
 
     <div class="logo">
 
@@ -248,13 +249,13 @@ img {
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
-      </div> -->
+      </div> 
 
   
     <div class="container mt-5">
-        <div class="card-header alert alert-warning text-center mb-3"></div>
-           <!-- <div class="search">
-              <div class="search-box"> -->
+        
+            <div class="search">
+              <div class="search-box"> 
                  <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food and restaurant...">
                     <div class="search-btn">
                        <i class="fa fa-search"></i> </div>
@@ -351,31 +352,41 @@ if (mysqli_connect_error())
             ?>
  
 
+
         <div class="container">
-        <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
-          <p><?php echo $row['location']; ?></p> 
-        
-          <p><button class="cardbtn">Rate Here
-            <div class="rate">
-                <input type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
-                <input type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
-                <input type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
-                <input type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
-                <input type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
-              </div>
+      <div class="row gy-3 my-3">
+     
+       <div class="col-sm-6 col-md-3">
+        <div class="card"> 
+         <img src="#" class="card-img-top" alt="image">
+         <div class="card-body">
+             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
+             <p class="card-text"><?php echo $row['location']; ?></p>
 
-          </button></p>
-          <p><button class="cardbtn">Write a review..
-          </button></p>
-
-          
-
+             <p><button class="cardbtn">Rate Here
+              <div class="rate">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
+  
+            </button></p>
+            <p><button class="cardbtn">Write a review..
+            </button></p>
+  
+             
+         </div>
         </div>
+       </div>
+      </div>
+      </div>
       </div>
       <?php
     

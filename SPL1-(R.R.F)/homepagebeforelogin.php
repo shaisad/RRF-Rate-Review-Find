@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-<!-- Bootstrap CSS -->
-
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-
     <title>RRF Home Page</title>
 
     
@@ -30,8 +26,8 @@ body{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    left: 250px;
-    bottom: 70px;
+    left: 50px;
+    bottom: 90px;
     height: 50px;
     width: 600px;
     color: #fff;
@@ -57,7 +53,7 @@ body{
 
 .search-btn {
     position: relative;
-    left: 630px;
+    left: 560px;
     bottom: 33px;
     height: 50px;
     width: 70px;
@@ -77,8 +73,8 @@ body{
   cursor: pointer;
   color: rgb(80, 31, 19);
   position: relative;
-  left: 200px;
-  bottom: 100px;
+  left: 60px;
+  bottom: 80px;
   border-radius: 10px;
 }
 
@@ -114,6 +110,7 @@ img {
   position: relative;
   left: 200px;
   background-color: white;
+  bottom: 20px;
 }
 
 .card:hover {
@@ -191,13 +188,16 @@ img {
 
     </div>
       
-    <div class="search" >
-        <div class="card-header alert alert-warning text-center mb-3">
-            
-        </div>
-        <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off"
-            placeholder="Search ...">
-        <div id="search_result"></div>
+    <div class="container mt-5">
+        
+            <div class="search">
+              <div class="search-box"> 
+                 <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food and restaurant...">
+                    <div class="search-btn">
+                       <i class="fa fa-search"></i> </div>
+              </div>
+        
+         <div id="search_result"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -228,10 +228,7 @@ img {
             });
         });
     </script>
-    
 
-
-    <div id="myBtnContainer">
        
         <button class="btnn show" onclick="filterSelection('all')"> Show all</button>
         <button class="btnn" onclick="filterSelection('top rated')"> Top Rated</button>
@@ -239,7 +236,32 @@ img {
         <button class="btnn" onclick="filterSelection('location')"> Location</button>
         <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
         
-     </div>
+    </div>
+
+
+    
+  
+        <div class="card">
+
+          <?php 
+              // Include the database configuration file  
+               require_once 'dbConfig.php'; 
+ 
+              // Get image data from database 
+               $result = $db->query("SELECT id, image, status FROM images, restaurant  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid"); 
+              // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
+          ?>
+
+        <?php if($result->num_rows > 0){ ?> 
+              
+             <?php while($row = $result->fetch_assoc()){ ?> 
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
+             <?php } ?> 
+             
+             <?php }else{ ?> 
+            <p class="status error">Image(s) not found...</p> 
+            <?php } 
+          ?>
 
 <?php
 
@@ -265,33 +287,42 @@ if (mysqli_connect_error())
              
             ?>
  
-    <div class="card">
-        <img src="#" alt="restimage" style="width:100%">
+
+
         <div class="container">
-        <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
-          <p><?php echo $row['location']; ?></p> 
-          <p><?php echo $row['foodcategory']; ?></p> 
-          <p><button class="cardbtn">Rate Here
-            <div class="rate">
-                <input type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
-                <input type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
-                <input type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
-                <input type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
-                <input type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
-              </div>
+      <div class="row gy-3 my-3">
+     
+       <div class="col-sm-6 col-md-3">
+        <div class="card"> 
+         <img src="#" class="card-img-top" alt="image">
+         <div class="card-body">
+             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
+             <p class="card-text"><?php echo $row['location']; ?></p>
 
-          </button></p>
-          <p><button class="cardbtn">Write a review..
-          </button></p>
-
-          
-
+             <p><button class="cardbtn">Rate Here
+              <div class="rate">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
+  
+            </button></p>
+            <p><button class="cardbtn">Write a review..
+            </button></p>
+  
+             
+         </div>
         </div>
+       </div>
+      </div>
+      </div>
       </div>
       <?php
     
@@ -299,7 +330,10 @@ if (mysqli_connect_error())
         }
       }
       ?> 
-    
+  
+   
+     
+  
 </body>
 
 
