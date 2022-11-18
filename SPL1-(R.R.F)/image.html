@@ -5,12 +5,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload image</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+    <style>
+
+body{
+        background-color: rgb(17, 6, 4);
+    }
+
+    .attribute {
+        font-size: 18px;
+        font-style: normal;
+        position: relative;
+        top: 30px;
+        }
+
+    .banner{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  height: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  background-color: rgb(240, 221, 136);
+  position: relative;
+  top: 100px;
+  border-radius: 5px;
+    }
+
+    img {
+    width: 180px;
+    height: 80px;
+    top: 350px;
+    left: 100px;
+}
+
+.btn {
+  float: left;
+  display: block;
+  color: rgb(219, 216, 216);
+  text-align: center;
+  padding: 8px;
+  text-decoration:none;
+  font-size: 20px;
+  background-color: rgb(46, 16, 9);
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+  top: 25px;
+  left: 110px;
+}
+
+label {
+    position: relative;
+    right: 200px;
+}
+
+.btn :hover{
+  opacity: 0.9;
+}
+
+</style>
+        
+
+    <div class = "banner">
+          
+        <div class="logo">
+
+            <img class="rrflogo" src="cover.png" alt="logo">
+    
+        </div>
+
+        
+
     <form action="upload.php" method="post" enctype="multipart/form-data">
-        <label>Select Image File:</label>
+        <div class = "attribute">
+        <label>Upload Restaurant's image:</label>
+        <div class="btn" id="btn">
         <input type="file" name="image">
-        <input type="submit" name="submit" value="Upload">
+        <input type="submit" name="submit" value="Upload"></div></div>
     </form>
+
+    </div>
+
 </body>
 </html>

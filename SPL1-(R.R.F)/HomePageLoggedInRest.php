@@ -362,6 +362,7 @@ if (mysqli_connect_error())
          <div class="card-body">
              <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
              <p class="card-text"><?php echo $row['location']; ?></p>
+             <a class="card-link stretched-link" href="RestaurantInfo.html"></a>
 
              <p><button class="cardbtn">Rate Here
               <div class="rate">
