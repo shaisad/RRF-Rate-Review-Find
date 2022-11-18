@@ -320,6 +320,7 @@ while($row = mysqli_fetch_assoc($query_run)){
       </div>
 
   </button></p>
+  
   <p><button class="cardbtn">Write a review..
   </button></p>
 
