@@ -101,7 +101,7 @@ img {
     width: 180px;
 }
 
-.card {
+/* .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 20%;
@@ -109,7 +109,7 @@ img {
   left: 200px;
   background-color: white;
   margin-bottom: 40px;
-}
+} */
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
