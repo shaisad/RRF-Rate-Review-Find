@@ -306,7 +306,12 @@ img {
 
     
   
-        <div class="card">
+    <div class="container">
+      <div class="row gy-3 my-3">
+     
+       <div class="col-sm-6 col-md-3">
+        <div class="card"> 
+          
 
           <?php 
               // Include the database configuration file  
@@ -351,15 +356,7 @@ if (mysqli_connect_error())
         while($row = mysqli_fetch_assoc($query_run)){
              
             ?>
- 
 
-
-        <div class="container">
-      <div class="row gy-3 my-3">
-     
-       <div class="col-sm-6 col-md-3">
-        <div class="card"> 
-         <img src="#" class="card-img-top" alt="image">
          <div class="card-body">
              <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
              <p class="card-text"><?php echo $row['location']; ?></p>
@@ -397,6 +394,8 @@ if (mysqli_connect_error())
       }
       ?> 
   
+      
+
       
 
        
