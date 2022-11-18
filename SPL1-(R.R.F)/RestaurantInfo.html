@@ -4,21 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Restaurant's Info Page</title>
 </head>
 
 <style>
 
-    body{
+body{
     background-color: rgb(240, 221, 136);
     overflow-x: hidden;
 }
 
-img {
+.rrflogo {
     width: 320px;
     position: relative;
     left: 460px;
     top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+ .foodcard {
+    margin-bottom: 40px;
+    max-height: 218x;
+    }  
+
+.card{
+    background-color:rgb(240, 221, 136);;
+
+}
+
+.foodimg{
+    width: 220px;
+    height: 224px;
+    object-fit: cover;
+}
+
+.card-body{
+    position: relative;
+    right: 150px;
+    background-color: aliceblue;
+    width: 1090px;
+    overflow-y: scroll;
 }
 
 </style>
@@ -31,7 +60,50 @@ img {
 
     </div>
 
-    
+<div class="card">
+
+  <div class="foodcard">
+    <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img class="foodimg" src="Photos 18_10_2022 8_31_57 PM.png" class="img-fluid rounded-start" alt="..."/>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Food's Name</h5>
+              <p>Food Description</p>
+              <p>Category</p>
+              <p>Price</p>
+              <p>
+                <p></p>
+                <a href="#">Rate and review here</a>
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="foodcard">
+    <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img class="foodimg" src="tick.png" class="img-fluid rounded-start" alt="..."/>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Food's Name</h5>
+              <p class="card-text">Food Description</p>
+              <p class="card-text">Category</p>
+              <p class="card-text">Price</p>
+              <p><a href="#">Rate and review here</a></p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>  
+
+</div>
     
 </body>
 

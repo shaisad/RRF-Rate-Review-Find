@@ -164,6 +164,7 @@ img {
   left: 200px;
   background-color: white;
   top: 45px;
+  margin-bottom: 40px;
 }
 
 .card:hover {

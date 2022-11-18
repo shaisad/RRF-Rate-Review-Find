@@ -108,7 +108,7 @@ img {
   position: relative;
   left: 200px;
   background-color: white;
-  bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .card:hover {
@@ -179,6 +179,7 @@ img {
   transform: scale(1.3);
   z-index: 2;
 }
+
 
 </style>
 
