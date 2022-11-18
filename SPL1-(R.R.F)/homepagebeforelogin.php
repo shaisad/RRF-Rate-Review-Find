@@ -74,7 +74,7 @@ body{
   color: rgb(80, 31, 19);
   position: relative;
   left: 60px;
-  bottom: 80px;
+  bottom: 70px;
   border-radius: 10px;
 }
 
