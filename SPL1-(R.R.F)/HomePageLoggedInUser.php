@@ -117,8 +117,9 @@ body{
 }
 
 .container{
+  padding: 2px 16px;
   position: relative;
-  left: 5px;
+  left: 60px;
   bottom: 10px;
 
 } 
