@@ -173,7 +173,11 @@ img {
 
 .container {
   padding: 2px 16px;
-}
+  position: relative;
+  left: 5px;
+  bottom: 10px;
+
+} 
 
 .rate {
     float: left;

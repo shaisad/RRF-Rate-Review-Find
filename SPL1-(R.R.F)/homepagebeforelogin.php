@@ -90,12 +90,12 @@ body{
   color: white;
 }
 
-.container{
+/* .container{
   position: relative;
   left: 5px;
   bottom: 10px;
 
-} 
+}  */
 
 img {
     width: 180px;
@@ -117,6 +117,10 @@ img {
 
 .container {
   padding: 2px 16px;
+  position: relative;
+  left: 5px;
+  bottom: 10px;
+
 }
 
 .rate {
