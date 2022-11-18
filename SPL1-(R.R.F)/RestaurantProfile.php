@@ -117,8 +117,8 @@ error_reporting();
           
 
           <div class="btn" id="btn">
-            <a href="#" target="_self">Add Menu</a>
-             <a href="image.php" target="_self">Add Image</a>
+            <a href="menu.html" target="_self">Add Menu</a>
+             <a href="HomePageLoggedInRest.php" target="_self">Back</a>
            </div>
           
           
