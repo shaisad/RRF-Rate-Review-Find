@@ -253,7 +253,7 @@ img {
      require_once 'dbConfig.php'; 
 
     // Get image data from database 
-    $result = $db->query("SELECT imageid, image, status, restaurantid FROM restaurant  WHERE status=1 AND imageid=restaurantid"); 
+    $result = $db->query("SELECT id, image, status, restaurantid FROM restaurant, images  WHERE status=1 AND images.id=restaurant.restaurantid"); 
     // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
 ?>
 

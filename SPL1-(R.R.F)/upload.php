@@ -18,7 +18,7 @@ if(isset($_POST["submit"])){
             $imgContent = addslashes(file_get_contents($image)); 
          
             // Insert image content into database 
-            $insert = $db->query("INSERT into restaurant (image) VALUES ('$imgContent')"); 
+            $insert = $db->query("INSERT into images (image) VALUES ('$imgContent')"); 
              
             if($insert){ 
                 $status = 'success'; 
