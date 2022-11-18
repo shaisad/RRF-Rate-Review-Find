@@ -245,7 +245,7 @@ img {
         <img class="rrflogo" src="cover.png" alt="logo">
 
     </div>
-        <a href="RestaurantProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
+        <a href="RestaurantProfile.php"><i class="fa fa-fw fa-user"></i>Restaurant's Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>

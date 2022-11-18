@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 <!-- Bootstrap CSS -->
@@ -12,6 +13,7 @@
 
     <title>RRF Home Page</title>
     
+
 
 
 <style>
@@ -24,12 +26,11 @@ body{
     overflow-x: hidden;
 }
 
-.search{
+ .search{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    left: 250px;
-    bottom: 70px;
+    
 }
 
 .search-box input[type="text"]{
@@ -46,12 +47,16 @@ body{
     height: 50px;
     width: 600px;
     color: #fff;
+    position: relative;
+    left: 100px;
+    bottom: 15px;
 }
-
+/*
 .search-box input[type="text"], .result{
         width: 100%;
         box-sizing: border-box;
-    }
+    } */
+
 
 .result{
         position: absolute;        
@@ -72,10 +77,11 @@ body{
         background: #f2f2f2;
     }
 
+
 .search-btn {
     position: relative;
-    left: 630px;
-    bottom: 45px;
+    left: 550px;
+    bottom: 35px;
     height: 50px;
     width: 70px;
     color: rgb(80, 31, 19) ;
@@ -93,8 +99,8 @@ body{
   cursor: pointer;
   color: rgb(80, 31, 19);
   position: relative;
-  left: 200px;
-  bottom: 100px;
+  left: 105px;
+  top: 10px;
   border-radius: 10px;
 }
 
@@ -128,12 +134,10 @@ img {
   width: 180px;
   position: fixed;
   z-index: 1;
-  top: 85px;
+  top: 0;
   left: 0;
   overflow-x: hidden;
-  border: 1px solid rgb(241, 191, 114);
   background-color: rgb(241, 191, 114);
-  overflow-y: scroll;
   
 }
 
@@ -159,6 +163,7 @@ img {
   position: relative;
   left: 200px;
   background-color: white;
+  top: 45px;
 }
 
 .card:hover {
@@ -226,25 +231,37 @@ img {
 }
 
 </style>
+</head>
 
 
-
-    </head>
 <body>
+
+    
+    
+     <div class="sidebar">
 
     <div class="logo">
 
         <img class="rrflogo" src="cover.png" alt="logo">
 
     </div>
+        <a href="UserProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
+        <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
+        <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
+        <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
+      </div> 
 
-    <div class="container mt-5" style="max-width: 555px">
-        <div class="card-header alert alert-warning text-center mb-3">
-            
-        </div>
-        <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off"
-            placeholder="Search ...">
-        <div id="search_result"></div>
+  
+    <div class="container mt-5">
+        
+            <div class="search">
+              <div class="search-box"> 
+                 <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food and restaurant...">
+                    <div class="search-btn">
+                       <i class="fa fa-search"></i> </div>
+              </div>
+        
+         <div id="search_result"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -275,11 +292,7 @@ img {
             });
         });
     </script>
-    
 
-
-
-    <div id="myBtnContainer">
        
         <button class="btnn show" onclick="filterSelection('all')"> Show all</button>
         <button class="btnn" onclick="filterSelection('top rated')"> Top Rated</button>
@@ -291,7 +304,30 @@ img {
 
 
     
-  <?php
+  
+        <div class="card">
+
+          <?php 
+              // Include the database configuration file  
+               require_once 'dbConfig.php'; 
+ 
+              // Get image data from database 
+               $result = $db->query("SELECT id, image, status FROM images, restaurant  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid"); 
+              // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
+          ?>
+
+        <?php if($result->num_rows > 0){ ?> 
+              
+             <?php while($row = $result->fetch_assoc()){ ?> 
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
+             <?php } ?> 
+             
+             <?php }else{ ?> 
+            <p class="status error">Image(s) not found...</p> 
+            <?php } 
+          ?>
+
+<?php
 
 $host = "localhost";
 $dbUsername = "root";
@@ -315,34 +351,42 @@ if (mysqli_connect_error())
              
             ?>
  
-    <div class="card">
 
 
         <div class="container">
-        <h4><b><?php echo $row['restaurantname']; ?></b></h4> 
-          <p><?php echo $row['location']; ?></p> 
-          
-          <p><button class="cardbtn">Rate Here
-            <div class="rate">
-                <input type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
-                <input type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
-                <input type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
-                <input type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
-                <input type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
-              </div>
+      <div class="row gy-3 my-3">
+     
+       <div class="col-sm-6 col-md-3">
+        <div class="card"> 
+         <img src="#" class="card-img-top" alt="image">
+         <div class="card-body">
+             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
+             <p class="card-text"><?php echo $row['location']; ?></p>
 
-          </button></p>
-          <p><button class="cardbtn">Write a review..
-          </button></p>
-
-          
-
+             <p><button class="cardbtn">Rate Here
+              <div class="rate">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
+  
+            </button></p>
+            <p><button class="cardbtn">Write a review..
+            </button></p>
+  
+             
+         </div>
         </div>
+       </div>
+      </div>
+      </div>
       </div>
       <?php
     
