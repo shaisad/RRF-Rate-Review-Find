@@ -26,8 +26,8 @@ body{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    left: 50px;
-    bottom: 90px;
+    left: 100px;
+    bottom: 80px;
     height: 50px;
     width: 600px;
     color: #fff;
@@ -216,29 +216,29 @@ img {
                         },
                         success: function (data) {
                             $('#search_result').html(data);
-                            $('#search_result').css('display', 'block');
+                            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('position', 'relative').css('top', '5px');
                             $("#live_search").focusout(function () {
-                                $('#search_result').css('display', 'none');
+                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('position', 'relative').css('top', '5px');
                             });
                             $("#live_search").focusin(function () {
-                                $('#search_result').css('display', 'block');
+                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('position', 'relative').css('top', '5px');
                             });
                         }
                     });
                 } else {
-                    $('#search_result').css('display', 'none');
+                    $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white');
                 }
             });
         });
     </script>
 
        
-        <button class="btnn show" onclick="filterSelection('all')"> Show all</button>
+        <!-- <button class="btnn show" onclick="filterSelection('all')"> Show all</button>
         <button class="btnn" onclick="filterSelection('top rated')"> Top Rated</button>
         <button class="btnn" onclick="filterSelection('price')"> Price Range</button>
         <button class="btnn" onclick="filterSelection('location')"> Location</button>
         <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
-        
+         -->
     </div>
 
     <div class="container">
@@ -292,7 +292,7 @@ die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
         ?>
 
       <div class="card-body">
-      <a class="card-link stretched-link" href="RestaurantInfo.html"></a>
+      <!-- <a class="card-link stretched-link" href="RestaurantInfo.html"></a> -->
         <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
          <p class="card-text"><?php echo $row['location']; ?></p>
 
