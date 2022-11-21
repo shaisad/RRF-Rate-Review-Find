@@ -156,16 +156,16 @@ img {
   color: gray;
 }
 
-/* .card {
+.card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 20%;
+  width: 25%;
   position: relative;
-  left: 200px;
+  left: 100px;
   background-color: white;
   top: 45px;
   margin-bottom: 40px;
-} */
+} 
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -282,12 +282,12 @@ img {
                         },
                         success: function (data) {
                             $('#search_result').html(data);
-                            $('#search_result').css('display', 'block');
+                            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
                             $("#live_search").focusout(function () {
-                                $('#search_result').css('display', 'none');
+                                $('#search_result').css('display', 'none').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
                             });
                             $("#live_search").focusin(function () {
-                                $('#search_result').css('display', 'block');
+                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
                             });
                         }
                     });
@@ -360,7 +360,6 @@ while($row = mysqli_fetch_assoc($query_run)){
     ?>
 
   <div class="card-body">
-  <a class="card-link stretched-link" href="RestaurantInfo.html"></a>
     <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
      <p class="card-text"><?php echo $row['location']; ?></p>
 
