@@ -45,7 +45,7 @@
     $mail->setFrom("rrfratereviewfind@gmail.com");
 
     $mail->Body = "Dear user, Thank you for registering. Click the link to verify your email
-                   <a href='http://localhost/SPL-RRF/userverify.php?email=$email&code=$code'> Verify </a>";
+                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/userverify.php?email=$email&code=$code'> Verify </a>";
 
     $mail->addAddress($email);
 
