@@ -1,11 +1,11 @@
 <?php function createCard(array $row) { ?>
-  <div class="row row-cols-1 row-cols-md-4 g-4">
+  
 
 <div class="card">
 
 <?php 
       // Include the database configuration file  
-       require 'dbConfig.php'; 
+       require 'dbConfig.php';  
 
       // Get image data from database 
       $result = $db->query("SELECT id, image, status, restaurantid FROM restaurant, images  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid"); 
@@ -22,6 +22,31 @@
     <p class="status error">Image(s) not found...</p> 
     <?php } 
   ?>
+
+<?php
+
+$host = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbname = "rrf";
+
+$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+if (mysqli_connect_error())
+{
+die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
+}
+
+  $query = "SELECT * FROM restaurant where status=1";
+  $query_run = mysqli_query($conn, $query);
+  $check_user = mysqli_num_rows($query_run) > 0;
+
+  if($check_user){
+
+    while($row = mysqli_fetch_assoc($query_run)){
+         
+        ?>
+
 
 <div class="card-body">
   <!-- <a class="card-link stretched-link" href="RestaurantInfo.html"></a> -->
@@ -47,10 +72,18 @@
     </button></p>
 
 
-  </div>
+
 </div>
 </div>
 </div>
+
+<?php
+
+
+    }
+  }
+  ?> 
+
   
 <?php } ?>
 
@@ -226,7 +259,7 @@ img {
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+} 
 
 .container {
   padding: 2px 16px;
@@ -367,8 +400,8 @@ img {
 
     
   <div class="container">
-       
-       
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+             
 <?php
 
 
@@ -379,21 +412,22 @@ img {
       die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
 }
         $query = "SELECT * FROM restaurant where status=1";
-        $query_run = mysqli_query($conn, $query);
+        $query_run = mysqli_query($db, $query);
         $check_user = mysqli_num_rows($query_run) > 0;
         
 if($check_user){
 
 while($row = mysqli_fetch_assoc($query_run)){
+
   createCard($row);
     
 
 
 }
-}$conn->close();
+}$db->close();
 ?> 
-
-  </div>
+   </div>
+</div>
 
 
        
