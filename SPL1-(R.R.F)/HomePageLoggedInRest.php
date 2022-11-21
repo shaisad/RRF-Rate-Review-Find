@@ -322,11 +322,34 @@ img {
           ?>
           
           <div class="col-md-3 mt-3">
-          <div class="card">
+            <div class="card">
 
           <div class="card-body">
             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text"><?php echo $row['location']; ?></p>
+
+            <!-- image fetch -->
+
+            <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+          // Get image data from database 
+          $result = $db->query("SELECT id, image, status, restaurantid FROM restaurant, images  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid"); 
+          // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
+            ?>
+
+            <?php if($result->num_rows > 0){ ?> 
+          
+            <?php while($row = $result->fetch_assoc()){ ?> 
+            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
+            <?php } ?> 
+         
+             <?php }else{ ?> 
+             <p class="status error">Image(s) not found...</p> 
+             <?php } 
+             ?>
+
 
          <p><button class="cardbtn">Rate Here
           <div class="rate">
