@@ -30,6 +30,7 @@ body{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
+    left: 30px ;
     
 }
 
@@ -94,7 +95,7 @@ body{
   cursor: pointer;
   color: rgb(80, 31, 19);
   position: relative;
-  left: 105px;
+  left: 125px;
   top: 10px;
   border-radius: 10px;
 }
@@ -230,6 +231,11 @@ img {
   opacity: 0.7;
 }
 
+.cardfix {
+  position: relative;
+  left: 120px;
+}
+
 </style>
 </head>
 
@@ -238,7 +244,7 @@ img {
 
     
     
-     <!-- <div class="sidebar">
+     <div class="sidebar">
 
     <div class="logo">
 
@@ -249,7 +255,7 @@ img {
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
-      </div>  -->
+      </div> 
 
   
     <div class="container mt-5">
@@ -303,9 +309,9 @@ img {
     </div>
 
     <!-- card -->
-
+   <div class="cardfix">
    <div class="container py-5">
-    <div class="row mt-4">
+    <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
 
@@ -372,6 +378,7 @@ img {
       }
 
       ?>
+    </div>
     </div>
     </div>
    
