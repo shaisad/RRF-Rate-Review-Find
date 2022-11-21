@@ -95,7 +95,7 @@
       else
       {
         //$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+       // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $INSERT= "INSERT Into user (username, location, email, password, code, status) values ('$username','$location','$email', '$password', '$code', 0)";
 
         //$stmt = $conn->prepare($SELECT);

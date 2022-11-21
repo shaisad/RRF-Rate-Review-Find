@@ -25,11 +25,8 @@ if(isset($_GET['code']))
         {
             $update = "UPDATE user SET status = 1 WHERE code = '$code' LIMIT 1";
             if (mysqli_query($conn, $update)){
-                ?>
-                 <script>alert("Account verified successfully.")</script>
-				 
-                <?php
-                header("Location: HomePageLoggedInUser.php");
+                echo "Account created successfully! Click the link to complete login
+                <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/UserSignInPage.html'>Login </a>";
                 exit;
 				
             }
