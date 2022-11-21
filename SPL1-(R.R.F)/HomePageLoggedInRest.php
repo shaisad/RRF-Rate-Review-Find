@@ -306,9 +306,7 @@ img {
 
    <div class="container py-5">
     <div class="row mt-4">
-    
-            
-                  <?php 
+       <?php 
       require 'dbConfig.php';
 
       $query = "SELECT * FROM restaurant where status=1";
@@ -334,24 +332,20 @@ img {
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-          // Get image data from database 
-          $result = $db->query("SELECT id, image, status, restaurantid FROM restaurant, images  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid"); 
-          // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
-            ?>
+           $queryy = "SELECT id, image, status, restaurantid FROM restaurant NATURAL JOIN images  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
 
-            <?php if($result->num_rows > 0){ ?> 
-          
-            <?php while($row = $result->fetch_assoc()){ ?> 
-            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
-            <?php } ?> 
-         
-             <?php }else{ ?> 
-             <p class="status error">Image(s) not found...</p> 
-             <?php } 
-             ?>
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" />
+              <?php
+            }
+           }
+        ?>
 
-
-         <p><button class="cardbtn">Rate Here
+                    <p><button class="cardbtn">Rate Here
           <div class="rate">
               <input type="radio" id="star5" name="rate" value="5" />
               <label for="star5" title="text">5 stars</label>
