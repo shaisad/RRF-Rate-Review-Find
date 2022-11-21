@@ -397,52 +397,15 @@ img {
 
     <!-- card -->
 
-<<<<<<< HEAD
-    
-  <div class="container">
-  <div class="row row-cols-1 row-cols-md-4 g-4">
-             
-<?php
-=======
    <div class="container py-5">
     <div class="row mt-4">
-      <?php 
-      require 'dbConfig.php';
->>>>>>> 37e2bebccfd0223e2ea957faa5e08e06952672ac
-
-      $query = "SELECT * FROM restaurant where status=1";
-      $query_run = mysqli_query($conn, $query);
-      $check_user = mysqli_num_rows($query_run) > 0;
-      
-      if($check_user)
-      {
-        while($row = mysqli_fetch_assoc($query_run))
-        {
-          ?>
-          <div class="col-md-3 mt-3">
+    <div class="col-md-3 mt-3">
             <div class="card">
 
             <?php 
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-<<<<<<< HEAD
-     require 'dbConfig.php';
-     if (mysqli_connect_error())
-{
-      die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
-}
-        $query = "SELECT * FROM restaurant where status=1";
-        $query_run = mysqli_query($db, $query);
-        $check_user = mysqli_num_rows($query_run) > 0;
-        
-if($check_user){
-
-while($row = mysqli_fetch_assoc($query_run)){
-
-  createCard($row);
-    
-=======
           // Get image data from database 
           $result = $db->query("SELECT id, image, status, restaurantid FROM restaurant, images  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid"); 
           // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
@@ -458,18 +421,23 @@ while($row = mysqli_fetch_assoc($query_run)){
              <p class="status error">Image(s) not found...</p> 
              <?php } 
              ?>
->>>>>>> 37e2bebccfd0223e2ea957faa5e08e06952672ac
 
             </div>
           </div>
+      <?php 
+      require 'dbConfig.php';
 
-<<<<<<< HEAD
-}
-}$db->close();
-?> 
-   </div>
-</div>
-=======
+      $query = "SELECT * FROM restaurant where status=1";
+      $query_run = mysqli_query($conn, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?>
+          
+
           <div class="card-body">
             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text"><?php echo $row['location']; ?></p>
@@ -488,7 +456,6 @@ while($row = mysqli_fetch_assoc($query_run)){
               <label for="star1" title="text">1 star</label>
             </div>
           </button></p>
->>>>>>> 37e2bebccfd0223e2ea957faa5e08e06952672ac
 
           <p><button class="cardbtn">Write a review..
         </button></p>
