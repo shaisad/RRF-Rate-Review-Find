@@ -325,14 +325,13 @@ img {
           <div class="card-body">
             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text"><?php echo $row['location']; ?></p>
-
+         
             <!-- image fetch -->
-
-            <?php 
+              <?php 
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT id, image, status, restaurantid FROM restaurant NATURAL JOIN images  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid";
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
@@ -340,6 +339,7 @@ img {
             while($row = mysqli_fetch_assoc($queryy_run)){
               ?>
                  <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" />
+                 
               <?php
             }
            }

@@ -22,7 +22,8 @@ if(isset($_POST["submit"])){
              
             if($insert){ 
                 $status = 'success'; 
-                $statusMsg = "File uploaded successfully."; 
+                $statusMsg = "File uploaded successfully. Click here to complete
+                <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/RestaurantSignInPage.html'> login  </a>"; 
             }else{ 
                 $statusMsg = "File upload failed, please try again."; 
             }  
