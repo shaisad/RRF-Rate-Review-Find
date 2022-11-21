@@ -55,12 +55,9 @@ if (isset($email) && isset($password)) {
 				$_SESSION['username'] = $row['username'];
 				$_SESSION['location'] = $row['location'];
 							
-            	?>
-                 <script>alert("Logged in as user")</script>
-				 
-                <?php
-                //header("Location: loggedinuser.php");
-                exit;
+
+                header("Location: HomePageLoggedInUser.php");
+                exit();
 				
             }else{
 				echo "Account not verified.";

@@ -245,7 +245,7 @@ img {
         <a href="UserProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
-        <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
+        <a href="userlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div> 
 
   
@@ -352,7 +352,7 @@ die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
         ?>
 
       <div class="card-body">
-      <a class="card-link stretched-link" href="RestaurantInfo.html"></a>
+      <!--<a class="card-link stretched-link" href="RestaurantInfo.html"></a>-->
         <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
          <p class="card-text"><?php echo $row['location']; ?></p>
 
