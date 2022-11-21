@@ -360,6 +360,7 @@ while($row = mysqli_fetch_assoc($query_run)){
     ?>
 
   <div class="card-body">
+  <!-- <a class="card-link stretched-link" href="RestaurantInfo.html"></a> -->
     <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
      <p class="card-text"><?php echo $row['location']; ?></p>
 
