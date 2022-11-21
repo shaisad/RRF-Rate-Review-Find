@@ -12,7 +12,7 @@ $sname= "localhost";
  if (!$conn) {
     echo "Connection failed!";
   }
- 
+  
   if (isset($_POST['query'])) {
     $query = "SELECT restaurantname FROM restaurant WHERE restaurantname LIKE '{$_POST['query']}%' OR location LIKE '{$_POST['query']}%'  LIMIT 100";
     $result = mysqli_query($conn, $query);
