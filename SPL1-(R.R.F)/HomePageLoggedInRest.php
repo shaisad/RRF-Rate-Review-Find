@@ -1,96 +1,3 @@
-<<<<<<< HEAD
-<?php function createCard(array $row) { ?>
-  
-
-<div class="card">
-
-<?php 
-      // Include the database configuration file  
-       require 'dbConfig.php';  
-
-      // Get image data from database 
-      $result = $db->query("SELECT id, image, status, restaurantid FROM restaurant, images  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid"); 
-      // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
-  ?>
-
-<?php if($result->num_rows > 0){ ?> 
-      
-     <?php while($row = $result->fetch_assoc()){ ?> 
-     <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
-     <?php } ?> 
-     
-     <?php }else{ ?> 
-    <p class="status error">Image(s) not found...</p> 
-    <?php } 
-  ?>
-
-<?php
-
-$host = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbname = "rrf";
-
-$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
-
-if (mysqli_connect_error())
-{
-die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
-}
-
-  $query = "SELECT * FROM restaurant where status=1";
-  $query_run = mysqli_query($conn, $query);
-  $check_user = mysqli_num_rows($query_run) > 0;
-
-  if($check_user){
-
-    while($row = mysqli_fetch_assoc($query_run)){
-         
-        ?>
-
-
-<div class="card-body">
-  <!-- <a class="card-link stretched-link" href="RestaurantInfo.html"></a> -->
-    <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
-     <p class="card-text"><?php echo $row['location']; ?></p>
-
-     <p><button class="cardbtn">Rate Here
-      <div class="rate">
-          <input type="radio" id="star5" name="rate" value="5" />
-          <label for="star5" title="text">5 stars</label>
-          <input type="radio" id="star4" name="rate" value="4" />
-          <label for="star4" title="text">4 stars</label>
-          <input type="radio" id="star3" name="rate" value="3" />
-          <label for="star3" title="text">3 stars</label>
-          <input type="radio" id="star2" name="rate" value="2" />
-          <label for="star2" title="text">2 stars</label>
-          <input type="radio" id="star1" name="rate" value="1" />
-          <label for="star1" title="text">1 star</label>
-        </div>
-
-    </button></p>
-    <p><button class="cardbtn">Write a review..
-    </button></p>
-
-
-
-</div>
-</div>
-</div>
-
-<?php
-
-
-    }
-  }
-  ?> 
-
-  
-<?php } ?>
-
-
-=======
->>>>>>> 37e2bebccfd0223e2ea957faa5e08e06952672ac
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -204,12 +111,12 @@ body{
   color: white;
 }
 
-.container{
+/* .container{
   position: relative;
   left: 5px;
   bottom: 10px;
 
-} 
+}  */
 
 img {
     width: 180px;
@@ -331,7 +238,7 @@ img {
 
     
     
-     <div class="sidebar">
+     <!-- <div class="sidebar">
 
     <div class="logo">
 
@@ -342,7 +249,7 @@ img {
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#logout"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
-      </div> 
+      </div>  -->
 
   
     <div class="container mt-5">
@@ -399,36 +306,13 @@ img {
 
    <div class="container py-5">
     <div class="row mt-4">
-    <div class="col-md-3 mt-3">
-            <div class="card">
-
-            <?php 
-          // Include the database configuration file  
-           require_once 'dbConfig.php'; 
-
-          // Get image data from database 
-          $result = $db->query("SELECT id, image, status, restaurantid FROM restaurant, images  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid"); 
-          // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
-            ?>
-
-            <?php if($result->num_rows > 0){ ?> 
-          
-            <?php while($row = $result->fetch_assoc()){ ?> 
-            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
-            <?php } ?> 
-         
-             <?php }else{ ?> 
-             <p class="status error">Image(s) not found...</p> 
-             <?php } 
-             ?>
-
-            </div>
-          </div>
-      <?php 
+    
+            
+                  <?php 
       require 'dbConfig.php';
 
       $query = "SELECT * FROM restaurant where status=1";
-      $query_run = mysqli_query($conn, $query);
+      $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
       if($check_user)
@@ -437,6 +321,8 @@ img {
         {
           ?>
           
+          <div class="col-md-3 mt-3">
+          <div class="card">
 
           <div class="card-body">
             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
@@ -461,13 +347,16 @@ img {
         </button></p>
 
           </div>
+          </div>
+          </div>
+
           <?php
         }
       }
 
       ?>
     </div>
-   </div> 
+    </div>
    
        
     
