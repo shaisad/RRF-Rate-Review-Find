@@ -15,13 +15,13 @@ if (!$conn) {
 	echo "Connection failed!";
 }
 
-$email = $_POST['email'];
+$restaurantemail = $_POST['restaurantemail'];
 $password = $_POST['password'];
 //$email = $conn->real_escape_string($email);
 //$password = $conn->real_escape_string($password);
 //$password = md5($password);
 
-if (isset($email) && isset($password)) {
+if (isset($restaurantemail) && isset($password)) {
 
 //	function validate($data){
 //       $data = trim($data);
@@ -41,34 +41,17 @@ if (isset($email) && isset($password)) {
 //        header("Location: process.php?error=Password is required");
 //	    exit();
 //	}else{
-		$sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
-        $sql2 = "SELECT * FROM restaurant WHERE email ='$email' AND password='$password'";
+		//$sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
+        $sql2 = "SELECT * FROM restaurant WHERE restaurantemail ='$restaurantemail' AND password='$password'";
 		
-        $result = mysqli_query($conn, $sql);
+        //$result = mysqli_query($conn, $sql);
         $result2 = mysqli_query($conn, $sql2);
 
-		if ($result->num_rows == 1) {
-			$row = mysqli_fetch_assoc($result);
-            if ($row['status'] == 1) {
-				$_SESSION['email'] = $row['email'];
-            	$_SESSION['password'] = $row['password'];
-				$_SESSION['username'] = $row['username'];
-				$_SESSION['location'] = $row['location'];
-							
-
-                header("Location: HomePageLoggedInUser.php");
-                exit();
-				
-            }else{
-				echo "Account not verified.";
-		        exit();
-			}
-		}
-	
+		
         if ($result2->num_rows == 1) {
 			$row = mysqli_fetch_assoc($result2);
             if ($row['status'] == 1) {
-							$_SESSION['email'] = $row['email'];
+							$_SESSION['restaurantemail'] = $row['restaurantemail'];
 							$_SESSION['password'] = $row['password'];
             	            $_SESSION['restaurantname'] = $row['restaurantname'];
 							$_SESSION['location'] = $row['location'];
