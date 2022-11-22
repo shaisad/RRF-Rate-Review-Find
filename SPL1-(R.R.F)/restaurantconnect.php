@@ -8,7 +8,7 @@
 
   $restaurantname = $_POST['restaurantname'];
   $location = $_POST['location'];
-  $email = $_POST['email'];
+  $restaurantemail = $_POST['restaurantemail'];
   
   $password = $_POST['password'];
   $confirm = $_POST['confirm'];
@@ -18,7 +18,7 @@
 
   //$regularexpression = "/^[a-zA-Z\d]+$/";
 
-  function sendMail($email,$code)
+  function sendMail($restaurantemail,$code)
   {
     require ("PHPMailer/PHPMailer.php");
     require ("PHPMailer/SMTP.php");
@@ -61,7 +61,7 @@
   }
 
 
-  if(!empty($restaurantname) && !empty($location)  && !empty($email) && !empty($password) && !empty($confirm))
+  if(!empty($restaurantname) && !empty($location)  && !empty($restaurantemail) && !empty($password) && !empty($confirm))
   {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
       ?>      
@@ -105,7 +105,7 @@
       {
         
         // correct $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $INSERT= "INSERT Into restaurant (restaurantname, location, email, password, code, status) values ('$restaurantname','$location','$email','$password', '$code', 0)";
+        $INSERT= "INSERT Into restaurant (restaurantname, location, restaurantemail, password, code, status) values ('$restaurantname','$location','$restaurantemail','$password', '$code', 0)";
 
         //$stmt = $conn->prepare($SELECT);
         //$stmt->bind_param("s", $email);
@@ -130,7 +130,7 @@
 
         //$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        if($INSERT && sendMail($email,$code))
+        if($INSERT && sendMail($restaurantemail,$code))
         {
           ?>      
           <script>alert("Verification mail sent. Please verify your email before logging in. Make sure to check your spam folder!")</script>

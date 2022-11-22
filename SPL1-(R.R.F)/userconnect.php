@@ -8,7 +8,7 @@
 
   $username = $_POST['username'];
   $location = $_POST['location'];
-  $email = $_POST['email'];
+  $useremail = $_POST['useremail'];
   $password = $_POST['password'];
   $confirm = $_POST['confirm'];
   $status = '0';
@@ -16,7 +16,7 @@
 
   //$regularexpression = "/^[a-zA-Z\d]+$/";
 
-  function sendMail($email,$code)
+  function sendMail($useremail,$code)
   {
     require ("PHPMailer/PHPMailer.php");
     require ("PHPMailer/SMTP.php");
@@ -47,7 +47,7 @@
     $mail->Body = "Dear user, Thank you for registering. Click the link to verify your email
                    <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/userverify.php?email=$email&code=$code'> Verify </a>";
 
-    $mail->addAddress($email);
+    $mail->addAddress($useremail);
 
     if($mail->Send()){
         return true;
@@ -59,10 +59,10 @@
   }
 
 
-  if(!empty($username) && !empty($location) && !empty($email) && !empty($password) && !empty($confirm))
+  if(!empty($username) && !empty($location) && !empty($useremail) && !empty($password) && !empty($confirm))
   {
 
-    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
       exit('Email is not valid!');
     }
 
@@ -96,7 +96,7 @@
       {
         //$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
        // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $INSERT= "INSERT Into user (username, location, email, password, code, status) values ('$username','$location','$email', '$password', '$code', 0)";
+        $INSERT= "INSERT Into user (username, location, useremail, password, code, status) values ('$username','$location','$useremail', '$password', '$code', 0)";
 
         //$stmt = $conn->prepare($SELECT);
         //$stmt->bind_param("s", $email);
@@ -119,7 +119,7 @@
 
         mysqli_query($conn, $INSERT);
 
-        if($INSERT && sendMail($email,$code))
+        if($INSERT && sendMail($useremail,$code))
         {
           ?>      
           <script>alert("Verification mail sent. Please verify your email before logging in. Make sure to check your spam folder!")</script>

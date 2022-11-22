@@ -110,7 +110,7 @@ error_reporting();
           <div class = "attribute">
             <label>Email:</label>
             <?php
-              echo $_SESSION['email'];
+              echo $_SESSION['restaurantemail'];
             ?>
           </div>
 
