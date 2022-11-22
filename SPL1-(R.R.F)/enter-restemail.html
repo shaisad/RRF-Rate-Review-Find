@@ -40,7 +40,24 @@ img {
 }
 label {
     position: relative;
-    right: 30px;
+    right: 10px;
+}
+.banner form input[type="submit"]{
+    width: 100px 80px;
+    height: 20px;
+  	/* padding: 15px;
+  	margin-top: 20px;*/
+  	background-color:rgb(80, 31, 19); 
+ 	border: 0;
+  	cursor: pointer;
+  	color: #ffffff;
+  	transition: background-color 0.2s;
+    position: relative;
+    top: 60px;
+    right: 180px;
+}
+.banner form input[type="email"]{
+    width: 220px;
 }
 
     </style>
@@ -62,7 +79,7 @@ label {
     <form method = "post" action = "send-reset-link.php">
         <div class = "attribute">
         <label>Enter your email</label>
-        <input type = "email" name = "email" required>
+        <input type = "email" name = "restaurantemail" required>
         <input type = "submit"  value = "Send reset link">
         </div>
     </form>

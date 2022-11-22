@@ -233,16 +233,23 @@ img {
 
 .cardfix {
   position: relative;
-  left: 120px;
+  left: 200px;
+  width: 80%;
 }
 
 .heading{
   position: relative;
-  left: 200px;
+  left: 220px;
   top : 70px;
   font-size: 25px;
   color: rgb(80, 31, 19);
 }
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 grey;
+  transform: translate3D(0,-1px,0) scale(1.03);
+} 
+
 
 
 
@@ -354,31 +361,14 @@ img {
            if($check_userr){
             while($row = mysqli_fetch_assoc($queryy_run)){
               ?>
-                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" />
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top"/>
                  
               <?php
             }
            }
         ?>
 
-                    <p><button class="cardbtn">Rate Here
-          <div class="rate">
-              <input type="radio" id="star5" name="rate" value="5" />
-              <label for="star5" title="text">5 stars</label>
-              <input type="radio" id="star4" name="rate" value="4" />
-              <label for="star4" title="text">4 stars</label>
-              <input type="radio" id="star3" name="rate" value="3" />
-              <label for="star3" title="text">3 stars</label>
-              <input type="radio" id="star2" name="rate" value="2" />
-              <label for="star2" title="text">2 stars</label>
-              <input type="radio" id="star1" name="rate" value="1" />
-              <label for="star1" title="text">1 star</label>
-            </div>
-          </button></p>
-
-          <p><button class="cardbtn">Write a review..
-        </button></p>
-
+                  
           </div>
           </div>
           </div>

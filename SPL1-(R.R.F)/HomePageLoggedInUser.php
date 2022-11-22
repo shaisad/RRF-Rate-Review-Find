@@ -30,11 +30,7 @@ body{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
-<<<<<<< HEAD
-    left :30px;
-=======
     left: 30px ;
->>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
     
 }
 
@@ -116,21 +112,12 @@ body{
   color: white;
 }
 
-<<<<<<< HEAD
-/*.container{
-  padding: 2px 16px;
-=======
 /* .container{
->>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
   position: relative;
   left: 5px;
   bottom: 10px;
 
-<<<<<<< HEAD
-} */
-=======
 }  */
->>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
 
 img {
     width: 180px;
@@ -178,9 +165,6 @@ img {
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-<<<<<<< HEAD
-}*/
-=======
 } 
 
 .container {
@@ -190,7 +174,6 @@ img {
   bottom: 10px;
 
 }  */
->>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
 
 .rate {
     float: left;
@@ -250,12 +233,19 @@ img {
 
 .cardfix {
   position: relative;
-  left: 120px;
+  left: 200px;
+  width: 80%;
 }
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 grey;
+  transform: translate3D(0,-1px,0) scale(1.03);
+} 
+
 
 .heading{
   position: relative;
-  left: 200px;
+  left: 220px;
   top : 70px;
   font-size: 25px;
   color: rgb(80, 31, 19);
@@ -280,7 +270,7 @@ img {
     </div>
         <a href="UserProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
-        <a href="enter-email.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
+        <a href="enter-useremail.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="userlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div> 
 
@@ -342,17 +332,6 @@ img {
        <?php 
       require 'dbConfig.php';
 
-<<<<<<< HEAD
-
-    <p class = heading> All restaurants</p>
-    <div class="cardfix">
-   <div class="container py-5">
-    <div class="row mt-3">
-       <?php 
-      require 'dbConfig.php';
-
-=======
->>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
       $query = "SELECT * FROM restaurant where status=1";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
@@ -382,7 +361,7 @@ img {
            if($check_userr){
             while($row = mysqli_fetch_assoc($queryy_run)){
               ?>
-                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" />
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top"/>
                  
               <?php
             }
