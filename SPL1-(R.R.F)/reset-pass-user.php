@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <form method="post" action="reset-pass-code.php">
+    <form method="post" action="reset-pass-code-user.php">
     <label>Create new password</label>
       <input type = "password" name = "password" required>
                     
@@ -18,8 +18,8 @@
                     
       
       <input type="submit" name="save" value = "Save changes">
-      <input type = "hidden" name = "code" value = "<?php if (isset($_GET['code'])){echo $_GET['code'];} ?>">
-                <input type = "hidden" name = "email" value = "<?php if (isset($_GET['email'])){echo $_GET['email'];} ?>">
+      <input type = "hidden" name = "code" value = "<?php if (isset($_POST['code'])){echo $_POST['code'];} ?>">
+                <input type = "hidden" name = "useremail" value = "<?php if (isset($_POST['useremail'])){echo $_POST['useremail'];} ?>">
     </form>
  
 </body>
