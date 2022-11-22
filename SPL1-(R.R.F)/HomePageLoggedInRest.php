@@ -236,6 +236,16 @@ img {
   left: 120px;
 }
 
+.heading{
+  position: relative;
+  left: 200px;
+  top : 70px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+}
+
+
+
 </style>
 </head>
 
@@ -307,7 +317,7 @@ img {
         <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
         
     </div>
-
+    <p class = heading> All restaurants </p>
     <!-- card -->
    <div class="cardfix">
    <div class="container py-5">

@@ -229,6 +229,16 @@ img {
   opacity: 0.7;
 }
 
+.heading{
+  position: relative;
+  left: 200px;
+  top : 70px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+}
+
+
+
 </style>
 </head>
 
@@ -302,7 +312,7 @@ img {
     </div>
 
 
-    
+    <p class = heading> All restaurants</p>
     <div class="container">
         
     <div class="row row-cols-1 row-cols-md-4 g-4">
