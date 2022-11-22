@@ -41,7 +41,7 @@ if (!$conn) {
 
     $mail->isHTML(true);
 
-    $mail->Subject = "Reset Password Mail";
+    $mail->Subject = "RRF- Reset Password Mail";
 
     $mail->setFrom("rrfratereviewfind@gmail.com");
 

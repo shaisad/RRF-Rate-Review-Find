@@ -40,7 +40,7 @@
 
     $mail->isHTML(true);
 
-    $mail->Subject = "Verify Mail";
+    $mail->Subject = "RRF - Verify Mail";
 
     $mail->setFrom("rrfratereviewfind@gmail.com");
 
