@@ -47,9 +47,9 @@
     $mail->setFrom("rrfratereviewfind@gmail.com");
 
     $mail->Body = "Dear restaurant, Thank you for registering. Click the link to verify your email
-                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/restaurantverify.php?email=$email&code=$code'> Verify </a>";
+                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/restaurantverify.php?email=$restaurantemail&code=$code'> Verify </a>";
 
-    $mail->addAddress($email);
+    $mail->addAddress($restaurantemail);
 
     if($mail->Send()){
         return true;
@@ -63,7 +63,7 @@
 
   if(!empty($restaurantname) && !empty($location)  && !empty($restaurantemail) && !empty($password) && !empty($confirm))
   {
-    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($_POST['restaurantemail'], FILTER_VALIDATE_EMAIL)) {
       ?>      
       echo <script>alert("Invalid Email!")</script>
       <?php
