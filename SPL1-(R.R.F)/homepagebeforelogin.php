@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>RRF Home Page</title>
-
     
-</head>
+<!-- Bootstrap CSS -->
+
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>RRF Home Page</title>
+    
+
 
 
 <style>
@@ -22,19 +26,15 @@ body{
     overflow-x: hidden;
 }
 
-.search{
+ .search{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    left: 100px;
-    bottom: 80px;
-    height: 50px;
-    width: 600px;
-    color: #fff;
-
+    left: 20px ;
+    bottom: 85px;
 }
 
-.search-box input{
+.search-box input[type="text"]{
     height: 100%;
     width: 100%;
     border: none;
@@ -48,13 +48,36 @@ body{
     height: 50px;
     width: 600px;
     color: #fff;
+    position: relative;
+    left: 100px;
+    bottom: 15px;
 }
+
+
+.result{
+        position: absolute;        
+        z-index: 999;
+        top: 100%;
+        left: 0;
+    }
+
+.result p{
+        margin: 0;
+        padding: 7px 10px;
+        border: 1px solid #CCCCCC;
+        border-top: none;
+        cursor: pointer;
+    }
+
+.result p:hover{
+        background: #f2f2f2;
+    }
 
 
 .search-btn {
     position: relative;
-    left: 560px;
-    bottom: 33px;
+    left: 550px;
+    bottom: 35px;
     height: 50px;
     width: 70px;
     color: rgb(80, 31, 19) ;
@@ -65,7 +88,6 @@ body{
     color: rgb(100, 91, 148);
 }
 
-
 .btnn {
   border: none;
   outline: none;
@@ -73,9 +95,9 @@ body{
   cursor: pointer;
   color: rgb(80, 31, 19);
   position: relative;
-  left: 60px;
-  bottom: 70px;
+  left: 125px;
   border-radius: 10px;
+  bottom: 80px;
 }
 
 
@@ -99,29 +121,59 @@ body{
 
 img {
     width: 180px;
+    top: 300px;
+    left: 100px;
 }
+
+/* .sidebar {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  background-color: rgb(241, 191, 114);
+  
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(80, 31, 19);
+  display: block;
+  position: relative;
+  top: 10px;
+  left: 5px;
+}
+
+.sidebar a:hover {
+  color: gray;
+} */
 
 /* .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 20%;
+  width: 25%;
   position: relative;
-  left: 200px;
+  left: 100px;
   background-color: white;
+  top: 45px;
   margin-bottom: 40px;
-} */
+} 
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+} 
 
 .container {
   padding: 2px 16px;
   position: relative;
-  left: 5px;
+  left: 60px;
   bottom: 10px;
 
-}
+}  */
 
 .rate {
     float: left;
@@ -179,17 +231,44 @@ img {
   opacity: 0.7;
 }
 
+.cardfix {
+  position: relative;
+  left: 25px;
+  bottom: 140px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 grey;
+  transform: translate3D(0,-1px,0) scale(1.03);
+} 
+
+
+.heading{
+  position: relative;
+  left: 120px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  bottom:60px;
+}
+
+
+
 </style>
+</head>
 
 
 <body>
+
+    
+    
+     <div class="sidebar">
 
     <div class="logo">
 
         <img class="rrflogo" src="cover.png" alt="logo">
 
-    </div>
-      
+    
+  
     <div class="container mt-5">
         
             <div class="search">
@@ -201,7 +280,6 @@ img {
         
          <div id="search_result"></div>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -216,118 +294,90 @@ img {
                         },
                         success: function (data) {
                             $('#search_result').html(data);
-                            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('position', 'relative').css('top', '5px');
+                            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
                             $("#live_search").focusout(function () {
-                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('position', 'relative').css('top', '5px');
+                                $('#search_result').css('display', 'none').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
                             });
                             $("#live_search").focusin(function () {
-                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('position', 'relative').css('top', '5px');
+                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
                             });
                         }
                     });
                 } else {
-                    $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white');
+                    $('#search_result').css('display', 'none');
                 }
             });
         });
     </script>
 
        
-        <!-- <button class="btnn show" onclick="filterSelection('all')"> Show all</button>
+        <button class="btnn show" onclick="filterSelection('all')"> Show all</button>
         <button class="btnn" onclick="filterSelection('top rated')"> Top Rated</button>
         <button class="btnn" onclick="filterSelection('price')"> Price Range</button>
         <button class="btnn" onclick="filterSelection('location')"> Location</button>
         <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
-         -->
-    </div>
-
-    <div class="container">
         
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+    </div>
+    <p class = heading> All restaurants </p>
+    <!-- card -->
+   <div class="cardfix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
 
-    <div class="card">
+      $query = "SELECT * FROM restaurant where status=1";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
       
-      <?php 
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?>
+          
+          <div class="col-md-3 mt-3">
+            <div class="card">
+
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
+            <p class="card-text"><?php echo $row['location']; ?></p>
+         
+            <!-- image fetch -->
+              <?php 
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-          // Get image data from database 
-          $result = $db->query("SELECT id, image, status, restaurantid FROM restaurant, images  WHERE restaurant.status=1 AND images.id=restaurant.restaurantid"); 
-          // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
-      ?>
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
 
-    <?php if($result->num_rows > 0){ ?> 
-          
-         <?php while($row = $result->fetch_assoc()){ ?> 
-         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
-         <?php } ?> 
-         
-         <?php }else{ ?> 
-        <p class="status error">Image(s) not found...</p> 
-        <?php } 
-      ?>
-
-<?php
-
-$host = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbname = "rrf";
-
-$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
-
-if (mysqli_connect_error())
-{
-die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
-}
-
-  $query = "SELECT * FROM restaurant where status=1";
-  $query_run = mysqli_query($conn, $query);
-  $check_user = mysqli_num_rows($query_run) > 0;
-
-  if($check_user){
-
-    while($row = mysqli_fetch_assoc($query_run)){
-         
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top"/>
+                 
+              <?php
+            }
+           }
         ?>
 
-      <div class="card-body">
-      <!-- <a class="card-link stretched-link" href="RestaurantInfo.html"></a> -->
-        <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
-         <p class="card-text"><?php echo $row['location']; ?></p>
+            
 
-         <p><button class="cardbtn">Rate Here
-          <div class="rate">
-              <input type="radio" id="star5" name="rate" value="5" />
-              <label for="star5" title="text">5 stars</label>
-              <input type="radio" id="star4" name="rate" value="4" />
-              <label for="star4" title="text">4 stars</label>
-              <input type="radio" id="star3" name="rate" value="3" />
-              <label for="star3" title="text">3 stars</label>
-              <input type="radio" id="star2" name="rate" value="2" />
-              <label for="star2" title="text">2 stars</label>
-              <input type="radio" id="star1" name="rate" value="1" />
-              <label for="star1" title="text">1 star</label>
-            </div>
+          </div>
+          </div>
+          </div>
 
-        </button></p>
-        <p><button class="cardbtn">Write a review..
-        </button></p>
+          <?php
+        }
+      }
 
-
-      </div>
+      ?>
     </div>
-   </div>
     </div>
-  <?php
-
-
-    }
-  }
-  ?> 
-
-
-  
+    </div>
+   
+       
     
 </body>
 
@@ -336,8 +386,3 @@ die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
 
 
 
-
-
-    
-
-   
