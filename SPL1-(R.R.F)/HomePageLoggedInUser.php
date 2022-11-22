@@ -1,6 +1,4 @@
-
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +30,11 @@ body{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
+<<<<<<< HEAD
     left :30px;
+=======
+    left: 30px ;
+>>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
     
 }
 
@@ -54,11 +56,6 @@ body{
     left: 100px;
     bottom: 15px;
 }
-/*
-.search-box input[type="text"], .result{
-        width: 100%;
-        box-sizing: border-box;
-    } */
 
 
 .result{
@@ -102,7 +99,7 @@ body{
   cursor: pointer;
   color: rgb(80, 31, 19);
   position: relative;
-  left: 105px;
+  left: 125px;
   top: 10px;
   border-radius: 10px;
 }
@@ -119,13 +116,21 @@ body{
   color: white;
 }
 
+<<<<<<< HEAD
 /*.container{
   padding: 2px 16px;
+=======
+/* .container{
+>>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
   position: relative;
-  left: 60px;
+  left: 5px;
   bottom: 10px;
 
+<<<<<<< HEAD
 } */
+=======
+}  */
+>>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
 
 img {
     width: 180px;
@@ -163,9 +168,9 @@ img {
 /* .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 20%;
+  width: 25%;
   position: relative;
-  left: 200px;
+  left: 100px;
   background-color: white;
   top: 45px;
   margin-bottom: 40px;
@@ -173,7 +178,19 @@ img {
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+<<<<<<< HEAD
 }*/
+=======
+} 
+
+.container {
+  padding: 2px 16px;
+  position: relative;
+  left: 60px;
+  bottom: 10px;
+
+}  */
+>>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
 
 .rate {
     float: left;
@@ -231,6 +248,11 @@ img {
   opacity: 0.7;
 }
 
+.cardfix {
+  position: relative;
+  left: 120px;
+}
+
 .heading{
   position: relative;
   left: 200px;
@@ -247,7 +269,7 @@ img {
 
 <body>
 
-
+    
     
      <div class="sidebar">
 
@@ -258,7 +280,7 @@ img {
     </div>
         <a href="UserProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
-        <a href="reset_pass.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
+        <a href="enter-email.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="userlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div> 
 
@@ -288,12 +310,12 @@ img {
                         },
                         success: function (data) {
                             $('#search_result').html(data);
-                            $('#search_result').css('display', 'block');
+                            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
                             $("#live_search").focusout(function () {
-                                $('#search_result').css('display', 'none');
+                                $('#search_result').css('display', 'none').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
                             });
                             $("#live_search").focusin(function () {
-                                $('#search_result').css('display', 'block');
+                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
                             });
                         }
                     });
@@ -312,7 +334,15 @@ img {
         <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
         
     </div>
+    <p class = heading> All restaurants </p>
+    <!-- card -->
+   <div class="cardfix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
 
+<<<<<<< HEAD
 
     <p class = heading> All restaurants</p>
     <div class="cardfix">
@@ -321,6 +351,8 @@ img {
        <?php 
       require 'dbConfig.php';
 
+=======
+>>>>>>> 3c2492d270c2a8068a4a971b7d61eb55c411ca4d
       $query = "SELECT * FROM restaurant where status=1";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
