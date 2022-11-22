@@ -17,7 +17,7 @@ if (!$conn) {
   use PHPMailer\PHPMailer\SMTP;
   use PHPMailer\PHPMailer\Exception;
 
-  function sendMail($email,$code)
+  function sendMail($useremail,$code)
   {
     require ("PHPMailer/PHPMailer.php");
     require ("PHPMailer/SMTP.php");
@@ -46,9 +46,9 @@ if (!$conn) {
     $mail->setFrom("rrfratereviewfind@gmail.com");
 
     $mail->Body = "Dear concerned, Here is the link to reset your password. 
-                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/reset-pass.php?email=$email&code=$code'> Click here to reset </a>";
+                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/reset-pass.php?useremail=$useremail&code=$code'> Click here to reset </a>";
 
-    $mail->addAddress($email);
+    $mail->addAddress($useremail);
 
     if($mail->Send()){
         return true;
@@ -61,24 +61,24 @@ if (!$conn) {
 
   $code = bin2hex(random_bytes(16));
 
-  $email = $_POST['email'];
+  $useremail = $_POST['useremail'];
 
-  if (isset($email))
+  if (isset($useremail))
   {
-    $update = "UPDATE user SET code = '$code' where email = '$email'";
-    $update2 = "UPDATE restaurant SET code = '$code' where email = '$email'";
+    $update = "UPDATE user SET code = '$code' where useremail = '$useremail'";
+   // $update2 = "UPDATE restaurant SET code = '$code' where email = '$email'";
 
     $result = mysqli_query($conn, $update);
-    $result2 = mysqli_query($conn, $update2);
+   // $result2 = mysqli_query($conn, $update2);
 
-    if ($result && sendMail($email, $code))
+    if ($result && sendMail($useremail, $code))
     {
         echo "Mail sent to reset password. Please reset your password before logging in. Make sure to check your spam folder!";
     }
-    else if ($result2 == 1 && sendMail($email, $code))
-    {
-        echo "Mail sent to reset password. Please reset your password before logging in. Make sure to check your spam folder!";
-    }
+    // else if ($result2 == 1 && sendMail($useremail, $code))
+    // {
+    //     echo "Mail sent to reset password. Please reset your password before logging in. Make sure to check your spam folder!";
+    // }
     else
     {
         echo "Error";
