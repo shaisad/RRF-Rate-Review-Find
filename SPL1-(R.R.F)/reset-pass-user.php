@@ -18,8 +18,8 @@
                     
       
       <input type="submit" name="save" value = "Save changes">
-      <input type = "hidden" name = "code" value = "<?php if (isset($_POST['code'])){echo $_POST['code'];} ?>">
-                <input type = "hidden" name = "useremail" value = "<?php if (isset($_POST['useremail'])){echo $_POST['useremail'];} ?>">
+      <input type = "hidden" name = "code" value = "<?php if (isset($_GET['code'])){echo $_GET['code'];} ?>">
+                <input type = "hidden" name = "useremail" value = "<?php if (isset($_GET['useremail'])){echo $_GET['useremail'];} ?>">
     </form>
  
 </body>

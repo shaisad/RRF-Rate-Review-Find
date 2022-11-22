@@ -54,10 +54,7 @@ if (isset($_POST['save']))
     }
 
     
-        else
-        {
-            echo "Passwords don't match!";
-        }
+        
 
 }
 
