@@ -47,7 +47,7 @@
     $mail->setFrom("rrfratereviewfind@gmail.com");
 
     $mail->Body = "Dear restaurant, Thank you for registering. Click the link to verify your email
-                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/restaurantverify.php?email=$restaurantemail&code=$code'> Verify </a>";
+                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/restaurantverify.php?restaurantemail=$restaurantemail&code=$code'> Verify </a>";
 
     $mail->addAddress($restaurantemail);
 

@@ -32,6 +32,7 @@ body{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
+    left :30px;
     
 }
 
@@ -118,13 +119,13 @@ body{
   color: white;
 }
 
-.container{
+/*.container{
   padding: 2px 16px;
   position: relative;
   left: 60px;
   bottom: 10px;
 
-} 
+} */
 
 img {
     width: 180px;
@@ -168,11 +169,12 @@ img {
   background-color: white;
   top: 45px;
   margin-bottom: 40px;
-} */
+} 
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+}*/
+
 .rate {
     float: left;
     height: 46px;
@@ -313,62 +315,49 @@ img {
 
 
     <p class = heading> All restaurants</p>
-    <div class="container">
-        
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="cardfix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
 
-    <div class="card">
+      $query = "SELECT * FROM restaurant where status=1";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
       
-      <?php 
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?>
+          
+          <div class="col-md-3 mt-3">
+            <div class="card">
+
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
+            <p class="card-text"><?php echo $row['location']; ?></p>
+         
+            <!-- image fetch -->
+              <?php 
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-          // Get image data from database 
-          $result = $db->query("SELECT restaurantid, resimageid, imageid, image from restaurant, images where restaurant.resimageid= images.imageid"); 
-          // SELECT imageid, filename, status FROM image NATURAL JOIN restaurant WHERE status=1
-      ?>
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
 
-    <?php if($result->num_rows > 0){ ?> 
-          
-         <?php while($row = $result->fetch_assoc()){ ?> 
-         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /> 
-         <?php } ?> 
-         
-         <?php }else{ ?> 
-        <p class="status error">Image(s) not found...</p> 
-        <?php } 
-      ?>
-
-<?php
-
-$host = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbname = "rrf";
-
-$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
-
-if (mysqli_connect_error())
-{
-die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
-}
-
-  $query = "SELECT * FROM restaurant where status=1";
-  $query_run = mysqli_query($conn, $query);
-  $check_user = mysqli_num_rows($query_run) > 0;
-
-  if($check_user){
-
-    while($row = mysqli_fetch_assoc($query_run)){
-         
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" />
+                 
+              <?php
+            }
+           }
         ?>
 
-      <div class="card-body">
-      <!--<a class="card-link stretched-link" href="RestaurantInfo.html"></a>-->
-        <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
-         <p class="card-text"><?php echo $row['location']; ?></p>
-
-         <p><button class="cardbtn">Rate Here
+                    <p><button class="cardbtn">Rate Here
           <div class="rate">
               <input type="radio" id="star5" name="rate" value="5" />
               <label for="star5" title="text">5 stars</label>
@@ -381,26 +370,24 @@ die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
               <input type="radio" id="star1" name="rate" value="1" />
               <label for="star1" title="text">1 star</label>
             </div>
+          </button></p>
 
+          <p><button class="cardbtn">Write a review..
         </button></p>
-        <p><button class="cardbtn">Write a review..
-        </button></p>
 
+          </div>
+          </div>
+          </div>
 
-      </div>
+          <?php
+        }
+      }
+
+      ?>
     </div>
-   </div>
     </div>
-  <?php
-
-
-    }
-  }
-  ?> 
-
-
-      
-
+    </div>
+   
        
     
 </body>
@@ -410,3 +397,5 @@ die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
 
 
 
+
+    
