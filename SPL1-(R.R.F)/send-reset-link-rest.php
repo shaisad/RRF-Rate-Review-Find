@@ -46,7 +46,7 @@ if (!$conn) {
     $mail->setFrom("rrfratereviewfind@gmail.com");
 
     $mail->Body = "Dear concerned, Here is the link to reset your password. 
-                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/reset-pass.php?restaurantemail=$restaurantemail&code=$code'> Click here to reset </a>";
+                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/reset-pass-res.php?restaurantemail=$restaurantemail&code=$code'> Click here to reset </a>";
 
     $mail->addAddress($restaurantemail);
 
