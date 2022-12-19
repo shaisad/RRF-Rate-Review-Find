@@ -131,7 +131,7 @@
     </div>
 
 <div class="container">
-  <form action="/action_page.php">
+  <form action="foodconnect.php">
     <div class="row">
       <div class="col-25">
         <label for="foodname">Food's Name</label>
@@ -171,19 +171,21 @@
       </div>
     </div>
     <div class="row">
+      <form action="foodupload.php" method="post" enctype="multipart/form-data">
         <div class="col-25">
           <label for="foodimage">Food's Image</label>
         </div>
         <div class="col-75">
-          <input type="file" id="foodimage" name="foodimage">
+          <input type="file" id="image" name="image">
         </div>
       </div>
     <div class="row">
-      <input type="submit" value="Submit">
+      <input type="submit" name="submit" value="Upload">
       <div class="btn" id="btn">
          <a href="AddMenu.html" target="_self">Add Another Food Item</a>
        </div>
     </div>
+   </form>
   </form>
 </div>
 

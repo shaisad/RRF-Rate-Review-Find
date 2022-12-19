@@ -138,21 +138,62 @@ body{
 
         <p>
             <img class="handrice" src="handrice.png" alt="logo">
-            <h1 class="restname">Restaurant's Name</h1>
+
+            <?php 
+      require 'dbConfig.php';
+
+      $query = "SELECT restaurantname FROM restaurant where restaurant.restaurantname= '$row[restaurantname]'";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?>
+
+            <h1 class="restname"><?php echo $row['restaurantname']; ?></h1>
+
+             <!-- image fetch -->
+             <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="img-fluid"/>
+                 
+              <?php
+            }
+           }
+        ?>
+
+<?php
+        }
+      }
+
+      ?>
             <img class="rrflogo" src="cover.png" alt="logo">
         </p>
 
     </div>
 
+   
+
 <div class="cardi">
 
   <div class="foodcard">
-    <div class="card mb-3" style="max-width: 100%;">
+    <!-- <div class="card mb-3" style="max-width: 100%;">
         <div class="row g-0">
           <div class="col-md-4">
             <img class="foodimg" src="Photos 18_10_2022 8_31_57 PM.png" class="img-fluid rounded-start" alt="..."/>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-6">
             <div class="card-body">
               <h5 class="card-title">Food's Name</h5>
               <p>Food Description</p>
@@ -188,25 +229,51 @@ body{
           </div>
         </div>
     </div>
-  </div>
+  </div> -->
 
- 
-    <div class="card mb-3" style="max-width: 100%;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img class="foodimg" src="Photos 18_10_2022 8_32_21 PM.png" class="img-fluid rounded-start" alt="..."/>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Food's Name</h5>
-              <p>Food Description</p>
-              <p>Category</p>
-              <p>Price</p>
+   
+         
+
+<!-- card -->
+
+<div class="cardfix">
+  <div class="container py-5">
+   <div class="row mt-3">
+    <div class="col-md-6 mt-3">
+          
+        <div class="col-md-4">
+          <?php 
+              require 'dbConfig.php';
+        
+              $query = "SELECT * FROM food where food.foodname= '$row[foodname]'";
+              $query_run = mysqli_query($db, $query);
+              $check_user = mysqli_num_rows($query_run) > 0;
+              
+              if($check_user)
+              {
+                while($row = mysqli_fetch_assoc($query_run))
+                {
+                  ?>
+              
+                  <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"  class="img-fluid rounded-start"/>
+                  
+               <?php
+             }
+            }
+         ?>
+        </div>
+           <div class="card">
+
+         <div class="card-body">
+         <h5 class="card-title"><?php echo $row['foodname']; ?></h5>
+              <p><?php echo $row['subject']; ?></p>
+              <p><?php echo $row['category']; ?></p>
+              <p><?php echo $row['price']; ?></p>
               <p>
                 <p>Totalrates  Totalreviews</p>
               </p>
-
-            <p>
+        
+              <p>
                Rate Here:
                 <div class="rate">
                     <input type="radio" id="star5" name="rate" value="5" />
@@ -226,16 +293,22 @@ body{
                         <a href="FoodProfile.html" target="_self">See Details</a>
                         </div>
                 </p>
-             
-            </div>
+        
+
           </div>
         </div>
+      </div>
     </div>
   </div>
+</div>
 
+         <?php
+
+?>
   </div>
 </div>
-    
+
+   
 </body>
 
 </html>
