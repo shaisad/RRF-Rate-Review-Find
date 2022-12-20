@@ -346,6 +346,7 @@ img {
             <div class="card">
 
           <div class="card-body">
+          <a class="card-link stretched-link" href="RestaurantInfo.php">
             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text"><?php echo $row['location']; ?></p>
          
@@ -384,7 +385,7 @@ img {
           </button></p>
 
           <p><button class="cardbtn">Write a review..
-        </button></p>
+        </button></p></a>
 
           </div>
           </div>
