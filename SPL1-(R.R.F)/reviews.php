@@ -3,7 +3,7 @@
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
-$DATABASE_NAME = 'phpreviews';
+$DATABASE_NAME = 'rrf';
 try {
     $pdo = new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
 } catch (PDOException $exception) {
@@ -20,8 +20,9 @@ if (isset($_GET['restaurantid'])) {
         $stmt->execute([$_GET['restaurantid'], $_POST['username'], $_POST['review'], $_POST['rating']]);
         exit('Your review has been submitted!');
     }
+    require_once 'dbConfig.php';
     // Get all reviews by the Page ID ordered by the submit date
-    $stmt = $pdo->prepare('SELECT * FROM reviews WHERE restaurantid = ? ORDER BY submitdate DESC');
+    $stmt = $pdo->prepare("SELECT * FROM reviews, restaurant, user WHERE restaurantid = ? AND reviews.restaurantid = restaurant.restaurantid AND restaurant.status = 1 AND restaurant.restaurantname = '$row[restaurantname]' AND user.username = reviews.username ORDER BY submitdate DESC");
     $stmt->execute([$_GET['restaurantid']]);
     $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // Get the overall rating and total amount of reviews
