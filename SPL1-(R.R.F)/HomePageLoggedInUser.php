@@ -112,12 +112,6 @@ body{
   color: white;
 }
 
-/* .container{
-  position: relative;
-  left: 5px;
-  bottom: 10px;
-
-}  */
 
 img {
     width: 180px;
@@ -151,29 +145,6 @@ img {
 .sidebar a:hover {
   color: gray;
 }
-
-/* .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 25%;
-  position: relative;
-  left: 100px;
-  background-color: white;
-  top: 45px;
-  margin-bottom: 40px;
-} 
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-} 
-
-.container {
-  padding: 2px 16px;
-  position: relative;
-  left: 60px;
-  bottom: 10px;
-
-}  */
 
 .rate {
     float: left;
@@ -213,7 +184,7 @@ img {
     color: #c59b08;
 }
 
-.cardbtn {
+.cardbtn a {
   border: none;
   outline: 0;
   display: inline-block;
@@ -255,6 +226,24 @@ img {
 
 </style>
 </head>
+
+<script>
+
+  function passvalues(){
+
+    var restaurantname=document.getElementById("rname").value;
+    var restaurantlocation=document.getElementById("rlocation").value;
+    var restaurantimage=document.getElementById("rimage").value;
+
+    localStorage.setItem("rnamevalue", restaurantname);
+    localStorage.setItem("rlocationvalue", restaurantlocation);
+    localStorage.setItem("rimagevalue", restaurantimage);
+
+    return false;
+
+  }
+
+</script>
 
 
 <body>
@@ -325,6 +314,7 @@ img {
         
     </div>
     <p class = heading> All restaurants </p>
+
     <!-- card -->
    <div class="cardfix">
    <div class="container py-5">
@@ -344,10 +334,11 @@ img {
           
           <div class="col-md-3 mt-3">
             <div class="card">
-
-          <div class="card-body">
-            <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
-            <p class="card-text"><?php echo $row['location']; ?></p>
+            <a class="card-link stretched-link" href="RestaurantInfo.php">
+          <div class="card-body" value="click" onclick="passvalues();">
+          
+            <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+            <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
          
             <!-- image fetch -->
               <?php 
@@ -361,14 +352,14 @@ img {
            if($check_userr){
             while($row = mysqli_fetch_assoc($queryy_run)){
               ?>
-                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top"/>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
                  
               <?php
             }
            }
         ?>
 
-                    <p><button class="cardbtn">Rate Here
+                    <!-- <p><button class="cardbtn" id="btn1">Rate Here
           <div class="rate">
               <input type="radio" id="star5" name="rate" value="5" />
               <label for="star5" title="text">5 stars</label>
@@ -381,10 +372,13 @@ img {
               <input type="radio" id="star1" name="rate" value="1" />
               <label for="star1" title="text">1 star</label>
             </div>
-          </button></p>
+          </button></p> -->
 
-          <p><button class="cardbtn">Write a review..
-        </button></p>
+                    <div class="cardbtn">
+                        <a href="#" target="_self">Review Section</a>
+                        <a href="RestaurantInfo.php" target="_self">See Details</a>
+                        </div>
+                      </a>
 
           </div>
           </div>

@@ -139,49 +139,22 @@ body{
         <p>
             <img class="handrice" src="handrice.png" alt="logo">
 
-            <?php 
-      require 'dbConfig.php';
+            <h1 class="restname"><span id="restnameresult"></span></h1>
+            <h4 class="restlocation"><span id="restlocationresult"></span></h1>
 
-      $query = "SELECT restaurantname FROM restaurant where restaurant.restaurantname= '$row[restaurantname]'";
-      $query_run = mysqli_query($db, $query);
-      $check_user = mysqli_num_rows($query_run) > 0;
-      
-      if($check_user)
-      {
-        while($row = mysqli_fetch_assoc($query_run))
-        {
-          ?>
 
-            <h1 class="restname"><?php echo $row['restaurantname']; ?></h1>
-
-             <!-- image fetch -->
-             <?php 
-          // Include the database configuration file  
-           require_once 'dbConfig.php'; 
-
-           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
-           $queryy_run = mysqli_query($db, $queryy);
-           $check_userr = mysqli_num_rows($queryy_run) > 0;
-
-           if($check_userr){
-            while($row = mysqli_fetch_assoc($queryy_run)){
-              ?>
                  <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="img-fluid"/>
                  
-              <?php
-            }
-           }
-        ?>
-
-<?php
-        }
-      }
-
-      ?>
             <img class="rrflogo" src="cover.png" alt="logo">
         </p>
 
     </div>
+
+    <script>
+      document.getElementById("restnameresult").innerHTML=localStorage.getItem("rnamevalue");
+      document.getElementById("restlocationresult").innerHTML=localStorage.getItem("rlocationvalue");
+      document.getElementById("restnameresult").innerHTML=localStorage.getItem("rnamevalue");
+    </script>
 
    
 
