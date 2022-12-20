@@ -231,9 +231,9 @@ img {
 
   function passvalues(){
 
-    var restaurantname=document.getElementById("rname").value;
-    var restaurantlocation=document.getElementById("rlocation").value;
-    var restaurantimage=document.getElementById("rimage").value;
+    var restaurantname=document.getElementById("rname");
+    var restaurantlocation=document.getElementById("rlocation");
+    var restaurantimage=document.getElementById("rimage");
 
     localStorage.setItem("rnamevalue", restaurantname);
     localStorage.setItem("rlocationvalue", restaurantlocation);
@@ -375,21 +375,10 @@ img {
             </div>
           </button></p> -->
 
-<<<<<<< HEAD
-    
-         <div class="btn1" id="btn1">
-         <a href="onclickreviewbutton.html" target="_self">Review Section</a>
-       </div>
-       <div class="btn2" id="btn2">
-         <a href="RestaurantInfo.php" target="_self">Show details</a>
-       </div>
-     
-=======
           <button class="cardbtn" id="btn1">   
             <a href="">Review Section</a> 
           </button>
 
-        
           <button class="cardbtn" id="btn2">
           <a href="RestaurantInfo.php"> Show Details </a>
           </button>
@@ -397,7 +386,6 @@ img {
 
         
     
->>>>>>> 50680873823295604d2ea0d7de4614d3d9182340
 
           </div>
           </div>
