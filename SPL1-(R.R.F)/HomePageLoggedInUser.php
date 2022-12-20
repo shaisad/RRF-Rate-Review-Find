@@ -112,6 +112,12 @@ body{
   color: white;
 }
 
+/* .container{
+  position: relative;
+  left: 5px;
+  bottom: 10px;
+
+}  */
 
 img {
     width: 180px;
@@ -145,6 +151,29 @@ img {
 .sidebar a:hover {
   color: gray;
 }
+
+/* .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 25%;
+  position: relative;
+  left: 100px;
+  background-color: white;
+  top: 45px;
+  margin-bottom: 40px;
+} 
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+} 
+
+.container {
+  padding: 2px 16px;
+  position: relative;
+  left: 60px;
+  bottom: 10px;
+
+}  */
 
 .rate {
     float: left;
@@ -184,31 +213,20 @@ img {
     color: #c59b08;
 }
 
-.cardbtn a {
+.cardbtn {
   border: none;
   outline: 0;
   display: inline-block;
- 
-  
+  padding: 8px;
+  color: white;
   background-color: rgb(80, 31, 19);
   text-align: center;
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-
- 
-  padding: 9px;
-  margin-right: 10px;
-  color: white;
-  background-color: rgb(80, 31, 19);
-  text-align: center;
-  cursor: pointer;
-  
-  font-size: 18px;
-  
 }
 
-.cardbtn a:hover
+.cardbtn:hover
 {
   opacity: 0.7;
 }
@@ -345,10 +363,9 @@ img {
           
           <div class="col-md-3 mt-3">
             <div class="card">
-            
+           
           <div class="card-body" value="click" onclick="passvalues();">
-
-          
+          <a class="card-link stretched-link" href="RestaurantInfo.php">
             <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
          
@@ -370,6 +387,7 @@ img {
             }
            }
            ?>
+          </a> 
 
           
 
@@ -388,11 +406,19 @@ img {
             </div>
           </button></p> -->
 
-                    <div class="cardbtn">
-                        <a href="onclickreviewbutton.html" target="_self">Review Section</a>
-                        <a href="RestaurantInfo.php" target="_self">See Details</a>
-                        </div>
-                      
+    <p>
+        <a href="">
+          <button class="cardbtn" id="btn1">
+            Review Section
+         </button>
+       </a>
+
+        <a href="RestaurantInfo.php">
+          <button class="cardbtn" id="btn2">
+            Show Details
+          </button>
+        </a>
+    </p>
 
           </div>
           </div>
