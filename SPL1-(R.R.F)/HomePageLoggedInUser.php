@@ -377,12 +377,6 @@ img {
             <div class="card">
             
           <div class="card-body" value="click" onclick="passvalues();">
-<<<<<<< HEAD
-
-          
-          
-=======
->>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
             <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
          
@@ -404,10 +398,6 @@ img {
             }
            }
            ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
           
 
                     <!-- <p><button class="cardbtn" id="btn1">Rate Here
@@ -425,13 +415,6 @@ img {
             </div>
           </button></p> -->
 
-<<<<<<< HEAD
-                    <div class="cardbtn">
-                        <a href="onclickreviewbutton.html" target="_self">Review Section</a>
-                        <a href="RestaurantInfo.php" target="_self">See Details</a>
-                        </div>
-                      
-=======
     <p>
         <div class="btn1" id="btn1">
          <a href="#" target="_self">Review Section</a>
@@ -440,7 +423,6 @@ img {
          <a href="RestaurantInfo.php" target="_self">Show details</a>
        </div>
     </p>
->>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
 
           </div>
           </div>
