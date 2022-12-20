@@ -184,14 +184,10 @@ img {
     color: #c59b08;
 }
 
-<<<<<<< HEAD
-.cardbtn a {
-=======
-.btn1 {
->>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
+.cardbtn {
   border: none;
   outline: 0;
-  display: block;
+  display: inline-block;
   padding: 8px;
   color: white;
   background-color: rgb(80, 31, 19);
@@ -199,49 +195,12 @@ img {
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-  text-decoration:none;
-}
-.btn2 {
-  border: none;
-  outline: 0;
-  display: block;
-  padding: 8px;
-  color: white;
-  background-color: rgb(80, 31, 19);
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  position: relative;
-  top: 3px;
-  text-decoration:none;
 }
 
-.btn1 .btn2:hover
+.cardbtn:hover
 {
   opacity: 0.7;
 }
-
-/* .btn a {
-  float: left;
-  display: block;
-  color: rgb(219, 216, 216);
-  text-align: center;
-  padding: 12px 20px;
-  text-decoration:none;
-  font-size: 16px;
-  background-color:rgb(80, 31, 19);
-  margin: 10px;
-  border-radius: 5px;
-  position: relative;
-  top: 10px;
-  right: 20px;
-  width: 1120px;
-}
-
-.btn :hover{
-  opacity: 0.7;
-} */
 
 .cardfix {
   position: relative;
@@ -398,6 +357,7 @@ img {
             }
            }
            ?>
+
           
 
                     <!-- <p><button class="cardbtn" id="btn1">Rate Here
@@ -415,6 +375,7 @@ img {
             </div>
           </button></p> -->
 
+<<<<<<< HEAD
     
          <div class="btn1" id="btn1">
          <a href="onclickreviewbutton.html" target="_self">Review Section</a>
@@ -423,6 +384,20 @@ img {
          <a href="RestaurantInfo.php" target="_self">Show details</a>
        </div>
      
+=======
+          <button class="cardbtn" id="btn1">   
+            <a href="">Review Section</a> 
+          </button>
+
+        
+          <button class="cardbtn" id="btn2">
+          <a href="RestaurantInfo.php"> Show Details </a>
+          </button>
+       
+
+        
+    
+>>>>>>> 50680873823295604d2ea0d7de4614d3d9182340
 
           </div>
           </div>
