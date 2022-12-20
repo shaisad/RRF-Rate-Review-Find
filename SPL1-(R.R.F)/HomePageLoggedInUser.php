@@ -363,9 +363,9 @@ img {
           
           <div class="col-md-3 mt-3">
             <div class="card">
-            <a class="card-link stretched-link" href="RestaurantInfo.php">
+           
           <div class="card-body" value="click" onclick="passvalues();">
-          
+          <a class="card-link stretched-link" href="RestaurantInfo.php">
             <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
          
@@ -386,7 +386,10 @@ img {
               <?php
             }
            }
-        ?>
+           ?>
+          </a> 
+
+          
 
                     <!-- <p><button class="cardbtn" id="btn1">Rate Here
           <div class="rate">
@@ -403,7 +406,7 @@ img {
             </div>
           </button></p> -->
 
-      <p>
+    <p>
         <a href="">
           <button class="cardbtn" id="btn1">
             Review Section
