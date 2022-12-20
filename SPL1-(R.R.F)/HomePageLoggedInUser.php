@@ -415,14 +415,14 @@ img {
             </div>
           </button></p> -->
 
-    <p>
-        <div class="btn1" id="btn1">
-         <a href="#" target="_self">Review Section</a>
+    
+         <div class="btn1" id="btn1">
+         <a href="onclickreviewbutton.html" target="_self">Review Section</a>
        </div>
        <div class="btn2" id="btn2">
          <a href="RestaurantInfo.php" target="_self">Show details</a>
        </div>
-    </p>
+     
 
           </div>
           </div>
