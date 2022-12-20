@@ -20,6 +20,8 @@ if (isset($_GET['restaurantid'])) {
         $stmt->execute([$_GET['restaurantid'], $_POST['username'], $_POST['review'], $_POST['rating']]);
         exit('Your review has been submitted!');
     }
+
+    
     require_once 'dbConfig.php';
     // Get all reviews by the Page ID ordered by the submit date
     $stmt = $pdo->prepare("SELECT * FROM reviews, restaurant, user WHERE restaurantid = ? AND reviews.restaurantid = restaurant.restaurantid AND restaurant.status = 1 AND restaurant.restaurantname = '$row[restaurantname]' AND user.username = reviews.username ORDER BY submitdate DESC");
