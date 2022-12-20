@@ -213,10 +213,10 @@ img {
     color: #c59b08;
 }
 
-.cardbtn {
+.btn1 {
   border: none;
   outline: 0;
-  display: inline-block;
+  display: block;
   padding: 8px;
   color: white;
   background-color: rgb(80, 31, 19);
@@ -225,11 +225,46 @@ img {
   width: 100%;
   font-size: 18px;
 }
+.btn2 {
+  border: none;
+  outline: 0;
+  display: block;
+  padding: 8px;
+  color: white;
+  background-color: rgb(80, 31, 19);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  position: relative;
+  top: 3px;
+}
 
-.cardbtn:hover
+.btn1 .btn2:hover
 {
   opacity: 0.7;
 }
+
+/* .btn a {
+  float: left;
+  display: block;
+  color: rgb(219, 216, 216);
+  text-align: center;
+  padding: 12px 20px;
+  text-decoration:none;
+  font-size: 16px;
+  background-color:rgb(80, 31, 19);
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+  top: 10px;
+  right: 20px;
+  width: 1120px;
+}
+
+.btn :hover{
+  opacity: 0.7;
+} */
 
 .cardfix {
   position: relative;
@@ -404,17 +439,12 @@ img {
           </button></p> -->
 
     <p>
-        <a href="">
-          <button class="cardbtn" id="btn1">
-            Review Section
-         </button>
-       </a>
-
-        <a href="RestaurantInfo.php">
-          <button class="cardbtn" id="btn2">
-            Show Details
-          </button>
-        </a>
+        <div class="btn1" id="btn1">
+         <a href="#" target="_self">Review Section</a>
+       </div>
+       <div class="btn2" id="btn2">
+         <a href="RestaurantInfo.php" target="_self">Show details</a>
+       </div>
     </p>
 
           </div>
