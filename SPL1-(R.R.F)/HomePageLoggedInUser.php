@@ -224,6 +224,7 @@ img {
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+  text-decoration:none;
 }
 .btn2 {
   border: none;
@@ -238,6 +239,7 @@ img {
   font-size: 18px;
   position: relative;
   top: 3px;
+  text-decoration:none;
 }
 
 .btn1 .btn2:hover
