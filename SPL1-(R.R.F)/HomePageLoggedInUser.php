@@ -375,7 +375,7 @@ img {
           </button></p> -->
 
                     <div class="cardbtn">
-                        <a href="#" target="_self">Review Section</a>
+                        <a href="onclickreviewbutton.html" target="_self">Review Section</a>
                         <a href="RestaurantInfo.php" target="_self">See Details</a>
                         </div>
                       </a>
