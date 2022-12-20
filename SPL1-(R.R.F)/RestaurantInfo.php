@@ -143,7 +143,7 @@ body{
             <h4 class="restlocation"><span id="restlocationresult"></span></h1>
 
 
-                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="img-fluid"/>
+                 <img src="#" class="img-fluid"/>
                  
             <img class="rrflogo" src="cover.png" alt="logo">
         </p>
@@ -153,7 +153,7 @@ body{
     <script>
       document.getElementById("restnameresult").innerHTML=localStorage.getItem("rnamevalue");
       document.getElementById("restlocationresult").innerHTML=localStorage.getItem("rlocationvalue");
-      document.getElementById("restnameresult").innerHTML=localStorage.getItem("rnamevalue");
+      document.getElementById("restnameresult").innerHTML=localStorage.getItem("rimagevalue");
     </script>
 
    
