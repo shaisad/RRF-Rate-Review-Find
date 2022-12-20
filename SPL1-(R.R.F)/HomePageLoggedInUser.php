@@ -184,10 +184,14 @@ img {
     color: #c59b08;
 }
 
+<<<<<<< HEAD
 .cardbtn a {
+=======
+.btn1 {
+>>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
   border: none;
   outline: 0;
-  display: inline-block;
+  display: block;
   padding: 8px;
   color: white;
   background-color: rgb(80, 31, 19);
@@ -195,12 +199,49 @@ img {
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+  text-decoration:none;
+}
+.btn2 {
+  border: none;
+  outline: 0;
+  display: block;
+  padding: 8px;
+  color: white;
+  background-color: rgb(80, 31, 19);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  position: relative;
+  top: 3px;
+  text-decoration:none;
 }
 
-.cardbtn:hover
+.btn1 .btn2:hover
 {
   opacity: 0.7;
 }
+
+/* .btn a {
+  float: left;
+  display: block;
+  color: rgb(219, 216, 216);
+  text-align: center;
+  padding: 12px 20px;
+  text-decoration:none;
+  font-size: 16px;
+  background-color:rgb(80, 31, 19);
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+  top: 10px;
+  right: 20px;
+  width: 1120px;
+}
+
+.btn :hover{
+  opacity: 0.7;
+} */
 
 .cardfix {
   position: relative;
@@ -336,9 +377,12 @@ img {
             <div class="card">
             
           <div class="card-body" value="click" onclick="passvalues();">
+<<<<<<< HEAD
 
           
           
+=======
+>>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
             <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
          
@@ -360,7 +404,10 @@ img {
             }
            }
            ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
           
 
                     <!-- <p><button class="cardbtn" id="btn1">Rate Here
@@ -378,11 +425,22 @@ img {
             </div>
           </button></p> -->
 
+<<<<<<< HEAD
                     <div class="cardbtn">
                         <a href="onclickreviewbutton.html" target="_self">Review Section</a>
                         <a href="RestaurantInfo.php" target="_self">See Details</a>
                         </div>
                       
+=======
+    <p>
+        <div class="btn1" id="btn1">
+         <a href="#" target="_self">Review Section</a>
+       </div>
+       <div class="btn2" id="btn2">
+         <a href="RestaurantInfo.php" target="_self">Show details</a>
+       </div>
+    </p>
+>>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
 
           </div>
           </div>
