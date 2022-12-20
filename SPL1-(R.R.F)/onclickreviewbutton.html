@@ -7,14 +7,10 @@
 		<link href="reviews.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	    <nav class="navtop">
-	    	<div>
-	    		<h1>Reviews System</h1>
-	    	</div>
-	    </nav>
+
 		<div class="content home">
 			<h2>Reviews</h2>
-			<p>Check out the below reviews for our website.</p>
+			
             <div class="reviews"></div>
 <script>
 const reviews_page_id = 1;
@@ -37,6 +33,7 @@ fetch("reviews.php?restaurantid=" + reviews_page_id).then(response => response.t
 });
 </script>
 		</div>
+		<p class>Check out the below reviews for our restaurant.</p>
 	</body>
 </html>
 
