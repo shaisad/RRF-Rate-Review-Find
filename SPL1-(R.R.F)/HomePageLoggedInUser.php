@@ -184,15 +184,7 @@ img {
     color: #c59b08;
 }
 
-<<<<<<< HEAD
 .cardbtn {
-=======
-<<<<<<< HEAD
-.cardbtn a {
-=======
-.btn1 {
->>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
->>>>>>> 6d59a0548157c1549816c5200beb2582afa4165b
   border: none;
   outline: 0;
   display: inline-block;
