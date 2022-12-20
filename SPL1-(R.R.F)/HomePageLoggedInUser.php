@@ -112,12 +112,6 @@ body{
   color: white;
 }
 
-/* .container{
-  position: relative;
-  left: 5px;
-  bottom: 10px;
-
-}  */
 
 img {
     width: 180px;
@@ -151,29 +145,6 @@ img {
 .sidebar a:hover {
   color: gray;
 }
-
-/* .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 25%;
-  position: relative;
-  left: 100px;
-  background-color: white;
-  top: 45px;
-  margin-bottom: 40px;
-} 
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-} 
-
-.container {
-  padding: 2px 16px;
-  position: relative;
-  left: 60px;
-  bottom: 10px;
-
-}  */
 
 .rate {
     float: left;
@@ -213,7 +184,15 @@ img {
     color: #c59b08;
 }
 
+<<<<<<< HEAD
 .cardbtn {
+=======
+<<<<<<< HEAD
+.cardbtn a {
+=======
+.btn1 {
+>>>>>>> 1d45dd13dec1ea9a7c150f78d342136808526c0d
+>>>>>>> 6d59a0548157c1549816c5200beb2582afa4165b
   border: none;
   outline: 0;
   display: inline-block;
@@ -363,7 +342,7 @@ img {
           
           <div class="col-md-3 mt-3">
             <div class="card">
-           
+            
           <div class="card-body" value="click" onclick="passvalues();">
             <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
