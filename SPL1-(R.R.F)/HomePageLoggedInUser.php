@@ -188,16 +188,27 @@ img {
   border: none;
   outline: 0;
   display: inline-block;
-  padding: 8px;
-  color: white;
+ 
+  
   background-color: rgb(80, 31, 19);
   text-align: center;
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+
+ 
+  padding: 9px;
+  margin-right: 10px;
+  color: white;
+  background-color: rgb(80, 31, 19);
+  text-align: center;
+  cursor: pointer;
+  
+  font-size: 18px;
+  
 }
 
-.cardbtn:hover
+.cardbtn a:hover
 {
   opacity: 0.7;
 }
