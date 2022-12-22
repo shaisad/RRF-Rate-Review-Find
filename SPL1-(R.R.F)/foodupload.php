@@ -18,12 +18,11 @@ if(isset($_POST["submit"])){
             $imgContent = addslashes(file_get_contents($image)); 
          
             // Insert image content into database 
-            $insert = $db->query("INSERT into food (image) VALUES ('$imgContent')"); 
+            $insert = $db->query("INSERT into foodimage (image) VALUES ('$imgContent')"); 
              
             if($insert){ 
                 $status = 'success'; 
-                $statusMsg = "File uploaded successfully. Click here to complete
-                <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/RestaurantSignInPage.html'> login  </a>"; 
+                $statusMsg = "File uploaded successfully. Click <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/AddMenu.html'> here </a> to add another item"; 
             }else{ 
                 $statusMsg = "File upload failed, please try again."; 
             }  

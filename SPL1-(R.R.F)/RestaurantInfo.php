@@ -215,7 +215,35 @@ body{
     <div class="col-md-6 mt-3">
           
         <div class="col-md-4">
-          <?php 
+
+         <!-- image fetch -->
+         <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+         
+              
+                  <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"  class="img-fluid rounded-start"/>
+
+                  <?php
+            }
+           }
+           ?>
+                  
+              
+        </div>
+           <div class="card">
+
+         <div class="card-body">
+
+         <?php 
               require 'dbConfig.php';
         
               $query = "SELECT * FROM food where food.foodname= '$row[foodname]'";
@@ -227,17 +255,7 @@ body{
                 while($row = mysqli_fetch_assoc($query_run))
                 {
                   ?>
-              
-                  <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"  class="img-fluid rounded-start"/>
-                  
-               <?php
-             }
-            }
-         ?>
-        </div>
-           <div class="card">
 
-         <div class="card-body">
          <h5 class="card-title"><?php echo $row['foodname']; ?></h5>
               <p><?php echo $row['subject']; ?></p>
               <p><?php echo $row['category']; ?></p>
@@ -245,6 +263,11 @@ body{
               <p>
                 <p>Totalrates  Totalreviews</p>
               </p>
+
+              <?php
+             }
+            }
+         ?>
         
               <p>
                Rate Here:
@@ -275,9 +298,6 @@ body{
   </div>
 </div>
 
-         <?php
-
-?>
   </div>
 </div>
 

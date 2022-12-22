@@ -15,10 +15,27 @@ $status = $statusMsg = '';
 if(!empty($foodname) && !empty($price)  && !empty($category) && !empty($subject))
 
 {
-    require_once 'dbConfig.php';
+  require_once 'dbConfig.php';
+
+  if(isset($_POST["submit"])){
+
+   
     $INSERT= "INSERT Into food (foodname, price, category, subject) values ('$foodname','$price','$category','$subject')";
 
     mysqli_query($db, $INSERT);
+
+    if(mysqli_query($db, $INSERT))
+     {
+
+    header("Location: foodimage.html");
+		exit();
+
+
+     }
+    
+
+
+  }
 
     $db->close();
 }
