@@ -134,6 +134,13 @@ body{
 
 <body>
 
+    <script>
+      document.getElementById("restnameresult").innerHTML=localStorage.getItem("rnamevalue");
+      document.getElementById("restlocationresult").innerHTML=localStorage.getItem("rlocationvalue");
+      document.getElementById("restimageresult").innerHTML=localStorage.getItem("rimagevalue");
+    </script>
+
+
     <div class="logo">
 
         <p>
@@ -143,19 +150,14 @@ body{
             <h4 class="restlocation"><span id="restlocationresult"></span></h1>
 
 
-                 <img src="<span id=restimageresult></span>" class="img-fluid"/>
+                <span id=restimageresult></span>
                  
             <img class="rrflogo" src="cover.png" alt="logo">
         </p>
 
     </div>
 
-    <script>
-      document.getElementById("restnameresult").innerHTML=localStorage.getItem("rnamevalue");
-      document.getElementById("restlocationresult").innerHTML=localStorage.getItem("rlocationvalue");
-      document.getElementById("restimageresult").innerHTML=localStorage.getItem("rimagevalue");
-    </script>
-
+    
    
 
 <div class="cardi">
@@ -221,7 +223,7 @@ body{
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+           $queryy = "SELECT image, imageid from foodimage where restaurant.restaurantname= '$row[restaurantname]'";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 

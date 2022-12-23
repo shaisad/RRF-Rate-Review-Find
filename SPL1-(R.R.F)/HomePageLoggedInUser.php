@@ -231,9 +231,9 @@ img {
 
   function passvalues(){
 
-    var restaurantname=document.getElementById("rname");
-    var restaurantlocation=document.getElementById("rlocation");
-    var restaurantimage=document.getElementById("rimage");
+    var restaurantname=document.getElementById("rname").value;
+    var restaurantlocation=document.getElementById("rlocation").value;
+    var restaurantimage=document.getElementById("rimage").value;
 
     localStorage.setItem("rnamevalue", restaurantname);
     localStorage.setItem("rlocationvalue", restaurantlocation);
@@ -379,13 +379,16 @@ img {
             <a href="">Review Section</a> 
           </button>
 
-          <button class="cardbtn" id="btn2">
+           <button class="cardbtn" id="btn2" onclick="passvalues();">
           <a href="RestaurantInfo.php"> Show Details </a>
           </button>
-       
-
         
-    
+
+        <!-- <form action="RestaurantInfo.php">
+
+        <input type="submit" value="Show Details" onclick="passvalues();"/>
+
+        </form> -->
 
           </div>
           </div>
