@@ -112,6 +112,44 @@ body{
   color: white;
 }
 
+.cbtnn1 {
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  
+  top: 10px;
+  border-radius: 5px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnn1:hover {
+  opacity: 0.7; ;
+}
+
+.cbtnn2 {
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  left: 10px;
+  top: 10px;
+  border-radius: 5px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnn2:hover {
+  opacity: 0.7; ;
+}
+
+
+
 
 img {
     width: 180px;
@@ -184,20 +222,34 @@ img {
     color: #c59b08;
 }
 
-.cardbtn {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
+.cardbtn a {
+  /* display: block;
+  border
   color: white;
   background-color: rgb(80, 31, 19);
   text-align: center;
   cursor: pointer;
   width: 100%;
-  font-size: 18px;
+  
+
+  padding: 16px 16px;
+  text-decoration: none;
+  font-size: 22px; */
+
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  cursor: pointer;
+  color: rgb(80, 31, 19);
+  /* position: relative;
+  left: 125px;
+  top: 10px;
+  border-radius: 10px; */
+
+
 }
 
-.cardbtn:hover
+.cardbtn a:hover
 {
   opacity: 0.7;
 }
@@ -227,7 +279,7 @@ img {
 </style>
 </head>
 
-<script>
+ <script>
 
   function passvalues(){
 
@@ -243,7 +295,7 @@ img {
 
   }
 
-</script>
+</script> 
 
 
 <body>
@@ -335,7 +387,7 @@ img {
           <div class="col-md-3 mt-3">
             <div class="card">
             
-          <div class="card-body" value="click" onclick="passvalues();">
+          <div class="card-body">
             <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
          
@@ -375,13 +427,24 @@ img {
             </div>
           </button></p> -->
 
-          <button class="cardbtn" id="btn1">   
+          <!-- <button class="cardbtn" id="btn1">   
             <a href="">Review Section</a> 
           </button>
 
+<<<<<<< HEAD
            <button class="cardbtn" id="btn2" onclick="passvalues();">
           <a href="RestaurantInfo.php"> Show Details </a>
           </button>
+=======
+        
+          <button class="cardbtn" id="btn2">
+          <a href="RestaurantInfo.php"> Show Details </a>
+          </button>
+        -->
+        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">All Reviews</button>
+        <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php';">See Details</button>
+        
+>>>>>>> 26bfa70b086e34425b31356bf3c133da9ae3823d
         
 
         <!-- <form action="RestaurantInfo.php">
