@@ -431,20 +431,20 @@ img {
             <a href="">Review Section</a> 
           </button>
 
-<<<<<<< HEAD
            <button class="cardbtn" id="btn2" onclick="passvalues();">
           <a href="RestaurantInfo.php"> Show Details </a>
           </button>
-=======
         
           <button class="cardbtn" id="btn2">
           <a href="RestaurantInfo.php"> Show Details </a>
           </button>
         -->
         <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">All Reviews</button>
-        <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php';">See Details</button>
+        <!-- <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php';">See Details</button> -->
+        <button class="cbtnn2" id="btn2" onclick="passvalues();">
+          <a href="RestaurantInfo.php"> See Details </a>
+          </button>
         
->>>>>>> 26bfa70b086e34425b31356bf3c133da9ae3823d
         
 
         <!-- <form action="RestaurantInfo.php">
