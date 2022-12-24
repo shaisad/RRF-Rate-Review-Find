@@ -1,3 +1,7 @@
+<?php
+session_start();
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,7 +128,7 @@
 
         <p>
             <img class="handrice" src="handrice.png" alt="logo">
-            <h1 class="restname">Restaurant's Name</h1>
+            <h1 class="restname"><?php echo $_SESSION['restaurantname'];?></h1>
             <img class="rrflogo" src="cover.png" alt="logo">
         </p>
 
