@@ -187,7 +187,7 @@ session_start();
     <div class="row">
       <input type="submit" name="submit" value="Upload">
       <div class="btn" id="btn">
-         <a href="AddMenu.html" target="_self">Add Another Food Item</a>
+         <a href="HomePageLoggedInRest.php" target="_self">Exit</a>
        </div>
     </div>
    <!-- </form> -->
