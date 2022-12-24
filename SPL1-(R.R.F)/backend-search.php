@@ -14,11 +14,11 @@ $sname= "localhost";
   }
   
   if (isset($_POST['query'])) {
-    $query = "SELECT restaurantname FROM restaurant WHERE restaurantname LIKE '{$_POST['query']}%' OR location LIKE '{$_POST['query']}%'  LIMIT 100";
+    $query = "SELECT restaurantname, location FROM restaurant WHERE restaurantname LIKE '{$_POST['query']}%' OR location LIKE '{$_POST['query']}%'  LIMIT 100";
     $result = mysqli_query($conn, $query);
   if (mysqli_num_rows($result) > 0) {
       while ($res = mysqli_fetch_array($result)) {
-        echo $res['restaurantname']. "<br/>";
+        echo $res['restaurantname']. ','. ' '. $res['location']. "<br/>";
       
       
     }
