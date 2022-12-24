@@ -229,7 +229,7 @@ body{
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image from foodimage where foodimage.irestaurantname= food_new.frestrauntname and foodimage.foodimageid = food_new.foodid";
+           $queryy = "SELECT image from foodimage, food_new where foodimage.irestaurantname = '$irestaurantname' and foodimage.imageid = food_new.foodid";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
@@ -254,7 +254,7 @@ body{
          <?php 
               require 'dbConfig.php';
         
-              $query = "SELECT * FROM food where food.foodname= '$row[foodname]' and food.frestaurantname = '$_SESSION[restaurantname]'";
+              $query = "SELECT * FROM food";
               $query_run = mysqli_query($db, $query);
               $check_user = mysqli_num_rows($query_run) > 0;
               
