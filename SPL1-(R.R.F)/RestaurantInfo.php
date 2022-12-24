@@ -1,6 +1,10 @@
 <?php
 session_start();
-?> <!DOCTYPE html>
+?> 
+<?php
+$irestaurantname = $_SESSION['restaurantname']; ?> 
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -225,7 +229,7 @@ body{
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image, imageid from foodimage, restaurant where restaurant.restaurantname= '$_SESSION[restaurantname]'";
+           $queryy = "SELECT image, imageid from foodimage, restaurant where foodimage.irestaurantname= '$_SESSION[restaurantname]' and foodimage.ifoodname = '$_SESSION[foodname]'";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
@@ -250,7 +254,7 @@ body{
          <?php 
               require 'dbConfig.php';
         
-              $query = "SELECT * FROM food where food.foodname= '$_SESSION[foodname]'";
+              $query = "SELECT * FROM food where food.foodname= '$row[foodname]' and food.frestaurantname = '$_SESSION[restaurantname]'";
               $query_run = mysqli_query($db, $query);
               $check_user = mysqli_num_rows($query_run) > 0;
               

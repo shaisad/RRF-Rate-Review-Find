@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 
 error_reporting(0);
 
@@ -6,21 +9,20 @@ error_reporting(0);
   $price = $_POST['price'];
   $category = $_POST['category'];
   $subject = $_POST['subject'];
+  $frestaurantname = $_SESSION['restaurantname'];
 
 
 require_once 'dbConfig.php'; 
  
 $status = $statusMsg = ''; 
 
-if(!empty($foodname) && !empty($price)  && !empty($category))
 
-{
   require_once 'dbConfig.php';
 
   if(isset($_POST["submit"])){
 
    
-    $INSERT= "INSERT Into food (foodname, price, category, subject) values ('$foodname','$price','$category','$subject')";
+    $INSERT= "INSERT Into food (foodname, price, category, subject, frestaurantname) values ('$foodname','$price','$category','$subject', '$restaurantname')";
 
     mysqli_query($db, $INSERT);
 
@@ -35,7 +37,7 @@ if(!empty($foodname) && !empty($price)  && !empty($category))
     
 
 
-  }
+  
 
     $db->close();
 }
