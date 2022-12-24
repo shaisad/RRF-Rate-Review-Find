@@ -61,14 +61,20 @@
 
   if(!empty($username) && !empty($location) && !empty($useremail) && !empty($password) && !empty($confirm))
   {
-
     if (!filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
-      exit('Email is not valid!');
+        
+      ?>      
+        <script>alert("Invalid Email!")</script>
+        <?php
+        exit();
     }
-
+    
     if (strlen($_POST['password']) > 15 || strlen($_POST['password']) < 8  || ctype_upper($_POST['password']) || ctype_lower($_POST['password']) || !preg_match("/[0-9]/", $_POST['password'])) {
-      $Message = "Password must be between 8 and 15 characters long, contain uppercase, lowercase letters and a number!";
+      ?><script>alert("Password must be between 8 and 15 characters long, contain uppercase, lowercase letters and a number!")</script><?php
+      exit();
     }
+  
+
 
     if($password == $confirm)
     {
@@ -79,6 +85,21 @@
 
       $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
 
+      
+    
+    $sql = "SELECT * FROM user WHERE useremail='$_POST[useremail]'";
+  $res = mysqli_query($conn, $sql);
+
+  if(mysqli_num_rows($res) > 0){
+    ?>      
+          <script>alert("Email already exists! Kindly change your email to complete signup!")</script>
+          <?php
+          exit();
+  }
+
+  
+
+ 
       //$email = $conn->real_escape_string($email);
       //$password = $conn->real_escape_string($password);
       //$confirm = $conn->real_escape_string($confirm);
@@ -133,11 +154,20 @@
     }
     else
     {
-      echo "Password fields don't match!";
+      
+      ?>      
+          <script>alert("Password fields don't match!")</script>
+          <?php
+          exit();
+          
     }
   }
   else
   {
-    echo "All fields are required.";
-    die();
+    
+    ?>      
+          <script>alert("All fields are required!")</script>
+          <?php
+          exit();
+    
   }

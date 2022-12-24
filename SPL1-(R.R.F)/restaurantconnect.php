@@ -65,7 +65,7 @@
   {
     if (!filter_var($_POST['restaurantemail'], FILTER_VALIDATE_EMAIL)) {
       ?>      
-      echo <script>alert("Invalid Email!")</script>
+      <script>alert("Invalid email!")</script>
       <?php
       exit();
     }
@@ -86,6 +86,16 @@
       $dbname = "rrf";
 
       $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+      $sql = "SELECT * FROM restaurant WHERE restaurantemail='$_POST[restaurantemail]'";
+    $res = mysqli_query($conn, $sql);
+
+     if(mysqli_num_rows($res) > 0){
+    ?>      
+          <script>alert("Restaurant email already exists! Kindly change your email to complete signup!")</script>
+          <?php
+          exit();
+  }
 
       //$email = $conn->real_escape_string($email);
       //$password = $conn->real_escape_string($password);
@@ -133,7 +143,7 @@
         if($INSERT && sendMail($restaurantemail,$code))
         {
           ?>      
-          <script>alert("Verification mail sent. Please verify your email before logging in. Make sure to check your spam folder!")</script>
+          <script>alert("Verification mail sent for your restaurant! Please verify your email before logging in. Make sure to check your spam folder!")</script>
           <?php
           exit();
           
@@ -144,15 +154,22 @@
     }
     else
     {
+
       ?>      
-          echo <script>alert("Password fields don't match!")</script>
+          <script>alert("Password fields don't match!")</script>
           <?php
+          exit();
+    
+          
       
     }
   }
   else
   {
-    echo "All fields are required.";
+  
+    ?>      
+          <script>alert("All fields are required! Kindly fill out all the fields!")</script>
+          <?php
     die();
   }
  
