@@ -136,6 +136,16 @@ body{
     top: 65px;
 }
 
+.cardfix {
+  position: relative;
+  left: 200px;
+  width: 80%;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 grey;
+  transform: translate3D(0,-1px,0) scale(1.03);
+}
+
 </style>
 
 <body>
@@ -166,148 +176,67 @@ body{
     
    
 
-<div class="cardi">
-
-  <div class="foodcard">
-    <!-- <div class="card mb-3" style="max-width: 100%;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img class="foodimg" src="Photos 18_10_2022 8_31_57 PM.png" class="img-fluid rounded-start" alt="..."/>
-          </div>
-          <div class="col-md-6">
-            <div class="card-body">
-              <h5 class="card-title">Food's Name</h5>
-              <p>Food Description</p>
-              <p>Category</p>
-              <p>Price</p>
-              <a class="card-link stretched-link" href="FoodProfile.html"></a>
-              <p>
-                <p>Totalrates  Totalreviews</p>
-              </p>
-
-            <p>
-               Rate Here:
-                <div class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" />
-                    <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" />
-                    <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" />
-                    <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" />
-                    <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1" />
-                    <label for="star1" title="text">1 star</label>
-                </div>
-                <p>
-                    <div class="cardbtn">
-                    <a href="#" target="_self">Write a review</a>
-                    <a href="FoodProfile.html" target="_self">See Details</a>
-                    </div>
-                </p>
-             
-            </div>
-          </div>
-        </div>
-    </div>
-  </div> -->
-
-   
-         
+      
 
 <!-- card -->
 
 <div class="cardfix">
-  <div class="container py-5">
-   <div class="row mt-3">
-    <div class="col-md-6 mt-3">
-          
-        <div class="col-md-4">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
 
-         <!-- image fetch -->
-         <?php 
+      $query = "SELECT * FROM restaurant where status=1";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?>
+          
+          <div class="col-md-3 mt-3">
+            <div class="card">
+
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $row['foodname']; ?></h5>
+            <p class="card-text"><?php echo $row['subject']; ?></p>
+            <p class="card-text"><?php echo $row['price']; ?></p>
+         
+            <!-- image fetch -->
+              <?php 
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image from foodimage, food_new where foodimage.irestaurantname = '$irestaurantname' and foodimage.imageid = food_new.foodid";
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
            if($check_userr){
             while($row = mysqli_fetch_assoc($queryy_run)){
               ?>
-         
-              
-                  <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"  class="img-fluid rounded-start"/>
-
-                  <?php
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top"/>
+                 
+              <?php
             }
            }
-           ?>
+        ?>
+
                   
-              
-        </div>
-           <div class="card">
-
-         <div class="card-body">
-
-         <?php 
-              require 'dbConfig.php';
-        
-              $query = "SELECT * FROM food";
-              $query_run = mysqli_query($db, $query);
-              $check_user = mysqli_num_rows($query_run) > 0;
-              
-              if($check_user)
-              {
-                while($row = mysqli_fetch_assoc($query_run))
-                {
-                  ?>
-
-         <h5 class="card-title"><?php echo $row['foodname']; ?></h5>
-              <p><?php echo $row['subject']; ?></p>
-              <p><?php echo $row['category']; ?></p>
-              <p><?php echo $row['price']; ?></p>
-              <p>
-                <p>Totalrates  Totalreviews</p>
-              </p>
-
-              <?php
-             }
-            }
-         ?>
-        
-              <p>
-               Rate Here:
-                <div class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" />
-                    <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" />
-                    <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" />
-                    <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" />
-                    <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1" />
-                    <label for="star1" title="text">1 star</label>
-                </div>
-                <!-- <p>
-                    <div class="cardbtn">
-                        <a href="#" target="_self">Write a review</a>
-                        <a href="FoodProfile.html" target="_self">See Details</a>
-                        </div>
-                </p> -->
-        
-
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          </div>
+          </div>
 
-  </div>
-</div>
+          <?php
+        }
+      }
+
+      ?>
+    </div>
+    </div>
+    </div>
+   
 
    
 </body>
