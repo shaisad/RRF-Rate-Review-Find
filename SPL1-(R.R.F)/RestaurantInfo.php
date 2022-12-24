@@ -2,7 +2,9 @@
 session_start();
 ?> 
 <?php
-$irestaurantname = $_SESSION['restaurantname']; ?> 
+$irestaurantname = $_SESSION['restaurantname']; 
+$foodname = $_SESSION['foodname'];
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,10 +51,10 @@ body{
 
 .card-body{
     position: relative;
-    right: 125px;
+    right: 50px;
     background-color: aliceblue;
     width: 1023px;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .rate {
@@ -152,7 +154,7 @@ body{
         <p>
             <img class="handrice" src="handrice.png" alt="logo">
 
-            <h1 class="restname"><span id="restnameresult"></span></h1>
+            <h1 class="restname"><?php echo $_SESSION['restaurantname'];?></h1>
             <h4 class="restlocation"><span id="restlocationresult"></span></h1>
 
 
@@ -229,7 +231,7 @@ body{
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image from foodimage, food_new where foodimage.irestaurantname = '$irestaurantname' and foodimage.imageid = food_new.foodid";
+           $queryy = "SELECT image from foodimage, restaurant where irestaurantname = '$_SESSION[restaurantname]'";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
@@ -254,7 +256,7 @@ body{
          <?php 
               require 'dbConfig.php';
         
-              $query = "SELECT * FROM food";
+              $query = "SELECT * FROM food_new";
               $query_run = mysqli_query($db, $query);
               $check_user = mysqli_num_rows($query_run) > 0;
               
@@ -266,10 +268,10 @@ body{
 
          <h5 class="card-title"><?php echo $row['foodname']; ?></h5>
               <p><?php echo $row['subject']; ?></p>
-              <p><?php echo $row['category']; ?></p>
+              <!--<p><?php echo $row['category']; ?></p>-->
               <p><?php echo $row['price']; ?></p>
               <p>
-                <p>Totalrates  Totalreviews</p>
+                
               </p>
 
               <?php
@@ -291,12 +293,12 @@ body{
                     <input type="radio" id="star1" name="rate" value="1" />
                     <label for="star1" title="text">1 star</label>
                 </div>
-                <!-- <p>
+                <p>
                     <div class="cardbtn">
                         <a href="#" target="_self">Write a review</a>
                         <a href="FoodProfile.html" target="_self">See Details</a>
                         </div>
-                </p> -->
+                </p> 
         
 
           </div>

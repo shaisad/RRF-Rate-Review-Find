@@ -32,8 +32,7 @@ if(isset($_POST["submit"])){
             $insert = $db->query("INSERT into foodimage (image, irestaurantname, foodname)  VALUES ('$imgContent', '$_SESSION[restaurantname]', (select '$_SESSION[foodname]' from food_new where food_new.foodname = '$_SESSION[foodname]') ) "); 
           // $insert2 = $db->query("INSERT into foodimage (foodname) select '$_SESSION[foodname]' from food_new where food_new.foodname = '$_SESSION[foodname]' "); 
            
-        //   INSERT INTO <table_name> (<field1>, <field2>, <field3>) 
-        //   VALUES ('DUMMY1', (SELECT <field> FROM <table_name> ),'DUMMY2');
+          
             
 
              
