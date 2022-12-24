@@ -52,8 +52,6 @@ img {
     width: 200px;
     position: relative;
     bottom: 100px;
-    /* padding-bottom: 20px;
-    margin-bottom: 40px; */
 }
 
  .foodcard {
@@ -87,7 +85,7 @@ img {
 }
 
 
-.btnn {
+.cbtnn1 {
   border: none;
   outline: none;
   padding: 8px 8px;
@@ -100,17 +98,10 @@ img {
 }
 
 
-.btnn:hover {
+.cbtnn1:hover {
   background-color: rgb(155, 113, 58) ;
   color: white;
 }
-
-
-.btnn.show {
-  background-color: #666;
-  color: white;
-}
-
 
 img {
     width: 50px;
@@ -142,10 +133,7 @@ img {
   width: 10%;
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 grey;
-  transform: translate3D(0,-1px,0) scale(1.03);
-} 
+
 
 </style>
 
