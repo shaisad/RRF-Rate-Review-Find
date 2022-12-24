@@ -115,9 +115,10 @@
 
       else
       {
-        //$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $options = array("cost"=>4);
+		    $hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
        // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $INSERT= "INSERT Into user (username, location, useremail, password, code, status) values ('$username','$location','$useremail', '$password', '$code', 0)";
+        $INSERT= "INSERT Into user (username, location, useremail, password, code, status) values ('$username','$location','$useremail', '$hashPassword', '$code', 0)";
 
         //$stmt = $conn->prepare($SELECT);
         //$stmt->bind_param("s", $email);

@@ -41,7 +41,7 @@ if (isset($useremail) && isset($password)) {
 //        header("Location: process.php?error=Password is required");
 //	    exit();
 //	}else{
-		$sql = "SELECT * FROM user WHERE useremail = '$useremail' AND password = '$password'";
+		$sql = "SELECT * FROM user WHERE useremail = '$useremail'";
         //$sql2 = "SELECT * FROM restaurant WHERE email ='$email' AND password='$password'";
 		
         $result = mysqli_query($conn, $sql);
@@ -50,6 +50,7 @@ if (isset($useremail) && isset($password)) {
 		if ($result->num_rows == 1) {
 			$row = mysqli_fetch_assoc($result);
             if ($row['status'] == 1) {
+				if( password_verify($password, $row['password'])){
 				$_SESSION['useremail'] = $row['useremail'];
             	$_SESSION['password'] = $row['password'];
 				$_SESSION['username'] = $row['username'];
@@ -59,17 +60,39 @@ if (isset($useremail) && isset($password)) {
                 header("Location: HomePageLoggedInUser.php");
                 exit();
 				
-            }else{
-				echo "Account not verified.";
-		        exit();
+            }
+			else{
+				
+				?>      
+          <script>alert("Wrong Password! Make sure to type in the correct password!")</script>
+          <?php
+          exit();
 			}
+		}else{
+			?>      
+          <script>alert("User account not verified!")</script>
+          <?php
+          exit();
+				
+		        
+			}
+		}
+		else{
+			
+			?>      
+          <script>alert("No user found!")</script>
+          <?php
+          exit();
 		}
 	
 	}
 	
 else{
-	echo "Login failed";
-	exit();
+	
+	?>      
+          <script>alert("Login failed!")</script>
+          <?php
+          exit();
 }
 
 ?>
