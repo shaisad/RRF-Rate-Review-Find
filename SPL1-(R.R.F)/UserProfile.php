@@ -112,7 +112,11 @@ error_reporting();
             <?php
               echo $_SESSION['useremail'];
             ?>
-          </div>         
+          </div> 
+          
+          <div class="btn" id="btn">
+             <a href="UserUpdate.html" target="_self">Update Profile</a>
+          </div>
       </div>
 
   </body>

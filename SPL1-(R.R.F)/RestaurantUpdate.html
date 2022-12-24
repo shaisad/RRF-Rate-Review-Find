@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password</title>
-</head>
+    <title>RRF Reset Password </title>
+    </head>
 
-<style>
+    <style>
 
 body{
     background-color: rgb(17, 6, 4);
@@ -64,32 +64,32 @@ label {
 
 <body>
 
-<div class = "banner">
+    
+
+    <div class = "banner">
           
         <div class="logo">
 
             <img class="rrflogo" src="cover.png" alt="logo">
     
         </div>
-    
-    <form method="post" action="reset-pass-code-rest.php">
-    <div class = "attribute">
-    <label>Create new password</label>
-      <input type = "password" name = "password" required>
-                    
-      <label>Confirm new password</label>
-                    <input type = "password" name = "confirm" required>
-                    
-                    
-      
-      <input type="submit" name="save" value = "Save changes">
-      <input type = "hidden" name = "code" value = "<?php if (isset($_GET['code'])){echo $_GET['code'];} ?>">
-                <input type = "hidden" name = "restaurantemail" value = "<?php if (isset($_GET['restaurantemail'])){echo $_GET['restaurantemail'];} ?>">
+
+        <form method = "post" action = "updaterestaurantconnect.php">
+            <div class = "attribute">
+       
+               <label>Enter Restaurant's name to update</label>
+               <input type = "text" name = "restaurantname">
+               <input type = "submit"  value = "Update name" name="submitname">
+       
+               <label>Enter Restaurant's email to update</label>
+               <input type = "email" name = "restaurantemail">
+               <input type = "submit"  value = "Update email" name="submitemail">
+       
+            </div>
+        </form>
+
     </div>
-    </form>
 
 
-</div>
- 
 </body>
 </html>

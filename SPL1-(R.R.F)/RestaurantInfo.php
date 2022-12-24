@@ -349,7 +349,11 @@ img {
   color: white;
 }
 
-
+img {
+    width: 50px;
+    top: 300px;
+    left: 100px;
+}
 
 .cardbtn {
   border: none;
