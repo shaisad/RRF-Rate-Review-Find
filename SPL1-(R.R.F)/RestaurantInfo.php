@@ -238,6 +238,7 @@ img {
   position: relative;
   left: 100px;
   width: 10%;
+  
 }
 
 .card:hover {

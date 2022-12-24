@@ -258,6 +258,7 @@ img {
   position: relative;
   left: 200px;
   width: 80%;
+  cursor : pointer;
 }
 
 .card:hover {
