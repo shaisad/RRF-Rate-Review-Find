@@ -1,6 +1,16 @@
 <?php 
+session_start();
+?>
+<?php 
+$irestaurantname = $_SESSION['restaurantname'];
+
+
+//$ifoodname = $_SESSION['foodname'];
+
+
+
 // Include the database configuration file  
-require_once 'dbConfig.php'; 
+require 'dbConfig.php'; 
  
 // If file upload form is submitted 
 $status = $statusMsg = ''; 
@@ -16,9 +26,16 @@ if(isset($_POST["submit"])){
         if(in_array($fileType, $allowTypes)){ 
             $image = $_FILES['image']['tmp_name']; 
             $imgContent = addslashes(file_get_contents($image)); 
-         
+            
+
             // Insert image content into database 
-            $insert = $db->query("INSERT into foodimage (image) VALUES ('$imgContent')"); 
+            $insert = $db->query("INSERT into foodimage (image, irestaurantname, foodname)  VALUES ('$imgContent', '$_SESSION[restaurantname]', (select '$_SESSION[foodname]' from food_new where food_new.foodname = '$_SESSION[foodname]') ) "); 
+          // $insert2 = $db->query("INSERT into foodimage (foodname) select '$_SESSION[foodname]' from food_new where food_new.foodname = '$_SESSION[foodname]' "); 
+           
+        //   INSERT INTO <table_name> (<field1>, <field2>, <field3>) 
+        //   VALUES ('DUMMY1', (SELECT <field> FROM <table_name> ),'DUMMY2');
+            
+
              
             if($insert){ 
                 $status = 'success'; 

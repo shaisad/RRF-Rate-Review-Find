@@ -158,11 +158,15 @@ session_start();
       </div>
       <div class="col-75">
         <select id="category" name="category">
-          <option value="bengali">Bengali</option>
-          <option value="italian">Italian</option>
-          <option value="asian">Asian</option>
-          <option value="indian">Italian</option>
-          <option value="chinese">AChinese</option>
+          <option value="Pizza">Pizza</option>
+          <option value="Pasta">Pasta</option>
+          <option value="Burger">Burger</option>
+          <option value="Cake">Cake</option>
+          <option value="Meatbox">Meatbox</option>
+          <option value="Rice">Rice</option>
+          <option value="Chicken">Chicken</option>
+          <option value="Salad">Salad</option>
+          <option value="Drinks">Drinks</option>
         </select>
       </div>
     </div>
