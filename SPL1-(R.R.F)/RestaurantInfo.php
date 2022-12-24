@@ -31,8 +31,6 @@ body{
     overflow-x: hidden;
 }
 
-<<<<<<< HEAD
-=======
 img {
     width: 120px;
     top: 200px;
@@ -50,7 +48,6 @@ img {
 } 
 
 
->>>>>>> 097d39a2a46ff74d6c3117c4524084358818c883
 .rrflogo {
     width: 200px;
     position: relative;
