@@ -268,7 +268,7 @@ img {
         <a href="RestaurantProfile.php"><i class="fa fa-fw fa-user"></i>Restaurant's Profile</a>
         <a href="enter-restemail.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="restaurantlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
-        <a href="RestaurantInfo.php"><i class="fas fa-soup"></i>Menu</a>
+        <a href="RestaurantMenu.php"><i class="fas fa-soup"></i>Menu</a>
       </div> 
 
   
