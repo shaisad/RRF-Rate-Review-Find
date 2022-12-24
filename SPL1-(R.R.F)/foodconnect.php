@@ -5,10 +5,10 @@ session_start();
 
 error_reporting(0);
 
-  $foodname = $_POST['foodname'];
-  $price = $_POST['price'];
-  $category = $_POST['category'];
-  $subject = $_POST['subject'];
+  // $foodname = $_POST['foodname'];
+  // $price = $_POST['price'];
+  // $category = $_POST['category'];
+  // $subject = $_POST['subject'];
   $frestaurantname = $_SESSION['restaurantname'];
 
 
@@ -22,7 +22,7 @@ $status = $statusMsg = '';
   if(isset($_POST["submit"])){
 
    
-    $INSERT= "INSERT Into food (foodname, price, category, subject, frestaurantname) values ('$foodname','$price','$category','$subject', '$restaurantname')";
+    $INSERT= "INSERT Into food (foodname, price, category, subject, frestaurantname) values ('$foodname','$price','$category','$subject', '$_SESSION[restaurantname]')";
 
     mysqli_query($db, $INSERT);
 
