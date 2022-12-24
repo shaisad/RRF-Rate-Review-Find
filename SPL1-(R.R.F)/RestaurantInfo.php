@@ -291,12 +291,12 @@ body{
                     <input type="radio" id="star1" name="rate" value="1" />
                     <label for="star1" title="text">1 star</label>
                 </div>
-                <p>
+                <!-- <p>
                     <div class="cardbtn">
                         <a href="#" target="_self">Write a review</a>
                         <a href="FoodProfile.html" target="_self">See Details</a>
                         </div>
-                </p>
+                </p> -->
         
 
           </div>
