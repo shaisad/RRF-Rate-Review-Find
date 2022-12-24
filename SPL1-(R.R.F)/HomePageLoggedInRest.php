@@ -155,28 +155,6 @@ img {
   color: gray;
 }
 
-/* .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 25%;
-  position: relative;
-  left: 100px;
-  background-color: white;
-  top: 45px;
-  margin-bottom: 40px;
-} 
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-} 
-
-.container {
-  padding: 2px 16px;
-  position: relative;
-  left: 60px;
-  bottom: 10px;
-
-}  */
 
 .rate {
     float: left;

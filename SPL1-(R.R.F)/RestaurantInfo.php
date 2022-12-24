@@ -52,8 +52,6 @@ img {
     width: 200px;
     position: relative;
     bottom: 100px;
-    /* padding-bottom: 20px;
-    margin-bottom: 40px; */
 }
 
  .foodcard {
@@ -61,10 +59,6 @@ img {
     max-height: 218x;
     }  
 
-.card{
-    background-color:rgb(240, 221, 136);;
-
-}
 
 .foodimg{
     width: 325px;
@@ -72,35 +66,7 @@ img {
     object-fit: cover;
 }
 
-.card-body{
-    position: relative;
-    right: 100px;
-    background-color: aliceblue;
-    width: 1023px;
-    overflow-y: hidden;
-}
 
-.cardbtn a {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 9px;
-  margin-right: 10px;
-  color: white;
-  background-color: rgb(80, 31, 19);
-  text-align: center;
-  cursor: pointer;
-  width: 200px;
-  font-size: 18px;
-  position: relative;
-  right: 170px;
-  top: 5px;
-}
-
-.cardbtn a:hover
-{
-  opacity: 0.7;
-}
 
 .restname{
     color: rgb(80, 31, 19);
@@ -109,11 +75,7 @@ img {
     left: 470px;
 }
 
-.cardi{
-    position: relative;
-    bottom: 50px;
 
-}
 
 .handrice{
     width: 60px;
@@ -122,17 +84,8 @@ img {
     top: 65px;
 }
 
-.cardfix {
-  position: relative;
-  left: 200px;
-  width: 80%;
-}
-.card:hover {
-  box-shadow: 0 8px 16px 0 grey;
-  transform: translate3D(0,-1px,0) scale(1.03);
-}
 
-.btnn {
+.cbtnn1 {
   border: none;
   outline: none;
   padding: 8px 8px;
@@ -145,55 +98,10 @@ img {
 }
 
 
-.btnn:hover {
+.cbtnn1:hover {
   background-color: rgb(155, 113, 58) ;
   color: white;
 }
-
-
-.btnn.show {
-  background-color: #666;
-  color: white;
-}
-
-.cbtnn1 {
-  border: none;
-  outline: none;
-  padding: 8px 8px;
-  cursor: pointer;
-  color: white;
-  position: relative;
-  
-  top: 10px;
-  border-radius: 5px;
-  background-color: rgb(80, 31, 19) ;
-}
-
-
-.cbtnn1:hover {
-  opacity: 0.7; ;
-}
-
-.cbtnn2 {
-  border: none;
-  outline: none;
-  padding: 8px 8px;
-  cursor: pointer;
-  color: white;
-  position: relative;
-  left: 10px;
-  top: 10px;
-  border-radius: 5px;
-  background-color: rgb(80, 31, 19) ;
-}
-
-
-.cbtnn2:hover {
-  opacity: 0.7; ;
-}
-
-
-
 
 img {
     width: 50px;
@@ -201,35 +109,20 @@ img {
     left: 100px;
 }
 
-
-.cardbtn a {
-  /* display: block;
-  border
+.cardbtn {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
   color: white;
   background-color: rgb(80, 31, 19);
   text-align: center;
   cursor: pointer;
   width: 100%;
-  
-
-  padding: 16px 16px;
-  text-decoration: none;
-  font-size: 22px; */
-
-  border: none;
-  outline: none;
-  padding: 8px 8px;
-  cursor: pointer;
-  color: rgb(80, 31, 19);
-  /* position: relative;
-  left: 125px;
-  top: 10px;
-  border-radius: 10px; */
-
-
+  font-size: 18px;
 }
 
-.cardbtn a:hover
+.cardbtn:hover
 {
   opacity: 0.7;
 }
@@ -240,11 +133,6 @@ img {
   width: 10%;
   
 }
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 grey;
-  transform: translate3D(0,-1px,0) scale(1.03);
-} 
 
 
 
