@@ -54,18 +54,6 @@ img {
     bottom: 100px;
 }
 
- .foodcard {
-    margin-bottom: 40px;
-    max-height: 218x;
-    }  
-
-
-.foodimg{
-    width: 325px;
-    height: 325px;
-    object-fit: cover;
-}
-
 
 
 .restname{
@@ -101,12 +89,6 @@ img {
 .cbtnn1:hover {
   background-color: rgb(155, 113, 58) ;
   color: white;
-}
-
-img {
-    width: 50px;
-    top: 300px;
-    left: 100px;
 }
 
 .cardbtn {

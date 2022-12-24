@@ -189,7 +189,7 @@ session_start();
         </div>
     </div> -->
     <div class="row">
-      <input type="submit" name="submit" value="Upload">
+      <input type="submit" name="submit" value="Submit">
       <div class="btn" id="btn">
          <a href="HomePageLoggedInRest.php" target="_self">Exit</a>
        </div>

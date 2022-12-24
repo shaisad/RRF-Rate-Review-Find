@@ -223,30 +223,12 @@ img {
 }
 
 .cardbtn a {
-  /* display: block;
-  border
-  color: white;
-  background-color: rgb(80, 31, 19);
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  
-
-  padding: 16px 16px;
-  text-decoration: none;
-  font-size: 22px; */
 
   border: none;
   outline: none;
   padding: 8px 8px;
   cursor: pointer;
   color: rgb(80, 31, 19);
-  /* position: relative;
-  left: 125px;
-  top: 10px;
-  border-radius: 10px; */
-
-
 }
 
 .cardbtn a:hover
@@ -311,7 +293,6 @@ img {
 
     </div>
         <a href="UserProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
-        <a href="#updateprofile"><i class="fa fa-fw fa-home"></i>Update Profile</a>
         <a href="enter-useremail.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="userlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div> 
@@ -411,40 +392,12 @@ img {
            }
            ?>
 
-          
-
-                    <!-- <p><button class="cardbtn" id="btn1">Rate Here
-          <div class="rate">
-              <input type="radio" id="star5" name="rate" value="5" />
-              <label for="star5" title="text">5 stars</label>
-              <input type="radio" id="star4" name="rate" value="4" />
-              <label for="star4" title="text">4 stars</label>
-              <input type="radio" id="star3" name="rate" value="3" />
-              <label for="star3" title="text">3 stars</label>
-              <input type="radio" id="star2" name="rate" value="2" />
-              <label for="star2" title="text">2 stars</label>
-              <input type="radio" id="star1" name="rate" value="1" />
-              <label for="star1" title="text">1 star</label>
-            </div>
-          </button></p> -->
-
-          <!-- <button class="cardbtn" id="btn1">   
-            <a href="">Review Section</a> 
-          </button>
-
-           <button class="cardbtn" id="btn2" onclick="passvalues();">
-          <a href="RestaurantInfo.php"> Show Details </a>
-          </button>
         
-          <button class="cardbtn" id="btn2">
-          <a href="RestaurantInfo.php"> Show Details </a>
-          </button>
-        -->
         <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">All Reviews</button>
-        <!-- <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php';">See Details</button> -->
-        <button class="cbtnn2" id="btn2" onclick="passvalues();">
+        <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php';">See Details</button> 
+        <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
           <a href="RestaurantInfo.php"> See Details </a>
-          </button>
+          </button> -->
         
         
 
