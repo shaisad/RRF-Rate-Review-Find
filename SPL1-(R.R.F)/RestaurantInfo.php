@@ -3,7 +3,7 @@ session_start();
 ?> 
 <?php
 $irestaurantname = $_SESSION['restaurantname']; 
-$foodname = $_SESSION['foodname'];
+//$foodname = $_SESSION['foodname'];
 ?> 
 
 <!DOCTYPE html>
@@ -31,6 +31,26 @@ body{
     overflow-x: hidden;
 }
 
+<<<<<<< HEAD
+=======
+img {
+    width: 120px;
+    top: 200px;
+    left: 200px;
+}
+.cardfix {
+  position: relative;
+  left: 200px;
+  width: 80%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 grey;
+  transform: translate3D(0,-1px,0) scale(1.03);
+} 
+
+
+>>>>>>> 097d39a2a46ff74d6c3117c4524084358818c883
 .rrflogo {
     width: 200px;
     position: relative;
@@ -121,8 +141,8 @@ img {
 
 .cardfix {
   position: relative;
-  left: 200px;
-  width: 80%;
+  left: 100px;
+  width: 10%;
 }
 
 .card:hover {
@@ -170,7 +190,7 @@ img {
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT * FROM food_new";
+      $query = "SELECT * FROM food_new where frestaurantname = '$_SESSION[restaurantname]'";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -193,7 +213,7 @@ img {
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image from foodimage";
+           $queryy = "SELECT image from foodimage where foodname = '$row[foodname]' and irestaurantname = '$_SESSION[restaurantname]' ";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
