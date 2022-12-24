@@ -49,10 +49,10 @@ body{
 
 .card-body{
     position: relative;
-    right: 125px;
+    right: 100px;
     background-color: aliceblue;
     width: 1023px;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .rate {
