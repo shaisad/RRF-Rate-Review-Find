@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -244,6 +247,22 @@ img {
   font-size: 25px;
   color: rgb(80, 31, 19);
 }
+.heading1{
+  position: relative;
+  left: 220px;
+  top : 70px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  animation-name: example;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+
+}
+
+@keyframes example {
+  0%   { left:0px; top:30px;}
+  15%  { left:200px; top:30px;}
+}
 
 .card:hover {
   box-shadow: 0 8px 16px 0 grey;
@@ -325,6 +344,7 @@ img {
         <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
         
     </div>
+    <p class = heading1><b>Welcome, <?php  echo $_SESSION['restaurantname']; ?>!</b></p>
     <p class = heading> All restaurants </p>
     <!-- card -->
    <div class="cardfix">

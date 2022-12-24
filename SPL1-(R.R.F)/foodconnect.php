@@ -12,7 +12,7 @@ require_once 'dbConfig.php';
  
 $status = $statusMsg = ''; 
 
-if(!empty($foodname) && !empty($price)  && !empty($category) && !empty($subject))
+if(!empty($foodname) && !empty($price)  && !empty($category))
 
 {
   require_once 'dbConfig.php';

@@ -22,7 +22,7 @@ if(isset($_POST["submit"])){
              
             if($insert){ 
                 $status = 'success'; 
-                $statusMsg = "File uploaded successfully. Click <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/AddMenu.html'> here </a> to add another item"; 
+                $statusMsg = "File uploaded successfully. Click <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/AddMenu.php'> here </a> to add another item"; 
             }else{ 
                 $statusMsg = "File upload failed, please try again."; 
             }  
