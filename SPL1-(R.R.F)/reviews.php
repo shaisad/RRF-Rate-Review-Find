@@ -24,7 +24,7 @@ if (isset($_GET['restaurantrid'])) {
     
     
     // Get all reviews by the Page ID ordered by the submit date
-    $stmt = $pdo->prepare("SELECT * FROM reviews, restaurant, user WHERE restaurantrid = ? AND reviews.restaurantrid = restaurant.restaurantid AND restaurant.status = 1 AND user.username = reviews.username ORDER BY submitdate DESC");
+    $stmt = $pdo->prepare("SELECT * FROM reviews, restaurant, user WHERE restaurantrid = ? AND restaurant.status = 1 AND user.username = reviews.username ORDER BY submitdate DESC");
     $stmt->execute([$_GET['restaurantrid']]);
     $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // Get the overall rating and total amount of reviews
