@@ -185,6 +185,17 @@ img {
   left: 5px;
 }
 
+.updbn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(80, 31, 19);
+  display: block;
+  position: relative;
+  top: 10px;
+  left: 5px;
+}
+
 .sidebar a:hover {
   color: gray;
 }
@@ -264,6 +275,22 @@ img {
   width: 180px;
   height: 120px;
 }
+ .dropbtn {
+  background-color:rgb(80, 31, 19);
+  color: white;
+  padding: 16px;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+}
+ .dropdown {
+  position: relative;
+  display: inline-block;
+  left: 1100px;
+  bottom: 40px;
+}
+
 
 .dropdown-content {
   display: none;
@@ -288,9 +315,11 @@ img {
   color :rgb(80, 31, 19);
 }
 
-.dropdown-content {
+
+.dropdown:hover .dropdown-content {
   display: block;
 }
+
 
 
 
@@ -303,7 +332,6 @@ img {
 <body>
 
     
-    
      <div class="sidebar">
 
     <div class="logo">
@@ -313,12 +341,16 @@ img {
     </div>
         <a href="UserProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="enter-useremail.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
-        <a href="#'><i class="fa fa-fw fa-key"></i>Update Profile</a>
-        <div class="dropdown-content">
-    <!-- <a href="UserUpdateName.html">Update Name</a>
-    <a href="UserUpdateEmail.html">Update Email</a> -->
-  </div>
+  
+  <!-- <div class="updbn">
+        <select name="upbtn" onchange="location = this.value;">
+          <option value="UserUpdateName.html">Update Name</option>
+          <option value="UserUpdateEmail.html">Update Email</option>
+        </select>
+      </div> -->
         <a href="userlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
+
+        
       </div> 
 
   
