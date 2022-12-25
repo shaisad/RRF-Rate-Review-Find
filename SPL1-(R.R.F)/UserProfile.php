@@ -80,52 +80,6 @@ error_reporting();
   opacity: 0.7;
 }
 
-.dropbtn {
-  background-color:rgb(80, 31, 19);
-  color: white;
-  padding: 16px;
-  font-size: 22px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-}
-
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  left: 1100px;
-  bottom: 40px;
-}
-
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color :rgb(80, 31, 19);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-
-.dropdown-content a {
-  color: white;
-  padding: 12px 12px;
-  text-decoration: none;
-  display: block;
-  
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-  color :rgb(80, 31, 19);
-}
-
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 
 
   </style>
@@ -161,20 +115,19 @@ error_reporting();
             ?>
           </div> 
           
-          <!-- <div class="btn" id="btn">
-            <div class="dropdown-content">
+           <!-- <div class="btn" id="btn">
+            
              <a href="UserUpdate.html" target="_self">Update Profile</a>
-          </div> 
-        </div> -->
+          
+        </div>  -->
 
-
-<div class="dropdown">
+<!-- <div class="dropdown">
   <button class="dropbtn">Update</button>
   <div class="dropdown-content">
     <a href="UserUpdateName.html">Update Name</a>
     <a href="UserUpdateEmail.html">Update Email</a>
   </div>
-  </div>
+  </div> -->
 
           
 

@@ -265,6 +265,34 @@ img {
   height: 120px;
 }
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color :rgb(80, 31, 19);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 12px;
+  text-decoration: none;
+  display: block;
+  
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color :rgb(80, 31, 19);
+}
+
+.dropdown-content {
+  display: block;
+}
+
+
 
 
 </style>
@@ -285,6 +313,11 @@ img {
     </div>
         <a href="UserProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="enter-useremail.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
+        <a href="#'><i class="fa fa-fw fa-key"></i>Update Profile</a>
+        <div class="dropdown-content">
+    <a href="UserUpdateName.html">Update Name</a>
+    <a href="UserUpdateEmail.html">Update Email</a>
+  </div>
         <a href="userlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div> 
 
