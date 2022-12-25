@@ -54,7 +54,7 @@ if (isset($useremail) && isset($password)) {
 				$_SESSION['useremail'] = $row['useremail'];
             	$_SESSION['password'] = $row['password'];
 				$_SESSION['username'] = $row['username'];
-				$_SESSION['location'] = $row['location'];
+				$_SESSION['ulocation'] = $row['ulocation'];
 							
 
                 header("Location: HomePageLoggedInUser.php");

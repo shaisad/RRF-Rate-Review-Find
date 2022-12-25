@@ -104,7 +104,7 @@ error_reporting();
           <div class = "attribute">
             <label>Location:</label>
             <?php
-              echo $_SESSION['location'];
+              echo $_SESSION['ulocation'];
             ?>
           </div>
 
