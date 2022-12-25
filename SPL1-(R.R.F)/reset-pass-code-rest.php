@@ -50,31 +50,40 @@ if (isset($_POST['save'])) {
 
             if ($qres2->num_rows == 1) {
 
+                $options = array("cost" => 4);
+                $hashPassword = password_hash($password, PASSWORD_BCRYPT, $options);
 
-                
 
-                $update = "UPDATE restaurant SET password = '$password' where restaurantemail = '$restaurantemail' && code = '$code'";
+                $update = "UPDATE restaurant SET password = '$hashPassword' where restaurantemail = '$restaurantemail' && code = '$code'";
 
 
                 $result = mysqli_query($conn, $update);
                 //$result2 = mysqli_query($conn, $update2);
 
                 if ($result) {
-                    echo "Restaurant password updated successfully! Click here to 
+                    $row = mysqli_fetch_assoc($result);
+                    if ($row['status'] == 1) {
+                        if (password_verify($password, $row['password'])) {
+                            $_SESSION['restaurantemail'] = $row['restaurantemail'];
+					$_SESSION['password'] = $row['password'];
+					$_SESSION['restaurantname'] = $row['restaurantname'];
+					$_SESSION['location'] = $row['location'];
+                            echo "Restaurant password updated successfully! Click here to 
                 <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/RestaurantSignInPage.html'>login </a>";
+                        }
+                    } else {
+                        echo "Passwords don't match!";
+                    }
                 }
-            } else {
-                echo "Passwords don't match!";
+
+
+
+
             }
         }
 
-
-
-
     }
 }
-
-
 
 ?>
 
