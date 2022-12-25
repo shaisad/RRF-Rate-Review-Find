@@ -115,12 +115,6 @@ body{
   color: white;
 }
 
-/* .container{
-  position: relative;
-  left: 5px;
-  bottom: 10px;
-
-}  */
 
 img {
     width: 180px;
@@ -156,43 +150,6 @@ img {
 }
 
 
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-    position: relative;
-    left: 25px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
 
 .cardbtn {
   border: none;
@@ -242,10 +199,62 @@ img {
   15%  { left:200px; top:30px;}
 }
 
+
+.cbtnn1 {
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  text-decoration : none;
+  top: 20px;
+  border-radius: 5px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnn1:hover {
+  opacity: 0.7; 
+  text-decoration : none;
+}
+
+.cbtnn2 {
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  text-decoration : none;
+  left: 6px;
+  top: 20px;
+  border-radius: 5px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnn2 a:hover {
+  opacity: 0.7; 
+  text-decoration : none;
+}
+
+
+.cardfix {
+  position: relative;
+  left: 200px;
+  width: 80%;
+  cursor : pointer;
+}
+
 .card:hover {
   box-shadow: 0 8px 16px 0 grey;
   transform: translate3D(0,-1px,0) scale(1.03);
 } 
+
+.card{
+  height: 310px;
+}
 
 
 
@@ -268,7 +277,6 @@ img {
         <a href="RestaurantProfile.php"><i class="fa fa-fw fa-user"></i>Restaurant's Profile</a>
         <a href="enter-restemail.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="restaurantlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
-        <a href="RestaurantMenu.php"><i class="fas fa-soup"></i>Menu</a>
       </div> 
 
   
@@ -366,8 +374,10 @@ img {
             }
            }
         ?>
-
-       <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show All Reviews</button>
+        
+        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show Reviews</button>
+       <button class="cbtnn2" onclick="window.location.href='RestaurantMenu.php';">Menu</button>
+       
 
           </div>
           </div>
@@ -425,6 +435,11 @@ img {
            }
         ?>
 
+         <?php
+        echo '
+           <a class="cbtnn1" href="reviewsection.php">Show Reviews</a>
+           <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Menu</a>';
+           ?>
                   
           </div>
           </div>

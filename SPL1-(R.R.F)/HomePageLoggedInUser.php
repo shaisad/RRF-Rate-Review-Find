@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+session_start();
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -120,14 +122,15 @@ body{
   color: white;
   position: relative;
   text-decoration : none;
-  top: 10px;
+  top: 20px;
   border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
 }
 
 
 .cbtnn1:hover {
-  opacity: 0.7; ;
+  opacity: 0.7; 
+  text-decoration : none;
 }
 
 .cbtnn2 {
@@ -138,15 +141,16 @@ body{
   color: white;
   position: relative;
   text-decoration : none;
-  left: 10px;
-  top: 10px;
+  left: 6px;
+  top: 20px;
   border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
 }
 
 
-.cbtnn2:hover {
-  opacity: 0.7; ;
+.cbtnn2 a:hover {
+  opacity: 0.7; 
+  text-decoration : none;
 }
 
 
@@ -185,43 +189,7 @@ img {
   color: gray;
 }
 
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-    position: relative;
-    left: 25px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
+
 
 .cardbtn a {
 
@@ -230,6 +198,7 @@ img {
   padding: 8px 8px;
   cursor: pointer;
   color: rgb(80, 31, 19);
+  
 }
 
 .cardbtn a:hover
@@ -249,6 +218,10 @@ img {
   transform: translate3D(0,-1px,0) scale(1.03);
 } 
 
+.card{
+  height: 300px;
+}
+
 
 .heading{
   position: relative;
@@ -258,29 +231,45 @@ img {
   color: rgb(80, 31, 19);
 }
 
+.heading1{
+  position: relative;
+  left: 220px;
+  top : 70px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  animation-name: example;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+
+}
+
+@keyframes example {
+  0%   { left:0px; top:30px;}
+  15%  { left:200px; top:30px;}
+}
+
+.cardifix{
+  height: 400px;
+  position: relative;
+  left: 200px;
+  width: 80%;
+  cursor : pointer;
+}
+
+.cardifix .card {
+  height: 350px;
+}
+
+.cardifix img {
+  width: 180px;
+  height: 120px;
+}
+
 
 
 </style>
 
 </head>
-
- <script>
-
-  function passvalues(){
-
-    var restaurantname=document.getElementById("rname").value;
-    var restaurantlocation=document.getElementById("rlocation").value;
-    var restaurantimage=document.getElementById("rimage").value;
-
-    localStorage.setItem("rnamevalue", restaurantname);
-    localStorage.setItem("rlocationvalue", restaurantlocation);
-    localStorage.setItem("rimagevalue", restaurantimage);
-
-    return false;
-
-  }
-
-</script> 
 
 
 <body>
@@ -349,6 +338,7 @@ img {
         <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
         
     </div>
+    <p class = heading1><b>Welcome, <?php  echo $_SESSION['username']; ?>!</b></p>
     <p class = heading> All restaurants </p>
 
     <!-- card -->
@@ -427,6 +417,70 @@ img {
     </div>
     </div>
     </div>
+    <p class = heading> All food items</p>
+    <div class="cardifix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
+      // $sno = $_GET['resid'];
+      $query = "SELECT * FROM food_new";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?>
+          
+          
+          <div class="col-md-3 mt-3">
+            <div class="card">
+            
+          <div class="card-body">
+            <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
+            <p class="card-text" id="rlocation"><?php echo $row['subject']; ?></p>
+            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+         
+            <!-- image fetch -->
+              <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+           $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+                 
+              <?php
+            }
+           }
+           ?>
+
+          
+        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show all reviews</button>
+        
+        
+
+  
+          </div>
+          </div>
+          </div>
+
+          <?php
+        }
+      }
+
+      ?>
+    </div>
+    </div>
+    </div>
+   
     <p class = heading> Pizza </p>
 
 <!-- card -->
@@ -505,7 +559,6 @@ img {
 </div>
 </div>
 </div>
-       
 <p class = heading> Burger </p>
 
 <!-- card -->

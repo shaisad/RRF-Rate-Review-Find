@@ -25,18 +25,16 @@ if(isset($_GET['code']))
         {
             $update = "UPDATE restaurant SET status = 1 WHERE code = '$code' LIMIT 1";
             if (mysqli_query($conn, $update)){
-                ?>
-                 <script>alert("Logged in as restaurant")</script>
-				 
-                <?php
-                header("Location: image.html");
+                echo "Restaurant Account updated successfully! Click <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/RestaurantSignInPage.html'> here </a> to login again to make sure that the restaurant email has been updated! 
+                  ";
                 exit;
+                
 				
             }
             else{
                 
                 ?>      
-          <script>alert("Restaurant Account could not be created due to verification error")</script>
+          <script>alert("Restaurant Account could not be updated due to verification error")</script>
           <?php
           exit();
             }

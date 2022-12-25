@@ -1,5 +1,7 @@
  
- 
+<?php
+session_start();
+?>
 
 
 <!DOCTYPE html>
@@ -30,91 +32,7 @@ body{
     overflow-x: hidden;
 }
 
- .search{
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    position: relative;
-    left: 30px ;
-    
-}
-
-.search-box input[type="text"]{
-    height: 100%;
-    width: 100%;
-    border: none;
-    outline: none;
-    background: #fff;
-    font-size: 18px;
-    padding: 0 60px 0 20px;
-}
-
-.search-box {
-    height: 50px;
-    width: 600px;
-    color: #fff;
-    position: relative;
-    left: 100px;
-    bottom: 15px;
-}
-
-
-.result{
-        position: absolute;        
-        z-index: 999;
-        top: 100%;
-        left: 0;
-    }
-
-.result p{
-        margin: 0;
-        padding: 7px 10px;
-        border: 1px solid #CCCCCC;
-        border-top: none;
-        cursor: pointer;
-    }
-
-.result p:hover{
-        background: #f2f2f2;
-    }
-
-
-.search-btn {
-    position: relative;
-    left: 550px;
-    bottom: 35px;
-    height: 50px;
-    width: 70px;
-    color: rgb(80, 31, 19) ;
-
-}
-
-.search-btn:hover {
-    color: rgb(100, 91, 148);
-}
-
-.btnn {
-  border: none;
-  outline: none;
-  padding: 8px 8px;
-  cursor: pointer;
-  color: rgb(80, 31, 19);
-  position: relative;
-  left: 125px;
-  top: 10px;
-  border-radius: 10px;
-}
-
-
-.btnn:hover {
-  background-color: rgb(155, 113, 58) ;
-  color: white;
-}
-
-
-.btnn.show {
-  background-color: #666;
-  color: white;
-}
+ 
 
 .cbtnn1 {
   border: none;
@@ -155,115 +73,45 @@ body{
 
 
 
-img {
+.cardfix img {
     width: 180px;
     top: 300px;
     left: 100px;
 }
 
-.sidebar {
-  height: 100%;
-  width: 180px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  background-color: rgb(241, 191, 114);
-  
-}
-
-.sidebar a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: rgb(80, 31, 19);
-  display: block;
-  position: relative;
-  top: 10px;
-  left: 5px;
-}
-
-.sidebar a:hover {
-  color: gray;
-}
-
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-    position: relative;
-    left: 25px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
 
 .cardbtn a {
-  /* display: block;
-  border
-  color: white;
-  background-color: rgb(80, 31, 19);
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  
-
-  padding: 16px 16px;
-  text-decoration: none;
-  font-size: 22px; */
-
   border: none;
   outline: none;
   padding: 8px 8px;
   cursor: pointer;
   color: rgb(80, 31, 19);
-  /* position: relative;
-  left: 125px;
-  top: 10px;
-  border-radius: 10px; */
-
-
-}
+  }
 
 .cardbtn a:hover
 {
   opacity: 0.7;
 }
 
-.cardfix {
+
+.cardfix{
+  height: 380px;
   position: relative;
-  left: 200px;
+  left: 50px;
   width: 80%;
   cursor : pointer;
+  bottom: 250px;
 }
+
+.cardfix .card {
+  height: 335px;
+}
+
+.cardfix img {
+  width: 180px;
+  height: 120px;
+}
+
 
 .card:hover {
   box-shadow: 0 8px 16px 0 grey;
@@ -273,130 +121,42 @@ img {
 
 .heading{
   position: relative;
-  left: 220px;
+  left: 70px;
   top : 70px;
   font-size: 25px;
   color: rgb(80, 31, 19);
 }
-
-/* body{
-    background-color: rgb(240, 221, 136);
-    overflow-x: hidden;
-}
-
-img {
-    width: 1200px;
-    top: 200px;
-    left: 200px;
-}
-.cardfix {
-  position: relative;
-  left: 200px;
-  width: 80%;
-}
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 grey;
-  transform: translate3D(0,-1px,0) scale(1.03);
-} 
-
-
-.rrflogo {
-    width: 200px;
-    position: relative;
-    bottom: 100px;
-}
-
- 
-
-
-.restname{
-    color: rgb(80, 31, 19);
-    text-align: left;
-    position: relative;
-    left: 470px;
-}
-
-
-
 .handrice{
-    width: 60px;
-    position: relative;
-    left: 400px;
-    top: 65px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  left: 350px;
 }
-
-
-.cbtnn1 {
-  border: none;
-  outline: none;
-  padding: 8px 8px;
-  cursor: pointer;
+.rrflogo{
+  width: 200px;
+  height: 100px;
+  position: relative;
+  bottom: 250px;
+}
+.credentials{
   color: rgb(80, 31, 19);
   position: relative;
-  left: 125px;
-  top: 10px;
-  border-radius: 10px;
+  left: 515px;
+  bottom: 130px;
 }
-
-
-.cbtnn1:hover {
-  background-color: rgb(155, 113, 58) ;
-  color: white;
-}
-
-img {
-    width: 50px;
-    top: 300px;
-    left: 100px;
-}
-
-.cardbtn {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: rgb(80, 31, 19);
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.cardbtn:hover
-{
-  opacity: 0.7;
-}
-
-.cardfix {
-  position: relative;
-  left: 100px;
-  width: 10%;
-  
-}
- */
-
 
 </style>
 
 <body>
 
-    <script>
-      document.getElementById("restnameresult").innerHTML=localStorage.getItem("rnamevalue");
-      document.getElementById("restlocationresult").innerHTML=localStorage.getItem("rlocationvalue");
-      document.getElementById("restimageresult").innerHTML=localStorage.getItem("rimagevalue");
-    </script>
-
-
-    <div class="logo">
-
         <p>
-            <img class="handrice" src="handrice.png" alt="logo">
+              <img class="handrice" src="handrice.png" alt="logo"> 
             <?php
+
             require 'dbConfig.php';
+           // $category = $_POST['category'];
       $sno = $_GET['resid'];
-      $query = "SELECT * FROM restaurant where restaurantid = $sno";
+      $query = "SELECT * FROM restaurant where status = 1 and restaurantid = $sno";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -406,40 +166,37 @@ img {
         {
           
           $restaurantname = $row['restaurantname'];
-          //echo $restaurantname;
+          $location = $row['location'];
+         //echo $restaurantname;
           
-        }
-      }
+         }
+       }
 
       ?>
 
-             
+    <div class=credentials>
             <h1 class="restname"> <?php echo $restaurantname; ?></h1> 
-            <h4 class="restlocation"><span id="restlocationresult"></span></h1>
+            <h4 class="restlocation"><?php echo $location; ?></h1>
+            
+    </div>
 
-
-                <span id=restimageresult></span>
-                 
-            <img class="rrflogo" src="cover.png" alt="logo">
+    <img class="rrflogo" src="cover.png" alt="logo">           
+           
             
         </p>
 
-    </div>
+  
 
     
-   
-
-      
-
-<!-- card -->
+   <!-- card -->
 
 <div class="cardfix">
    <div class="container py-5">
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
-      $sno = $_GET['resid'];
-      $query = "SELECT * FROM food_new, restaurant where frestaurantname = restaurantname and food_res_id = $sno";
+
+      $query = "SELECT * FROM food_new where frestaurantname = '$_SESSION[restaurantname]'";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -462,7 +219,7 @@ img {
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image, restaurantname from foodimage, restaurant where foodname = '$row[foodname]' and irestaurantname = restaurantname ";
+           $queryy = "SELECT image from foodimage where foodname = '$row[foodname]' and irestaurantname = '$_SESSION[restaurantname]' ";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
@@ -495,6 +252,10 @@ img {
     </div>
     </div>
    
+
+
+      
+
 
 </body>
 

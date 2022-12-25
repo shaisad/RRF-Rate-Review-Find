@@ -25,27 +25,43 @@ if(isset($_GET['code']))
         {
             $update = "UPDATE user SET status = 1 WHERE code = '$code' LIMIT 1";
             if (mysqli_query($conn, $update)){
-                echo "Account created successfully! Click the link to complete login
+                echo "User Account created successfully! Click the link to complete login
                 <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/UserSignInPage.html'>Login </a>";
                 exit;
+                
 				
             }
             else{
-                echo "Error 1";
+                
+                ?>      
+          <script>alert("User Account could not be created due to verification error")</script>
+          <?php
+          exit();
             }
         }
         else{
-            echo "Error 2";
+            ?>      
+          <script>alert("User does not exist!")</script>
+          <?php
+          exit();
+            
         }
     }
 
     else{
-        echo "Error 3";
+        ?>      
+          <script>alert("User Verification failed!")</script>
+          <?php
+        
     }
 }
 
 else{
-    echo "Error 4";
+    ?>      
+          <script>alert("Error while generating user verificaton code!")</script>
+          <?php
+        
+    
 }
 
 ?>

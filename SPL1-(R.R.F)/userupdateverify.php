@@ -16,34 +16,31 @@ if(isset($_GET['code']))
 {
     $code = $_GET['code'];
 
-    $query = "SELECT status, code FROM restaurant WHERE status = 0 AND code = '$code' LIMIT 1";
+    $query = "SELECT status, code FROM user WHERE status = 0 AND code = '$code' LIMIT 1";
     $result = mysqli_query($conn, $query);
 
     if($result)
     {
         if($result->num_rows == 1)
         {
-            $update = "UPDATE restaurant SET status = 1 WHERE code = '$code' LIMIT 1";
+            $update = "UPDATE user SET status = 1 WHERE code = '$code' LIMIT 1";
             if (mysqli_query($conn, $update)){
-                ?>
-                 <script>alert("Logged in as restaurant")</script>
-				 
-                <?php
-                header("Location: image.html");
+                echo "User Account updated successfully! Click <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/UserSignInPage.html'> here </a> to login again to make sure that the user email has been updated! 
+                  ";
                 exit;
 				
             }
             else{
                 
                 ?>      
-          <script>alert("Restaurant Account could not be created due to verification error")</script>
+          <script>alert("User Account could not be updated due to verification error")</script>
           <?php
           exit();
             }
         }
         else{
             ?>      
-          <script>alert("Restaurant does not exist!")</script>
+          <script>alert("User does not exist!")</script>
           <?php
           exit();
             
@@ -52,7 +49,7 @@ if(isset($_GET['code']))
 
     else{
         ?>      
-          <script>alert("Restaurant Verification failed!")</script>
+          <script>alert("User Verification failed!")</script>
           <?php
         
     }
@@ -60,7 +57,7 @@ if(isset($_GET['code']))
 
 else{
     ?>      
-          <script>alert("Error while generating restaurant verificaton code!")</script>
+          <script>alert("Error while generating user verificaton code!")</script>
           <?php
         
     
