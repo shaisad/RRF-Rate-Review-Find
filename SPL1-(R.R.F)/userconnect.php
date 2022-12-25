@@ -7,7 +7,7 @@
   use PHPMailer\PHPMailer\Exception;
 
   $username = $_POST['username'];
-  $location = $_POST['location'];
+  $ulocation = $_POST['ulocation'];
   $useremail = $_POST['useremail'];
   $password = $_POST['password'];
   $confirm = $_POST['confirm'];
@@ -59,7 +59,7 @@
   }
 
 
-  if(!empty($username) && !empty($location) && !empty($useremail) && !empty($password) && !empty($confirm))
+  if(!empty($username) && !empty($ulocation) && !empty($useremail) && !empty($password) && !empty($confirm))
   {
     if (!filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
         
@@ -118,7 +118,7 @@
         $options = array("cost"=>4);
 		    $hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
        // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $INSERT= "INSERT Into user (username, location, useremail, password, code, status) values ('$username','$location','$useremail', '$hashPassword', '$code', 0)";
+        $INSERT= "INSERT Into user (username, ulocation, useremail, password, code, status) values ('$username','$ulocation','$useremail', '$hashPassword', '$code', 0)";
 
         //$stmt = $conn->prepare($SELECT);
         //$stmt->bind_param("s", $email);

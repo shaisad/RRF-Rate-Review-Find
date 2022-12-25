@@ -34,7 +34,7 @@ if(isset($_GET['code']))
             else{
                 
                 ?>      
-          <script>alert("User Account could not be created due to verification error")</script>
+          <script>alert("User Account could not be created due to verification error!")</script>
           <?php
           exit();
             }
