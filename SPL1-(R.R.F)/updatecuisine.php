@@ -30,7 +30,10 @@ if(isset($_POST['submitcuisine']))
 
 }
 else{
-    echo "Error!";
+  ?>      
+  <script>alert("Error! Cuisine field is not filled up!")</script>
+  <?php
+  exit();
 }
 
 ?>

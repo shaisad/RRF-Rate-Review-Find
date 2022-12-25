@@ -80,7 +80,7 @@ body{
     .banner{
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 600px;
-  height: 300px;
+  height: 400px;
   margin: auto;
   text-align: center;
   font-family: arial;
@@ -118,6 +118,7 @@ label {
     width: 220px;
 }
 
+
 </style>
 <body>
 
@@ -128,21 +129,28 @@ label {
         <img class="rrflogo" src="cover.png" alt="logo">
 
     </div>
-
+<p> <b>Choose your restaurant's cuisine:</b></p>
     <form method = "post" action = "updatecuisine.php">
-<label class="container">Italian
+
+<label class="container"> Asian
+  <input type="radio" value = "Asian" name="cuisine">
+  <span class="checkmark"></span>
+</label>
+<label class="container"> Italian
   <input type="radio" value = "Italian" checked="checked" name="cuisine">
   <span class="checkmark"></span>
 </label>
-<label class="container">Bengali
+<label class="container"> French
+  <input type="radio" value = "French" checked="checked" name="cuisine">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container"> Bengali
   <input type="radio" value = "Bengali" name="cuisine">
   <span class="checkmark"></span>
 </label>
-<label class="container">French
-  <input type="radio" value = "French" name="cuisine">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Chinese
+
+<label class="container"> Chinese
   <input type="radio" value = "Chinese" name="cuisine">
   <span class="checkmark"></span>
 </label>
