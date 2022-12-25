@@ -304,7 +304,7 @@ img {
         
             <div class="search">
               <div class="search-box"> 
-                 <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food and restaurant...">
+                 <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food, restaurant, location...">
                     <div class="search-btn">
                        <i class="fa fa-search"></i> </div>
               </div>
