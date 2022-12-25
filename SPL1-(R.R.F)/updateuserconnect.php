@@ -12,7 +12,7 @@ if (isset($_POST['submitname']))
 {
     $username = $_POST['username'];
 
-    $query = "update user set username='$username'";
+    $query = "update user set username='$username' where username = '$_SESSION[username]'";
 
     if ($db->query($query) === TRUE) {
         echo "Record updated successfully";
@@ -28,7 +28,7 @@ if (isset($_POST['submitemail']))
 {
     $useremail = $_POST['useremail'];
 
-    $query = "update user set useremail='$useremail'";
+    $query = "update user set useremail='$useremail' where username = '$_SESSION[username]'";
     
     if ($db->query($query) === TRUE) {
         echo "Record updated successfully";
