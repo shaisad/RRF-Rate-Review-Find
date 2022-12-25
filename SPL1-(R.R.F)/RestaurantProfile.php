@@ -119,6 +119,7 @@ error_reporting();
           <div class="btn" id="btn">
              <a href="AddMenu.php" target="_self">Add Menu</a>
              <a href="RestaurantUpdate.html" target="_self">Update Profile</a>
+             <a href="ResCuisineUpdate.html" target="_self">Update Cuisine</a>
              <a href="HomePageLoggedInRest.php" target="_self">Back</a>
            </div>
           
