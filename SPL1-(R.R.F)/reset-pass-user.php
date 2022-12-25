@@ -43,21 +43,28 @@ label {
     right: 10px;
 }
 .banner form input[type="submit"]{
-    width: 100px 80px;
-    height: 20px;
-  	/* padding: 15px;
-  	margin-top: 20px;*/
-  	background-color:rgb(80, 31, 19); 
- 	border: 0;
-  	cursor: pointer;
-  	color: #ffffff;
-  	transition: background-color 0.2s;
-    position: relative;
-    top: 60px;
-    right: 180px;
+  float: left;
+  display: block;
+  color: rgb(219, 216, 216);
+  text-align: center;
+  padding: 8px;
+  text-decoration:none;
+  font-size: 13px;
+  background-color: rgb(46, 16, 9);
+  margin: 10px;
+  border-radius: 20px;
 }
-.banner form input[type="email"]{
-    width: 220px;
+
+.banner form input[type="password"]{
+    width: 300px;
+    border: 2px solid rgb(80, 31, 19);
+    height: 30px;
+    position: relative;
+    bottom: 40px;
+    right: 190px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  	padding: 0 15px;
 }
 
     </style>
@@ -74,11 +81,8 @@ label {
     
     <form method="post" action="reset-pass-code-user.php">
     <div class = "attribute">
-    <label>Create new password</label>
-      <input type = "password" name = "password" required>
-                    
-      <label>Confirm new password</label>
-                    <input type = "password" name = "confirm" required>
+      <input type = "password" name = "password" required placeholder="  Type new password">
+                    <input type = "password" name = "confirm" required placeholder="  Re-type new password">
                     
                     
       

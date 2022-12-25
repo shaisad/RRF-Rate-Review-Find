@@ -115,20 +115,11 @@ error_reporting();
             ?>
           </div> 
           
-           <!-- <div class="btn" id="btn">
+            <div class="btn" id="btn">
             
              <a href="UserUpdate.html" target="_self">Update Profile</a>
           
-        </div>  -->
-
-<!-- <div class="dropdown">
-  <button class="dropbtn">Update</button>
-  <div class="dropdown-content">
-    <a href="UserUpdateName.html">Update Name</a>
-    <a href="UserUpdateEmail.html">Update Email</a>
-  </div>
-  </div> -->
-
+        </div> 
           
 
 </div>
