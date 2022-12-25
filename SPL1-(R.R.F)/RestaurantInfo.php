@@ -393,24 +393,28 @@ img {
 
         <p>
             <img class="handrice" src="handrice.png" alt="logo">
-            <!-- <?php
+            <?php
             require 'dbConfig.php';
       $sno = $_GET['resid'];
-      $result = "SELECT * FROM food_new, restaurant where frestaurantname = restaurantname and food_res_id = $sno";
-      $query_run = mysqli_query($db, $result);
-      if ($query_run->num_rows > 0)
-    {
-        // fetch the results
-        while ($row = $query_run->fetch_object())
+      $query = "SELECT * FROM restaurant where restaurantid = $sno";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
         {
-            $restaurantname = $row->restaurantname;
-            echo $restaurantname;
+          
+          $restaurantname = $row['restaurantname'];
+          //echo $restaurantname;
+          
         }
+      }
 
-    }?> -->
+      ?>
 
-            <!-- <h1 class="restname"> <?php echo "restaurantname?resid= '. $sno .'" ?></h1> -->
-
+             
+            <h1 class="restname"> <?php echo $restaurantname; ?></h1> 
             <h4 class="restlocation"><span id="restlocationresult"></span></h1>
 
 
