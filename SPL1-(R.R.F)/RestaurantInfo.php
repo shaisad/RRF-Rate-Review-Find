@@ -1,10 +1,7 @@
 <?php
 session_start();
 ?> 
-<?php
-$irestaurantname = $_SESSION['restaurantname']; 
-//$foodname = $_SESSION['foodname'];
-?> 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -397,14 +394,31 @@ img {
 
         <p>
             <img class="handrice" src="handrice.png" alt="logo">
+            <!-- <?php
+            require 'dbConfig.php';
+      $sno = $_GET['resid'];
+      $result = "SELECT * FROM food_new, restaurant where frestaurantname = restaurantname and food_res_id = $sno";
+      $query_run = mysqli_query($db, $result);
+      if ($query_run->num_rows > 0)
+    {
+        // fetch the results
+        while ($row = $query_run->fetch_object())
+        {
+            $restaurantname = $row->restaurantname;
+            echo $restaurantname;
+        }
 
-            <h1 class="restname"><?php echo $_SESSION['restaurantname'];?></h1>
+    }?> -->
+
+            <!-- <h1 class="restname"> <?php echo "restaurantname?resid= '. $sno .'" ?></h1> -->
+
             <h4 class="restlocation"><span id="restlocationresult"></span></h1>
 
 
                 <span id=restimageresult></span>
                  
             <img class="rrflogo" src="cover.png" alt="logo">
+            
         </p>
 
     </div>
@@ -421,8 +435,8 @@ img {
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
-
-      $query = "SELECT * FROM food_new where frestaurantname = '$_SESSION[restaurantname]'";
+      $sno = $_GET['resid'];
+      $query = "SELECT * FROM food_new, restaurant where frestaurantname = restaurantname and food_res_id = $sno";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -445,7 +459,7 @@ img {
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image from foodimage where foodname = '$row[foodname]' and irestaurantname = '$_SESSION[restaurantname]' ";
+           $queryy = "SELECT image, restaurantname from foodimage, restaurant where foodname = '$row[foodname]' and irestaurantname = restaurantname ";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 

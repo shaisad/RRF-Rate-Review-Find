@@ -42,7 +42,7 @@ if (isset($restaurantemail) && isset($password)) {
 //	    exit();
 //	}else{
 		//$sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
-        $sql2 = "SELECT * FROM restaurant WHERE restaurantemail ='$restaurantemail' AND password='$password'";
+        $sql2 = "SELECT * FROM restaurant WHERE restaurantemail ='$restaurantemail'";
 		
         //$result = mysqli_query($conn, $sql);
         $result2 = mysqli_query($conn, $sql2);
@@ -51,20 +51,43 @@ if (isset($restaurantemail) && isset($password)) {
         if ($result2->num_rows == 1) {
 			$row = mysqli_fetch_assoc($result2);
             if ($row['status'] == 1) {
-							$_SESSION['restaurantemail'] = $row['restaurantemail'];
-							$_SESSION['password'] = $row['password'];
-            	            $_SESSION['restaurantname'] = $row['restaurantname'];
-							$_SESSION['location'] = $row['location'];
+				if( password_verify($password, $row['password'])){
+					$_SESSION['restaurantemail'] = $row['restaurantemail'];
+					$_SESSION['password'] = $row['password'];
+					$_SESSION['restaurantname'] = $row['restaurantname'];
+					$_SESSION['location'] = $row['location'];
 							
-							echo "successful";
-							header("Location: HomePageLoggedInRest.php");
-		                    exit();
-            }else{
-				echo "Account not verified.";
-		        exit();
-		
-				}
+					?>      
+					<script>alert("Logged In Successfully as Restaurant!")</script>
+					<?php
+                header("Location: HomePageLoggedInRest.php");
+                exit();
+				
+            }
+			else{
+				
+				?>      
+          <script>alert("Wrong Password! Make sure to type in the correct password!")</script>
+          <?php
+          exit();
+			}
+		}else{
+			?>      
+          <script>alert("Restaurant account not verified!")</script>
+          <?php
+          exit();
+				
+		        
+			}
 		}
+		else{
+			
+			?>      
+          <script>alert("No restaurant found!")</script>
+          <?php
+          exit();
+		}
+	
 	}
 	
 else{

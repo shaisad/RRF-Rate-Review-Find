@@ -11,19 +11,18 @@ session_start();
   $subject = $_POST['subject'];
   $frestaurantname = $_SESSION['restaurantname'];
   $_SESSION['foodname'] = $foodname;
-
-
+ 
 
   require 'dbConfig.php'; 
 
-
-
+  
   
   if (!empty($foodname) && !empty($price) && !empty($category)){
-  if(isset($_POST["submit"])){
-
-   
-    $INSERT= "INSERT Into food_new (foodname, price, category, subject, frestaurantname) values ('$foodname','$price','$category','$subject', '$_SESSION[restaurantname]')";
+    if(isset($_POST["submit"])){
+      $sno = $_GET['resid'];
+      
+    
+    $INSERT= "INSERT Into `food_new` (`foodname`, `price`, `category`, `subject`, `frestaurantname`, `food_res_id`) values ('$foodname','$price','$category','$subject', '$_SESSION[restaurantname]', '$sno')";
 
    // mysqli_query($db, $INSERT);
 

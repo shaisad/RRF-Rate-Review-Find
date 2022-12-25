@@ -113,9 +113,10 @@
 
       else
       {
-        
+        $options = array("cost"=>4);
+		    $hashPassword = password_hash($password,PASSWORD_BCRYPT,$options);
         // correct $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $INSERT= "INSERT Into restaurant (restaurantname, location, restaurantemail, password, code, status) values ('$restaurantname','$location','$restaurantemail','$password', '$code', 0)";
+        $INSERT= "INSERT Into restaurant (restaurantname, location, restaurantemail, password, code, status) values ('$restaurantname','$location','$restaurantemail','$hashPassword', '$code', 0)";
 
         //$stmt = $conn->prepare($SELECT);
         //$stmt->bind_param("s", $email);
@@ -138,6 +139,9 @@
 
         mysqli_query($conn, $INSERT);
 
+        $update= "update restaurant set resimageid = restaurantid + 100";
+        mysqli_query($conn, $update);
+
         //$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         if($INSERT && sendMail($restaurantemail,$code))
@@ -148,6 +152,10 @@
           exit();
           
         }
+
+        $update= "update restaurant set resimageid = restaurantid + 100";
+        mysqli_query($conn, $update);
+
 
         $conn->close();
       }

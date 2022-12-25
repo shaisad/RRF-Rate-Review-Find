@@ -119,7 +119,7 @@ body{
   cursor: pointer;
   color: white;
   position: relative;
-  
+  text-decoration : none;
   top: 10px;
   border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
@@ -137,6 +137,7 @@ body{
   cursor: pointer;
   color: white;
   position: relative;
+  text-decoration : none;
   left: 10px;
   top: 10px;
   border-radius: 5px;
@@ -260,6 +261,7 @@ img {
 
 
 </style>
+
 </head>
 
  <script>
@@ -364,8 +366,9 @@ img {
       {
         while($row = mysqli_fetch_assoc($query_run))
         {
+          ?><?php
+          $sno = $row['restaurantid'];
           ?>
-          
           <div class="col-md-3 mt-3">
             <div class="card">
             
@@ -393,8 +396,13 @@ img {
            ?>
 
         
-        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">All Reviews</button>
-        <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php';">See Details</button> 
+        <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
+        <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+        <?php
+        echo '
+           <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+           <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+           ?>
         <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
           <a href="RestaurantInfo.php"> See Details </a>
           </button> -->
@@ -426,8 +434,3 @@ img {
 
 
 </html>
-
-
-
-
-    

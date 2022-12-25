@@ -134,14 +134,29 @@ session_start();
 
     </div>
 
+    <?php 
+    require 'dbConfig.php';
+    
+    $query = "SELECT * FROM restaurant where restaurantname = '$_SESSION[restaurantname]'";
+    $query_run = mysqli_query($db, $query);
+    $check_user = mysqli_num_rows($query_run) > 0;
+    if($check_user){
+      while($row = mysqli_fetch_assoc($query_run)){
+        $sno = $row['restaurantid'];
+      }
+    }
+    ?>
+
+<?php
+echo '
 <div class="container">
-  <form action="foodconnect.php" method="post" enctype="multipart/form-data">
+  <form action="foodconnect.php?resid= '. $sno .'" method="post" enctype="multipart/form-data">
     <div class="row">
       <div class="col-25">
-        <label for="foodname">Food's Name</label>
+        <label for="foodname">Foods Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="foodname" placeholder="Food's name..">
+        <input type="text" id="fname" name="foodname" placeholder="Food&#39;s name..">
       </div>
     </div>
     <div class="row">
@@ -149,7 +164,7 @@ session_start();
         <label for="price">Price</label>
       </div>
       <div class="col-75">
-        <input type="text" id="price" name="price" placeholder="... in BDT">
+        <input type="number" id="price" name="price" placeholder="... in BDT">
       </div>
     </div>
     <div class="row">
@@ -167,6 +182,7 @@ session_start();
           <option value="Chicken">Chicken</option>
           <option value="Salad">Salad</option>
           <option value="Drinks">Drinks</option>
+          <option value="Naan">Naan</option>
         </select>
       </div>
     </div>
@@ -179,24 +195,17 @@ session_start();
       </div>
     </div>
 
-   <!-- <form action="foodupload.php" method="post" enctype="multipart/form-data"></form>
-    <div class="row">
-      <div class="col-25">
-          <label for="foodimage">Food's Image</label>
-        </div>
-        <div class="col-75">
-          <input type="file" id="image" name="image">
-        </div>
-    </div> -->
+  
     <div class="row">
       <input type="submit" name="submit" value="Submit">
       <div class="btn" id="btn">
          <a href="HomePageLoggedInRest.php" target="_self">Exit</a>
        </div>
     </div>
-   <!-- </form> -->
+   
  </form>
-</div>
+</div>';
+?>
 
 </body>
 </html>
