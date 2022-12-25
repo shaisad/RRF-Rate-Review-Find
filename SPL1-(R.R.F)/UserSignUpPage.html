@@ -193,9 +193,9 @@ body {
 				<label for="confirm" class="cpass">
 					<i class="fas fa-lock"></i>
 				</label>
-				<input type="password" name="confirm" placeholder="Confirm Password" id="ConfirmPassword" required>
+				<input type="password" name="confirm" placeholder="Confirm Password" id="cpassword" required>
 				<span class="eye-btn"><i class="bi bi-eye-slash" 
-                    id="togglePassword"></i></span>
+                    id="togglePassword1"></i></span>
 				
 					<input type="submit" name = "signup" value="Sign Up"/>
 
@@ -205,8 +205,12 @@ body {
 		<script>
 			const togglePassword = document
 				.querySelector('#togglePassword');
+
+				const togglePassword1 = document
+				.querySelector('#togglePassword1');
 	  
 			const password = document.querySelector('#password');
+			const cpassword = document.querySelector('#cpassword');
 	  
 			togglePassword.addEventListener('click', () => {
 	  
@@ -222,28 +226,24 @@ body {
 				this.classList.toggle('bi-eye');
 			});
 
-			
-
-const togglePassword1 = document
-				.querySelector('#togglePassword1');
-	  
-			const ConfirmPassword = document.querySelector('#ConfirmPassword');
-	  
 			togglePassword1.addEventListener('click', () => {
 	  
-				// Toggle the type attribute using
-				// getAttribure() method
-				const type = password
-					.getAttribute('type') === 'ConfirmPassword' ?
-					'text' : 'password';
-					  
-				password.setAttribute('type', type);
-	  
-				// Toggle the eye and bi-eye icon
-				this.classList.toggle('bi-eye');
-			});
+	  // Toggle the type attribute using
+	  // getAttribure() method
+	  const type = password
+		  .getAttribute('type') === 'password' ?
+		  'text' : 'password';
+			
+	  cpassword.setAttribute('type', type);
 
-</script>
+	  // Toggle the eye and bi-eye icon
+	  this.classList.toggle('bi-eye');
+  });
+
+	
+		</script>
+
+	
 		
 	</body>
 </html>

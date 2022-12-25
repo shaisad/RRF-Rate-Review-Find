@@ -66,6 +66,13 @@ label {
     margin-bottom: 20px;
   	padding: 0 15px;
 }
+.eye-btn1{
+
+}
+
+.eye-btn2{
+
+}
 
     </style>
 
@@ -82,7 +89,13 @@ label {
     <form method="post" action="reset-pass-code-user.php">
     <div class = "attribute">
       <input type = "password" name = "password" required placeholder="  Type new password">
+      <span class="eye-btn1"><i class="bi bi-eye-slash" 
+                    id="togglePassword"></i></span>
+      
+
                     <input type = "password" name = "confirm" required placeholder="  Re-type new password">
+                    <span class="eye-btn2"><i class="bi bi-eye-slash" 
+                    id="togglePassword"></i></span>
                     
                     
       
@@ -93,6 +106,25 @@ label {
     </form>
 
 </div>
+
+<script>
+			const togglePassword = document
+				.querySelector('#togglePassword');
+	  
+			const password = document.querySelector('#password');
+	  
+			togglePassword.addEventListener('click', () => {
+	  
+				
+				const type = password
+					.getAttribute('type') === 'password' ?
+					'text' : 'password';
+					  
+				password.setAttribute('type', type);
+	  
+				this.classList.toggle('bi-eye');
+			});
+		</script>
  
 </body>
 </html>
