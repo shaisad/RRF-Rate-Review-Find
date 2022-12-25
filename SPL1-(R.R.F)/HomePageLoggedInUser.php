@@ -264,11 +264,11 @@ img {
 
 </head>
 
- <script>
+<script>
 
   function passvalues(){
 
-    var restaurantname=document.getElementById("rname").value;
+    var  restaurantname=document.getElementById("rname").value;
     var restaurantlocation=document.getElementById("rlocation").value;
     var restaurantimage=document.getElementById("rimage").value;
 
