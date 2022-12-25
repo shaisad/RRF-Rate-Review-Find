@@ -315,8 +315,8 @@ img {
         <a href="enter-useremail.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
         <a href="#'><i class="fa fa-fw fa-key"></i>Update Profile</a>
         <div class="dropdown-content">
-    <a href="UserUpdateName.html">Update Name</a>
-    <a href="UserUpdateEmail.html">Update Email</a>
+    <!-- <a href="UserUpdateName.html">Update Name</a>
+    <a href="UserUpdateEmail.html">Update Email</a> -->
   </div>
         <a href="userlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div> 
