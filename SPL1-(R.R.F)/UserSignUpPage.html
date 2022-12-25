@@ -49,7 +49,43 @@ body {
   	padding-top: 20px;
 	border-radius: 60px;
 }
-.UserSignUp form label {
+.UserSignUp .uname {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	width: 50px;
+ 	height: 50px;
+  	background-color: rgb(80, 31, 19);
+  	color: #ffffff;
+	border-radius: 40px;
+	position: relative;
+	right: 7px;
+}
+.UserSignUp .location {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	width: 50px;
+ 	height: 50px;
+  	background-color: rgb(80, 31, 19);
+  	color: #ffffff;
+	border-radius: 40px;
+	position: relative;
+	right: 7px;
+}
+.UserSignUp .mail {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	width: 50px;
+ 	height: 50px;
+  	background-color: rgb(80, 31, 19);
+  	color: #ffffff;
+	border-radius: 40px;
+	position: relative;
+	right: 7px;
+}
+.UserSignUp .pass {
   	display: flex;
   	justify-content: center;
   	align-items: center;
@@ -59,7 +95,17 @@ body {
   	color: #ffffff;
 	border-radius: 40px;
 }
-.UserSignUp form input[type="password"], .UserSignUp form input[type="text"], .UserSignUp form input[type="email"] {
+.UserSignUp .cpass {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	width: 50px;
+ 	height: 50px;
+  	background-color: rgb(80, 31, 19);
+  	color: #ffffff;
+	border-radius: 40px;
+}
+.UserSignUp form input[type="text"], .UserSignUp form input[type="email"] {
   	width: 310px;
   	height: 50px;
   	border: 3px solid rgb(80, 31, 19);
@@ -67,8 +113,19 @@ body {
   	padding: 0 15px;
 	border-radius: 60px;
 }
+.UserSignUp form input[type="password"]
+{
+  	width: 310px;
+  	height: 50px;
+  	border: 3px solid rgb(80, 31, 19);
+  	margin-bottom: 20px;
+  	padding: 0 15px;
+	border-radius: 60px;
+	position: relative;
+	left: 5px;
+}
 .UserSignUp form input[type="submit"] {
-  	width: 100%;
+	width: 100%;
   	padding: 15px;
   	margin-top: 20px;
   	background-color: rgb(80, 31, 19);
@@ -77,7 +134,8 @@ body {
   	font-weight: bold;
   	color: #ffffff;
   	transition: background-color 0.2s;
-    border-radius: 40px;
+	position: relative;
+	bottom: 30px;
 }
 .UserSignUp form input[type="submit"]:hover {
 	background-color: rgb(80, 31, 19);
@@ -111,20 +169,20 @@ body {
 		
 			</div>User Sign Up</h1>
 			<form action="userconnect.php" method="post" autocomplete="off">
-				<label for="username">
+				<label for="username" class="uname">
 					<i class="fas fa-user"></i>
 				</label>
 				<input type="text" name="username" placeholder="Username" id="username" required>
-                <label for="location">
-					<i class="#"></i>
+                <label for="location" class="location">
+					<i class="fas fa-location"></i>
 				</label>
-				<input type="text" name="location" placeholder="Location" id="location" required>
-                <label for="email">
+				<input type="text" name="ulocation" placeholder="Location" id="location" required>
+                <label for="email" class="mail">
 					<i class="fas fa-envelope"></i>
 				</label>
 				<input type="email" name="useremail" placeholder="Email" id="email" required>
                 
-				<label for="password">
+				<label for="password" class="pass">
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
@@ -132,7 +190,7 @@ body {
                     id="togglePassword"></i></span>
 				
 				
-				<label for="confirm">
+				<label for="confirm" class="cpass">
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="confirm" placeholder="Confirm Password" id="ConfirmPassword" required>

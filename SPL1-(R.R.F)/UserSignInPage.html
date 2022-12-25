@@ -28,7 +28,7 @@ body {
   	margin: 0;
 }
 .UserSignIn {
-  	width: 400px;
+  	width: 400px;;
   	background-color: #ffffff;
   	box-shadow: 20px rgba(88, 88, 102, 0.3);
   	margin: 100px auto;
@@ -42,23 +42,43 @@ body {
   	padding: 20px 0 20px 0;
   	border-bottom: 1px solid #dee0e4;
 }
-/* .UserSignIn form {
+.UserSignIn form {
   	display: flex;
   	flex-wrap: wrap;
   	justify-content: center;
   	padding-top: 20px;
-	border-radius: 60px;
-} */
-.UserSignIn form label {
+	border-radius: 0px;
+} 
+.UserSignIn .mail {
   	display: flex;
-  	/* justify-content: center;
-  	align-items: center; */
+  	justify-content: center;
+  	align-items: center; 
   	width: 50px;
  	height: 50px;
-  	background-color: rgb(80, 31, 19);
-  	color: #ffffff;
+	 color:  white;
+	background-color: rgb(80, 31, 19);
 	border-radius: 40px;
+	border-radius: 40px;
+	position: relative;
+	top: 27px;
+	right: 23px;
 }
+
+.UserSignIn .pass {
+  	display: flex;
+  	 justify-content: center;
+  	align-items: center;
+  	width: 50px;
+ 	height: 50px;
+	 color:  white;
+	background-color: rgb(80, 31, 19);
+	border-radius: 40px;
+	border-radius: 40px;
+	position: relative;
+	top: 95px;
+	right: 317px;
+}
+
 .UserSignIn form input[type="password"], .UserSignIn form input[type="text"], .UserSignIn form input[type="email"] {
   	width: 310px;
   	height: 50px;
@@ -66,6 +86,9 @@ body {
   	margin-bottom: 20px;
   	padding: 0 15px;
 	border-radius: 60px;
+	position: relative;
+	left: 30px;
+	bottom: 30px;
 }
 .UserSignIn form input[type="submit"] {
   	width: 100%;
@@ -77,6 +100,8 @@ body {
   	font-weight: bold;
   	color: #ffffff;
   	transition: background-color 0.2s;
+	position: relative;
+	bottom: 30px;
 }
 .UserSignIn form input[type="submit"]:hover {
 	background-color: rgb(80, 31, 19);
@@ -89,8 +114,8 @@ body {
 
 .eye-btn {
     position: relative;
-	right:40px;
-	top: 10px;
+	right:10px;
+	bottom: 20px;
  }
  img {
     width: 180px;
@@ -100,16 +125,7 @@ body {
 }
 .emailfix{
 	position: relative;
-	right: 100px;
-}
-.passfix{
-	position: relative;
-	left: 20px;
-}
-
-label .mail{
-	position: relative;
-	right: 10px;
+	left: 15px;
 }
     </style>
 	
@@ -127,17 +143,17 @@ label .mail{
 					<i class="fa-solid fa-envelope"></i>
 				</label>
 				<input type="email" name="useremail" placeholder="Email" id="email" required>
-				</div>
+			</div>
+				
 			
                     
-				<div class="passfix">
-				<label for="password">
+				<label for="password" class="pass">
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required >
 				<span class="eye-btn"><i class="bi bi-eye-slash" 
                     id="togglePassword"></i></span>
-				</div>
+				
 				
 					<input type="submit" value="Sign In"/>
 

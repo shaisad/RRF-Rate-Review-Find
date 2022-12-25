@@ -49,7 +49,7 @@ body {
   	padding-top: 20px;
 	border-radius: 60px;
 }
-.RestUserSignIn form label {
+.RestUserSignIn .mail {
   	display: flex;
   	justify-content: center;
   	align-items: center;
@@ -58,14 +58,38 @@ body {
   	background-color: rgb(80, 31, 19);
   	color: #ffffff;
 	border-radius: 40px;
+	position: relative;
+	right: 7px;
 }
-.RestUserSignIn form input[type="password"], .RestUserSignIn form input[type="text"], .RestUserSignIn form input[type="email"] {
+.RestUserSignIn .pass {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	width: 50px;
+ 	height: 50px;
+  	background-color: rgb(80, 31, 19);
+  	color: #ffffff;
+	border-radius: 40px;
+	
+}
+ .RestUserSignIn form input[type="text"], .RestUserSignIn form input[type="email"] {
   	width: 310px;
   	height: 50px;
   	border: 3px solid rgb(80, 31, 19);
   	margin-bottom: 20px;
   	padding: 0 15px;
 	border-radius: 60px;
+}
+.RestUserSignIn form input[type="password"]
+{
+  	width: 310px;
+  	height: 50px;
+  	border: 3px solid rgb(80, 31, 19);
+  	margin-bottom: 20px;
+  	padding: 0 15px;
+	border-radius: 60px;
+	position: relative;
+	left: 7px;
 }
 .RestUserSignIn form input[type="submit"] {
   	width: 100%;
@@ -114,12 +138,12 @@ body {
 			<form action="loginrestaurant.php" method="post" autocomplete="off">
 
 				
-                <label for="email">
+                <label for="email" class="mail">
 					<i class="fas fa-envelope"></i>
 				</label>
 				<input type="email" name="restaurantemail" placeholder="Restaurant's Email" id="email" required>
 
-				<label for="password">
+				<label for="password" class="pass">
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
