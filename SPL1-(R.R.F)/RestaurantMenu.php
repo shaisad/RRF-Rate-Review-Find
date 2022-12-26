@@ -111,8 +111,8 @@ body{
 
 .heading{
   position: relative;
-  left: 220px;
-  top : 70px;
+  left: 73px;
+  bottom : 175px;
   font-size: 25px;
   color: rgb(80, 31, 19);
 }
@@ -160,8 +160,7 @@ body{
     
    
 
-      
-
+<p class = heading> Menu </p>
 <!-- card -->
 
 <div class="cardfix">

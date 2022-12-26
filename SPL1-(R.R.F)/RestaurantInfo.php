@@ -98,7 +98,7 @@ body{
   left: 50px;
   width: 80%;
   cursor : pointer;
-  bottom: 250px;
+  bottom: 220px;
 }
 
 .cardfix .card {
@@ -116,14 +116,15 @@ body{
   transform: translate3D(0,-1px,0) scale(1.03);
 } 
 
-
 .heading{
   position: relative;
-  left: 70px;
-  top : 70px;
+  left: 62px;
+  bottom : 175px;
   font-size: 25px;
   color: rgb(80, 31, 19);
+
 }
+
 .handrice{
   width: 150px;
   height: 150px;
@@ -187,7 +188,7 @@ body{
 
     
    <!-- card -->
-
+<p class = heading><u> Menu </p></u> 
 <div class="cardfix">
    <div class="container py-5">
     <div class="row mt-3">
