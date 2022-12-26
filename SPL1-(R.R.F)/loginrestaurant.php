@@ -89,8 +89,10 @@ if (isset($restaurantemail) && isset($password)) {
 	}
 	
 else{
-	echo "Login failed";
-	exit();
-}
+	
+	?>      
+	<script>alert("Restaurant email and password fields must be filled to continue!")</script>
+	<?php
+	exit();}
 
 ?>
