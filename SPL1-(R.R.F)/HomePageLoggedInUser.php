@@ -578,7 +578,7 @@ img {
         {
           ?>
           <?php
-          $sno = $row['foodid'];
+          $sno2 = $row['foodid'];
           ?>
           
           <div class="col-md-3 mt-3">
@@ -609,8 +609,13 @@ img {
            ?>
 
           
-        <?php echo `<a href="reviewsection.php?fid='. $sno .'">Show all reviews</a>`?>
-        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show all reviews</button>
+        <!-- <?php echo `<a href="RateReview.php?fid='. $sno2 .'">Show all reviews</a>`?> -->
+        <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show all reviews</button> -->
+        <?php
+        echo '
+           <a class="cbtnn1" href="RateReview.php?fid='. $sno2 .'">Review here</a>
+        ';
+           ?>
         
         
 
