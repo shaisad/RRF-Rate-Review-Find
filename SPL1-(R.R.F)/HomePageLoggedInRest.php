@@ -31,7 +31,7 @@ body{
 
  .search{
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     position: relative;
     left: 30px ;
     
@@ -45,6 +45,7 @@ body{
     background: #fff;
     font-size: 18px;
     padding: 0 60px 0 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .search-box {
@@ -143,6 +144,7 @@ img {
   position: relative;
   top: 10px;
   left: 5px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .sidebar a:hover {
@@ -162,6 +164,7 @@ img {
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .cardbtn:hover
@@ -181,6 +184,7 @@ img {
   top : 70px;
   font-size: 25px;
   color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
 }
 .heading1{
   position: relative;
@@ -191,6 +195,7 @@ img {
   animation-name: example;
   animation-duration: 3s;
   animation-iteration-count: 1;
+  font-family: 'Times New Roman', Times, serif;
 
 }
 

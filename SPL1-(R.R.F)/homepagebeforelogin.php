@@ -30,7 +30,7 @@ body{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    
+    font-family: 'Times New Roman', Times, serif;
     bottom: 85px;
 }
 
@@ -113,12 +113,6 @@ body{
   color: white;
 }
 
-/* .container{
-  position: relative;
-  left: 5px;
-  bottom: 10px;
-
-}  */
 
 .cbtnn1 {
   border: none;
@@ -222,6 +216,7 @@ color: rgb(80, 31, 19);
   font-size: 25px;
   color: rgb(80, 31, 19);
   bottom:55px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 
