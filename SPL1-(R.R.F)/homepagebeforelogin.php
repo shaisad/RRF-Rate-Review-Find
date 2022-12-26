@@ -166,106 +166,7 @@ img {
     left: 100px;
 }
 
-/* .sidebar {
-  height: 100%;
-  width: 180px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  background-color: rgb(241, 191, 114);
-  
-}
 
-.sidebar a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: rgb(80, 31, 19);
-  display: block;
-  position: relative;
-  top: 10px;
-  left: 5px;
-}
-
-.sidebar a:hover {
-  color: gray;
-} */
-
-/* .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 25%;
-  position: relative;
-  left: 100px;
-  background-color: white;
-  top: 45px;
-  margin-bottom: 40px;
-} 
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-} 
-
-.container {
-  padding: 2px 16px;
-  position: relative;
-  left: 60px;
-  bottom: 10px;
-
-}  */
-
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-    position: relative;
-    left: 25px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
-
-/* .cardbtn {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: rgb(80, 31, 19);
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-} */
 
 .cardbtn a {
 
@@ -439,7 +340,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -515,8 +416,8 @@ color: rgb(80, 31, 19);
            ?>
 
           
-        <?php echo `<a href="reviewsection.php?fid='. $sno .'">Show all reviews</a>`?>
-        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show all reviews</button>
+        <?php echo `<a href="ViewReviews.html?fid='. $sno .'">Show all reviews</a>`?>
+        <button class="cbtnn1" onclick="window.location.href='ViewReviews.html';">Show all reviews</button>
         
         
 
@@ -585,7 +486,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -663,7 +564,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -741,7 +642,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -819,7 +720,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -899,7 +800,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
