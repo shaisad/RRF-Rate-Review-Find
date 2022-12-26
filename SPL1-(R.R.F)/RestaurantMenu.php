@@ -186,7 +186,7 @@ body{
           <div class="card-body">
             <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['subject']; ?></p>
-            <p class="card-text" id="rlocation"><?php echo $row['price']; ?></p>
+            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
          
             <!-- image fetch -->
               <?php 
