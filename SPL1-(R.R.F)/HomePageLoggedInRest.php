@@ -440,8 +440,8 @@ img {
 
          <?php
         echo '
-           <a class="cbtnn1" href="reviewsection.php">Show Reviews</a>
-           <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Menu</a>';
+           <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+           <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details </a>';
            ?>
                   
           </div>
