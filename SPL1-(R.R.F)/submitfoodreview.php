@@ -39,7 +39,7 @@ session_start();
    else{
       
       ?>      
-      <script>alert("Erorr while submitting review! Please try again!")</script>
+      <script>alert("Error while submitting review! Please try again!")</script>
       <?php
 
 exit();
