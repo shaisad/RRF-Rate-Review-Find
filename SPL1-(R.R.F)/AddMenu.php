@@ -21,7 +21,6 @@ session_start();
     body{
         background-color: rgb(240, 221, 136);
         overflow: hidden;
-        font-family: 'Times New Roman', Times, serif;
     }
     
     input[type=text], select, textarea {
@@ -49,7 +48,6 @@ session_start();
     
     input[type=submit]:hover {
       background-color: rgb(87, 57, 49)9;
-      font-family: 'Times New Roman', Times, serif;
     }
     
     .container {
@@ -58,7 +56,6 @@ session_start();
       padding: 20px;
       position: relative;
       bottom: 70px;
-      font-family: 'Times New Roman', Times, serif;
     }
     
     .col-25 {
@@ -71,7 +68,6 @@ session_start();
       float: left;
       width: 75%;
       margin-top: 6px;
-      font-family: 'Times New Roman', Times, serif;
     }
     
     /* Clear floats after the columns */
@@ -101,7 +97,6 @@ session_start();
     text-align: left;
     position: relative;
     left: 470px;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .btn a {
@@ -119,7 +114,6 @@ session_start();
   top: 10px;
   right: 20px;
   width: 1120px;
-  font-family: 'Times New Roman', Times, serif;
 }
 
 .btn :hover{
