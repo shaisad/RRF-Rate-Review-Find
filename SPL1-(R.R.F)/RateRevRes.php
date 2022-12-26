@@ -1,3 +1,6 @@
+?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -60,7 +63,7 @@ html,body{
 .container .star-widget input{
   display: none;
 }
-.star-widget label{
+/* .star-widget label{
   font-size: 40px;
   color: rgb(65, 31, 24);
   padding: 10px;
@@ -98,7 +101,7 @@ input#rate-5:checked ~ label{
 }
 input:checked ~ form{
   display: block;
-}
+} */
 form header{
   width: 100%;
   font-size: 25px;
@@ -168,7 +171,60 @@ form .btn button:hover{
 
   </style>
 
+
+
   <body>
+<<<<<<< HEAD:SPL1-(R.R.F)/RateReview.php
+  <?php 
+    require 'dbConfig.php';
+    
+    $query = "SELECT * FROM restaurant";
+    $query_run = mysqli_query($db, $query);
+    $check_user = mysqli_num_rows($query_run) > 0;
+    if($check_user){
+      while($row = mysqli_fetch_assoc($query_run)){
+        $sno = $row['restaurantid'];
+      }
+    }
+    ?>
+    
+    <?php
+echo '
+    
+  
+     
+      
+    <form action="submitresreview.php?resid='. $sno.'" method="post" enctype="multipart/form-data">
+
+    <label> 1
+      <input type="radio" value = "1" name="rating">
+      <span class="checkmark"></span>
+    </label>
+    <label> 2
+      <input type="radio" value = "2" name="rating">
+      <span class="checkmark"></span>
+    </label>
+    <label>3
+      <input type="radio" value = "3"  name="rating">
+      <span class="checkmark"></span>
+    </label>
+    
+    <label> 4
+      <input type="radio" value = "4" name="rating">
+      <span class="checkmark"></span>
+    </label>
+    
+    <label> 5
+      <input type="radio" value = "5" name="rating">
+      <span class="checkmark"></span>
+    </label>
+
+    <input type = "text" placeholder = "Review here" name = "review" > 
+    <input type = "submit"  value = "Update cuisine" name="submitreview">
+    </form>;
+    
+    <!-- <script>
+=======
 
     <p class="intro">Rate us here..</p>
     <div class="container">
@@ -199,7 +255,12 @@ form .btn button:hover{
         </form>
       </div>
     </div>
+<<<<<<< HEAD:SPL1-(R.R.F)/RateReview.html
     <!-- <script>
+=======
+    <script>
+>>>>>>> 23951fcfa77bd2c66cc4dc8fe483cdb1afbbd9c3:SPL1-(R.R.F)/RateReview.html
+>>>>>>> ae23d7d37b566b7dbc8821e0d50d61c6513df0bf:SPL1-(R.R.F)/RateRevRes.php
       const btn = document.querySelector("button");
       const post = document.querySelector(".post");
       const widget = document.querySelector(".star-widget");
@@ -212,7 +273,14 @@ form .btn button:hover{
           post.style.display = "none";
         }
         return false;
+<<<<<<< HEAD:SPL1-(R.R.F)/RateReview.html
       }
     </script> -->
+=======
+      } -->
+    // </script
+';
+?>
+>>>>>>> ae23d7d37b566b7dbc8821e0d50d61c6513df0bf:SPL1-(R.R.F)/RateRevRes.php
   </body>
 </html>

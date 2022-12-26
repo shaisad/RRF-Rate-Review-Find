@@ -534,7 +534,7 @@ img {
         <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
         <?php
         echo '
-           <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+           <a class="cbtnn1" href="RateRevRes.php?resid='. $sno .'">All Reviews</a>
            <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
            ?>
         <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -578,7 +578,7 @@ img {
         {
           ?>
           <?php
-          $sno = $row['foodid'];
+          $sno2 = $row['foodid'];
           ?>
           
           <div class="col-md-3 mt-3">
@@ -609,8 +609,13 @@ img {
            ?>
 
           
-        <?php echo `<a href="reviewsection.php?fid='. $sno .'">Show all reviews</a>`?>
-        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show all reviews</button>
+        <!-- <?php echo `<a href="RateReview.php?fid='. $sno2 .'">Show all reviews</a>`?> -->
+        <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show all reviews</button> -->
+        <?php
+        echo '
+           <a class="cbtnn1" href="RateReview.php?fid='. $sno2 .'">Review here</a>
+        ';
+           ?>
         
         
 
