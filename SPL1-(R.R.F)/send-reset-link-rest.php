@@ -63,42 +63,42 @@ if (!$conn) {
 
   $restaurantemail = $_POST['restaurantemail'];
 
-  if (isset($restaurantemail))
-  {
-    if ($restaurantemail = '$_SESSION[restaurantemail]'){
-    //$update = "UPDATE user SET code = '$code' where email = '$email'";
-    $update2 = "UPDATE restaurant SET code = '$code' where restaurantemail = '$restaurantemail'";
-
-    //$result = mysqli_query($conn, $update);
-    $result2 = mysqli_query($conn, $update2);
-
-    if ($result2 && sendMail($restaurantemail, $code))
-    {
-      ?>      
-      <script>alert("Mail sent to reset password! Please reset your password before logging in. Make sure to check your spam folder!")</script>
-      <?php
-      exit();
-      
-    }
-    
-    else
-    {
-    
-        ?>      
-        <script>alert("Your email does not match! Kindly enter the right email!")</script>
-        <?php
-        exit();
-    }
-  }
-}
-  else
+  if (isset($restaurantemail) && $restaurantemail == $_SESSION['restaurantemail'])
   {
     
-    ?>      
-  <script>alert("Email must be submitted to continue!")</script>
-  <?php
-  exit();
-  }
+    $update = "UPDATE restaurant SET code = '$code' where restaurantemail = '$restaurantemail'";
+   // $update2 = "UPDATE restaurant SET code = '$code' where email = '$email'";
+
+    $result = mysqli_query($conn, $update);
+   // $result2 = mysqli_query($conn, $update2);
+
+   if ($result && sendMail($restaurantemail, $code))
+   {
+     ?>      
+     <script>alert("Mail sent to reset password! Please reset your password before logging in. Make sure to check your spam folder!")</script>
+     <?php
+     exit();
+     
+   }
+   
+   else
+   {
+   
+       ?>      
+       <script>alert("Password could not be updated!")</script>
+       <?php
+       exit();
+   }
+ }
+
+ else
+ {
+   
+   ?>      
+ <script>alert("Wrong email entered! Make sure to enter the right email!")</script>
+ <?php
+ exit();
+ }
 
 
 

@@ -63,9 +63,9 @@ if (!$conn) {
 
   $useremail = $_POST['useremail'];
 
-  if (isset($useremail))
+  if (isset($useremail) && $useremail == $_SESSION['useremail'])
   {
-    if ($useremail = '$_SESSION[useremail]'){
+    
     $update = "UPDATE user SET code = '$code' where useremail = '$useremail'";
    // $update2 = "UPDATE restaurant SET code = '$code' where email = '$email'";
 
@@ -85,17 +85,17 @@ if (!$conn) {
    {
    
        ?>      
-       <script>alert("Your email does not match! Kindly enter the right email!")</script>
+       <script>alert("Password could not be updated!")</script>
        <?php
        exit();
    }
  }
-}
+
  else
  {
    
    ?>      
- <script>alert("Email must be submitted to continue!")</script>
+ <script>alert("Wrong email entered! Make sure to enter the right email!")</script>
  <?php
  exit();
  }
