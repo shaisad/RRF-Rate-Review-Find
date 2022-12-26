@@ -42,6 +42,7 @@ body{
     background: #fff;
     font-size: 18px;
     padding: 0 60px 0 20px;
+    font-family: 'Times New Roman', Times, serif; 
 }
 
 .search-box {

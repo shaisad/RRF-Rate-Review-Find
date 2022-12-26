@@ -210,12 +210,12 @@ echo '
         
           
           <div class="textarea">
-            <textarea cols="30" placeholder="Describe your experience.." name="review"></textarea>
-            <!-- <input type="text" name="review"  placeholder="Describe your experience.."> -->
+           <!-- <textarea cols="30" placeholder="Describe your experience.." name="review"></textarea> -->
+             <input type="text" name="review"  placeholder="Describe your experience.."> 
           </div>
           <div class="btn">
-            <button type="submit" name="submit">Post</button>
-           <!-- <input type="submit" name="submit" value="Post"> -->
+           <!-- <button type="submit" name="submit">Post</button> -->
+            <input type="submit" name="submit" value="Post">
           </div>
         </form>
       </div>
