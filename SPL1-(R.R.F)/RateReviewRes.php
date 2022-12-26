@@ -114,7 +114,7 @@ form .textarea{
   width: 100%;
   overflow: hidden;
 }
-form .textarea textarea{
+form .textarea input[type=text]{
   height: 100%;
   width: 100%;
   outline: none;
@@ -125,7 +125,7 @@ form .textarea textarea{
   font-size: 17px;
   resize: none;
 }
-.textarea textarea:focus{
+.textarea input[type=text]:focus{
   border-color: rgb(236, 247, 138);
 }
 form .btn{
@@ -133,7 +133,7 @@ form .btn{
   width: 100%;
   margin: 15px 0;
 }
-form .btn button{
+form .btn input[type=submit]{
   height: 100%;
   width: 100%;
   border: 1px solid rgb(236, 247, 138);
@@ -147,7 +147,7 @@ form .btn button{
   transition: all 0.3s ease;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-form .btn button:hover{
+form .btn input[type=submit]:hover{
   background: rgb(65, 31, 24);
 }
 
@@ -197,13 +197,13 @@ echo '
       <div class="star-widget">
         <input type="radio" name="rating" id="rate-5" value="1">
         <label for="rate-5" class="fas fa-star"></label>
-        <input type="radio" name="rating" id="rate-4" value="1">
+        <input type="radio" name="rating" id="rate-4" value="2">
         <label for="rate-4" class="fas fa-star"></label>
-        <input type="radio" name="rating" id="rate-3" value="1">
+        <input type="radio" name="rating" id="rate-3" value="3">
         <label for="rate-3" class="fas fa-star"></label>
-        <input type="radio" name="rating" id="rate-2" value="1">
+        <input type="radio" name="rating" id="rate-2" value="4">
         <label for="rate-2" class="fas fa-star"></label>
-        <input type="radio" name="rating" id="rate-1" value="1">
+        <input type="radio" name="rating" id="rate-1" value="5">
         <label for="rate-1" class="fas fa-star"></label>
         
           
@@ -213,7 +213,9 @@ echo '
           </div>
           <div class="btn">
            <!-- <button type="submit" name="submit">Post</button> -->
-            <input type="submit" name="submit" value="Post">
+        
+    
+            <input type="submit" name="submitreview" value="Post">
           </div>
         </form>
       </div>
