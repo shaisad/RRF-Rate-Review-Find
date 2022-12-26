@@ -36,7 +36,6 @@ html,body{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  bottom: 160px;
 }
 .container .post{
   display: none;
@@ -111,7 +110,7 @@ form header{
   transition: all 0.2s ease;
   font-family: 'Times New Roman', Times, serif;
 }
-form .textarea{
+/* form .textarea{
   height: 100px;
   width: 100%;
   overflow: hidden;
@@ -152,6 +151,19 @@ form .btn input[type=submit]{
 form .btn input[type=submit]:hover{
   background: rgb(65, 31, 24);
 }
+ */
+input[type=text]{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: rgb(239, 248, 152);
+  border: 1px solid rgb(236, 247, 138);
+  background: rgb(46, 16, 9);
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+ 
 
 .intro{
     color: rgb(237, 247, 154);

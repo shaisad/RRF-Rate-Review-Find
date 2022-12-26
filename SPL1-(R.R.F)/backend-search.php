@@ -55,8 +55,8 @@ $sname= "localhost";
     ";
     }
       if (mysqli_num_rows($result2) > 0) {
-        $row_cnt = $result->num_rows;
-    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt food item(s) found! </div>";
+        $row_cnt2 = $result2->num_rows;
+    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt2 food item(s) found! </div>";
       
         while ($res = mysqli_fetch_array($result2)) {
           
