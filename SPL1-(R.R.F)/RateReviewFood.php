@@ -219,15 +219,15 @@ echo '
         <div class="edit">EDIT</div>
       </div>
       <div class="star-widget">
-        <input type="radio" name="rating" id="rate-5" value="1">
+        <input type="radio" name="rating" id="rate-5" value="5">
         <label for="rate-5" class="fas fa-star"></label>
-        <input type="radio" name="rating" id="rate-4" value="2">
+        <input type="radio" name="rating" id="rate-4" value="4">
         <label for="rate-4" class="fas fa-star"></label>
         <input type="radio" name="rating" id="rate-3" value="3">
         <label for="rate-3" class="fas fa-star"></label>
-        <input type="radio" name="rating" id="rate-2" value="4">
+        <input type="radio" name="rating" id="rate-2" value="2">
         <label for="rate-2" class="fas fa-star"></label>
-        <input type="radio" name="rating" id="rate-1" value="5">
+        <input type="radio" name="rating" id="rate-1" value="1">
         <label for="rate-1" class="fas fa-star"></label>
         
           
