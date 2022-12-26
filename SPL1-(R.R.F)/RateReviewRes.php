@@ -36,6 +36,8 @@ html,body{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+  height: 400px;
 }
 .container .post{
   display: none;
@@ -67,6 +69,8 @@ html,body{
   padding: 10px;
   float: right;
   transition: all 0.2s ease;
+  position: relative;
+  bottom: 12px;
 }
 input:not(:checked) ~ label:hover,
 input:not(:checked) ~ label:hover ~ label{
@@ -110,8 +114,8 @@ form header{
   transition: all 0.2s ease;
   font-family: 'Times New Roman', Times, serif;
 }
-/* form .textarea{
-  height: 100px;
+form .textarea{
+  height: 120px;
   width: 100%;
   overflow: hidden;
 }
@@ -151,8 +155,8 @@ form .btn button{
 form .btn button:hover{
   background: rgb(65, 31, 24);
 }
- */
-input[type=text]{
+ 
+/* input[type=text]{
   height: 100%;
   width: 100%;
   outline: none;
@@ -162,15 +166,15 @@ input[type=text]{
   padding: 10px;
   font-size: 17px;
   resize: none;
-}
+} */
  
 
 .intro{
-    color: rgb(237, 247, 154);
-    font-size: 25px;
+    color: rgb(65, 31, 24);
+    font-size: 28px;
     position: relative;
-    top: 35px;
     font-family: 'Times New Roman', Times, serif;
+    bottom: 27px;
 }
 ::placeholder{
     color: rgb(239, 248, 152);
@@ -183,6 +187,8 @@ input[type=text]{
   </style>
 
   <body>
+
+  
 
   <?php 
     require 'dbConfig.php';
@@ -200,10 +206,13 @@ input[type=text]{
     <?php
 echo '
 
+
+
 <form action="submitresreview.php?resid='. $sno.'" method="post" enctype="multipart/form-data">
 
-    <p class="intro">Rate us here..</p>
+   
     <div class="container">
+    <p class="intro">Rate us here..</p>
       <div class="post">
         <div class="text">Thanks for rating us!</div>
         <div class="edit">EDIT</div>
@@ -235,21 +244,21 @@ echo '
       </div>
     </div>
 
-    // <script>
-    //   const btn = document.querySelector("button");
-    //   const post = document.querySelector(".post");
-    //   const widget = document.querySelector(".star-widget");
-    //   const editBtn = document.querySelector(".edit");
-    //   btn.onclick = ()=>{
-    //     widget.style.display = "none";
-    //     post.style.display = "block";
-    //     editBtn.onclick = ()=>{
-    //       widget.style.display = "block";
-    //       post.style.display = "none";
-    //     }
-    //     return false;
-    //   }
-    // </script>
+    <script>
+      const btn = document.querySelector("button");
+      const post = document.querySelector(".post");
+       const widget = document.querySelector(".star-widget");
+     const editBtn = document.querySelector(".edit");
+      btn.onclick = ()=>{
+         widget.style.display = "none";
+         post.style.display = "block";
+         editBtn.onclick = ()=>{
+          widget.style.display = "block";
+         post.style.display = "none";
+         }
+        return false;
+       }
+     </script>
   
     ';
 ?>
