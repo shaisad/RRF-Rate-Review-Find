@@ -61,7 +61,7 @@ exit();
 }
 else{
   ?>      
-  <script>alert("Rate and review fields must be filled to submit a review")</script>
+  <script>alert("Rate and review fields must be filled to submit a review!")</script>
   <?php
 
 exit();
