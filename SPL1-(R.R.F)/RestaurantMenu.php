@@ -111,8 +111,8 @@ body{
 
 .heading{
   position: relative;
-  left: 220px;
-  top : 70px;
+  left: 73px;
+  bottom : 175px;
   font-size: 25px;
   color: rgb(80, 31, 19);
 }
@@ -160,8 +160,7 @@ body{
     
    
 
-      
-
+<p class = heading> Menu </p>
 <!-- card -->
 
 <div class="cardfix">
@@ -186,7 +185,7 @@ body{
           <div class="card-body">
             <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['subject']; ?></p>
-            <p class="card-text" id="rlocation"><?php echo $row['price']; ?></p>
+            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
          
             <!-- image fetch -->
               <?php 

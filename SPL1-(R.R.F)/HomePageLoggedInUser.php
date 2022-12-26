@@ -414,7 +414,7 @@ img {
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT * FROM restaurant, user where restaurant.status=1 and restaurant.location = user.ulocation and user.ulocation = '$_SESSION[ulocation]'";
+      $query = "SELECT restaurantname, location, ulocation, restaurantid FROM restaurant, user where restaurant.status=1 and restaurant.location = user.ulocation and user.ulocation = '$_SESSION[ulocation]'";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -577,7 +577,9 @@ img {
         while($row = mysqli_fetch_assoc($query_run))
         {
           ?>
-          
+          <?php
+          $sno = $row['foodid'];
+          ?>
           
           <div class="col-md-3 mt-3">
             <div class="card">
@@ -607,6 +609,7 @@ img {
            ?>
 
           
+        <?php echo `<a href="reviewsection.php?fid='. $sno .'">Show all reviews</a>`?>
         <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show all reviews</button>
         
         

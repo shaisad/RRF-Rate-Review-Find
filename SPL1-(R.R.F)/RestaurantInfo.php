@@ -1,7 +1,5 @@
  
-<?php
-session_start();
-?>
+
 
 
 <!DOCTYPE html>
@@ -100,7 +98,7 @@ body{
   left: 50px;
   width: 80%;
   cursor : pointer;
-  bottom: 250px;
+  bottom: 220px;
 }
 
 .cardfix .card {
@@ -118,14 +116,15 @@ body{
   transform: translate3D(0,-1px,0) scale(1.03);
 } 
 
-
 .heading{
   position: relative;
-  left: 70px;
-  top : 70px;
+  left: 62px;
+  bottom : 175px;
   font-size: 25px;
   color: rgb(80, 31, 19);
+
 }
+
 .handrice{
   width: 150px;
   height: 150px;
@@ -156,7 +155,7 @@ body{
             require 'dbConfig.php';
            // $category = $_POST['category'];
       $sno = $_GET['resid'];
-      $query = "SELECT * FROM restaurant where status = 1 and restaurantid = $sno";
+      $query = "SELECT restaurantname, location, restaurantid FROM restaurant where status = 1 and restaurantid = $sno";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -189,14 +188,14 @@ body{
 
     
    <!-- card -->
-
+<p class = heading><u> Menu </p></u> 
 <div class="cardfix">
    <div class="container py-5">
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT * FROM food_new where frestaurantname = '$_SESSION[restaurantname]'";
+      $query = "SELECT * FROM food_new, restaurant where frestaurantname = restaurantname and food_res_id = $sno";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -212,14 +211,14 @@ body{
           <div class="card-body">
             <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['subject']; ?></p>
-            <p class="card-text" id="rlocation"><?php echo $row['price']; ?></p>
+            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
          
             <!-- image fetch -->
               <?php 
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image from foodimage where foodname = '$row[foodname]' and irestaurantname = '$_SESSION[restaurantname]' ";
+           $queryy = "SELECT image, restaurantname from foodimage, restaurant where foodname = '$row[foodname]' and irestaurantname = restaurantname ";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 

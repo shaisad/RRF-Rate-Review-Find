@@ -1,3 +1,8 @@
+<?php
+require 'dbConfig.php';
+session_start();
+$sno = $_GET['fid'];
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,8 +18,8 @@
 			<p class>Check out the below reviews for our restaurant.</p>
             <div class="reviews"></div>
 <script>
-const reviews_page_id = 1;
-fetch("reviews.php?restaurantrid=" + reviews_page_id).then(response => response.text()).then(data => {
+//const reviews_page_id = 1;
+fetch("reviews.php?reviewrid=" + reviews_page_id).then(response => response.text()).then(data => {
 	document.querySelector(".reviews").innerHTML = data;
 	document.querySelector(".reviews .write_review_btn").onclick = event => {
 		event.preventDefault();
@@ -23,7 +28,7 @@ fetch("reviews.php?restaurantrid=" + reviews_page_id).then(response => response.
 	};
 	document.querySelector(".reviews .write_review form").onsubmit = event => {
 		event.preventDefault();
-		fetch("reviews.php?restaurantrid=" + reviews_page_id, {
+		fetch("reviews.php?reviewrid=" + reviews_page_id, {
 			method: 'POST',
 			body: new FormData(document.querySelector(".reviews .write_review form"))
 		}).then(response => response.text()).then(data => {

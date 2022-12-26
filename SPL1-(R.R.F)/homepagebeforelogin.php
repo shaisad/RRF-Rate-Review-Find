@@ -30,7 +30,7 @@ body{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    left: 20px ;
+    
     bottom: 85px;
 }
 
@@ -118,6 +118,47 @@ body{
   bottom: 10px;
 
 }  */
+
+.cbtnn1 {
+  border: none;
+  outline: none;
+  padding: 6px 6px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  text-decoration : none;
+  top: 10px;
+  border-radius: 4px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnn1:hover {
+  opacity: 0.7; 
+  text-decoration : none;
+}
+
+.cbtnn2 {
+  border: none;
+  outline: none;
+  padding: 6px 6px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  text-decoration : none;
+  left: 6px;
+  top: 10px;
+  border-radius: 4px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnn2 a:hover {
+  opacity: 0.7; 
+  text-decoration : none;
+}
+
+
 
 img {
     width: 180px;
@@ -213,7 +254,7 @@ img {
     color: #c59b08;
 }
 
-.cardbtn {
+/* .cardbtn {
   border: none;
   outline: 0;
   display: inline-block;
@@ -224,31 +265,60 @@ img {
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-}
+} */
 
-.cardbtn:hover
+.cardbtn a {
+
+border: none;
+outline: none;
+padding: 8px 8px;
+cursor: pointer;
+color: rgb(80, 31, 19);
+
+}
+.cardbtn a:hover
 {
   opacity: 0.7;
 }
 
 .cardfix {
   position: relative;
-  left: 25px;
-  bottom: 140px;
+  left: 2px;
+  bottom : 120px;
+  width: 90%;
+  cursor : pointer;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 grey;
   transform: translate3D(0,-1px,0) scale(1.03);
-} 
+}
 
+
+.cardifix{
+  height: 400px;
+  position: relative;
+  left: 2px;
+  bottom : 120px;
+  width: 90%;
+  cursor : pointer;
+}
+
+.cardifix .card {
+  height: 350px;
+}
+
+.cardifix img {
+  width: 180px;
+  height: 120px;
+}
 
 .heading{
   position: relative;
-  left: 120px;
+  left: 10px;
   font-size: 25px;
   color: rgb(80, 31, 19);
-  bottom:60px;
+  bottom:55px;
 }
 
 
@@ -317,16 +387,93 @@ img {
         <button class="btnn" onclick="filterSelection('location')"> Location</button>
         <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
         
-    </div>
-    <p class = heading> All restaurants </p>
-    <!-- card -->
-   <div class="cardfix">
+        <p class = heading> All restaurants </p>
+
+<!-- card -->
+<div class="cardfix">
+<div class="container py-5">
+<div class="row mt-3">
+   <?php 
+  require 'dbConfig.php';
+
+  $query = "SELECT * FROM restaurant where status=1";
+  $query_run = mysqli_query($db, $query);
+  $check_user = mysqli_num_rows($query_run) > 0;
+  
+  if($check_user)
+  {
+    while($row = mysqli_fetch_assoc($query_run))
+    {
+      ?><?php
+      $sno = $row['restaurantid'];
+      ?>
+      <div class="col-md-3 mt-3">
+        <div class="card">
+        
+      <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+     
+        <!-- image fetch -->
+          <?php 
+      // Include the database configuration file  
+       require_once 'dbConfig.php'; 
+
+       $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+       $queryy_run = mysqli_query($db, $queryy);
+       $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+       if($check_userr){
+        while($row = mysqli_fetch_assoc($queryy_run)){
+          ?>
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+             
+          <?php
+        }
+       }
+       ?>
+
+    
+    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
+    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    <?php
+    echo '
+       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       ?>
+    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
+      <a href="RestaurantInfo.php"> See Details </a>
+      </button> -->
+    
+    
+
+    <!-- <form action="RestaurantInfo.php">
+
+    <input type="submit" value="Show Details" onclick="passvalues();"/>
+
+    </form> -->
+
+      </div>
+      </div>
+      </div>
+
+      <?php
+    }
+  }
+
+  ?>
+</div>
+</div>
+</div>
+
+    <p class = heading> All food items</p>
+    <div class="cardifix">
    <div class="container py-5">
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
-
-      $query = "SELECT * FROM restaurant where status=1";
+      // $sno = $_GET['resid'];
+      $query = "SELECT * FROM food_new";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -335,35 +482,44 @@ img {
         while($row = mysqli_fetch_assoc($query_run))
         {
           ?>
+          <?php
+          $sno = $row['foodid'];
+          ?>
           
           <div class="col-md-3 mt-3">
             <div class="card">
-
+            
           <div class="card-body">
-            <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
-            <p class="card-text"><?php echo $row['location']; ?></p>
+            <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
+            <p class="card-text" id="rlocation"><?php echo $row['subject']; ?></p>
+            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
          
             <!-- image fetch -->
               <?php 
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+           $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
            if($check_userr){
             while($row = mysqli_fetch_assoc($queryy_run)){
               ?>
-                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top"/>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
                  
               <?php
             }
            }
-        ?>
+           ?>
 
-            
+          
+        <?php echo `<a href="reviewsection.php?fid='. $sno .'">Show all reviews</a>`?>
+        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show all reviews</button>
+        
+        
 
+  
           </div>
           </div>
           </div>
@@ -376,6 +532,399 @@ img {
     </div>
     </div>
     </div>
+
+    <p class = heading> Pizza </p>
+
+<!-- card -->
+<div class="cardfix">
+<div class="container py-5">
+<div class="row mt-3">
+   <?php 
+  require 'dbConfig.php';
+
+  $query = "select * from restaurant, food_new where restaurant.status=1 and food_new.category = 'Pizza' and food_new.food_res_id = restaurant.restaurantid";
+  $query_run = mysqli_query($db, $query);
+  $check_user = mysqli_num_rows($query_run) > 0;
+  
+  if($check_user)
+  {
+    while($row = mysqli_fetch_assoc($query_run))
+    {
+      ?><?php
+      $sno = $row['restaurantid'];
+      ?>
+      <div class="col-md-3 mt-3">
+        <div class="card">
+        
+      <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+     
+        <!-- image fetch -->
+          <?php 
+      // Include the database configuration file  
+       require_once 'dbConfig.php'; 
+
+       $queryy = "SELECT image, imageid,resimageid, category from images, restaurant, food_new where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and food_new.category = 'Pizza'";
+       $queryy_run = mysqli_query($db, $queryy);
+       $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+       if($check_userr){
+        while($row = mysqli_fetch_assoc($queryy_run)){
+          ?>
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+             
+          <?php
+        }
+       }
+       ?>
+
+    
+    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
+    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    <?php
+    echo '
+       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       ?>
+    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
+      <a href="RestaurantInfo.php"> See Details </a>
+      </button> -->
+    
+    
+
+    <!-- <form action="RestaurantInfo.php">
+
+    <input type="submit" value="Show Details" onclick="passvalues();"/>
+
+    </form> -->
+
+      </div>
+      </div>
+      </div>
+
+      <?php
+    }
+  }
+
+  ?>
+</div>
+</div>
+</div>
+<p class = heading> Burger </p>
+
+<!-- card -->
+<div class="cardfix">
+<div class="container py-5">
+<div class="row mt-3">
+   <?php 
+  require 'dbConfig.php';
+
+  $query = "select * from restaurant, food_new where restaurant.status=1 and food_new.category = 'Burger' and food_new.food_res_id = restaurant.restaurantid";
+  $query_run = mysqli_query($db, $query);
+  $check_user = mysqli_num_rows($query_run) > 0;
+  
+  if($check_user)
+  {
+    while($row = mysqli_fetch_assoc($query_run))
+    {
+      ?><?php
+      $sno = $row['restaurantid'];
+      ?>
+      <div class="col-md-3 mt-3">
+        <div class="card">
+        
+      <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+     
+        <!-- image fetch -->
+          <?php 
+      // Include the database configuration file  
+       require_once 'dbConfig.php'; 
+
+       $queryy = "SELECT image, imageid,resimageid, category from images, restaurant, food_new where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and food_new.category = 'Burger'";
+       $queryy_run = mysqli_query($db, $queryy);
+       $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+       if($check_userr){
+        while($row = mysqli_fetch_assoc($queryy_run)){
+          ?>
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+             
+          <?php
+        }
+       }
+       ?>
+
+    
+    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
+    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    <?php
+    echo '
+       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       ?>
+    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
+      <a href="RestaurantInfo.php"> See Details </a>
+      </button> -->
+    
+    
+
+    <!-- <form action="RestaurantInfo.php">
+
+    <input type="submit" value="Show Details" onclick="passvalues();"/>
+
+    </form> -->
+
+      </div>
+      </div>
+      </div>
+
+      <?php
+    }
+  }
+
+  ?>
+</div>
+</div>
+</div>
+<p class = heading> Naan </p>
+
+<!-- card -->
+<div class="cardfix">
+<div class="container py-5">
+<div class="row mt-3">
+   <?php 
+  require 'dbConfig.php';
+
+  $query = "select * from restaurant, food_new where restaurant.status=1 and food_new.category = 'Naan' and food_new.food_res_id = restaurant.restaurantid";
+  $query_run = mysqli_query($db, $query);
+  $check_user = mysqli_num_rows($query_run) > 0;
+  
+  if($check_user)
+  {
+    while($row = mysqli_fetch_assoc($query_run))
+    {
+      ?><?php
+      $sno = $row['restaurantid'];
+      ?>
+      <div class="col-md-3 mt-3">
+        <div class="card">
+        
+      <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+     
+        <!-- image fetch -->
+          <?php 
+      // Include the database configuration file  
+       require_once 'dbConfig.php'; 
+
+       $queryy = "SELECT image, imageid,resimageid, category from images, restaurant, food_new where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and food_new.category = 'Naan'";
+       $queryy_run = mysqli_query($db, $queryy);
+       $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+       if($check_userr){
+        while($row = mysqli_fetch_assoc($queryy_run)){
+          ?>
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+             
+          <?php
+        }
+       }
+       ?>
+
+    
+    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
+    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    <?php
+    echo '
+       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       ?>
+    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
+      <a href="RestaurantInfo.php"> See Details </a>
+      </button> -->
+    
+    
+
+    <!-- <form action="RestaurantInfo.php">
+
+    <input type="submit" value="Show Details" onclick="passvalues();"/>
+
+    </form> -->
+
+      </div>
+      </div>
+      </div>
+
+      <?php
+    }
+  }
+
+  ?>
+</div>
+</div>
+</div>
+<p class = heading> Italian </p>
+
+<!-- card -->
+<div class="cardfix">
+<div class="container py-5">
+<div class="row mt-3">
+   <?php 
+  require 'dbConfig.php';
+
+  $query = "select * from restaurant where restaurant.status=1 and restaurant.cuisine = 'Italian'";
+  $query_run = mysqli_query($db, $query);
+  $check_user = mysqli_num_rows($query_run) > 0;
+  
+  if($check_user)
+  {
+    while($row = mysqli_fetch_assoc($query_run))
+    {
+      ?><?php
+      $sno = $row['restaurantid'];
+      ?>
+      <div class="col-md-3 mt-3">
+        <div class="card">
+        
+      <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+     
+        <!-- image fetch -->
+          <?php 
+      // Include the database configuration file  
+       require_once 'dbConfig.php'; 
+
+       $queryy = "SELECT image, imageid,resimageid, cuisine from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and restaurant.cuisine = 'Italian'";
+       $queryy_run = mysqli_query($db, $queryy);
+       $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+       if($check_userr){
+        while($row = mysqli_fetch_assoc($queryy_run)){
+          ?>
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+             
+          <?php
+        }
+       }
+       ?>
+
+    
+    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
+    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    <?php
+    echo '
+       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       ?>
+    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
+      <a href="RestaurantInfo.php"> See Details </a>
+      </button> -->
+    
+    
+
+    <!-- <form action="RestaurantInfo.php">
+
+    <input type="submit" value="Show Details" onclick="passvalues();"/>
+
+    </form> -->
+
+      </div>
+      </div>
+      </div>
+
+      <?php
+    }
+  }
+
+  ?>
+</div>
+</div>
+</div>
+</body>
+
+<p class = heading> Bengali </p>
+
+<!-- card -->
+<div class="cardfix">
+<div class="container py-5">
+<div class="row mt-3">
+   <?php 
+  require 'dbConfig.php';
+
+  $query = "select * from restaurant where restaurant.status=1 and restaurant.cuisine = 'Bengali'";
+  $query_run = mysqli_query($db, $query);
+  $check_user = mysqli_num_rows($query_run) > 0;
+  
+  if($check_user)
+  {
+    while($row = mysqli_fetch_assoc($query_run))
+    {
+      ?><?php
+      $sno = $row['restaurantid'];
+      ?>
+      <div class="col-md-3 mt-3">
+        <div class="card">
+        
+      <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+     
+        <!-- image fetch -->
+          <?php 
+      // Include the database configuration file  
+       require_once 'dbConfig.php'; 
+
+       $queryy = "SELECT image, imageid,resimageid, cuisine from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and restaurant.cuisine = 'Bengali'";
+       $queryy_run = mysqli_query($db, $queryy);
+       $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+       if($check_userr){
+        while($row = mysqli_fetch_assoc($queryy_run)){
+          ?>
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+             
+          <?php
+        }
+       }
+       ?>
+
+    
+    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
+    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    <?php
+    echo '
+       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       ?>
+    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
+      <a href="RestaurantInfo.php"> See Details </a>
+      </button> -->
+    
+    
+
+    <!-- <form action="RestaurantInfo.php">
+
+    <input type="submit" value="Show Details" onclick="passvalues();"/>
+
+    </form> -->
+
+      </div>
+      </div>
+      </div>
+
+      <?php
+    }
+  }
+
+  ?>
+</div>
+</div>
+</div>
    
        
     

@@ -13,23 +13,23 @@ try {
 
 
 // Page ID needs to exist, this is used to determine which reviews are for which page.
-if (isset($_GET['restaurantrid'])) {
+if (isset($_GET['reviewrid'])) {
     if (isset($_POST['username'], $_POST['rating'], $_POST['review'])) {
         // Insert a new review (user submitted form)
-        $stmt = $pdo->prepare('INSERT INTO reviews (restaurantrid, username, review, rating, submitdate) VALUES (?,?,?,?,NOW())');
-        $stmt->execute([$_GET['restaurantrid'], $_POST['username'], $_POST['review'], $_POST['rating']]);
+        $stmt = $pdo->prepare('INSERT INTO reviews (reviewrid, username, review, rating, submitdate) VALUES (?,?,?,?,NOW())');
+        $stmt->execute([$_GET['reviewrid'], $_POST['username'], $_POST['review'], $_POST['rating']]);
         exit('Your review has been submitted!');
     }
 
     
     
     // Get all reviews by the Page ID ordered by the submit date
-    $stmt = $pdo->prepare("SELECT * FROM reviews, restaurant, user WHERE restaurantrid = ? AND restaurant.status = 1 AND user.username = reviews.username ORDER BY submitdate DESC");
-    $stmt->execute([$_GET['restaurantrid']]);
+    $stmt = $pdo->prepare("SELECT * FROM reviews WHERE reviewrid = ?  ORDER BY submitdate DESC");
+    $stmt->execute([$_GET['reviewrid']]);
     $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // Get the overall rating and total amount of reviews
-    $stmt = $pdo->prepare('SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM reviews WHERE restaurantrid = ?');
-    $stmt->execute([$_GET['restaurantrid']]);
+    $stmt = $pdo->prepare('SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM reviews WHERE reviewrid = ?');
+    $stmt->execute([$_GET['reviewrid']]);
     $reviews_info = $stmt->fetch(PDO::FETCH_ASSOC);
 } else {
     exit('No');
