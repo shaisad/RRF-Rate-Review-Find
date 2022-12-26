@@ -25,29 +25,44 @@ session_start();
 
    // mysqli_query($db, $INSERT);
 
-    if(mysqli_query($db, $INSERT))
-     {
+   if(mysqli_query($db, $INSERT))
+   {
 
-    echo " inserted";
-		exit();
+  ?>      
+        <script>alert("Your review has been submitted successfully! Check out the review section to see your review!")</script>
+        <?php
 
-
-     }
-     else{
-        echo "error";
-     }
-    
+  exit();
 
 
+   }
+   else{
+      
+      ?>      
+      <script>alert("Erorr while submitting review! Please try again!")</script>
+      <?php
+
+exit();
+   }
   
 
-    $db->close();
+
+
+
+  $db->close();
 }
-  }
- 
+else{
+?>      
+<script>alert("Must click the Post button to submit a review!")</script>
+<?php
 
+exit();
+}
+}
+else{
+  ?>      
+  <script>alert("Rate and review fields must be filled to submit a review!")</script>
+  <?php
 
-
-  
-
-?>
+exit();
+}

@@ -28,13 +28,21 @@ session_start();
     if(mysqli_query($db, $INSERT))
      {
 
-    echo " inserted";
+    ?>      
+          <script>alert("Your review has been submitted successfully! Check out the review section to see your review!")</script>
+          <?php
+
 		exit();
 
 
      }
      else{
-        echo "error";
+        
+        ?>      
+        <script>alert("Erorr while submitting review! Please try again!")</script>
+        <?php
+
+  exit();
      }
     
 
@@ -43,6 +51,20 @@ session_start();
 
     $db->close();
 }
+else{
+  ?>      
+  <script>alert("Must click the Post button to submit a review!")</script>
+  <?php
+
+exit();
+}
+  }
+  else{
+    ?>      
+    <script>alert("Rate and review fields must be filled to submit a review!")</script>
+    <?php
+
+exit();
   }
  
 
