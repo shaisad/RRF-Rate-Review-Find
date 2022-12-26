@@ -1,4 +1,4 @@
-?php
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -174,7 +174,6 @@ form .btn button:hover{
 
 
   <body>
-<<<<<<< HEAD:SPL1-(R.R.F)/RateReview.php
   <?php 
     require 'dbConfig.php';
     
@@ -255,12 +254,7 @@ echo '
         </form>
       </div>
     </div>
-<<<<<<< HEAD:SPL1-(R.R.F)/RateReview.html
-    <!-- <script>
-=======
-    <script>
->>>>>>> 23951fcfa77bd2c66cc4dc8fe483cdb1afbbd9c3:SPL1-(R.R.F)/RateReview.html
->>>>>>> ae23d7d37b566b7dbc8821e0d50d61c6513df0bf:SPL1-(R.R.F)/RateRevRes.php
+    <!--<script>
       const btn = document.querySelector("button");
       const post = document.querySelector(".post");
       const widget = document.querySelector(".star-widget");
@@ -273,14 +267,9 @@ echo '
           post.style.display = "none";
         }
         return false;
-<<<<<<< HEAD:SPL1-(R.R.F)/RateReview.html
-      }
-    </script> -->
-=======
       } -->
     // </script
 ';
 ?>
->>>>>>> ae23d7d37b566b7dbc8821e0d50d61c6513df0bf:SPL1-(R.R.F)/RateRevRes.php
   </body>
 </html>
