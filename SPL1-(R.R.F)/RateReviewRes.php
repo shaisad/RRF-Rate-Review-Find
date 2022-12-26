@@ -186,15 +186,16 @@ input[type=text]{
 
   <?php 
     require 'dbConfig.php';
+    $sno = $_GET['resid'];
     
-    $query = "SELECT * FROM restaurant";
+    $query = "SELECT * FROM restaurant where restaurantid = '$sno'";
     $query_run = mysqli_query($db, $query);
-    $check_user = mysqli_num_rows($query_run) > 0;
-    if($check_user){
-      while($row = mysqli_fetch_assoc($query_run)){
-        $sno = $row['restaurantid'];
-      }
-    }
+    // $check_user = mysqli_num_rows($query_run) > 0;
+    // if($check_user){
+    //   while($row = mysqli_fetch_assoc($query_run)){
+    //     $sno = $row['restaurantid'];
+    //   }
+    // }
     ?>
     
     <?php
