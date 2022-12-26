@@ -90,7 +90,7 @@ if (isset($useremail) && isset($password)) {
 else{
 	
 	?>      
-          <script>alert("Login failed!")</script>
+          <script>alert("User email and password fields must be filled to continue!")</script>
           <?php
           exit();
 }
