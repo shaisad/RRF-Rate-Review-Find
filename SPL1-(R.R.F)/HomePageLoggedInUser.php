@@ -534,7 +534,7 @@ img {
         <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
         <?php
         echo '
-           <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
+           <a class="cbtnn1" href="RateRevRes.php?resid='. $sno .'">All Reviews</a>
            <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
            ?>
         <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
