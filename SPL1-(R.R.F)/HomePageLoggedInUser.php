@@ -342,12 +342,6 @@ img {
         <a href="UserProfile.php"><i class="fa fa-fw fa-user"></i>My Profile</a>
         <a href="enter-useremail.html"><i class="fa fa-fw fa-key"></i>Reset Password</a>
   
-  <!-- <div class="updbn">
-        <select name="upbtn" onchange="location = this.value;">
-          <option value="UserUpdateName.html">Update Name</option>
-          <option value="UserUpdateEmail.html">Update Email</option>
-        </select>
-      </div> -->
         <a href="userlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
 
         
@@ -452,25 +446,14 @@ img {
            ?>
 
         
-        <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
-        <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+        
         <?php
         echo '
            <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
-           <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+           <a class="cbtnn2" href="RateReviewRes.php">Review Here</a>
+           <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
            ?>
-        <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
-          <a href="RestaurantInfo.php"> See Details </a>
-          </button> -->
-        
-        
-
-        <!-- <form action="RestaurantInfo.php">
-
-        <input type="submit" value="Show Details" onclick="passvalues();"/>
-
-        </form> -->
-
+       
           </div>
           </div>
           </div>
@@ -530,25 +513,12 @@ img {
            ?>
 
         
-        <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
-        <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
-        <?php
+                <?php
         echo '
            <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">All Reviews</a>
            <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
            ?>
-        <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
-          <a href="RestaurantInfo.php"> See Details </a>
-          </button> -->
         
-        
-
-        <!-- <form action="RestaurantInfo.php">
-
-        <input type="submit" value="Show Details" onclick="passvalues();"/>
-
-        </form> -->
-
           </div>
           </div>
           </div>
@@ -609,8 +579,7 @@ img {
            ?>
 
           
-        <!-- <?php echo `<a href="RateReviewFood.php?fid='. $sno2 .'">Show all reviews</a>`?> -->
-        <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Show all reviews</button> -->
+        
         <?php
         echo '
            <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review here</a>
@@ -680,25 +649,13 @@ img {
        ?>
 
     
-    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
-    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    
     <?php
     echo '
        <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
-    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
-      <a href="RestaurantInfo.php"> See Details </a>
-      </button> -->
     
-    
-
-    <!-- <form action="RestaurantInfo.php">
-
-    <input type="submit" value="Show Details" onclick="passvalues();"/>
-
-    </form> -->
-
       </div>
       </div>
       </div>
@@ -758,25 +715,13 @@ img {
        ?>
 
     
-    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
-    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    
     <?php
     echo '
        <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
-    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
-      <a href="RestaurantInfo.php"> See Details </a>
-      </button> -->
     
-    
-
-    <!-- <form action="RestaurantInfo.php">
-
-    <input type="submit" value="Show Details" onclick="passvalues();"/>
-
-    </form> -->
-
       </div>
       </div>
       </div>
@@ -836,25 +781,13 @@ img {
        ?>
 
     
-    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
-    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+   
     <?php
     echo '
        <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
-    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
-      <a href="RestaurantInfo.php"> See Details </a>
-      </button> -->
     
-    
-
-    <!-- <form action="RestaurantInfo.php">
-
-    <input type="submit" value="Show Details" onclick="passvalues();"/>
-
-    </form> -->
-
       </div>
       </div>
       </div>
@@ -914,25 +847,13 @@ img {
        ?>
 
     
-    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
-    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    
     <?php
     echo '
        <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
-    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
-      <a href="RestaurantInfo.php"> See Details </a>
-      </button> -->
     
-    
-
-    <!-- <form action="RestaurantInfo.php">
-
-    <input type="submit" value="Show Details" onclick="passvalues();"/>
-
-    </form> -->
-
       </div>
       </div>
       </div>
@@ -994,25 +915,13 @@ img {
        ?>
 
     
-    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
-    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
+    
     <?php
     echo '
        <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
-    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
-      <a href="RestaurantInfo.php"> See Details </a>
-      </button> -->
     
-    
-
-    <!-- <form action="RestaurantInfo.php">
-
-    <input type="submit" value="Show Details" onclick="passvalues();"/>
-
-    </form> -->
-
       </div>
       </div>
       </div>

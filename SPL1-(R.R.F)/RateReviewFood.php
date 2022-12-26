@@ -1,8 +1,7 @@
 <?php
 session_start();
-?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+?><!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Rate Here</title>
@@ -37,7 +36,8 @@ html,body{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  bottom: 160px;
+  position: relative;
+  height: 400px;
 }
 .container .post{
   display: none;
@@ -63,12 +63,14 @@ html,body{
 .container .star-widget input{
   display: none;
 }
-/* .star-widget label{
+.star-widget label{
   font-size: 40px;
   color: rgb(65, 31, 24);
   padding: 10px;
   float: right;
   transition: all 0.2s ease;
+  position: relative;
+  bottom: 12px;
 }
 input:not(:checked) ~ label:hover,
 input:not(:checked) ~ label:hover ~ label{
@@ -101,7 +103,7 @@ input#rate-5:checked ~ label{
 }
 input:checked ~ form{
   display: block;
-} */
+}
 form header{
   width: 100%;
   font-size: 25px;
@@ -113,7 +115,7 @@ form header{
   font-family: 'Times New Roman', Times, serif;
 }
 form .textarea{
-  height: 100px;
+  height: 120px;
   width: 100%;
   overflow: hidden;
 }
@@ -153,25 +155,41 @@ form .btn button{
 form .btn button:hover{
   background: rgb(65, 31, 24);
 }
-
+ 
 .intro{
-    color: rgb(237, 247, 154);
-    font-size: 25px;
+    color: rgb(65, 31, 24);
+    font-size: 28px;
     position: relative;
-    top: 35px;
     font-family: 'Times New Roman', Times, serif;
+    bottom: 27px;
 }
 ::placeholder{
     color: rgb(239, 248, 152);
     opacity: 0.7;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+img {
+    width: 180px;
+    height: 80px;
+    position: relative;
+    right: 550px;
+    bottom: 20px;
+}
+
 
   </style>
 
-
-
+  
   <body>
+
+  <div class="logo">
+
+            <img class="rrflogo" src="cover.png" alt="logo">
+    
+        </div>
+
+
+
   <?php 
     require 'dbConfig.php';
     $sno2 = $_GET['fid'];
@@ -194,49 +212,56 @@ echo '
       
     <form action="submitfoodreview.php?fid='. $sno2 .'" method="post" enctype="multipart/form-data">
 
-    <label> 1
-      <input type="radio" value = "1" name="rating">
-      <span class="checkmark"></span>
-    </label>
-    <label> 2
-      <input type="radio" value = "2" name="rating">
-      <span class="checkmark"></span>
-    </label>
-    <label>3
-      <input type="radio" value = "3"  name="rating">
-      <span class="checkmark"></span>
-    </label>
+    <div class="container">
+    <p class="intro">Rate us here..</p>
+      <div class="post">
+        <div class="text">Thanks for rating us!</div>
+        <div class="edit">EDIT</div>
+      </div>
+      <div class="star-widget">
+        <input type="radio" name="rating" id="rate-5" value="1">
+        <label for="rate-5" class="fas fa-star"></label>
+        <input type="radio" name="rating" id="rate-4" value="2">
+        <label for="rate-4" class="fas fa-star"></label>
+        <input type="radio" name="rating" id="rate-3" value="3">
+        <label for="rate-3" class="fas fa-star"></label>
+        <input type="radio" name="rating" id="rate-2" value="4">
+        <label for="rate-2" class="fas fa-star"></label>
+        <input type="radio" name="rating" id="rate-1" value="5">
+        <label for="rate-1" class="fas fa-star"></label>
+        
+          
+          <div class="textarea">
+            <textarea cols="30" placeholder="Describe your experience.." name="review"></textarea> 
+            <!-- <input type="text" name="review"  placeholder="Describe your experience.."> -->
+          </div>
+          <div class="btn">
+            <button type="submit" name="submitreview">Post</button>
+        
     
-    <label> 4
-      <input type="radio" value = "4" name="rating">
-      <span class="checkmark"></span>
-    </label>
-    
-    <label> 5
-      <input type="radio" value = "5" name="rating">
-      <span class="checkmark"></span>
-    </label>
+          <!--  <input type="submit" name="submitreview" value="Post"> -->
+          </div>
+        </form>
+      </div>
+    </div>
 
-    <input type = "text" placeholder = "Review here" name = "review" > 
-    <input type = "submit"  value = "Update cuisine" name="submitreview">
-    </form>;
-    
-    <!-- <script>
-      const btn = document.querySelector("button");
-      const post = document.querySelector(".post");
-      const widget = document.querySelector(".star-widget");
-      const editBtn = document.querySelector(".edit");
-      btn.onclick = ()=>{
-        widget.style.display = "none";
-        post.style.display = "block";
-        editBtn.onclick = ()=>{
-          widget.style.display = "block";
-          post.style.display = "none";
-        }
-        return false;
-      } -->
-    // </script
-';
+    // <script>
+    //   const btn = document.querySelector("button");
+    //   const post = document.querySelector(".post");
+    //    const widget = document.querySelector(".star-widget");
+    //  const editBtn = document.querySelector(".edit");
+    //   btn.onclick = ()=>{
+    //      widget.style.display = "none";
+    //      post.style.display = "block";
+    //      editBtn.onclick = ()=>{
+    //       widget.style.display = "block";
+    //      post.style.display = "none";
+    //      }
+    //     return false;
+    //    }
+    //  </script>
+  
+    ';
 ?>
   </body>
 </html>
