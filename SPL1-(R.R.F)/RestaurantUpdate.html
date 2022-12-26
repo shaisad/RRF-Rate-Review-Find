@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RRF Reset Password </title>
+    <title>Update Restaurant's Profile</title>
     </head>
 
     <style>
@@ -36,29 +36,52 @@ body{
 img {
     width: 180px;
     top: 300px;
-    left: 100px;
+    left: 90px;
 }
 label {
     position: relative;
     right: 10px;
 }
 .banner form input[type="submit"]{
-    width: 100px 80px;
-    height: 20px;
-  	/* padding: 15px;
-  	margin-top: 20px;*/
-  	background-color:rgb(80, 31, 19); 
- 	border: 0;
-  	cursor: pointer;
-  	color: #ffffff;
-  	transition: background-color 0.2s;
-    position: relative;
-    top: 60px;
-    right: 180px;
+  float: left;
+  display: block;
+  color: rgb(219, 216, 216);
+  text-align: center;
+  padding: 8px;
+  text-decoration:none;
+  font-size: 13px;
+  background-color: rgb(46, 16, 9);
+  margin: 10px;
+  border-radius: 20px;
 }
 .banner form input[type="email"]{
-    width: 220px;
+    width: 300px;
+    border: 2px solid rgb(80, 31, 19);
+    height: 30px;
+    position: relative;
+    bottom: 40px;
+    right: 190px;
+    border-radius: 20px;
 }
+.banner form input[type="text"]{
+    width: 300px;
+    border: 2px solid rgb(80, 31, 19);
+    height: 30px;
+    position: relative;
+    top: 70px;
+    right: 130px;
+    border-radius: 20px;
+}
+ .sub1{
+    position: relative;
+    left: 380px;
+    top: 60px;
+} 
+ .sub2{
+    position: relative;
+    left: 260px;
+    bottom: 50px;
+} 
 
     </style>
 
@@ -74,19 +97,21 @@ label {
     
         </div>
 
-        <form method = "post" action = "updaterestaurantconnect.php">
-            <div class = "attribute">
+        
+
+    <form method = "post" action = "updaterestaurantconnect.php">
+     <div class = "attribute">
+
        
-               <label>Enter Restaurant's name to update</label>
-               <input type = "text" name = "restaurantname">
-               <input type = "submit"  value = "Update name" name="submitname">
+        <input type = "text" name = "restaurantname" placeholder="  Enter new name to update">
+        <input type = "submit"  value = "Update name" name="submitname" class="sub1" >
+
        
-               <label>Enter Restaurant's email to update</label>
-               <input type = "email" name = "restaurantemail">
-               <input type = "submit"  value = "Update email" name="submitemail">
-       
-            </div>
-        </form>
+        <input type = "email" name = "restaurantemail"  placeholder="  Enter new email to update">
+        <input type = "submit"  value = "Update email" name="submitemail" class="sub2">
+
+     </div>
+    </form>
 
     </div>
 
