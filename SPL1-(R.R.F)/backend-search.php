@@ -33,11 +33,14 @@ $sname= "localhost";
     //   }
     
   if (mysqli_num_rows($result) > 0) {
-    echo mysqli_num_rows($result). ' '. 'restaurant found'."<br/>" ;
+    $row_cnt = $result->num_rows;
+    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
       while ($res = mysqli_fetch_array($result)) {
         
           
-          
+        
+
+        
         // echo  '<a href="RestaurantInfo.php?resid='.$sno.'">' . $res['restaurantname'] . '<br /></a>';
         echo $res['restaurantname']. ','. ' '.$res['location']. "<br/>";
       
@@ -52,7 +55,9 @@ $sname= "localhost";
     ";
     }
       if (mysqli_num_rows($result2) > 0) {
-      echo mysqli_num_rows($result2). ' '. 'food item found'."<br/>" ;
+        $row_cnt = $result->num_rows;
+    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt food item(s) found! </div>";
+      
         while ($res = mysqli_fetch_array($result2)) {
           
           echo $res['foodname']. ','. ' '.$res['frestaurantname']. "<br/>";
@@ -62,7 +67,7 @@ $sname= "localhost";
   } else {
     echo "
     <div class='alert alert-danger mt-3 text-center' role='alert'>
-        No food found!
+        No food item found!
     </div>
     ";
   }
