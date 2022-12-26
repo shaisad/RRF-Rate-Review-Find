@@ -287,6 +287,7 @@ color: rgb(80, 31, 19);
   bottom : 120px;
   width: 90%;
   cursor : pointer;
+  
 }
 
 .card:hover {
@@ -305,7 +306,7 @@ color: rgb(80, 31, 19);
 }
 
 .cardifix .card {
-  height: 350px;
+  height: 330px;
 }
 
 .cardifix img {
@@ -315,7 +316,7 @@ color: rgb(80, 31, 19);
 
 .heading{
   position: relative;
-  left: 10px;
+  left: 20px;
   font-size: 25px;
   color: rgb(80, 31, 19);
   bottom:55px;

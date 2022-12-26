@@ -183,6 +183,7 @@ echo '
           <option value="Salad">Salad</option>
           <option value="Drinks">Drinks</option>
           <option value="Naan">Naan</option>
+          <option value="Chowmein">Chowmein</option>
         </select>
       </div>
     </div>
