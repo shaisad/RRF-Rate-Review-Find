@@ -109,12 +109,12 @@ form header{
   transition: all 0.2s ease;
   font-family: 'Times New Roman', Times, serif;
 }
-form .textarea{
+form {
   height: 100px;
   width: 100%;
   overflow: hidden;
 }
-form .textarea textarea{
+form .textarea input[type='text']{
   height: 100%;
   width: 100%;
   outline: none;
@@ -177,28 +177,29 @@ form .btn button:hover{
         <div class="edit">EDIT</div>
       </div>
       <div class="star-widget">
-        <input type="radio" name="rate" id="rate-5">
+        <input type="radio" name="rating" id="rate-5">
         <label for="rate-5" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-4">
+        <input type="radio" name="rating" id="rate-4">
         <label for="rate-4" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-3">
+        <input type="radio" name="rating" id="rate-3">
         <label for="rate-3" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-2">
+        <input type="radio" name="rating" id="rate-2">
         <label for="rate-2" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-1">
+        <input type="radio" name="rating" id="rate-1">
         <label for="rate-1" class="fas fa-star"></label>
         <form action="#">
-          <header></header>
+          
           <div class="textarea">
-            <textarea cols="30" placeholder="Describe your experience.."></textarea>
+            <input type="text" name="review"  placeholder="Describe your experience..">
           </div>
           <div class="btn">
-            <button type="submit">Post</button>
+            <!-- <button type="submit">Post</button> -->
+            <input type="submit" name="submit" value="Post">
           </div>
         </form>
       </div>
     </div>
-    <script>
+    <!-- <script>
       const btn = document.querySelector("button");
       const post = document.querySelector(".post");
       const widget = document.querySelector(".star-widget");
@@ -212,6 +213,6 @@ form .btn button:hover{
         }
         return false;
       }
-    </script>
+    </script> -->
   </body>
 </html>
