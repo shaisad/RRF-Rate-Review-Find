@@ -57,10 +57,8 @@ if (isset($restaurantemail) && isset($password)) {
 					$_SESSION['restaurantname'] = $row['restaurantname'];
 					$_SESSION['location'] = $row['location'];
 							
-					?>      
-					<script>alert("Logged In Successfully as Restaurant!")</script>
-					<?php
-                header("Location: HomePageLoggedInRest.php");
+					
+                header("Location: HomePageLoggedInRest.php?resid='. $sno .'");
                 exit();
 				
             }

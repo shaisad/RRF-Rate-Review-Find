@@ -398,7 +398,7 @@ img {
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
-
+     
       $query = "SELECT * FROM restaurant where status=1";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
@@ -408,6 +408,9 @@ img {
         while($row = mysqli_fetch_assoc($query_run))
         {
           ?>
+          <?php
+      $sno = $row['restaurantid'];
+      ?>
           
           <div class="col-md-3 mt-3">
             <div class="card">
