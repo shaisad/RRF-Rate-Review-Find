@@ -449,9 +449,11 @@ img {
         
         <?php
         echo '
-           <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
-           <a class="cbtnn2" href="RateReviewRes.php">Review Here</a>
-           <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+        
+           <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+          <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
+          '
+          ;
            ?>
        
           </div>
@@ -515,8 +517,8 @@ img {
         
                 <?php
         echo '
-           <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">All Reviews</a>
-           <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+           <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+           <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
            ?>
         
           </div>
@@ -582,7 +584,7 @@ img {
         
         <?php
         echo '
-           <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review here</a>
+           <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>
         ';
            ?>
         
@@ -652,8 +654,8 @@ img {
     
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       <a class="cbtnn1" href="RateReviewRes.php">Review Here</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     
       </div>
@@ -718,8 +720,8 @@ img {
     
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     
       </div>
@@ -784,8 +786,8 @@ img {
    
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     
       </div>
@@ -850,8 +852,8 @@ img {
     
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     
       </div>
@@ -918,8 +920,8 @@ img {
     
     <?php
     echo '
-       <a class="cbtnn1" href="reviewsection.php">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     
       </div>
