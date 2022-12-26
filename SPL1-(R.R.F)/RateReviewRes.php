@@ -115,7 +115,7 @@ form header{
   width: 100%;
   overflow: hidden;
 }
-form .textarea input[type=text]{
+form .textarea textarea{
   height: 100%;
   width: 100%;
   outline: none;
@@ -126,7 +126,7 @@ form .textarea input[type=text]{
   font-size: 17px;
   resize: none;
 }
-.textarea input[type=text]:focus{
+.textarea textarea:focus{
   border-color: rgb(236, 247, 138);
 }
 form .btn{
@@ -134,7 +134,7 @@ form .btn{
   width: 100%;
   margin: 15px 0;
 }
-form .btn input[type=submit]{
+form .btn button{
   height: 100%;
   width: 100%;
   border: 1px solid rgb(236, 247, 138);
@@ -148,7 +148,7 @@ form .btn input[type=submit]{
   transition: all 0.3s ease;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-form .btn input[type=submit]:hover{
+form .btn button:hover{
   background: rgb(65, 31, 24);
 }
  */
@@ -222,14 +222,14 @@ echo '
         
           
           <div class="textarea">
-           <!-- <textarea cols="30" placeholder="Describe your experience.." name="review"></textarea> -->
-             <input type="text" name="review"  placeholder="Describe your experience.."> 
+            <textarea cols="30" placeholder="Describe your experience.." name="review"></textarea> 
+            <!-- <input type="text" name="review"  placeholder="Describe your experience.."> -->
           </div>
           <div class="btn">
-           <!-- <button type="submit" name="submit">Post</button> -->
+            <button type="submit" name="submitreview">Post</button>
         
     
-            <input type="submit" name="submitreview" value="Post">
+          <!--  <input type="submit" name="submitreview" value="Post"> -->
           </div>
         </form>
       </div>
