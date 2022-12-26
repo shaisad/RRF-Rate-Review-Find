@@ -184,7 +184,9 @@ form .btn button:hover{
 img {
     width: 180px;
     height: 80px;
-    left: 100px;
+    position: relative;
+    right: 550px;
+    bottom: 20px;
 }
 
 
@@ -256,21 +258,21 @@ echo '
       </div>
     </div>
 
-    <script>
-      const btn = document.querySelector("button");
-      const post = document.querySelector(".post");
-       const widget = document.querySelector(".star-widget");
-     const editBtn = document.querySelector(".edit");
-      btn.onclick = ()=>{
-         widget.style.display = "none";
-         post.style.display = "block";
-         editBtn.onclick = ()=>{
-          widget.style.display = "block";
-         post.style.display = "none";
-         }
-        return false;
-       }
-     </script>
+    // <script>
+    //   const btn = document.querySelector("button");
+    //   const post = document.querySelector(".post");
+    //    const widget = document.querySelector(".star-widget");
+    //  const editBtn = document.querySelector(".edit");
+    //   btn.onclick = ()=>{
+    //      widget.style.display = "none";
+    //      post.style.display = "block";
+    //      editBtn.onclick = ()=>{
+    //       widget.style.display = "block";
+    //      post.style.display = "none";
+    //      }
+    //     return false;
+    //    }
+    //  </script>
   
     ';
 ?>
