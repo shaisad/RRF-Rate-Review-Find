@@ -65,6 +65,7 @@ if (!$conn) {
 
   if (isset($restaurantemail))
   {
+    if ($restaurantemail = '$_SESSION[restaurantemail]'){
     //$update = "UPDATE user SET code = '$code' where email = '$email'";
     $update2 = "UPDATE restaurant SET code = '$code' where restaurantemail = '$restaurantemail'";
 
@@ -73,17 +74,30 @@ if (!$conn) {
 
     if ($result2 && sendMail($restaurantemail, $code))
     {
-        echo "Mail sent to reset password. Please reset your password before logging in. Make sure to check your spam folder!";
+      ?>      
+      <script>alert("Mail sent to reset password! Please reset your password before logging in. Make sure to check your spam folder!")</script>
+      <?php
+      exit();
+      
     }
     
     else
     {
-        echo "Error";
+    
+        ?>      
+        <script>alert("Your email does not match! Kindly enter the right email!")</script>
+        <?php
+        exit();
     }
   }
+}
   else
   {
-    echo "Error 2";
+    
+    ?>      
+  <script>alert("Email must be submitted to continue!")</script>
+  <?php
+  exit();
   }
 
 

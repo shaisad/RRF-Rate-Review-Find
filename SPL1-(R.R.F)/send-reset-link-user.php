@@ -65,29 +65,40 @@ if (!$conn) {
 
   if (isset($useremail))
   {
+    if ($useremail = '$_SESSION[useremail]'){
     $update = "UPDATE user SET code = '$code' where useremail = '$useremail'";
    // $update2 = "UPDATE restaurant SET code = '$code' where email = '$email'";
 
     $result = mysqli_query($conn, $update);
    // $result2 = mysqli_query($conn, $update2);
 
-    if ($result && sendMail($useremail, $code))
-    {
-        echo "Mail sent to reset password. Please reset your password before logging in. Make sure to check your spam folder!";
-    }
-    // else if ($result2 == 1 && sendMail($useremail, $code))
-    // {
-    //     echo "Mail sent to reset password. Please reset your password before logging in. Make sure to check your spam folder!";
-    // }
-    else
-    {
-        echo "Error";
-    }
-  }
-  else
-  {
-    echo "Error 2";
-  }
+   if ($result && sendMail($useremail, $code))
+   {
+     ?>      
+     <script>alert("Mail sent to reset password! Please reset your password before logging in. Make sure to check your spam folder!")</script>
+     <?php
+     exit();
+     
+   }
+   
+   else
+   {
+   
+       ?>      
+       <script>alert("Your email does not match! Kindly enter the right email!")</script>
+       <?php
+       exit();
+   }
+ }
+}
+ else
+ {
+   
+   ?>      
+ <script>alert("Email must be submitted to continue!")</script>
+ <?php
+ exit();
+ }
 
 
 
