@@ -1,7 +1,5 @@
  
-<?php
-session_start();
-?>
+
 
 
 <!DOCTYPE html>
@@ -196,7 +194,7 @@ body{
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT * FROM food_new where frestaurantname = '$_SESSION[restaurantname]'";
+      $query = "SELECT * FROM food_new, restaurant where frestaurantname = restaurantname and food_res_id = $sno";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -219,7 +217,7 @@ body{
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image from foodimage where foodname = '$row[foodname]' and irestaurantname = '$_SESSION[restaurantname]' ";
+           $queryy = "SELECT image, restaurantname from foodimage, restaurant where foodname = '$row[foodname]' and irestaurantname = restaurantname ";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
