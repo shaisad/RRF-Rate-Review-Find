@@ -1,3 +1,10 @@
+
+<?php
+session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -167,9 +174,30 @@ img {
             <img class="rrflogo" src="cover.png" alt="logo">
     
         </div>
-    <!--Testimonials------------------->
-    <section id="testimonials">
-        <!--heading--->
+
+
+        <?php
+
+
+
+  
+  
+    require 'dbConfig.php';
+    $sno = $_GET['resid'];
+    
+    $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $result = mysqli_query($db, $getr);
+
+    $row = mysqli_fetch_array($result);
+echo $row['overall_rating'].'/5'."<br/>";
+echo 'Total:'.$row['total_reviews'].' '.'reviews'."<br/>";
+
+$showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result = mysqli_query($db, $showr);
+
+?>
+<section id="testimonials">
+
         <div class="testimonial-heading">
             <span>Reviews</span>
             <h1>Reviewers says..</h1>
@@ -177,11 +205,22 @@ img {
 
         <div class="container py-5">
             <div class="row mt-3">
+        
+        <?php
+
+
+    while($row = mysqli_fetch_array($result)) {
+                
+        
+    
+    ?>
+    
+
         <!--testimonials-box-container------>
-        <div class="testimonial-box-container">
+<div class="testimonial-box-container">
             <!--BOX-1-------------->
-            <div class="col-md-6 mt-3">
-                <div class="card">
+    <div class="col-md-6 mt-3">
+        <div class="card">
             <div class="testimonial-box">
                 <!--top------------------------->
                 <div class="box-top">
@@ -190,34 +229,41 @@ img {
                         
                         <!--name-and-username-->
                         <div class="name-user">
-                            <strong>Touseeq Ijaz</strong>
+                            <strong><?php echo $row['rrusername']."<br/>"?></strong>
                         </div>
+
+                        <div class="client-comment">
+                            <p><?php echo $row['submitdate']."<br/>"?> </p>
+                        </div>
+
                     </div>
                     <!--reviews------>
                     <div class="reviews">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i><!--Empty star-->
+                        <p>Given Rating: <?php echo $row['rating']?><i class="fas fa-star"></i></p>
                     </div>
                 </div>
                 <!--Comments---------------------------------------->
                 <div class="client-comment">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt blanditiis sed atque cumque.</p>
-                </div>
-            </div>
-                </div>
-            </div>
+                    <p><?php echo $row['review']."<br/>" ?></p>
+              </div>
+            
+         </div>
+    </div>
 
             
-            
-        </div>
-            </div>
-        </div>
+</div>
+    </div>
+    </div>
+        
     </section>
+    <?php
+
+    }
 
 
-
+?>
 </body>
 </html>
+
+
+

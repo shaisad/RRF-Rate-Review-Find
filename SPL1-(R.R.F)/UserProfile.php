@@ -73,7 +73,7 @@ error_reporting();
   border-radius: 5px;
   position: relative;
   top: 45px;
-  left: 190px;
+  left: 150px;
 }
 
 .btn :hover{
@@ -114,7 +114,14 @@ error_reporting();
               echo $_SESSION['useremail'];
             ?>
           </div> 
-          
+
+           <div class = "attribute">
+            <label>Favourite Cuisine:</label>
+            <?php
+              echo $_SESSION['userfavcuisine'];
+            ?>
+          </div>
+           
             <div class="btn" id="btn">
             
              <a href="UserUpdate.html" target="_self">Update Profile</a>
