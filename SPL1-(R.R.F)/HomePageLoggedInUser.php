@@ -125,6 +125,7 @@ body{
   top: 20px;
   border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
+  right: 2px;
 }
 
 
@@ -154,18 +155,18 @@ body{
 }
 
 .cbtnn3 {
-  border: none;
-  outline: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  color: white;
-  position: relative;
-  text-decoration : none;
-  left: 6px;
-  top: 20px;
-  border-radius: 5px;
-  background-color: rgb(80, 31, 19) ;
-  width: 50px;
+      background-color:rgb(80, 31, 19);
+      color: white;
+      padding: 4px 80px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+      text-decoration : none;
+      position: relative;
+      left: 8px;
+      top: 30px;
+      outline: none;   
 }
 
 
@@ -251,7 +252,7 @@ img {
 } 
 
 .card{
-  height: 300px;
+  height: 330px;
 }
 
 
@@ -471,7 +472,7 @@ img {
 <?php
         echo '
            <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">View Review</a>
+           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">See Reviews</a>
            <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
            
            ';
@@ -539,7 +540,7 @@ img {
 <?php
         echo '
            <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">View Review</a>
+           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">See Reviews</a>
            <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
            
            ';
@@ -610,7 +611,7 @@ img {
         <?php
         echo '
            <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>
-           <a class="cbtnn2" href="reviewfoodsection.php?fid='. $sno2 .'">View Review</a>
+           <a class="cbtnn2" href="reviewfoodsection.php?fid='. $sno2 .'">See Reviews</a>
         ';
            ?>
         
@@ -681,7 +682,7 @@ img {
 <?php
         echo '
            <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">View Review</a>
+           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">See Reviews</a>
            <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
            
            ';
@@ -750,7 +751,7 @@ img {
 <?php
         echo '
            <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">View Review</a>
+           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">See Reviews</a>
            <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
            
            ';
@@ -819,7 +820,7 @@ img {
 <?php
         echo '
            <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">View Review</a>
+           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">See Reviews</a>
            <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
            
            ';
@@ -888,7 +889,7 @@ img {
 <?php
         echo '
            <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">View Review</a>
+           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">See Reviews</a>
            <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
            
            ';
@@ -959,7 +960,7 @@ img {
 <?php
         echo '
            <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">View Review</a>
+           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">See Reviews</a>
            <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
            
            ';
