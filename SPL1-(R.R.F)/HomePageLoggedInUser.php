@@ -1,6 +1,7 @@
 <?php
 session_start();
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -490,7 +491,7 @@ img {
     </div>
     </div>
     </div>
-    <p class = heading> Your Favourite Cuisine  </p>
+    <p class = heading> Restaurants Of Your Favourite Cuisine  </p>
 
     <!-- card -->
    <div class="cardfix">
@@ -499,7 +500,8 @@ img {
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT restaurantname, location, ulocation, restaurantid FROM restaurant, user where restaurant.status=1 and restaurant.cuisine = user.userfavcuisine and user.userfavcuisine = '$_SESSION[userfavcuisine]'";
+      $query = "SELECT restaurantname, location, restaurantid, userfavcuisine, cuisine FROM restaurant, user where restaurant.status=1 and restaurant.cuisine = user.userfavcuisine 
+      and user.userfavcuisine= '$_SESSION[userfavcuisine]'";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
