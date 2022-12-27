@@ -39,7 +39,7 @@
                                                 <input type="checkbox" name="cuisine[]" value="<?= $brandlist['restaurant']; ?>" 
                                                     <?php if(in_array($brandlist['restaurantid'], $checked)){ echo "checked"; } ?>
                                                  />
-                                                <?= $brandlist['name']; ?>
+                                                <?= $brandlist['restaurantname']; ?>
                                             </div>
                                         <?php
                                     }
