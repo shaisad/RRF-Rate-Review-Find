@@ -413,7 +413,7 @@ img {
     </script>
 
        
-        <button class="btnn show" onclick="filterSelection('all')"> Show all</button>
+        <button class="btnn show" onclick="window.location.href='showAll.php';"> Show all</button>
         <button class="btnn" onclick="filterSelection('top rated')"> Top Rated</button>
         <button class="btnn" onclick="filterSelection('price')"> Price Range</button>
         <button class="btnn" onclick="filterSelection('location')"> Location</button>
