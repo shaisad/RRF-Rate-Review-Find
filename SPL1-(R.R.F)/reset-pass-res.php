@@ -80,7 +80,7 @@ label {
 .cpass{
     position: relative;
     top: 10px;
-    right: 200px;
+    right: 80px;
  
 }
     </style>

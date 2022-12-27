@@ -14,7 +14,7 @@
 
 
   
-  $price = $_POST['price'];
+  //$price = $_POST['price'];
   
   
  // $frestaurantname = $_SESSION['restaurantname'];
