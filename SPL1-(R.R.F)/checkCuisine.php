@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filter By Range</title>
+    <title>Filter By Category</title>
     </head>
 
     <style>
@@ -76,13 +76,17 @@ label {
         </div>
 
         
-
-  <form method = "GET" action = "submitrange.php" >
+<!-- italian french bengali chinese -->
+  <form method = "GET" action = "submitcuisine.php" >
         <div class = "attribute">
-        <select name="sort_numeric" class="form-control">
+        <select name="sort_cuisine" class="form-control">
                                             <option value="">--Select Option--</option>
-                                            <option value="low-high" <?php if(isset($_GET['sort_numeric']) && $_GET['sort_numeric'] == "low-high") { echo "selected"; } ?> > Low - High</option>
-                                            <option value="high-low" <?php if(isset($_GET['sort_numeric']) && $_GET['sort_numeric'] == "high-low") { echo "selected"; } ?> > High - Low</option>
+                                            <option value="Asian" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "Asian") { echo "selected"; } ?> > Asian</option>
+                                            <option value="Italian" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "Italian") { echo "selected"; } ?> > Italian</option>
+                                            <option value="French" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "French") { echo "selected"; } ?> > French</option>
+                                            <option value="Bengali" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "Bengali") { echo "selected"; } ?> > Bengali</option>
+                                            <option value="Chinese" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "Chinese") { echo "selected"; } ?> >Chinese</option>
+                                        
                                         </select>
                                         <button type="submit" class="input-group-text btn btn-primary" name = "submit" id="basic-addon2">
                                             Filter
