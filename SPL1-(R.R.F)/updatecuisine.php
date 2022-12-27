@@ -16,6 +16,7 @@ if (mysqli_connect_error())
   die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
 }
 
+if (!empty($cuisine)){
 if (isset($_POST['submitcuisine'])) {
 
   $query = "update restaurant set cuisine = '$_POST[cuisine]' where restaurantname = '$_SESSION[restaurantname]'";
@@ -33,6 +34,7 @@ if (isset($_POST['submitcuisine'])) {
           <?php
     exit();
   }
+}
 }
 else{
   ?>      

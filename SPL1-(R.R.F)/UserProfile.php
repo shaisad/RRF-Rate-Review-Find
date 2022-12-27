@@ -73,7 +73,7 @@ error_reporting();
   border-radius: 5px;
   position: relative;
   top: 45px;
-  left: 190px;
+  left: 150px;
 }
 
 .btn :hover{
