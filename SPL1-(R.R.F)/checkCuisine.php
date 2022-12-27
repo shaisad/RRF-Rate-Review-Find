@@ -79,19 +79,15 @@ label {
 <!-- italian french bengali chinese -->
   <form method = "GET" action = "submitCuisine.php" >
         <div class = "attribute">
-        <select name="sort_cuisine" class="form-control">
-                                            <option value="">--Select Option--</option>
-                                            <option value="Asian" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "Asian") { echo "selected"; } ?> > Asian</option>
-                                            <option value="Italian" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "Italian") { echo "selected"; } ?> > Italian</option>
-                                            <option value="French" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "French") { echo "selected"; } ?> > French</option>
-                                            <option value="Bengali" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "Bengali") { echo "selected"; } ?> > Bengali</option>
-                                            <option value="Chinese" <?php if(isset($_GET['sort_cuisine']) && $_GET['sort_cuisine'] == "Chinese") { echo "selected"; } ?> >Chinese</option>
-                                        
-                                        </select>
-                                        <button type="submit" class="input-group-text btn btn-primary" name = "submit" id="basic-addon2">
-                                            Filter
-                                        </button>
-    </form>
+        
+    <input type="checkbox" name="cuisine[]" value="Asian">
+    <input type="checkbox" name="cuisine[]" value="Italian">
+    <input type="checkbox" name="cuisine[]" value="Bengali">
+    <input type="checkbox" name="cuisine[]" value="French">
+    <input type="checkbox" name="cuisine[]" value="Chinese">
+    <input type="submit" name = "submit" >
+</form>
+                                      
 
     </div>
 
