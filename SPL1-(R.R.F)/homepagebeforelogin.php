@@ -279,11 +279,11 @@ color: rgb(80, 31, 19);
     </script>
 
        
-        <button class="btnn show" onclick="filterSelection('all')"> Show all</button>
+<button class="btnn show" onclick="window.location.href='showAll.php';"> Show all</button>
         <button class="btnn" onclick="filterSelection('top rated')"> Top Rated</button>
-        <button class="btnn" onclick="filterSelection('price')"> Price Range</button>
-        <button class="btnn" onclick="filterSelection('location')"> Location</button>
-        <button class="btnn" onclick="filterSelection('food category')"> Food Category</button>
+        <button class="btnn" onclick="window.location.href='checkRange.php';"> Price Range</button>
+        <button class="btnn" onclick="window.location.href='checkLocation.php';"> Location</button>
+        <button class="btnn" onclick="window.location.href='checkCuisine.php';">Cuisine</button>
         
         <p class = heading> All restaurants </p>
 
