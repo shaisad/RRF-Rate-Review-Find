@@ -354,15 +354,11 @@ img {
     require 'dbConfig.php'; 
 
 
-    $sort_option = "";
+    
     if(isset($_GET['sort_cuisine']))
     {
-        if($_GET['sort_cuisine'] == "Asian"){
-            $sort_option = "Asian";
-        }elseif($_GET['sort_cuisine'] == "Italian"){
-            $sort_option = "Italian";
-        }
-    }
+        
+    
     
   
     
@@ -379,7 +375,7 @@ img {
    <?php 
   require 'dbConfig.php';
 
-  $query = "select * from restaurant where restaurant.status=1 and cuisine = ($sort_cuisine)";
+  $query = "select * from restaurant where restaurant.status=1 and cuisine = '$_GET[sort_cuisine]'";
   $query_run = mysqli_query($db, $query);
   $check_user = mysqli_num_rows($query_run) > 0;
   
@@ -440,6 +436,7 @@ img {
                                         <?php
                                       }
                                     }
+                                  }
                                     else{
                                       ?>      
                                       <script>alert("No record of restaurant found!")</script>
