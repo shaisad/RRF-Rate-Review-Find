@@ -1,25 +1,6 @@
-<!-- $sort_option = "";
-                                if(isset($_GET['sort_numeric']))
-                                {
-                                    if($_GET['sort_numeric'] == "low-high"){
-                                        $sort_option = "ASC";
-                                    }elseif($_GET['sort_numeric'] == "high-low"){
-                                        $sort_option = "DESC";
-                                    }
-                                } -->
-                                
+
 
 <?php
-
-
-
-  
-  //$price = $_POST['price'];
-  
-  
- // $frestaurantname = $_SESSION['restaurantname'];
- // $_SESSION['foodname'] = $foodname;
- 
 
   require 'dbConfig.php'; 
 
@@ -32,10 +13,6 @@
           $sort_option = "DESC";
       }
   }
-
-//   $query = "SELECT * FROM food_new ORDER BY price $sort_option";
-//                                 $query_run = mysqli_query($con, $query);
-
 
   
                                 ?>
