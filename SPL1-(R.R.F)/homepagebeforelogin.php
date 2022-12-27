@@ -336,7 +336,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -412,8 +412,8 @@ color: rgb(80, 31, 19);
            ?>
 
           
-        <?php echo `<a href="ViewReviews.html?fid='. $sno .'">Show all reviews</a>`?>
-        <button class="cbtnn1" onclick="window.location.href='ViewReviews.html';">Show all reviews</button>
+        <?php echo `<a href="ViewReviewsFood.php?fid='. $sno .'?resid='. $sno .'">Show all reviews</a>`?>
+        <!-- <button class="cbtnn1" onclick="window.location.href='ViewReviews.html';">Show all reviews</button> -->
         
         
 
@@ -482,7 +482,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -560,7 +560,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -638,7 +638,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -716,7 +716,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
@@ -796,7 +796,7 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviews.html">All Reviews</a>
+       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
