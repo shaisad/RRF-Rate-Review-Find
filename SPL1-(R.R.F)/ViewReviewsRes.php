@@ -159,8 +159,13 @@ img {
     left: 100px;
 }
 
-
+.totalrate{
+font-weight: 400;
+}
  
+.totalreview{
+
+}
 
 
 </style>
