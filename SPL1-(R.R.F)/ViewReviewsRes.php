@@ -36,7 +36,8 @@ session_start();
 *{
     margin: 0px;
     padding: 0px;
-    font-family: poppins;
+    font-family: 'Times New Roman', Times, serif;
+
     box-sizing: border-box;
     
 }
@@ -56,19 +57,18 @@ a{
     
 }
 .testimonial-heading h1{
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 500;
     background-color: rgb(80, 31, 19);
     color: #ffffff;
     padding: 10px 20px;
     position: relative;
-    bottom: 60px;
+    bottom: 20px;
     right: 50px;
 }
 .testimonial-box-container{
     position: relative;
-    bottom: 30px;
-    
+    bottom: 90px;
 }
 .testimonial-box{
     
@@ -76,24 +76,17 @@ a{
     width: 850px;
     height: 150px;
     cursor: pointer;
-    background-color: white;
+    background-color: rgba(248, 239, 202, 0.975);
     position: relative;
     left: 20px;
+    border-radius: 10px;
 }
-/* .profile{
-    display: flex;
-    align-items: center;
-    background-color: white;
-}
-
-.name-user{
-    display: flex;
-    flex-direction: column;
-}  */
 .name-user strong{
     color: #3d3d3d;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     letter-spacing: 0.5px;
+    position: relative;
+    left: 10px;
 }
 .name-user span{
     color: #979797;
@@ -108,31 +101,29 @@ a{
     left: 20px;
 }
 .client-comment p{
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #4b4b4b;
     position: relative;
-    bottom: 20px;
-    left: 20px;
+    bottom: 40px;
+    left: 30px;
 }
 .client-commenttime p{
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: #4b4b4b;
     position: relative;
-    left: 700px;
+    left: 690px;
     top: 75px;
 }
 
 .reviews p{
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: #4b4b4b;
     position: relative;
-    left: 450px;
+    left: 430px;
     top: 80px;
 }
 .reviews i{
     color: rgba(248, 197, 70, 0.964);
-    position: relative;
-    
 }
 
 .reviews{
@@ -160,11 +151,27 @@ img {
 }
 
 .totalrate{
-font-weight: 400;
+font-weight: 700;
+font-size: 22px;
+color: rgb(80, 31, 19);
+font-family: 'Times New Roman', Times, serif;
+position: relative;
+right: 495px;
+bottom: 50px;
 }
  
 .totalreview{
+font-weight: 700;
+font-size: 22px;
+color: rgb(80, 31, 19);
+font-family: 'Times New Roman', Times, serif;
+position: relative;
+right: 540px;
+bottom: 65px;
+}
 
+.totalrate i{
+    color: rgba(248, 174, 70, 0.964);
 }
 
 
@@ -245,14 +252,14 @@ $result = mysqli_query($db, $showr);
         
 
 <div class="totalrate"> 
-  <?php echo $row['overall_rating']; ?> 
+  <p>Total Rating: <?php echo sprintf('%0.2f',$row['overall_rating']).'/5.00 '; ?><i class="fas fa-star"></i> </p>
 </div>
 <?php
 
 ?>
 
 <div class="totalreview">
-   <?php echo $row['total_reviews']; ?>
+   <p>Review count: <?php echo $row['total_reviews']; ?> </p>
 </div>
 <?php
 
