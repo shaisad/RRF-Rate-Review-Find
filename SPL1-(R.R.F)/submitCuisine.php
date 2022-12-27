@@ -391,7 +391,7 @@ img {
 
   if (mysqli_num_rows($query_run) > 0) {
     $row_cnt = $query_run->num_rows;
-    
+
     
     echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
   
@@ -452,8 +452,7 @@ img {
                                       }
                                     }
                                   }
-                                }
-                                    else{
+                                    else {
                                       ?>      
                                       <script>alert("No record of restaurant found!")</script>
                                       <?php
