@@ -53,15 +53,15 @@ label {
   background-color: rgb(46, 16, 9);
   margin: 10px;
   border-radius: 20px;
+  position: relative;
+  top: 60px;
+  left: 150px;
 }
 
 .banner form input[type="password"]{
     width: 300px;
     border: 2px solid rgb(80, 31, 19);
     height: 30px;
-    position: relative;
-    bottom: 40px;
-    right: 190px;
     border-radius: 20px;
     margin-bottom: 20px;
   	padding: 0 15px;
@@ -71,6 +71,17 @@ label {
 }
 .eye-btn2{
 
+}
+.pass{
+    position: relative;
+    left: 5px;
+    top: 10px;
+}
+.cpass{
+    position: relative;
+    top: 10px;
+    right: 200px;
+ 
 }
     </style>
 
@@ -85,11 +96,11 @@ label {
         </div>
     
     <form method="post" action="reset-pass-code-rest.php">
-    <input type = "password" name = "password" required placeholder="  Type new password">
+    <input type = "password" name = "password" required placeholder="  Type new password" class="pass">
     <span class="eye-btn1"><i class="bi bi-eye-slash" 
                     id="togglePassword"></i></span>
 				
-                    <input type = "password" name = "confirm" required placeholder="  Re-type new password">
+                    <input type = "password" name = "confirm" required placeholder="  Re-type new password" class="cpass">
                     <span class="eye-btn2"><i class="bi bi-eye-slash" 
                     id="togglePassword"></i></span>
 				
