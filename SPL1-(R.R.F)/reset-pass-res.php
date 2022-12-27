@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+		<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity=
+"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+		</head>
+
     <title>Reset Password</title>
 </head>
 
@@ -54,8 +65,8 @@ label {
   margin: 10px;
   border-radius: 20px;
   position: relative;
-  top: 60px;
-  left: 150px;
+  top: 80px;
+  left: 200px;
 }
 
 .banner form input[type="password"]{
@@ -74,13 +85,13 @@ label {
 }
 .pass{
     position: relative;
-    left: 5px;
-    top: 10px;
+    right: 40px;
+    top: 30px;
 }
 .cpass{
     position: relative;
-    top: 10px;
-    right: 80px;
+    top: 30px;
+    right: 100px;
  
 }
     </style>
