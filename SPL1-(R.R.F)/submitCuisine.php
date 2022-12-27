@@ -452,6 +452,7 @@ img {
                                       }
                                     }
                                   }
+                                }
                                     else {
                                       ?>      
                                       <script>alert("No record of restaurant found!")</script>
