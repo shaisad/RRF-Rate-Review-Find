@@ -168,12 +168,46 @@ img {
 <body>
     
     
+    
           
         <div class="logo">
 
             <img class="rrflogo" src="cover.png" alt="logo">
+
+
     
         </div>
+
+        <p>
+              <img class="handrice" src="handrice.png" alt="logo"> 
+            <?php
+
+            require 'dbConfig.php';
+           // $category = $_POST['category'];
+      $sno = $_GET['resid'];
+      $query = "SELECT restaurantname, location, restaurantid FROM restaurant where status = 1 and restaurantid = $sno";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          
+          $restaurantname = $row['restaurantname'];
+          $location = $row['location'];
+         //echo $restaurantname;
+          
+         }
+       }
+
+      ?>
+
+    <div class=credentials>
+            <h1 class="restname"> <?php echo $restaurantname; ?></h1> 
+            <h4 class="restlocation"><?php echo $location; ?></h1>
+            
+    </div>
 
 
         <?php
