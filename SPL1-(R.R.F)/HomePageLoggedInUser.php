@@ -489,6 +489,75 @@ img {
     </div>
     </div>
     </div>
+    <p class = heading> Your Favourite Cuisine  </p>
+
+    <!-- card -->
+   <div class="cardfix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
+
+      $query = "SELECT restaurantname, location, ulocation, restaurantid FROM restaurant, user where restaurant.status=1 and restaurant.cuisine = user.userfavcuisine and user.userfavcuisine = '$_SESSION[userfavcuisine]'";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?><?php
+          $sno = $row['restaurantid'];
+          ?>
+          <div class="col-md-3 mt-3">
+            <div class="card">
+            
+          <div class="card-body">
+            <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+            <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+         
+            <!-- image fetch -->
+              <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant, user where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and restaurant.cuisine = user.userfavcuisine";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+                 
+              <?php
+            }
+           }
+           ?>
+
+        
+        
+<?php
+        echo '
+           <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+           <a class="cbtnn2" href="reviewressection.php?resid='. $sno .'">View Review</a>
+           <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
+           
+           ';
+           ?>
+
+          </div>
+          </div>
+          </div>
+
+          <?php
+        }
+      }
+
+      ?>
+    </div>
+    </div>
+    </div>
     <p class = heading> All restaurants </p>
 
     <!-- card -->
