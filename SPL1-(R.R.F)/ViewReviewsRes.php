@@ -38,9 +38,11 @@ session_start();
     padding: 0px;
     font-family: poppins;
     box-sizing: border-box;
+    
 }
 body{
     background-color: rgb(240, 221, 136);
+    overflow-x: hidden;
 }
 a{
     text-decoration: none;
@@ -51,16 +53,7 @@ a{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width:100%;
-}
-.testimonial-heading{
-    letter-spacing: 1px;
-    margin: 30px 0px;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
 }
 .testimonial-heading h1{
     font-size: 2.2rem;
@@ -68,37 +61,35 @@ a{
     background-color: rgb(80, 31, 19);
     color: #ffffff;
     padding: 10px 20px;
-}
-.testimonial-heading span{
-    font-size: 1.3rem;
-    color: rgb(80, 31, 19);
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    position: relative;
+    bottom: 60px;
+    right: 50px;
 }
 .testimonial-box-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width:100%;
+    position: relative;
+    bottom: 30px;
+    
 }
 .testimonial-box{
-    width:500px;
+    
     box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 15px;
+    width: 850px;
+    height: 150px;
     cursor: pointer;
+    background-color: white;
+    position: relative;
+    left: 20px;
 }
-.profile{
+/* .profile{
     display: flex;
     align-items: center;
+    background-color: white;
 }
+
 .name-user{
     display: flex;
     flex-direction: column;
-}
+}  */
 .name-user strong{
     color: #3d3d3d;
     font-size: 1.1rem;
@@ -112,43 +103,50 @@ a{
     color: #f9d71c;
 }
 .box-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    position: relative;
+   top: 20px;
+    left: 20px;
 }
 .client-comment p{
+    font-size: 1rem;
+    color: #4b4b4b;
+    position: relative;
+    bottom: 20px;
+    left: 20px;
+}
+.client-commenttime p{
+    font-size: 0.7rem;
+    color: #4b4b4b;
+    position: relative;
+    left: 700px;
+    top: 75px;
+}
+
+.reviews p{
     font-size: 0.9rem;
     color: #4b4b4b;
+    position: relative;
+    left: 450px;
+    top: 80px;
 }
+.reviews i{
+    color: rgba(248, 197, 70, 0.964);
+    position: relative;
+    
+}
+
+.reviews{
+    position: relative;
+    bottom: 145px;
+    left: 250px;
+}
+
+
 .testimonial-box:hover{
     transform: translateY(-10px);
     transition: all ease 0.3s;
 }
  
-@media(max-width:1060px){
-    .testimonial-box{
-        width:45%;
-        padding: 10px;
-    }
-}
-@media(max-width:790px){
-    .testimonial-box{
-        width:100%;
-    }
-    .testimonial-heading h1{
-        font-size: 1.4rem;
-    }
-}
-@media(max-width:340px){
-    .box-top{
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-    }
-    .reviews{
-        margin-top: 10px;
-    }
-}
 ::selection{
     color: #ffffff;
     background-color: #252525;
@@ -160,6 +158,8 @@ img {
     top: 350px;
     left: 100px;
 }
+
+
  
 
 
@@ -189,8 +189,9 @@ img {
     $result = mysqli_query($db, $getr);
 
     $row = mysqli_fetch_array($result);
-echo $row['overall_rating'].'/5'."<br/>";
-echo 'Total:'.$row['total_reviews'].' '.'reviews'."<br/>";
+
+   // echo $row['overall_rating'].'/5'."<br/>";
+    //echo 'Total:'.$row['total_reviews'].' '.'reviews'."<br/>";
 
 $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
 $result = mysqli_query($db, $showr);
@@ -199,14 +200,25 @@ $result = mysqli_query($db, $showr);
 <section id="testimonials">
 
         <div class="testimonial-heading">
-            <span>Reviews</span>
             <h1>Reviewers says..</h1>
         </div>
-
-        <div class="container py-5">
-            <div class="row mt-3">
         
-        <?php
+        
+
+<div class="totalrate"> 
+  <?php echo $row['overall_rating']; ?> 
+</div>
+<?php
+
+?>
+
+<div class="totalreview">
+   <?php echo $row['total_reviews']; ?>
+</div>
+<?php
+
+        
+        
 
 
     while($row = mysqli_fetch_array($result)) {
@@ -214,13 +226,23 @@ $result = mysqli_query($db, $showr);
         
     
     ?>
+
+    <div class="totalrate">
+            <p></p>
+        </div>
     
+    <div class="container py-1">
+   <div class="row mt-3">
 
         <!--testimonials-box-container------>
 <div class="testimonial-box-container">
+
+
+
+
             <!--BOX-1-------------->
     <div class="col-md-6 mt-3">
-        <div class="card">
+        
             <div class="testimonial-box">
                 <!--top------------------------->
                 <div class="box-top">
@@ -232,7 +254,7 @@ $result = mysqli_query($db, $showr);
                             <strong><?php echo $row['rrusername']."<br/>"?></strong>
                         </div>
 
-                        <div class="client-comment">
+                        <div class="client-commenttime">
                             <p><?php echo $row['submitdate']."<br/>"?> </p>
                         </div>
 
@@ -248,8 +270,7 @@ $result = mysqli_query($db, $showr);
               </div>
             
          </div>
-    </div>
-
+    
             
 </div>
     </div>
