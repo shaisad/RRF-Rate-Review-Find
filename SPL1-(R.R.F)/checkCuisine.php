@@ -77,7 +77,7 @@ label {
 
         
 <!-- italian french bengali chinese -->
-  <form method = "GET" action = "submitcuisine.php" >
+  <form method = "GET" action = "submitCuisine.php" >
         <div class = "attribute">
         <select name="sort_cuisine" class="form-control">
                                             <option value="">--Select Option--</option>
