@@ -176,14 +176,11 @@ img {
     right: 550px;
     bottom: 20px;
 }
-
-.restname{
-  color : white;
+.credentials {
+  color: rgb(248, 229, 152);
+  position: relative;
+  bottom: 30px;
 }
-.restlocation{
-  color : white;
-}
-
 
   </style>
 

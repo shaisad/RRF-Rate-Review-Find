@@ -61,6 +61,13 @@ label {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.heading{
+    font-family: 'Times New Roman', Times, serif; 
+    color:rgb(80, 31, 19);
+    font-weight: 300;
+    font-size: 25px; 
+}
+
     </style>
 
 <body>
@@ -73,6 +80,10 @@ label {
 
             <img class="rrflogo" src="cover.png" alt="logo">
     
+        </div>
+
+        <div class="heading">
+            <p>Select range to filter</p>
         </div>
 
         
