@@ -352,7 +352,13 @@ img {
     <?php
 
     require 'dbConfig.php'; 
-  
+
+
+    
+    if(isset($_GET['sort_cuisine']))
+    {
+        
+    
     
   
     
@@ -369,7 +375,7 @@ img {
    <?php 
   require 'dbConfig.php';
 
-  $query = "select * from restaurant where restaurant.status=1 and order by  $sort_cuisine";
+  $query = "select * from restaurant where restaurant.status=1 and cuisine = '$_GET[sort_cuisine]'";
   $query_run = mysqli_query($db, $query);
   $check_user = mysqli_num_rows($query_run) > 0;
   
@@ -425,16 +431,15 @@ img {
                                       
                               
                                 
-                                        </div>
-                                        </div>
-                                        </div>
+                                        
                               
                                         <?php
                                       }
                                     }
+                                  }
                                     else{
                                       ?>      
-                                      <script>alert("No record of food found!")</script>
+                                      <script>alert("No record of restaurant found!")</script>
                                       <?php
                                     
                                     }
