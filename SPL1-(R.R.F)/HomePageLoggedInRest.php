@@ -380,7 +380,7 @@ img {
            }
         ?>
         
-        <button class="cbtnn1" onclick="window.location.href='ViewReviews.php';">Show Reviews</button>
+        <button class="cbtnn1" onclick="window.location.href='ViewReviewsRes.php';">Show Reviews</button>
        <button class="cbtnn2" onclick="window.location.href='RestaurantMenu.php';">Menu</button>
        
 
@@ -445,7 +445,7 @@ img {
 
          <?php
         echo '
-           <a class="cbtnn1" href="ViewReviews.php">All Reviews</a>
+           <a class="cbtnn1" href="ViewReviewsRes.php">All Reviews</a>
            <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details </a>';
            ?>
                   
