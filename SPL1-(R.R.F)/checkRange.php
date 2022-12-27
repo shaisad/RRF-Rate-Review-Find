@@ -65,7 +65,7 @@ label {
 
 <body>
 
-    
+
 
     <div class = "banner">
           
@@ -77,7 +77,7 @@ label {
 
         
 
-    <form method = "GET" action = "" >
+  <form method = "GET" action = "submitrange.php" >
         <div class = "attribute">
         <select name="sort_numeric" class="form-control">
                                             <option value="">--Select Option--</option>
