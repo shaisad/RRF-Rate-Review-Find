@@ -80,17 +80,42 @@ label {
 
 .heading{
     font-family: 'Times New Roman', Times, serif; 
-    color:rgb(80, 31, 19);
+    color: rgb(46, 16, 9);
     font-weight: 300;
-    font-size: 20px; 
+    font-size: 22px; 
+    position: relative;
+    top: 6px;
 }
 .form{
     font-family: 'Times New Roman', Times, serif; 
-    color:rgb(80, 31, 19);
-    background-color:rgb(17, 6, 4);
+    color:rgb(240, 221, 136);
+    background-color: rgb(46, 16, 9);
     font-weight: 300;
     font-size: 20px;
+    border-radius: 5px;
+    position: relative;
+    bottom: 20px;
+    right: 50px;
+    border: none;
 }
+
+.banner form button[type="submit"]{
+
+  display: block;
+  color: rgb(240, 221, 136);
+  text-align: center;
+  text-decoration:none;
+  font-size: 16px;
+  background-color: rgb(46, 16, 9);
+  border-radius: 5px;
+  padding: 1px 9px;
+  position: relative;
+  left: 350px;
+  bottom: 47px;
+  border: none;
+}
+
+
     </style>
 
 <body>
@@ -118,7 +143,7 @@ label {
                                             <option class="opt" value="low-high" <?php if(isset($_GET['sort_numeric']) && $_GET['sort_numeric'] == "low-high") { echo "selected"; } ?> > Low - High</option>
                                             <option class="opt" value="high-low" <?php if(isset($_GET['sort_numeric']) && $_GET['sort_numeric'] == "high-low") { echo "selected"; } ?> > High - Low</option>
                                         </select>
-                                        <button type="submit" class="input-group-text btn btn-primary" name = "submit" id="basic-addon2">
+                                        <button type="submit" name = "submit">
                                             Filter
                                         </button>
     </form>

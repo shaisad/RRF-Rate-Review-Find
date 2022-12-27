@@ -238,9 +238,10 @@ img {
 
 .cardfix {
   position: relative;
-  left: 200px;
+  left: 100px;
   width: 80%;
   cursor : pointer;
+  top: 30px;
 }
 
 .card:hover {
@@ -255,10 +256,12 @@ img {
 
 .heading{
   position: relative;
-  left: 220px;
-  top : 70px;
+  left: 130px;
+  top : 60px;
   font-size: 25px;
   color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+
 }
 
 .heading1{
@@ -281,7 +284,7 @@ img {
 .cardifix{
   height: 400px;
   position: relative;
-  left: 200px;
+  left: 120px;
   width: 80%;
   cursor : pointer;
 }
@@ -353,11 +356,18 @@ img {
 
     require 'dbConfig.php'; 
 
-
+  //   if(!empty($_POST['check_list'])) {
+  //     foreach($_POST['check_list'] as $check) {
+  //             //echoes the value set in the HTML form for each checked checkbox.
+  //                          //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
+  //                          //in your case, it would echo whatever $row['Report ID'] is equivalent to.
+  //     }
+  // }
     
-    if(isset($_GET['sort_cuisine']))
+    if(isset($_GET['cuisine']))
     {
-        
+    ?> <p class = heading> All restaurants </p><?php
+      foreach($_GET['cuisine'] as $check) {
     
     
   
@@ -366,21 +376,26 @@ img {
                                   </div>
                                   </div>
                                   </div>
-                                  <p class = heading> All restaurants </p>
+                                  
 
 <!-- card -->
 <div class="cardfix">
-<div class="container py-5">
+<div class="container py-2">
 <div class="row mt-3">
    <?php 
   require 'dbConfig.php';
 
-  $query = "select * from restaurant where restaurant.status=1 and cuisine = '$_GET[sort_cuisine]'";
+  $query = "select * from restaurant where restaurant.status=1 and cuisine = '$check'";
   $query_run = mysqli_query($db, $query);
-  $check_user = mysqli_num_rows($query_run) > 0;
   
-  if($check_user)
-  {
+
+  if (mysqli_num_rows($query_run) > 0) {
+    $row_cnt = $query_run->num_rows;
+    
+    
+    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
+  
+  
     while($row = mysqli_fetch_assoc($query_run))
     {
       ?><?php
@@ -437,6 +452,7 @@ img {
                                       }
                                     }
                                   }
+                                }
                                     else{
                                       ?>      
                                       <script>alert("No record of restaurant found!")</script>
