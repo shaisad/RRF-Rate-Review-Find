@@ -240,9 +240,9 @@ bottom: 40px;
   
   
     require 'dbConfig.php';
-    $sno = $_GET['resid'];
+    $sno = $_GET['fid'];
     
-    $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno'";
     $result = mysqli_query($db, $getr);
 
     $row = mysqli_fetch_array($result);
@@ -250,7 +250,7 @@ bottom: 40px;
    // echo $row['overall_rating'].'/5'."<br/>";
     //echo 'Total:'.$row['total_reviews'].' '.'reviews'."<br/>";
 
-$showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno'  ORDER BY submitdate DESC";
 $result = mysqli_query($db, $showr);
 
 ?>
@@ -307,7 +307,7 @@ $result = mysqli_query($db, $showr);
                         
                         <!--name-and-username-->
                         <div class="name-user">
-                            <strong><?php echo $row['rrusername']."<br/>"?></strong>
+                            <strong><?php echo $row['rfusername']."<br/>"?></strong>
                         </div>
 
                         <div class="client-commenttime">
