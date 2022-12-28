@@ -289,6 +289,7 @@ img {
   left: 200px;
   width: 80%;
   cursor : pointer;
+  top: 25px;
 }
 
 .card:hover {
@@ -412,8 +413,8 @@ img {
           <div class="card-body">
             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text"><?php echo $row['location']; ?></p>
-            <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+            <p class="card-text" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
          
             <!-- image fetch -->
               <?php 
@@ -485,8 +486,8 @@ $row3 = mysqli_fetch_array($result2);
           <div class="card-body">
             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text"><?php echo $row['location']; ?></p>
-            <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+            <p class="card-text" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
             <!-- image fetch -->
               <?php 
           // Include the database configuration file  
