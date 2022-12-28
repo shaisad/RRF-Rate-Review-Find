@@ -389,11 +389,17 @@ img {
 // FROM employees
 // ORDER BY salary DESC)
 // WHERE ROWNUM <= 5;
+
+$i = 0;
+
       
       $query_run = mysqli_query($db, $query);
-      $check_user = mysqli_num_rows($query_run) > 0;
       
-      if($check_user)
+      $i = mysqli_num_rows($query_run) > 0;
+
+      
+      
+      if($i)
       {
         while($row = mysqli_fetch_assoc($query_run))
         {
@@ -443,7 +449,14 @@ img {
 
           <?php
         }
+        
+        if ($i= 3){
+          return false;
+        }
+        $i++;
+
       }
+      
 
       ?>
     </div>
