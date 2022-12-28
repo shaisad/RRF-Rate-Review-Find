@@ -387,6 +387,7 @@ img {
         <button class="btnn" onclick="window.location.href='checkRange.php';"> Price Range</button>
         <button class="btnn" onclick="window.location.href='checkLocation.php';"> Location</button>
         <button class="btnn" onclick="window.location.href='checkCuisine.php';">Cuisine</button>
+        <button class="btnn" onclick="window.location.href='checkCategory.php';">Food Category</button>
         
     </div>
     <p class = heading1><b>Welcome, <?php  echo $_SESSION['restaurantname']; ?>!</b></p>

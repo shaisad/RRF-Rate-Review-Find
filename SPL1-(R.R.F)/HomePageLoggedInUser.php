@@ -357,13 +357,14 @@ img {
 }
 
 .cardifix .card {
-  height: 420px;
+  height: 415px;
 }
 
 .cardifix img {
   width: 180px;
   height: 120px;
 }
+
  .dropbtn {
   background-color:rgb(80, 31, 19);
   color: white;
@@ -490,7 +491,7 @@ img {
     </script>
 
        
-        <button class="btnn show" onclick="window.location.href='showAll.php';"> Show all</button>
+        <button class="btnn show" onclick="window.location.href='showAll.php';"> Show All</button>
         <button class="btnn" onclick="window.location.href='topRated.php';"> Top Rated</button>
         <button class="btnn" onclick="window.location.href='checkRange.php';"> Price Range</button>
         <button class="btnn" onclick="window.location.href='checkLocation.php';"> Location</button>
@@ -735,10 +736,10 @@ $row3 = mysqli_fetch_array($result2);
     </div>
     </div>
     </div>
-    <p class = heading> Your Reviewed Food Items </p>
+    <p class = headingall> Your Reviewed Food Items </p>
 
     <!-- card -->
-   <div class="cardfix">
+   <div class="cardifix">
    <div class="container py-5">
     <div class="row mt-3">
        <?php 
