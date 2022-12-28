@@ -143,7 +143,7 @@
 
         if($INSERT && sendMail($useremail,$code))
         {
-          header("Location :verifymessage.html");
+         echo "r";
           
         }
 
