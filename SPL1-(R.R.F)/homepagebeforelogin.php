@@ -12,6 +12,7 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 
+
     <title>RRF Home Page</title>
     
 
@@ -623,7 +624,7 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = headingburger> Burger </p>
+<p class = heading> Burger <i class="fa-solid fa-burger"></i></p>
 
 <!-- card -->
 <div class="cardfix">
