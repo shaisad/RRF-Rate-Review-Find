@@ -361,7 +361,6 @@ img {
   color: rgba(248, 197, 70, 0.964);
 }
 
-
 </style>
 
 </head>
@@ -471,8 +470,8 @@ $row3 = mysqli_fetch_array($result2);
           <div class="card-body">
             <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-            <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+            <p class="card-text" id="rlocation"><i class="fas fa-star"></i><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></p>
          
             <!-- image fetch -->
               <?php 
@@ -714,8 +713,8 @@ $row3 = mysqli_fetch_array($result2);
             <p class="card-text" id="rname"><?php echo $row['frestaurantname']; ?></p>
             <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
             <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
-            <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></p>
+            <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
 
          
             <!-- image fetch -->

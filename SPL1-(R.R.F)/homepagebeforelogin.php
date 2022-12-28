@@ -10,6 +10,7 @@
 <!-- Bootstrap CSS -->
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 
     <title>RRF Home Page</title>
     
@@ -304,6 +305,13 @@ color: rgb(80, 31, 19);
     {
       ?><?php
       $sno = $row['restaurantid'];
+      $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+          $result = mysqli_query($db, $getr);
+          $row2 = mysqli_fetch_array($result);
+      
+          $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+      $result2 = mysqli_query($db, $showr);
+      $row3 = mysqli_fetch_array($result2);
       ?>
       <div class="col-md-3 mt-3">
         <div class="card">
@@ -311,6 +319,8 @@ color: rgb(80, 31, 19);
       <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></i></p>
      
         <!-- image fetch -->
           <?php 
@@ -382,6 +392,14 @@ color: rgb(80, 31, 19);
           ?>
           <?php
           $sno = $row['foodid'];
+          $sno2 = $row['foodid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
           ?>
           
           <div class="col-md-3 mt-3">
@@ -392,6 +410,8 @@ color: rgb(80, 31, 19);
             <p class="card-text" id="rlocation"><?php echo $row['frestaurantname']; ?></p>
             <p class="card-text" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
             <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+            <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></i></p>
          
             <!-- image fetch -->
               <?php 
@@ -451,6 +471,14 @@ color: rgb(80, 31, 19);
     {
       ?><?php
       $sno = $row['restaurantid'];
+    
+      $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
       ?>
       <div class="col-md-3 mt-3">
         <div class="card">
@@ -458,6 +486,8 @@ color: rgb(80, 31, 19);
       <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></i></p>
      
         <!-- image fetch -->
           <?php 
@@ -529,6 +559,13 @@ color: rgb(80, 31, 19);
     {
       ?><?php
       $sno = $row['restaurantid'];
+      $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
       ?>
       <div class="col-md-3 mt-3">
         <div class="card">
@@ -536,6 +573,8 @@ color: rgb(80, 31, 19);
       <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></i></p>
      
         <!-- image fetch -->
           <?php 
@@ -607,6 +646,13 @@ color: rgb(80, 31, 19);
     {
       ?><?php
       $sno = $row['restaurantid'];
+      $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
       ?>
       <div class="col-md-3 mt-3">
         <div class="card">
@@ -614,6 +660,8 @@ color: rgb(80, 31, 19);
       <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></i></p>
      
         <!-- image fetch -->
           <?php 
@@ -685,6 +733,13 @@ color: rgb(80, 31, 19);
     {
       ?><?php
       $sno = $row['restaurantid'];
+      $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
       ?>
       <div class="col-md-3 mt-3">
         <div class="card">
@@ -692,6 +747,8 @@ color: rgb(80, 31, 19);
       <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></i></p>
      
         <!-- image fetch -->
           <?php 
@@ -765,6 +822,13 @@ color: rgb(80, 31, 19);
     {
       ?><?php
       $sno = $row['restaurantid'];
+      $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
       ?>
       <div class="col-md-3 mt-3">
         <div class="card">
@@ -772,6 +836,8 @@ color: rgb(80, 31, 19);
       <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></i></p>
      
         <!-- image fetch -->
           <?php 

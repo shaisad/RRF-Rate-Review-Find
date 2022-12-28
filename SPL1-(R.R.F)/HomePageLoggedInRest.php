@@ -13,6 +13,7 @@ session_start();
 <!-- Bootstrap CSS -->
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 
     <title>RRF Restaurant Home Page</title>
     
@@ -353,6 +354,16 @@ img {
         while($row = mysqli_fetch_assoc($query_run))
         {
           ?>
+          <?php
+          $sno = $row['restaurantid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+          $result = mysqli_query($db, $getr);
+          $row2 = mysqli_fetch_array($result);
+      
+          $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+      $result2 = mysqli_query($db, $showr);
+      $row3 = mysqli_fetch_array($result2);
+      ?>
           
           <div class="col-md-3 mt-3">
             <div class="card">
@@ -360,6 +371,8 @@ img {
           <div class="card-body">
             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text"><?php echo $row['location']; ?></p>
+            <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></i></p>
          
             <!-- image fetch -->
               <?php 
@@ -415,6 +428,13 @@ img {
           ?>
           <?php
       $sno = $row['restaurantid'];
+      $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
       ?>
           
           <div class="col-md-3 mt-3">
@@ -423,7 +443,8 @@ img {
           <div class="card-body">
             <h5 class="card-title"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text"><?php echo $row['location']; ?></p>
-         
+            <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></i></p>
             <!-- image fetch -->
               <?php 
           // Include the database configuration file  
