@@ -529,7 +529,7 @@ $row3 = mysqli_fetch_array($result2);
 
     <!-- card -->
    <div class="cardfix">
-   <div class="container py-5">
+   <div class="container py-0">
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
