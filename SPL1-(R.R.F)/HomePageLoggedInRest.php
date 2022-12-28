@@ -190,7 +190,7 @@ img {
 .heading1{
   position: relative;
   left: 220px;
-  top : 70px;
+  top : 65px;
   font-size: 25px;
   color: rgb(80, 31, 19);
   animation-name: example;
@@ -245,6 +245,44 @@ img {
   text-decoration : none;
 }
 
+.cbtnn11 {
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  text-decoration : none;
+  top: 10px;
+  border-radius: 5px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnn11:hover {
+  opacity: 0.7; 
+  text-decoration : none;
+}
+
+.cbtnn22 {
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  text-decoration : none;
+  left: 6px;
+  top: 10px;
+  border-radius: 5px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnn22 a:hover {
+  opacity: 0.7; 
+  text-decoration : none;
+}
 
 .cardfix {
   position: relative;
@@ -259,9 +297,11 @@ img {
 } 
 
 .card{
-  height: 310px;
+  height: 335px;
 }
-
+.cardifix{
+  height: 360px;
+}
 
 
 
@@ -366,6 +406,7 @@ img {
       ?>
           
           <div class="col-md-3 mt-3">
+            <div class="cardifix">
             <div class="card">
 
           <div class="card-body">
@@ -393,10 +434,11 @@ img {
            }
         ?>
         
-        <button class="cbtnn1" onclick="window.location.href='ViewReviewsRes.php?resid='. $sno .'';">Show Reviews</button>
-       <button class="cbtnn2" onclick="window.location.href='RestaurantMenu.php?resid='. $sno .'';">Menu</button>
+        <button class="cbtnn11" onclick="window.location.href='ViewReviewsRes.php?resid='. $sno .'';">Show Reviews</button>
+       <button class="cbtnn22" onclick="window.location.href='RestaurantMenu.php?resid='. $sno .'';">Menu</button>
        
 
+          </div>
           </div>
           </div>
           </div>
