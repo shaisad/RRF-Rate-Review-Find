@@ -1,9 +1,7 @@
  
-<?php
-session_start();
-?>
-<?php
 
+<?php
+$category = null;
 ?>
 
 
@@ -176,6 +174,8 @@ body{
          }
        }
 
+       
+
       ?>
 
     <div class=credentials>
@@ -188,14 +188,42 @@ body{
            
             
         </p>
+        <p class = heading><u> Menu </p></u> 
 
-  
+        <?php
+
+require 'dbConfig.php';
+        $query2 = "SELECT * from food_new";
+      $query2_run = mysqli_query($db, $query2);
+      $check_user2 = mysqli_num_rows($query2_run) > 0;
+      
+      if($check_user2)
+      {
+        while($row = mysqli_fetch_assoc($query2_run))
+        {
+          
+          $category = $row['category'];
+        if ($row['category'] != $category ){
+              echo "<h1>$row[category]</h1>";
+              $category = $row['category'];
+        }
+         //echo $restaurantname;
+          
+         }
+       }
+       ?>
+
+        <!-- while ($new_row = mysql_fetch_array($new_result)) {
+    if ($new_row['category'] != $category) {
+        echo "<h1>$new_row[category]</h1>";
+        $category = $new_row['category'];
+    } -->
 
     
    <!-- card -->
-<p class = heading><u> Menu </p></u> 
-<?php if ($_GET['category'] == 'Pizza' )?>{
-  <p class = heading> Pizza </p>
+<!-- <p class = heading><u> Menu </p></u> 
+
+  <p class = heading> Pizza </p> -->
 <div class="cardfix">
    <div class="container py-5">
     <div class="row mt-3">
