@@ -432,7 +432,7 @@ img {
 <?php
         echo '
            <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="ViewReviews.php?resid='. $sno .'">See Reviews</a>
+           <a class="cbtnn2" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
            <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
            
            ';
