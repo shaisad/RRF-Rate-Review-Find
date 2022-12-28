@@ -266,6 +266,59 @@ img {
   color: rgb(80, 31, 19);
   font-family: 'Times New Roman', Times, serif;
 }
+.headingnan{
+  position: relative;
+  left: 220px;
+  top : 80px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingitalian{
+  position: relative;
+  left: 220px;
+  top : 20px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingpizza{
+  position: relative;
+  left: 220px;
+  top : 80px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingbengali{
+  position: relative;
+  left: 220px;
+  top : 55px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingburger{
+  position: relative;
+  left: 220px;
+  top : 15px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingfav{
+  position: relative;
+  left: 220px;
+  top : 10px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .headingall{
   position: relative;
   left: 220px;
@@ -279,7 +332,7 @@ img {
 .heading1{
   position: relative;
   left: 220px;
-  top : 75px;
+  top : 70px;
   font-size: 25px;
   color: rgb(80, 31, 19);
   animation-name: example;
@@ -525,7 +578,7 @@ $row3 = mysqli_fetch_array($result2);
     </div>
     </div>
     </div>
-    <p class = heading> Restaurants Of Your Favourite Cuisine  </p>
+    <p class = headingfav> Restaurants Of Your Favourite Cuisine  </p>
 
     <!-- card -->
    <div class="cardfix">
@@ -771,7 +824,7 @@ $row3 = mysqli_fetch_array($result2);
     </div>
     </div>
    
-    <p class = heading> Pizza </p>
+    <p class = headingpizza> Pizza </p>
 
 <!-- card -->
 <div class="cardfix">
@@ -849,11 +902,11 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Burger </p>
+<p class = headingburger> Burger </p>
 
 <!-- card -->
 <div class="cardfix">
-<div class="container py-5">
+<div class="container py-0">
 <div class="row mt-3">
    <?php 
   require 'dbConfig.php';
@@ -927,7 +980,7 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Naan </p>
+<p class = headingnan> Naan </p>
 
 <!-- card -->
 <div class="cardfix">
@@ -1005,11 +1058,11 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Italian </p>
+<p class = headingitalian> Italian </p>
 
 <!-- card -->
 <div class="cardfix">
-<div class="container py-5">
+<div class="container py-0">
 <div class="row mt-3">
    <?php 
   require 'dbConfig.php';
@@ -1085,11 +1138,11 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </body>
 
-<p class = heading> Bengali </p>
+<p class = headingbengali> Bengali </p>
 
 <!-- card -->
 <div class="cardfix">
-<div class="container py-5">
+<div class="container py-4">
 <div class="row mt-3">
    <?php 
   require 'dbConfig.php';
