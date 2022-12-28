@@ -253,7 +253,7 @@ color: rgb(80, 31, 19);
 .headingbengali{
   position: relative;
   left: 20px;
-  bottom: ;
+  bottom: 60px;
   font-size: 25px;
   color: rgb(80, 31, 19);
   font-family: 'Times New Roman', Times, serif;
