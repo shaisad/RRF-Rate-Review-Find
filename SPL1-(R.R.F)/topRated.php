@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 <!-- Bootstrap CSS -->
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -253,7 +253,9 @@ img {
 } 
 
 .card{
-  height: 330px;
+  height: 370px;
+  position: relative;
+  right: 100px;
 }
 
 
@@ -282,22 +284,32 @@ img {
   15%  { left:200px; top:30px;}
 }
 
-.cardifix{
-  height: 400px;
+.cardifix .card {
+  height: 410px;
   position: relative;
-  left: 200px;
-  width: 80%;
-  cursor : pointer;
+  right: 100px;
+  bottom: 50px;
+}
+img {
+    width: 180px;
+    height: 145px;
+    top: 300px;
+    left: 100px;
 }
 
-.cardifix .card {
-  height: 350px;
+.logo .rrflogo{
+  width: 180px;
+  height: 80px;
+    top: 300px;
+    left: 100px;
 }
 
 .cardifix img {
   width: 180px;
   height: 120px;
 }
+
+
  .dropbtn {
   background-color:rgb(80, 31, 19);
   color: white;
@@ -343,8 +355,29 @@ img {
   display: block;
 }
 
+.card-body .card-text2 i{
+  color: rgba(248, 197, 70, 0.964);
+}
+.card-body .card-texti i{
+  color: rgba(248, 197, 70, 0.964);
+}
+
+.card .card-body .card-textrn {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(80, 31, 19);
+  font-weight: 600;
+}
 
 
+.heading{
+  position: relative;
+  left: 120px;
+  top : 65px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
 
 
 </style>
@@ -405,14 +438,24 @@ $i = 0;
         {
           ?><?php
           $sno = $row['restaurantid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+$result = mysqli_query($db, $getr);
+$row2 = mysqli_fetch_array($result);
+
+$showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+
           ?>
           <div class="col-md-3 mt-3">
             <div class="card">
             
-          <div class="card-body">
-            <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
-            <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-         
+            <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+        ; ?></b></p>
+
             <!-- image fetch -->
               <?php 
           // Include the database configuration file  
