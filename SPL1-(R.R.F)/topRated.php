@@ -14,7 +14,7 @@ session_start();
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>RRF All Restaurants & Food Items </title>
+    <title>RRF Top Rated Restaurants & Food Items</title>
     
 
 
@@ -372,7 +372,7 @@ img {
         
     
    
-    <p class = heading> All restaurants </p>
+    <p class = heading> Top-rated restaurants </p>
 
     <!-- card -->
    <div class="cardfix">
@@ -381,7 +381,8 @@ img {
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT * FROM restaurant where status=1";
+      $query = "SELECT restaurantname, location, reviewrid, restaurantid, avg(rating) as overall_rating FROM restaurant, res_reviews where 
+      res_reviews.reviewrid = restaurant.restaurantid and restaurant.status=1";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -441,14 +442,15 @@ img {
     </div>
     </div>
     </div>
-    <p class = heading> All food items</p>
+    <p class = heading> Top-rated food items</p>
     <div class="cardifix">
    <div class="container py-5">
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
       // $sno = $_GET['resid'];
-      $query = "SELECT * FROM food_new";
+      $query = "SELECT foodname, price, subject, reviewfid, foodid, avg(rating) as overall_rating FROM food_new, food_reviews where 
+      food_reviews.reviewfid = food_new.foodid and rating between 4.70 and 5.00";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       

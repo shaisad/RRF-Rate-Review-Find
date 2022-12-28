@@ -280,7 +280,7 @@ color: rgb(80, 31, 19);
 
        
 <button class="btnn show" onclick="window.location.href='showAll.php';"> Show all</button>
-        <button class="btnn" onclick="filterSelection('top rated')"> Top Rated</button>
+        <button class="btnn" onclick="window.location.href='topRated.php';"> Top Rated</button>
         <button class="btnn" onclick="window.location.href='checkRange.php';"> Price Range</button>
         <button class="btnn" onclick="window.location.href='checkLocation.php';"> Location</button>
         <button class="btnn" onclick="window.location.href='checkCuisine.php';">Cuisine</button>
