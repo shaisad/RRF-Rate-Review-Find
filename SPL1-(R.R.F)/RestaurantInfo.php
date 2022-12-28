@@ -1,5 +1,10 @@
  
+<?php
+session_start();
+?>
+<?php
 
+?>
 
 
 <!DOCTYPE html>
@@ -189,6 +194,8 @@ body{
     
    <!-- card -->
 <p class = heading><u> Menu </p></u> 
+<?php if ($_GET['category'] == 'Pizza' )?>{
+  <p class = heading> Pizza </p>
 <div class="cardfix">
    <div class="container py-5">
     <div class="row mt-3">
@@ -230,6 +237,7 @@ body{
               <?php
             }
            }
+           
            ?>
 
           
@@ -245,6 +253,7 @@ body{
           <?php
         }
       }
+    
 
       ?>
     </div>
