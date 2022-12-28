@@ -213,7 +213,7 @@ echo '
     <form action="submitfoodreview.php?fid='. $sno2 .'" method="post" enctype="multipart/form-data">
 
     <div class="container">
-    <p class="intro">Rate us here..</p>
+    <p class="intro">Rate our food items here..</p>
       <div class="post">
         <div class="text">Thanks for rating us!</div>
         <div class="edit">EDIT</div>
