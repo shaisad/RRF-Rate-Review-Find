@@ -280,7 +280,7 @@ color: rgb(80, 31, 19);
 .headingall{
   position: relative;
   left: 30px;
-  bottom: 90px;
+  bottom: 70px;
   font-size: 25px;
   color: rgb(80, 31, 19);
   font-family: 'Times New Roman', Times, serif;
@@ -360,12 +360,12 @@ color: rgb(80, 31, 19);
     </script>
 
        
-<button class="btnn show" onclick="window.location.href='showAll.php';"> Show all</button>
+<button class="btnn show" onclick="window.location.href='showAll.php';"> Show All</button>
         <button class="btnn" onclick="window.location.href='topRated.php';"> Top Rated</button>
         <button class="btnn" onclick="window.location.href='checkRange.php';"> Price Range</button>
         <button class="btnn" onclick="window.location.href='checkLocation.php';"> Location</button>
         <button class="btnn" onclick="window.location.href='checkCuisine.php';">Cuisine</button>
-        
+        <button class="btnn" onclick="window.location.href='checkCategory.php';">Food Category</button>
         <p class = heading> All restaurants </p>
 
 <!-- card -->
@@ -396,11 +396,11 @@ color: rgb(80, 31, 19);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
