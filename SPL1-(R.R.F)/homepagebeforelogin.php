@@ -366,6 +366,7 @@ color: rgb(80, 31, 19);
         <button class="btnn" onclick="window.location.href='checkLocation.php';"> Location</button>
         <button class="btnn" onclick="window.location.href='checkCuisine.php';">Cuisine</button>
         <button class="btnn" onclick="window.location.href='checkCategory.php';">Food Category</button>
+        <button class="btnn" onclick="window.location.href='checkSpice.php';">Spiciness</button>
         <p class = heading> All restaurants </p>
 
 <!-- card -->

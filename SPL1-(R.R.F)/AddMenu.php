@@ -192,7 +192,9 @@ echo '
       </div>
       <div class="col-75">
         <select id="category" name="spicelevel">
-          <option value="">Regular</option>
+        <option value="Non-Spicy">Non-Spicy</option>
+        
+          <option value="Regular">Regular</option>
           <option value="Mild">Mild</option>
           <option value="Spicy">Spicy</option>
           <option value="Extremely Spicy"> Extremely Spicy</option>
