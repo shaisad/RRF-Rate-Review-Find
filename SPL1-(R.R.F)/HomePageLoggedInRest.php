@@ -14,7 +14,7 @@ session_start();
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>RRF Home Page</title>
+    <title>RRF Restaurant Home Page</title>
     
 
 

@@ -12,7 +12,7 @@
    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
    crossorigin="anonymous"
   />
-    <title>Filter By Location</title>
+    <title>Filter By Category</title>
 </head>
 
 <style>
@@ -364,10 +364,10 @@ img {
   //     }
   // }
     
-    if(isset($_GET['location']))
+    if(isset($_GET['category']))
     {
-    ?> <p class = heading> All restaurants </p><?php
-      foreach($_GET['location'] as $check) {
+    ?> <p class = heading> All food items </p><?php
+      foreach($_GET['category'] as $check) {
     
     
   
@@ -385,62 +385,61 @@ img {
    <?php 
   require 'dbConfig.php';
 
-  $query = "select * from restaurant where restaurant.status=1 and location = '$check'";
-  $query_run = mysqli_query($db, $query);
-  
-
-  if (mysqli_num_rows($query_run) > 0) {
-    $row_cnt = $query_run->num_rows;
-
-    
-    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
-  
-  
-    while($row = mysqli_fetch_assoc($query_run))
-    {
-      ?><?php
-      $sno = $row['restaurantid'];
-      ?>
-      <div class="col-md-3 mt-3">
-        <div class="card">
-        
-      <div class="card-body">
-        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
-        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-     
-        <!-- image fetch -->
-          <?php 
-      // Include the database configuration file  
-       require_once 'dbConfig.php'; 
-
-       $queryy = "SELECT image, imageid,resimageid, cuisine from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
-       $queryy_run = mysqli_query($db, $queryy);
-       $check_userr = mysqli_num_rows($queryy_run) > 0;
-
-       if($check_userr){
-        while($row = mysqli_fetch_assoc($queryy_run)){
+  $query = "SELECT * FROM food_new where category = '$check'";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
           ?>
-             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
-             
           <?php
-        }
-       }
-       ?>
+          $sno2 = $row['foodid'];
+          ?>
+          
+          <div class="col-md-3 mt-3">
+            <div class="card">
+            
+          <div class="card-body">
+            <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
+            <p class="card-text" id="rlocation"><?php echo $row['subject']; ?></p>
+            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+         
+            <!-- image fetch -->
+              <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
 
-    
-    
-<?php
-        echo '
-           <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="ViewReviews.php?resid='. $sno .'">See Reviews</a>
-           <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
-           
-           ';
+           $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+                 
+              <?php
+            }
+           }
            ?>
 
-      </div>
-      </div>
-      </div>
+          
+        
+        <?php
+        echo '
+           <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>
+           <a class="cbtnn2" href="ViewReviews.php?fid='. $sno2 .'">See Reviews</a>
+        ';
+           ?>
+        
+        
+
+  
+          </div>
+          </div>
+          </div>
                                   
                                       
                                       
@@ -452,22 +451,24 @@ img {
                                       }
                                     }
                                     else {
-                                        echo "
+                                      echo "
                                         <div class='alert alert-danger mt-3 text-center' role='alert'>
                                             No restaurant found!
                                         </div>
                                         ";
                                     
                                     }
+                              
                                   }
+                                  
                                 }
                                 else{
-                                    ?>      
-                                    <script>alert("Error! Location field must be filled!")</script>
-                                    <?php
-                                  
-                                  }
-                              
+                                  ?>      
+                                  <script>alert("Error! Cuisine field must be filled!")</script>
+                                  <?php
+                                
+                                }
+                                    
                                     
   
   ?>

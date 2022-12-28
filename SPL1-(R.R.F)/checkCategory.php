@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filter By Location</title>
+    <title>Filter By Category</title>
     </head>
 
     <style>
@@ -76,14 +76,18 @@ label {
         </div>
 
         
-<!-- italian french bengali chinese -->
-  <form method = "GET" action = "submitLocation.php" >
+
+  <form method = "GET" action = "submitCategory.php" >
         <div class = "attribute">
         
-    <input type="checkbox" name="location[]" value="BoardBazar">
-    <label>BoardBazar</label>
-    <input type="checkbox" name="location[]" value="Joydebpur">
-    <label>Joydebpur</label>
+    <input type="checkbox" name="category[]" value="Pizza">
+    <label>Pizza</label>
+    <input type="checkbox" name="category[]" value="Meatbox">
+    <label>Meatbox</label>
+    <input type="checkbox" name="category[]" value="Burger">
+    <label>Burger</label>
+    <input type="checkbox" name="category[]" value="Naan">
+    <label>Naan</label>
     
     <input type="submit" name = "submit" >
 
