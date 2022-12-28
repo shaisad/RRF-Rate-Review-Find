@@ -4,7 +4,7 @@ session_start();
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Rate & Review Food</title>
+    <title>RRF Rate & Review Food Items</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   </head>

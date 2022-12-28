@@ -21,7 +21,7 @@ $irestaurantname = $_SESSION['restaurantname'];
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Restaurant's Info Page</title>
+    <title>RRF Restaurant Menu</title>
 </head>
 
 <style>
