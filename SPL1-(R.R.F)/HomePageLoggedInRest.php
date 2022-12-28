@@ -380,7 +380,7 @@ img {
     <p class = heading> Your restaurant </p>
     <!-- card -->
    <div class="cardfix">
-   <div class="container py-5">
+   <div class="container py-2">
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
@@ -454,7 +454,7 @@ img {
     <p class = heading> All restaurants </p>
     <!-- card -->
    <div class="cardfix">
-   <div class="container py-5">
+   <div class="container py-2">
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
