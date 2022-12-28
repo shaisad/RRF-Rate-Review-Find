@@ -9,6 +9,7 @@ session_start();
   $price = $_POST['price'];
   $category = $_POST['category'];
   $subject = $_POST['subject'];
+  $spicelevel = $_POST['spicelevel'];
   $frestaurantname = $_SESSION['restaurantname'];
   $_SESSION['foodname'] = $foodname;
  
@@ -22,7 +23,7 @@ session_start();
       $sno = $_GET['resid'];
       
     
-    $INSERT= "INSERT Into `food_new` (`foodname`, `price`, `category`, `subject`, `frestaurantname`, `food_res_id`) values ('$foodname','$price','$category','$subject', '$_SESSION[restaurantname]', '$sno')";
+    $INSERT= "INSERT Into `food_new` (`foodname`, `price`, `category`, `subject`, `frestaurantname`, `food_res_id`, `spicelevel`) values ('$foodname','$price','$category','$subject', '$_SESSION[restaurantname]', '$sno','$spicelevel')";
 
    // mysqli_query($db, $INSERT);
 
