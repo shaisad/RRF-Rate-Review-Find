@@ -185,6 +185,7 @@ echo '
           <option value="Naan">Naan</option>
           <option value="Chowmein">Chowmein</option>
           <option value="Wings">Wings</option>
+          <option value="Steak">Steak</option>
         </select>
       </div>
      <div class="row">

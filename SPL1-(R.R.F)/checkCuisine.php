@@ -62,12 +62,14 @@ label {
 }
 .banner form input[type="checkbox"]{
     width: 45px;
+    position: relative;
+    left: 10px;
 }
 .banner .check{
     font-family: 'Times New Roman', Times, serif;
     color: rgb(46, 16, 9);
     position: relative;
-    right: 20px;
+    right: 5px;
     top: 15px;
 }
 

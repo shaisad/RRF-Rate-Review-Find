@@ -319,7 +319,7 @@ img {
 .headingfav{
   position: relative;
   left: 220px;
-  top : 10px;
+  top : 50px;
   font-size: 25px;
   color: rgb(80, 31, 19);
   font-family: 'Times New Roman', Times, serif;
@@ -354,7 +354,6 @@ img {
 }
 
 .cardifix{
-  height: 400px;
   position: relative;
   left: 200px;
   width: 80%;
@@ -363,7 +362,8 @@ img {
 }
 
 .cardifix .card {
-  max-height: 415px;
+  height: 415px;
+  position: relative;
 }
 
 .cardifix img {
@@ -429,7 +429,12 @@ img {
   font-size: 18px;
   color: rgb(80, 31, 19);
   font-weight: 600;
+  bottom: 20px;
 }
+.card .card-body .card-text1 i{
+    bottom: 50px;
+}
+
 
 </style>
 
@@ -1577,7 +1582,7 @@ $row3 = mysqli_fetch_array($result2);
             <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
             <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
             <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
-            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+            <p class="card-textl" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
             <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
             ; ?></b></p>
 
