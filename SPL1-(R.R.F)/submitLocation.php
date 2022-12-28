@@ -451,14 +451,22 @@ img {
                                         <?php
                                       }
                                     }
-                                  }
-                                }
                                     else {
-                                      ?>      
-                                      <script>alert("No record of restaurant found!")</script>
-                                      <?php
+                                        echo "
+                                        <div class='alert alert-danger mt-3 text-center' role='alert'>
+                                            No restaurant found!
+                                        </div>
+                                        ";
                                     
                                     }
+                                  }
+                                }
+                                else{
+                                    ?>      
+                                    <script>alert("Error! Location field must be filled!")</script>
+                                    <?php
+                                  
+                                  }
                               
                                     
   

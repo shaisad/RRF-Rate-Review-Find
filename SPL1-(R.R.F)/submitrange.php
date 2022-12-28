@@ -436,7 +436,7 @@ img {
                                     }
                                     else{
                                       ?>      
-                                      <script>alert("No record of food found!")</script>
+                                      <script>alert("Error! Price sorting field must be filled!")</script>
                                       <?php
                                     
                                     }
