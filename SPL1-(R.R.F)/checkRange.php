@@ -73,10 +73,6 @@ label {
     right: 180px;
     font-family: 'Times New Roman', Times, serif;
 }
-.banner form input[type="email"]{
-    width: 220px;
-    font-family: 'Times New Roman', Times, serif;
-}
 
 .heading{
     font-family: 'Times New Roman', Times, serif; 
@@ -88,7 +84,7 @@ label {
 }
 .form{
     font-family: 'Times New Roman', Times, serif; 
-    color:rgb(240, 221, 136);
+    color:white;
     background-color: rgb(46, 16, 9);
     font-weight: 300;
     font-size: 20px;
@@ -102,7 +98,7 @@ label {
 .banner form button[type="submit"]{
 
   display: block;
-  color: rgb(240, 221, 136);
+  color: white;
   text-align: center;
   text-decoration:none;
   font-size: 16px;

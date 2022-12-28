@@ -44,22 +44,38 @@ label {
     right: 10px;
 }
 .banner form input[type="submit"]{
-    width: 100px 80px;
-    height: 20px;
-  	background-color:rgb(80, 31, 19); 
- 	border: 0;
-  	cursor: pointer;
-  	color: #ffffff;
-  	transition: background-color 0.2s;
-    position: relative;
-    top: 60px;
-    right: 180px;
-    font-family: 'Times New Roman', Times, serif;
+    float: left;
+  display: block;
+  color: rgb(219, 216, 216);
+  text-align: center;
+  padding: 8px;
+  text-decoration:none;
+  font-size: 13px;
+  background-color: rgb(46, 16, 9);
+  margin: 10px;
+  border-radius: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  border: none;
+  position: relative;
+  top: 40px;
+  left: 240px;
 }
 .banner form input[type="email"]{
     width: 220px;
     font-family: 'Times New Roman', Times, serif;
 }
+.banner form input[type="checkbox"]{
+    width: 45px;
+}
+.banner .check{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(46, 16, 9);
+    position: relative;
+    right: 20px;
+    top: 15px;
+}
+
+
 
     </style>
 
@@ -79,12 +95,12 @@ label {
 <!-- italian french bengali chinese -->
   <form method = "GET" action = "submitLocation.php" >
         <div class = "attribute">
-        
+     <div class="check">  
     <input type="checkbox" name="location[]" value="BoardBazar">
     <label>BoardBazar</label>
     <input type="checkbox" name="location[]" value="Joydebpur">
     <label>Joydebpur</label>
-    
+</div>
     <input type="submit" name = "submit" >
 
 </form>

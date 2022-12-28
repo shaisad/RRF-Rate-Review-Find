@@ -625,7 +625,7 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Burger <i class="fa-solid fa-burger"></i></p>
+<p class = headingburger> Burger <i class="fa-solid fa-burger"></i></p>
 
 <!-- card -->
 <div class="cardfix">
