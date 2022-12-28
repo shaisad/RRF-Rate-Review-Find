@@ -29,92 +29,6 @@ body{
     overflow-x: hidden;
 }
 
- .search{
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    position: relative;
-    left: 30px ;
-    
-}
-
-.search-box input[type="text"]{
-    height: 100%;
-    width: 100%;
-    border: none;
-    outline: none;
-    background: #fff;
-    font-size: 18px;
-    padding: 0 60px 0 20px;
-}
-
-.search-box {
-    height: 50px;
-    width: 600px;
-    color: #fff;
-    position: relative;
-    left: 100px;
-    bottom: 15px;
-}
-
-
-.result{
-        position: absolute;        
-        z-index: 999;
-        top: 100%;
-        left: 0;
-    }
-
-.result p{
-        margin: 0;
-        padding: 7px 10px;
-        border: 1px solid #CCCCCC;
-        border-top: none;
-        cursor: pointer;
-    }
-
-.result p:hover{
-        background: #f2f2f2;
-    }
-
-
-.search-btn {
-    position: relative;
-    left: 550px;
-    bottom: 35px;
-    height: 50px;
-    width: 70px;
-    color: rgb(80, 31, 19) ;
-
-}
-
-.search-btn:hover {
-    color: rgb(100, 91, 148);
-}
-
-.btnn {
-  border: none;
-  outline: none;
-  padding: 8px 8px;
-  cursor: pointer;
-  color: rgb(80, 31, 19);
-  position: relative;
-  left: 125px;
-  top: 10px;
-  border-radius: 10px;
-}
-
-
-.btnn:hover {
-  background-color: rgb(155, 113, 58) ;
-  color: white;
-}
-
-
-.btnn.show {
-  background-color: #666;
-  color: white;
-}
-
 .cbtnn1 {
   border: none;
   outline: none;
@@ -176,14 +90,14 @@ body{
   text-decoration : none;
 }
 
-
-
-
 img {
     width: 180px;
+    height: 145px;
     top: 300px;
     left: 100px;
 }
+
+
 
 .sidebar {
   height: 100%;
@@ -254,18 +168,88 @@ img {
 
 .card{
   height: 370px;
-  position: relative;
-  right: 100px;
 }
 
 
 .heading{
   position: relative;
   left: 220px;
-  top : 70px;
+  top : 80px;
   font-size: 25px;
   color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
 }
+.headingfood{
+  position: relative;
+  left: 220px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+  bottom: 0px;
+}
+
+.headingnan{
+  position: relative;
+  left: 220px;
+  top : 80px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingitalian{
+  position: relative;
+  left: 220px;
+  top : 20px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingpizza{
+  position: relative;
+  left: 220px;
+  top : 80px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingbengali{
+  position: relative;
+  left: 220px;
+  top : 55px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingburger{
+  position: relative;
+  left: 220px;
+  top : 15px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingfav{
+  position: relative;
+  left: 220px;
+  top : 50px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.headingall{
+  position: relative;
+  left: 220px;
+  
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
 
 .heading1{
   position: relative;
@@ -276,6 +260,7 @@ img {
   animation-name: example;
   animation-duration: 3s;
   animation-iteration-count: 1;
+  font-family: 'Times New Roman', Times, serif;
 
 }
 
@@ -284,31 +269,23 @@ img {
   15%  { left:200px; top:30px;}
 }
 
-.cardifix .card {
-  height: 410px;
+.cardifix{
   position: relative;
-  right: 100px;
-  bottom: 50px;
-}
-img {
-    width: 180px;
-    height: 145px;
-    top: 300px;
-    left: 100px;
+  left: 200px;
+  width: 80%;
+  cursor : pointer;
+  bottom: 70px;
 }
 
-.logo .rrflogo{
-  width: 180px;
-  height: 80px;
-    top: 300px;
-    left: 100px;
+.cardifix .card {
+  height: 415px;
+  position: relative;
 }
 
 .cardifix img {
   width: 180px;
   height: 120px;
 }
-
 
  .dropbtn {
   background-color:rgb(80, 31, 19);
@@ -355,6 +332,7 @@ img {
   display: block;
 }
 
+
 .card-body .card-text2 i{
   color: rgba(248, 197, 70, 0.964);
 }
@@ -367,19 +345,23 @@ img {
   font-size: 18px;
   color: rgb(80, 31, 19);
   font-weight: 600;
+  bottom: 20px;
+}
+.card .card-body .card-text1 i{
+    bottom: 50px;
 }
 
-
-.heading{
+.wholefix{
   position: relative;
-  left: 120px;
-  top : 65px;
-  font-size: 25px;
-  color: rgb(80, 31, 19);
-  font-family: 'Times New Roman', Times, serif;
+  bottom: 50px;
+  right: 100px;
 }
-
-
+.rrflogo img{
+  position: relative;
+  right: 100px;
+  width: 120px;
+  height: 70px;
+}
 </style>
 
 </head>
@@ -395,7 +377,7 @@ img {
         <img class="rrflogo" src="cover.png" alt="logo">
 
     
-
+</div>
         
       
 
@@ -403,7 +385,7 @@ img {
    
        
         
-    
+    <div class="wholefix">
    
     <p class = heading> Top-rated restaurants </p>
 
@@ -423,7 +405,7 @@ img {
 // ORDER BY salary DESC)
 // WHERE ROWNUM <= 5;
 
-$i = 0;
+
 
       
       $query_run = mysqli_query($db, $query);
@@ -493,11 +475,7 @@ $row3 = mysqli_fetch_array($result2);
           <?php
         }
         
-        if ($i= 3){
-          return false;
-        }
-        $i++;
-
+        
       }
       
 
@@ -505,15 +483,15 @@ $row3 = mysqli_fetch_array($result2);
     </div>
     </div>
     </div>
-    <p class = heading> Top-rated food items</p>
+    <p class = headingfood> Top-rated food items</p>
     <div class="cardifix">
    <div class="container py-5">
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
       // $sno = $_GET['resid'];
-      $query = "SELECT foodname, price, subject, reviewfid, foodid, avg(rating) as overall_rating FROM food_new, food_reviews where 
-      food_reviews.reviewfid = food_new.foodid and rating between 4.70 and 5.00";
+      $query = "SELECT foodname, frestaurantname, price, subject, reviewfid, foodid, avg(rating) as overall_rating FROM food_new, food_reviews where 
+      food_reviews.reviewfid = food_new.foodid group by foodname order by overall_rating desc LIMIT 4";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -524,17 +502,26 @@ $row3 = mysqli_fetch_array($result2);
           ?>
           <?php
           $sno2 = $row['foodid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
           ?>
           
           <div class="col-md-3 mt-3">
             <div class="card">
             
-          <div class="card-body">
-            <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
-            <p class="card-text" id="rlocation"><?php echo $row['frestaurantname']; ?></p>
-            <p class="card-text" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
-            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
-         
+            <div class="card-body">
+            <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
+            <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
+            <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
+            <p class="card-textl" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+            <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
+
             <!-- image fetch -->
               <?php 
           // Include the database configuration file  
@@ -579,6 +566,6 @@ $row3 = mysqli_fetch_array($result2);
     </div>
     </div>
    
-    
+    </div>
 </body>
 </html>
