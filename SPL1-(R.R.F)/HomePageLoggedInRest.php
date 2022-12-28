@@ -388,6 +388,7 @@ img {
         <button class="btnn" onclick="window.location.href='checkLocation.php';"> Location</button>
         <button class="btnn" onclick="window.location.href='checkCuisine.php';">Cuisine</button>
         <button class="btnn" onclick="window.location.href='checkCategory.php';">Food Category</button>
+        <button class="btnn" onclick="window.location.href='checkSpice.php';">Spiciness</button>
         
     </div>
     <p class = heading1><b>Welcome, <?php  echo $_SESSION['restaurantname']; ?>!</b></p>
@@ -448,10 +449,11 @@ img {
             }
            }
         ?>
-        
-        <button class="cbtnn11" onclick="window.location.href='ViewReviewsRes.php?resid='. $sno .'';">Show Reviews</button>
-       <button class="cbtnn22" onclick="window.location.href='RestaurantMenu.php?resid='. $sno .'';">Menu</button>
-       
+        <?php
+        echo '
+           <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
+           <a class="cbtnn2" href="RestaurantMenu.php?resid='. $sno .'">See Details </a>';
+      ?>
 
           </div>
           </div>
