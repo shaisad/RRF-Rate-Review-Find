@@ -366,7 +366,7 @@ img {
     
     if(isset($_GET['cuisine']))
     {
-    ?> <p class = heading> All restaurants of <?php echo $_GET['cuisine'][0], $_GET['cuisine'][1] ;?> cuisine</p><?php
+    ?> <p class = heading> All restaurants</p><?php
       foreach($_GET['cuisine'] as $check) {
     
     
@@ -393,7 +393,7 @@ img {
     $row_cnt = $query_run->num_rows;
 
     
-    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
+    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found of '$check' ! </div>";
   
   
     while($row = mysqli_fetch_assoc($query_run))
