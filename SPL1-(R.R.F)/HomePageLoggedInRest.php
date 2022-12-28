@@ -187,6 +187,15 @@ img {
   color: rgb(80, 31, 19);
   font-family: 'Times New Roman', Times, serif;
 }
+.heading11{
+  position: relative;
+  left: 220px;
+  top : 80px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .heading1{
   position: relative;
   left: 220px;
@@ -302,8 +311,12 @@ img {
 }
 .cardifix{
   height: 360px;
+  position: relative;
+  top: 20px;
 }
-
+.card-body .card-text i{
+  color: rgba(248, 197, 70, 0.964);
+}
 
 
 </style>
@@ -378,7 +391,7 @@ img {
     </div>
     <p class = heading1><b>Welcome, <?php  echo $_SESSION['restaurantname']; ?>!</b></p>
 
-    <p class = heading> Your restaurant </p>
+    <p class = heading11> Your restaurant </p>
     <!-- card -->
    <div class="cardfix">
    <div class="container py-2">
