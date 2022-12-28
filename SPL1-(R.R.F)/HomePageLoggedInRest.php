@@ -120,6 +120,13 @@ body{
 
 img {
     width: 180px;
+    height: 145px;
+    top: 300px;
+    left: 100px;
+}
+.logo .rrflogo{
+  width: 180px;
+  height: 80px;
     top: 300px;
     left: 100px;
 }
@@ -452,7 +459,7 @@ img {
         <?php
         echo '
            <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
-           <a class="cbtnn2" href="RestaurantMenu.php?resid='. $sno .'">See Details </a>';
+           <a class="cbtnn2" href="RestaurantMenu.php?resid='. $sno .'">Menu </a>';
       ?>
 
           </div>
