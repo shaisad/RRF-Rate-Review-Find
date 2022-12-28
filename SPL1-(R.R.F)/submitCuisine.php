@@ -366,7 +366,7 @@ img {
     
     if(isset($_GET['cuisine']))
     {
-    ?> <p class = heading> All restaurants of <?php echo '$_GET[cuisine]';?> cuisine)</p><?php
+    ?> <p class = heading> All restaurants of <?php echo $_GET['cuisine'];?> cuisine)</p><?php
       foreach($_GET['cuisine'] as $check) {
     
     
