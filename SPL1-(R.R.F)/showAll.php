@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 <!-- Bootstrap CSS -->
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -253,34 +253,29 @@ img {
 } 
 
 .card{
-  height: 330px;
+  height: 370px;
+  position: relative;
+  right: 100px;
 }
 
 
 .heading{
   position: relative;
-  left: 220px;
-  top : 70px;
+  left: 120px;
+  top : 65px;
   font-size: 25px;
   color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
 }
-
-.heading1{
+.headingall{
   position: relative;
-  left: 220px;
-  top : 70px;
+  left: 120px;
+  top : 30px;
   font-size: 25px;
   color: rgb(80, 31, 19);
-  animation-name: example;
-  animation-duration: 3s;
-  animation-iteration-count: 1;
-
+  font-family: 'Times New Roman', Times, serif;
 }
 
-@keyframes example {
-  0%   { left:0px; top:30px;}
-  15%  { left:200px; top:30px;}
-}
 
 .cardifix{
   height: 400px;
@@ -291,7 +286,10 @@ img {
 }
 
 .cardifix .card {
-  height: 350px;
+  height: 410px;
+  position: relative;
+  right: 100px;
+  bottom: 50px;
 }
 
 .cardifix img {
@@ -343,6 +341,19 @@ img {
   display: block;
 }
 
+.card-body .card-text2 i{
+  color: rgba(248, 197, 70, 0.964);
+}
+.card-body .card-texti i{
+  color: rgba(248, 197, 70, 0.964);
+}
+
+.card .card-body .card-textrn {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(80, 31, 19);
+  font-weight: 600;
+}
 
 
 
@@ -361,7 +372,7 @@ img {
 
         <img class="rrflogo" src="cover.png" alt="logo">
 
-    
+</div>
 
         
       
@@ -372,148 +383,172 @@ img {
         
     
    
-    <p class = heading> All restaurants </p>
+<p class = heading> All restaurants </p>
 
-    <!-- card -->
-   <div class="cardfix">
-   <div class="container py-5">
-    <div class="row mt-3">
-       <?php 
-      require 'dbConfig.php';
+<!-- card -->
+<div class="cardfix">
+<div class="container py-5">
+<div class="row mt-3">
+   <?php 
+  require 'dbConfig.php';
 
-      $query = "SELECT * FROM restaurant where status=1";
-      $query_run = mysqli_query($db, $query);
-      $check_user = mysqli_num_rows($query_run) > 0;
-      
-      if($check_user)
-      {
-        while($row = mysqli_fetch_assoc($query_run))
-        {
-          ?><?php
-          $sno = $row['restaurantid'];
-          ?>
-          <div class="col-md-3 mt-3">
-            <div class="card">
-            
-          <div class="card-body">
-            <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
-            <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-         
-            <!-- image fetch -->
-              <?php 
-          // Include the database configuration file  
-           require_once 'dbConfig.php'; 
-
-           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
-           $queryy_run = mysqli_query($db, $queryy);
-           $check_userr = mysqli_num_rows($queryy_run) > 0;
-
-           if($check_userr){
-            while($row = mysqli_fetch_assoc($queryy_run)){
-              ?>
-                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
-                 
-              <?php
-            }
-           }
-           ?>
-
-        
-<?php
-        echo '
-           <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
-           <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
-           
-           ';
-           ?>
-
-        
-          </div>
-          </div>
-          </div>
-
-          <?php
-        }
-      }
-
-      ?>
-    </div>
-    </div>
-    </div>
-    <p class = heading> All food items</p>
-    <div class="cardifix">
-   <div class="container py-5">
-    <div class="row mt-3">
-       <?php 
-      require 'dbConfig.php';
-      // $sno = $_GET['resid'];
-      $query = "SELECT * FROM food_new";
-      $query_run = mysqli_query($db, $query);
-      $check_user = mysqli_num_rows($query_run) > 0;
-      
-      if($check_user)
-      {
-        while($row = mysqli_fetch_assoc($query_run))
-        {
-          ?>
-          <?php
-          $sno2 = $row['foodid'];
-          ?>
-          
-          <div class="col-md-3 mt-3">
-            <div class="card">
-            
-          <div class="card-body">
-            <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
-            <p class="card-text" id="rlocation"><?php echo $row['frestaurantname']; ?></p>
-            <p class="card-text" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
-            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
-         
-            <!-- image fetch -->
-              <?php 
-          // Include the database configuration file  
-           require_once 'dbConfig.php'; 
-
-           $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
-           $queryy_run = mysqli_query($db, $queryy);
-           $check_userr = mysqli_num_rows($queryy_run) > 0;
-
-           if($check_userr){
-            while($row = mysqli_fetch_assoc($queryy_run)){
-              ?>
-                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
-                 
-              <?php
-            }
-           }
-           ?>
-
-          
-        
-        <?php
-        echo '
-           <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>
-           <a class="cbtnn2" href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
-        ';
-           ?>
-        
-        
+  $query = "SELECT * FROM restaurant where status=1";
+  $query_run = mysqli_query($db, $query);
 
   
-          </div>
-          </div>
-          </div>
 
+  $check_user = mysqli_num_rows($query_run) > 0;
+  
+  if($check_user)
+  {
+    while($row = mysqli_fetch_assoc($query_run))
+    {
+      ?><?php
+      $sno = $row['restaurantid'];
+      
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+$result = mysqli_query($db, $getr);
+$row2 = mysqli_fetch_array($result);
+
+$showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+
+?>
+      <div class="col-md-3 mt-3">
+        <div class="card">
+        
+      <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+        ; ?></b></p>
+
+     
+        <!-- image fetch -->
+          <?php 
+      // Include the database configuration file  
+       require_once 'dbConfig.php'; 
+
+       $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+       $queryy_run = mysqli_query($db, $queryy);
+       $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+       if($check_userr){
+        while($row = mysqli_fetch_assoc($queryy_run)){
+          ?>
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+             
           <?php
         }
-      }
+       }
+       ?>
 
-      ?>
-    </div>
-    </div>
-    </div>
-   
     
+<?php
+    echo '
+       <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+       <a class="cbtnn2" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
+       <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
+       
+       ';
+       ?>
+
+    
+      </div>
+      </div>
+      </div>
+
+      <?php
+    }
+  }
+
+  ?>
+</div>
+</div>
+</div>
+<p class = headingall> All food items</p>
+<div class="cardifix">
+<div class="container py-5">
+<div class="row mt-3">
+   <?php 
+  require 'dbConfig.php';
+  // $sno = $_GET['resid'];
+  $query = "SELECT * FROM food_new";
+  $query_run = mysqli_query($db, $query);
+  $check_user = mysqli_num_rows($query_run) > 0;
+  
+  if($check_user)
+  {
+    while($row = mysqli_fetch_assoc($query_run))
+    {
+      ?>
+      <?php
+      $sno2 = $row['foodid'];
+      $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
+$result = mysqli_query($db, $getr);
+$row2 = mysqli_fetch_array($result);
+
+$showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+      ?>
+      
+      <div class="col-md-3 mt-3">
+        <div class="card">
+        
+      <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
+        <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
+        <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
+        <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+        <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+        ; ?></b></p>
+
+     
+        <!-- image fetch -->
+          <?php 
+      // Include the database configuration file  
+       require_once 'dbConfig.php'; 
+
+       $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
+       $queryy_run = mysqli_query($db, $queryy);
+       $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+       if($check_userr){
+        while($row = mysqli_fetch_assoc($queryy_run)){
+          ?>
+             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+             
+          <?php
+        }
+       }
+       ?>
+
+      
+    
+    <?php
+    echo '
+       <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>
+       <a class="cbtnn2" href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
+    ';
+       ?>
+    
+    
+
+
+      </div>
+      </div>
+      </div>
+
+      <?php
+    }
+  }
+
+  ?>
+</div>
+</div>
+</div>
+   
 </body>
 </html>
