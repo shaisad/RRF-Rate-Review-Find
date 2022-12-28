@@ -88,6 +88,8 @@ label {
     <label>Burger</label>
     <input type="checkbox" name="category[]" value="Naan">
     <label>Naan</label>
+    <input type="checkbox" name="category[]" value="Wings">
+    <label>Wings</label>
     
     <input type="submit" name = "submit" >
 

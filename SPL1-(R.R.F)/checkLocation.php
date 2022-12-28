@@ -100,6 +100,8 @@ label {
     <label>BoardBazar</label>
     <input type="checkbox" name="location[]" value="Joydebpur">
     <label>Joydebpur</label>
+    <input type="checkbox" name="location[]" value="Kalameshwar">
+    <label>Kalameshwar</label>
 </div>
     <input type="submit" name = "submit" >
 
