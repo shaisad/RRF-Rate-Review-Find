@@ -118,14 +118,15 @@ body{
 .cbtnn1 {
   border: none;
   outline: none;
-  padding: 6px 6px;
+  padding: 4px 4px;
   cursor: pointer;
   color: white;
   position: relative;
   text-decoration : none;
-  top: 10px;
-  border-radius: 4px;
+  top: 20px;
+  border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
+  right: 2px;
 }
 
 
@@ -137,14 +138,14 @@ body{
 .cbtnn2 {
   border: none;
   outline: none;
-  padding: 6px 6px;
+  padding: 4px 4px;
   cursor: pointer;
   color: white;
   position: relative;
   text-decoration : none;
   left: 6px;
-  top: 10px;
-  border-radius: 4px;
+  top: 20px;
+  border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
 }
 
@@ -192,18 +193,21 @@ color: rgb(80, 31, 19);
   transform: translate3D(0,-1px,0) scale(1.03);
 }
 
+.card{
+  height: 335px;
+}
 
 .cardifix{
-  height: 400px;
+  height: 440px;
   position: relative;
   left: 2px;
-  bottom : 120px;
+  bottom : 140px;
   width: 90%;
   cursor : pointer;
 }
 
 .cardifix .card {
-  height: 330px;
+  height: 410px;
 }
 
 .cardifix img {
@@ -218,6 +222,81 @@ color: rgb(80, 31, 19);
   color: rgb(80, 31, 19);
   bottom:55px;
   font-family: 'Times New Roman', Times, serif;
+}
+.headingnan{
+  position: relative;
+  left: 20px;
+  bottom: 40px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingitalian{
+  position: relative;
+  left: 20px;
+  bottom: 100px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingpizza{
+  position: relative;
+  left: 20px;
+  bottom: 30px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingbengali{
+  position: relative;
+  left: 20px;
+  bottom: ;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingburger{
+  position: relative;
+  left: 20px;
+  bottom: 100px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingfav{
+  position: relative;
+  left: 220px;
+  top : 10px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.headingall{
+  position: relative;
+  left: 30px;
+  bottom: 90px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.card-body .card-text2 i{
+  color: rgba(248, 197, 70, 0.964);
+}
+.card-body .card-texti i{
+  color: rgba(248, 197, 70, 0.964);
+}
+
+.card .card-body .card-textrn {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(80, 31, 19);
+  font-weight: 600;
 }
 
 
@@ -374,7 +453,7 @@ color: rgb(80, 31, 19);
 </div>
 </div>
 
-    <p class = heading> All food items</p>
+    <p class = headingall> All food items</p>
     <div class="cardifix">
    <div class="container py-5">
     <div class="row mt-3">
@@ -405,14 +484,14 @@ $row3 = mysqli_fetch_array($result2);
           <div class="col-md-3 mt-3">
             <div class="card">
             
-          <div class="card-body">
-            <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
-            <p class="card-text" id="rlocation"><?php echo $row['frestaurantname']; ?></p>
-            <p class="card-text" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
+            <div class="card-body">
+            <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
+            <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
+            <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
             <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
-            <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
-         
+            <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
+
             <!-- image fetch -->
               <?php 
           // Include the database configuration file  
@@ -433,9 +512,13 @@ $row3 = mysqli_fetch_array($result2);
            ?>
 
           
-        <?php echo `<a href="ViewReviewsFood.php?fid='. $sno .'?resid='. $sno .'">Show all reviews</a>`?>
-        <!-- <button class="cbtnn1" onclick="window.location.href='ViewReviews.html';">Show all reviews</button> -->
-        
+<?php
+        echo '
+           <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>
+           <a class="cbtnn2" href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
+        ';
+           ?>
+     
         
 
   
@@ -452,7 +535,7 @@ $row3 = mysqli_fetch_array($result2);
     </div>
     </div>
 
-    <p class = heading> Pizza </p>
+    <p class = headingpizza> Pizza </p>
 
 <!-- card -->
 <div class="cardfix">
@@ -483,11 +566,11 @@ $row3 = mysqli_fetch_array($result2);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
@@ -540,11 +623,11 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Burger </p>
+<p class = headingburger> Burger </p>
 
 <!-- card -->
 <div class="cardfix">
-<div class="container py-5">
+<div class="container py-0">
 <div class="row mt-3">
    <?php 
   require 'dbConfig.php';
@@ -570,11 +653,11 @@ $row3 = mysqli_fetch_array($result2);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
@@ -627,7 +710,7 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Naan </p>
+<p class = headingnan> Naan </p>
 
 <!-- card -->
 <div class="cardfix">
@@ -657,11 +740,11 @@ $row3 = mysqli_fetch_array($result2);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
@@ -714,11 +797,11 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Italian </p>
+<p class = headingitalian> Italian </p>
 
 <!-- card -->
 <div class="cardfix">
-<div class="container py-5">
+<div class="container py-0">
 <div class="row mt-3">
    <?php 
   require 'dbConfig.php';
@@ -744,11 +827,11 @@ $row3 = mysqli_fetch_array($result2);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
@@ -803,11 +886,11 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </body>
 
-<p class = heading> Bengali </p>
+<p class = headingbengali> Bengali </p>
 
 <!-- card -->
 <div class="cardfix">
-<div class="container py-5">
+<div class="container py-4">
 <div class="row mt-3">
    <?php 
   require 'dbConfig.php';
@@ -833,11 +916,12 @@ $row3 = mysqli_fetch_array($result2);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+      
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 

@@ -221,7 +221,7 @@ require 'dbConfig.php';
 
     
    <!-- card -->
-<!-- <p class = heading><u> Menu </p></u> 
+<<p class = heading><u> Menu </p></u> 
 
   <p class = heading> Pizza </p> -->
 <div class="cardfix">

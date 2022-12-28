@@ -382,7 +382,14 @@ img {
       require 'dbConfig.php';
 
       $query = "SELECT restaurantname, location, reviewrid, restaurantid, avg(rating) as overall_rating FROM restaurant, res_reviews where 
-      res_reviews.reviewrid = restaurant.restaurantid and restaurant.status=1";
+      res_reviews.reviewrid = restaurant.restaurantid and restaurant.status=1 ";
+      
+//       SELECT ROWNUM as RANK, last_name, salary
+// FROM (SELECT last_name, salary
+// FROM employees
+// ORDER BY salary DESC)
+// WHERE ROWNUM <= 5;
+      
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
