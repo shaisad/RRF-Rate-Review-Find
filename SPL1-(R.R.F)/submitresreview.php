@@ -28,13 +28,9 @@ session_start();
     if(mysqli_query($db, $INSERT))
      {
 
-    ?>      
-          <script>alert("Your review has been submitted successfully! Check out the review section to see your review!")</script>
-          <?php
-
-		exit();
-
-
+      header("Location:pop16.html");
+      exit();
+  
      }
      else{
         

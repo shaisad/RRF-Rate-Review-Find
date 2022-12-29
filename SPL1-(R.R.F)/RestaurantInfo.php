@@ -42,8 +42,8 @@ body{
   cursor: pointer;
   color: white;
   position: relative;
-  
-  top: 10px;
+  text-decoration: none;
+  top: 20px;
   border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
 }
@@ -96,7 +96,7 @@ body{
 
 
 .cardfix{
-  height: 380px;
+  height: 370px;
   position: relative;
   left: 50px;
   width: 80%;
@@ -105,7 +105,7 @@ body{
 }
 
 .cardfix .card {
-  height: 335px;
+  height: 325px;
 }
 
 .cardfix img {

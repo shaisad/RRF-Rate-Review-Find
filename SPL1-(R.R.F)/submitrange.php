@@ -384,8 +384,15 @@ img {
 }
 
 
+.wholefix{
+  position: relative;
+  top: 40px;
+}
 
+.rrflogo{
+  height:80px;
 
+}
 
 
 
@@ -394,6 +401,17 @@ img {
 </style>
 
 <body>
+
+
+<div class="logo">
+
+        
+<img class="rrflogo" src="cover.png" alt="logo">
+            
+
+    </div>
+
+
 
     <?php
 
@@ -411,10 +429,8 @@ img {
   
     
                                   ?>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <p class = headingall> All food items sorted from <?php echo "$_GET[sort_numeric]";?></p>
+                                  <div class="wholefix">
+                                  <p class ="headingall"> All food items sorted from <?php echo "$_GET[sort_numeric]";?></p>
                                   <div class="cardifix">
                                  <div class="container py-5">
                                   <div class="row mt-3">
@@ -501,6 +517,6 @@ $row3 = mysqli_fetch_array($result2);
   
   ?>
   
-
+                                  </div>
 </body>
 </html>

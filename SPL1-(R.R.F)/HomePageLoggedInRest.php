@@ -260,6 +260,26 @@ img {
   opacity: 0.7; 
   text-decoration : none;
 }
+.cbtnn222 {
+  border: none;
+  outline: none;
+  padding: 8px 22px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  text-decoration : none;
+  left: 6px;
+  top: 20px;
+  border-radius: 5px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnn222 a:hover {
+  opacity: 0.7; 
+  text-decoration : none;
+}
+
 
 .cbtnn11 {
   border: none;
@@ -459,7 +479,7 @@ img {
         <?php
         echo '
            <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
-           <a class="cbtnn2" href="RestaurantMenu.php?resid='. $sno .'">Menu </a>';
+           <a class="cbtnn222" href="RestaurantMenu.php?resid='. $sno .'">Menu </a>';
       ?>
 
           </div>

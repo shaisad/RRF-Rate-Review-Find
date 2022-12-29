@@ -24,11 +24,22 @@ session_start();
     }
     
     input[type=text], select, textarea {
-      width: 100%;
+      width: 820px;
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 4px;
       resize: vertical;
+      
+    }
+
+    input[type=text], select, textarea {
+      width: 820px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+      position: relative;
+      left: 2px;
     }
     
     label {
@@ -44,15 +55,20 @@ session_start();
       border-radius: 4px;
       cursor: pointer;
       float: right;
+      position: relative;
+      left: 7px;
     }
     input[type=number] {
-      background-color:rgb(80, 31, 19);
+      background-color: white;
       color: white;
       padding: 12px 20px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
       float: right;
+      width: 818px;
+      position: relative;
+      left: 19px;
     }
     
     input[type=submit]:hover {
@@ -128,6 +144,10 @@ session_start();
 .btn :hover{
   opacity: 0.7;
 }
+.fix{
+  position: relative;
+  right: 3px;
+}
  
 </style>
 
@@ -161,6 +181,7 @@ echo '
 <div class="container">
   <form action="foodconnect.php?resid= '. $sno .'" method="post" enctype="multipart/form-data">
     <div class="row">
+    <div class="fix">
       <div class="col-25">
         <label for="foodname">Foods Name</label>
       </div>
@@ -196,7 +217,7 @@ echo '
           <option value="Wings">Wings</option>
           <option value="Steak">Steak</option>
         </select>
-      </div>
+      </div></div>
      <div class="row">
       <div class="col-25">
         <label for="category">Spice Level</label>

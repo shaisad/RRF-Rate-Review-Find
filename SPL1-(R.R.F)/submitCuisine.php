@@ -27,6 +27,8 @@ body{
     overflow-x: hidden;
 }
 
+ 
+
 .cbtnn1 {
   border: none;
   outline: none;
@@ -67,28 +69,6 @@ body{
   text-decoration : none;
 }
 
-.cbtnn3 {
-      background-color:rgb(80, 31, 19);
-      color: white;
-      padding: 4px 80px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      float: right;
-      text-decoration : none;
-      position: relative;
-      left: 8px;
-      top: 30px;
-      outline: none;   
-}
-
-
-.cbtnn3 a:hover {
-  opacity: 0.7; 
-  text-decoration : none;
-}
-
-
 
 
 img {
@@ -97,6 +77,7 @@ img {
     top: 300px;
     left: 100px;
 }
+
 
 
 
@@ -118,10 +99,9 @@ img {
 
 .cardfix {
   position: relative;
-  left: 100px;
+  left: 200px;
   width: 80%;
   cursor : pointer;
-  top: 30px;
 }
 
 .card:hover {
@@ -130,16 +110,17 @@ img {
 } 
 
 .card{
-  height: 365px;
+  height: 330px;
   position: relative;
-  top: 20px;
+  top: 50px;
+  right: 20px;
 }
 
 
 .heading{
   position: relative;
-  left: 120px;
-  top : 190px;
+  left: 200px;
+  top : 80px;
   font-size: 25px;
   color: rgb(80, 31, 19);
   font-family: 'Times New Roman', Times, serif;
@@ -163,17 +144,38 @@ img {
 .card .card-body .card-text1 i{
     bottom: 50px;
 }
+.alert{
+  position: relative;
+  top: 40px;
+  right: 10px;
+}
+.rrflogo{
+  height:80px;
 
-
-
-
-
+}
+.fix{
+  position: relative;
+  bottom: 50;
+}
+.card-body img{
+  width:200px;
+}
 
 
 
 </style>
 
 <body>
+
+<div class="logo">
+
+        
+<img class="rrflogo" src="cover.png" alt="logo">
+            
+
+    </div>
+
+    
 
     <?php
 
@@ -200,7 +202,7 @@ img {
                                   </div>
                                   </div>
                                   
-
+<div class="fix">
 <!-- card -->
 <div class="cardfix">
 <div class="container py-2">
@@ -274,7 +276,7 @@ img {
       </div>
       </div>
       </div>
-                                  
+      </div>                        
                                       
                                       
                               

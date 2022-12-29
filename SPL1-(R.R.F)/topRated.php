@@ -99,7 +99,7 @@ body{
 
 img {
     width: 180px;
-    height: 110px;
+    height: 90px;
     top: 300px;
     left: 100px;
 } 
@@ -367,7 +367,7 @@ img {
   position: relative;
   right: 100px;
   width: 150px;
-  height: 70px;
+  height: 50px;
 }
 </style>
 

@@ -206,9 +206,7 @@ body{
            }
            ?>
 
-          
-        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Write a review</button>
-        
+                
         
 
   

@@ -129,6 +129,7 @@ form .textarea textarea{
   padding: 10px;
   font-size: 17px;
   resize: none;
+  position: relative;
 }
 .textarea textarea:focus{
   border-color: rgb(236, 247, 138);
@@ -151,6 +152,8 @@ form .btn button{
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: relative;
+  top: 20px;
 }
 form .btn button:hover{
   background: rgb(65, 31, 24);

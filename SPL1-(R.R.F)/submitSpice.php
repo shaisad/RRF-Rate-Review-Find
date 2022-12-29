@@ -36,7 +36,7 @@ body{
   color: white;
   position: relative;
   text-decoration : none;
-  top: 20px;
+  top: 10px;
   border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
   right: 2px;
@@ -57,7 +57,7 @@ body{
   position: relative;
   text-decoration : none;
   left: 6px;
-  top: 20px;
+  top: 10px;
   border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
 }
@@ -109,7 +109,7 @@ img {
 } 
 
 .card{
-  height: 330px;
+  height: 420px;
   position: relative;
   top: 50px;
   right: 20px;
@@ -124,6 +124,7 @@ img {
   color: rgb(80, 31, 19);
   font-family: 'Times New Roman', Times, serif;
 }
+
 
 
 .card-body .card-text2 i{

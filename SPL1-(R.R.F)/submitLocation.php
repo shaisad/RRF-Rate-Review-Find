@@ -119,7 +119,7 @@ img {
 .heading{
   position: relative;
   left: 200px;
-  top : 180px;
+  top : 80px;
   font-size: 25px;
   color: rgb(80, 31, 19);
   font-family: 'Times New Roman', Times, serif;
@@ -143,12 +143,30 @@ img {
 .card .card-body .card-text1 i{
     bottom: 50px;
 }
+.alert{
+  position: relative;
+  top: 40px;
+  right: 10px;
+}
+.rrflogo{
+  height:80px;
 
-
+}
 
 </style>
 
 <body>
+
+<div class="logo">
+
+        
+<img class="rrflogo" src="cover.png" alt="logo">
+            
+
+    </div>
+
+
+<div class="wholefix">
 
     <?php
 
@@ -281,6 +299,6 @@ $row3 = mysqli_fetch_array($result2);
   
   ?>
   
-
+                                </div>
 </body>
 </html>
