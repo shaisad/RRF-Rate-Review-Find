@@ -26,7 +26,7 @@ if(isset($_GET['code']))
             $update = "UPDATE user SET status = 1 WHERE code = '$code' LIMIT 1";
             if (mysqli_query($conn, $update)){
 
-              header(Location:"popup5.html");
+              header('Location:popup5.html');
               exit();
 
                 			

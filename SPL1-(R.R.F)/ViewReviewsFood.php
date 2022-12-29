@@ -236,7 +236,7 @@ $result = mysqli_query($db, $showr);
 <section id="testimonials">
 
         <div class="testimonial-heading">
-            <h1>Reviewers says..</h1>
+            <h1>Reviewers say..</h1>
         </div>
         
         

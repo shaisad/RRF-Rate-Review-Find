@@ -325,16 +325,22 @@ color: rgb(80, 31, 19);
     
   
     <div class="container mt-5">
-        
+    <form action="details.php" method="post" class="p-3">
             <div class="search">
               <div class="search-box"> 
+                
                  <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food, restaurant, location...">
                     <div class="search-btn">
+                    <input type="submit" name="submit" value="Search" class="btn btn-info btn-lg rounded-0">
                        <i class="fa fa-search"></i> </div>
               </div>
-        
-         <div id="search_result"></div>
-    </div>
+            
+            <div id="search_result"></div>
+
+        </form>
+        </div>
+         <!-- <div id="search_result"></div>
+    </div> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -342,27 +348,29 @@ color: rgb(80, 31, 19);
                 var query = $(this).val();
                 if (query != "") {
                     $.ajax({
-                        url: 'backend-search.php',
+                        url: 'action.php',
                         method: 'POST',
                         data: {
                             query: query
                         },
-                        success: function (data) {
-                            $('#search_result').html(data);
-                            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
-                            $("#live_search").focusout(function () {
-                                $('#search_result').css('display', 'none').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
-                            });
-                            $("#live_search").focusin(function () {
-                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
-                            });
-                        }
-                    });
-                } else {
-                    $('#search_result').css('display', 'none');
-                }
-            });
+                        
+                            success: function (response) {
+            $("#search_result").html(response);
+            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '630px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
+            
+                           
+          }
         });
+      } else {
+        $('#search_result').css('display', 'none');
+      }
+    });
+    // Set searched text in input field on click of search button
+    $(document).on("click", "a", function () {
+      $("#live_search").val($(this).text());
+      $("#search_result").html("");
+    });
+  });
     </script>
 
        

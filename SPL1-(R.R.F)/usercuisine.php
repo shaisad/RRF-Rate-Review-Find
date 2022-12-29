@@ -22,7 +22,7 @@ if (isset($_POST['submitcuisine'])) {
     $query = "update user set userfavcuisine = '$_POST[userfavcuisine]' where username = '$_SESSION[username]'";
     $result = mysqli_query($conn, $query);
     if ($result) {
-      header(Location:"popup7.html");
+      header("Location:popup7.html");
       exit();
     }
 

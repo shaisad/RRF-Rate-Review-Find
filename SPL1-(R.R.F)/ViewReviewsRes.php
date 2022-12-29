@@ -156,7 +156,7 @@ font-size: 22px;
 color: rgb(80, 31, 19);
 font-family: 'Times New Roman', Times, serif;
 position: relative;
-right: 475px;
+right: 483px;
 bottom: 120px;
 }
  
@@ -166,7 +166,7 @@ font-size: 22px;
 color: rgb(80, 31, 19);
 font-family: 'Times New Roman', Times, serif;
 position: relative;
-right:515px;
+right:516px;
 bottom: 130px;
 }
 
@@ -190,6 +190,11 @@ u{
     position: relative;
     left: 50px;
 }
+.credentials .restname{
+    position: relative;
+    left: 23px;
+}
+
 
 </style>
 
@@ -261,13 +266,13 @@ $result = mysqli_query($db, $showr);
 <section id="testimonials">
 
         <div class="testimonial-heading">
-            <h1>Reviewers says..</h1>
+            <h1>Reviewers say..</h1>
         </div>
         
         
 
 <div class="totalrate"> 
-  <p>Total Rating: <?php echo sprintf('%0.2f',$row['overall_rating']).'/5.00 '; ?><i class="fas fa-star"></i> </p>
+  <p>Total Rating: <?php echo sprintf('%0.1f',$row['overall_rating']).'/5.0 '; ?><i class="fas fa-star"></i> </p>
 </div>
 <?php
 
