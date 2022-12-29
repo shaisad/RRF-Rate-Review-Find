@@ -38,7 +38,7 @@ body{
 
 .search-box input[type="text"]{
     height: 100%;
-    width: 100%;
+    width: 105%;
     border: none;
     outline: none;
     background: #fff;
@@ -79,7 +79,7 @@ body{
 
 .search-btn {
     position: relative;
-    left: 550px;
+    left: 590px;
     bottom: 35px;
     height: 50px;
     width: 70px;
