@@ -22,24 +22,21 @@ if (isset($_POST['submitcuisine'])) {
     $query = "update user set userfavcuisine = '$_POST[userfavcuisine]' where username = '$_SESSION[username]'";
     $result = mysqli_query($conn, $query);
     if ($result) {
-      ?>      
-      <script>alert("Your favourite cuisine has been submitted successfully!")</script>
-      <?php
+      header(Location:"popup7.html");
       exit();
     }
 
-    else{?>
-      <script>alert("Error! Your favourite cuisine could not be submitted! Please try again!")</script>
-            <?php
+    else{
+      header(Location:"popup8.html");
       exit();
+
     }
 }
 }
 else{
-  ?>      
-  <script>alert("Error! Cuisine field is not filled up!")</script>
-  <?php
-  exit();
+  header(Location:"popup9.html");
+      exit();
+
 }
 
 ?>

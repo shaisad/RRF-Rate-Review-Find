@@ -25,10 +25,11 @@ if(isset($_GET['code']))
         {
             $update = "UPDATE user SET status = 1 WHERE code = '$code' LIMIT 1";
             if (mysqli_query($conn, $update)){
-                echo "User Account updated successfully! Click <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/UserSignInPage.html'> here </a> to login again to make sure that the user email has been updated! 
-                  ";
-                exit;
-				
+
+              header(Location:"popup5.html");
+              exit();
+
+                			
             }
             else{
                 

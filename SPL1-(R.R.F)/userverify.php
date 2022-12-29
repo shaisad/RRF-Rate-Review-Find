@@ -33,35 +33,31 @@ if(isset($_GET['code']))
             }
             else{
                 
-                ?>      
-          <script>alert("User Account could not be created due to verification error!")</script>
-          <?php
-          exit();
+                header(Location:"PopUp1.html");
+                exit();
             }
         }
         else{
-            ?>      
-          <script>alert("User does not exist!")</script>
-          <?php
+          header(Location:"PopUp2.html");
           exit();
+      
             
         }
     }
 
     else{
-        ?>      
-          <script>alert("User Verification failed!")</script>
-          <?php
+      header(Location:"PopUp3.html");
+      exit();
+  
         
     }
 }
 
 else{
-    ?>      
-          <script>alert("Error while generating user verificaton code!")</script>
-          <?php
         
-    
+  header(Location:"popup4.html");
+  exit();
+
 }
 
 ?>
