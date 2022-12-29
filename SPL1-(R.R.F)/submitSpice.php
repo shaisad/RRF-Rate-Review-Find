@@ -389,9 +389,11 @@ img {
                                     $query_run = mysqli_query($db, $query);
                                     $check_user = mysqli_num_rows($query_run) > 0;
                                 
-                                    if($check_user)
-                                    {
-                                      while($row = mysqli_fetch_assoc($query_run))
+                                    if (mysqli_num_rows($query_run) > 0) {
+                                      $row_cnt = $query_run->num_rows;
+                                  
+                                      
+                                      echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) of $check level found ! </div>";
                                       {
                                         ?>
                                         <?php
@@ -453,7 +455,7 @@ img {
                                     else {
                                       echo "
                                         <div class='alert alert-danger mt-3 text-center' role='alert'>
-                                            No restaurant found!
+                                            No food item found!
                                         </div>
                                         ";
                                     

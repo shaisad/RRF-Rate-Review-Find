@@ -393,7 +393,7 @@ img {
     $row_cnt = $query_run->num_rows;
 
     
-    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
+    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) of  location : $check found! </div>";
   
   
     while($row = mysqli_fetch_assoc($query_run))
@@ -454,7 +454,7 @@ img {
                                     else {
                                         echo "
                                         <div class='alert alert-danger mt-3 text-center' role='alert'>
-                                            No restaurant found!
+                                            No restaurant of location : $check found!
                                         </div>
                                         ";
                                     

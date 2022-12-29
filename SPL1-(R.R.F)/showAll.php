@@ -383,7 +383,7 @@ img {
         
     
    
-<p class = heading> All restaurants </p>
+
 
 <!-- card -->
 <div class="cardfix">
@@ -397,9 +397,11 @@ img {
 
   
 
-  $check_user = mysqli_num_rows($query_run) > 0;
-  
-  if($check_user)
+  if (mysqli_num_rows($query_run) > 0) {
+    $row_cnt = $query_run->num_rows;
+
+    
+    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found ! </div>";
   {
     while($row = mysqli_fetch_assoc($query_run))
     {
@@ -467,7 +469,7 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = headingall> All food items</p>
+
 <div class="cardifix">
 <div class="container py-5">
 <div class="row mt-3">
@@ -513,9 +515,11 @@ $row3 = mysqli_fetch_array($result2);
 
        $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
        $queryy_run = mysqli_query($db, $queryy);
-       $check_userr = mysqli_num_rows($queryy_run) > 0;
-
-       if($check_userr){
+       if (mysqli_num_rows($queryy_run) > 0) {
+        $row_cnt = $queryy_run->num_rows;
+    
+        
+        echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt food item(s) found ! </div>";{
         while($row = mysqli_fetch_assoc($queryy_run)){
           ?>
              <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
