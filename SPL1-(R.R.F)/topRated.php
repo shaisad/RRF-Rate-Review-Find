@@ -90,12 +90,19 @@ body{
   text-decoration : none;
 }
 
-img {
+.cardfix img {
     width: 180px;
     height: 145px;
     top: 300px;
     left: 100px;
-}
+} 
+
+img {
+    width: 180px;
+    height: 110px;
+    top: 300px;
+    left: 100px;
+} 
 
 
 
@@ -356,10 +363,10 @@ img {
   bottom: 50px;
   right: 100px;
 }
-.rrflogo img{
+.logo .rrflogo img{
   position: relative;
   right: 100px;
-  width: 120px;
+  width: 150px;
   height: 70px;
 }
 </style>
@@ -376,8 +383,7 @@ img {
 
         <img class="rrflogo" src="cover.png" alt="logo">
 
-    
-</div>
+    </div>
         
       
 

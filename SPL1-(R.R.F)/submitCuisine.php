@@ -454,7 +454,7 @@ img {
                                     else {
                                       echo "
                                         <div class='alert alert-danger mt-3 text-center' role='alert'>
-                                            No restaurant found!
+                                            No restaurant of $check cuisine found!
                                         </div>
                                         ";
                                     
