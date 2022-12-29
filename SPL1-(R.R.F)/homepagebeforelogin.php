@@ -38,7 +38,7 @@ body{
 
 .search-box input[type="text"]{
     height: 100%;
-    width: 100%;
+    width: 105%;
     border: none;
     outline: none;
     background: #fff;
@@ -79,7 +79,7 @@ body{
 
 .search-btn {
     position: relative;
-    left: 550px;
+    left: 590px;
     bottom: 35px;
     height: 50px;
     width: 70px;
@@ -434,8 +434,8 @@ color: rgb(80, 31, 19);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
       <a href="RestaurantInfo.php"> See Details </a>
@@ -522,8 +522,8 @@ $row3 = mysqli_fetch_array($result2);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+    <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
+    <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
       <a href="RestaurantInfo.php"> See Details </a>
@@ -606,11 +606,8 @@ $row3 = mysqli_fetch_array($result2);
     
 <?php
         echo '
-           <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
-           <a class="cbtnn2" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
-           
-           
-           ';
+        <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
+        <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
            ?>
 
       </div>
@@ -685,8 +682,8 @@ $row3 = mysqli_fetch_array($result2);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+    <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
+    <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
       <a href="RestaurantInfo.php"> See Details </a>
@@ -770,8 +767,8 @@ $row3 = mysqli_fetch_array($result2);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'"> See Reviews</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
       <a href="RestaurantInfo.php"> See Details </a>
@@ -858,8 +855,8 @@ $row3 = mysqli_fetch_array($result2);
     <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
     <?php
     echo '
-       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
+       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
+       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
       <a href="RestaurantInfo.php"> See Details </a>
@@ -944,11 +941,11 @@ $row3 = mysqli_fetch_array($result2);
 
           
 <?php
-        echo '
-           <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>
-           <a class="cbtnn2" href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
-        ';
-           ?>
+       echo '
+       <a class="cbtnn1" align = "centre " href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
+       ';
+       ?>
+           
      
         
 

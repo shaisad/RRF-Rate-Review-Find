@@ -102,6 +102,12 @@ label {
     <label>Joydebpur</label>
     <input type="checkbox" name="location[]" value="Kalameshwar">
     <label>Kalameshwar</label>
+    <input type="checkbox" name="location[]" value="Sreepur">
+    <label>Sreepur</label>
+    <input type="checkbox" name="location[]" value="Kaligonj">
+    <label>Kaligonj</label>
+    <input type="checkbox" name="location[]" value="Kapasia">
+    <label>Kapasia</label>
 </div>
     <input type="submit" name = "submit" >
 
