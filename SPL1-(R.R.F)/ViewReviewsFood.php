@@ -165,7 +165,7 @@ font-size: 22px;
 color: rgb(80, 31, 19);
 font-family: 'Times New Roman', Times, serif;
 position: relative;
-right:525px;
+right:485px;
 bottom: 130px;
 }
 
@@ -185,7 +185,11 @@ bottom: 40px;
     position: relative;
     left: 70px;
 }
-
+.totals{
+    position: relative;
+    top: 70px;
+    left: 20px;
+}
 
 </style>
 
@@ -236,7 +240,7 @@ $result = mysqli_query($db, $showr);
         </div>
         
         
-
+<div class="totals">
 <div class="totalrate"> 
   <p>Total Rating: <?php echo sprintf('%0.2f',$row['overall_rating']).'/5.00 '; ?><i class="fas fa-star"></i> </p>
 </div>
@@ -247,7 +251,7 @@ $result = mysqli_query($db, $showr);
 <div class="totalreview">
    <p>Review count: <?php echo $row['total_reviews']; ?> </p>
 </div>
-
+</div>
 <?php
 
 
