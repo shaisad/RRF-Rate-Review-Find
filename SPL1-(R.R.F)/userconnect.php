@@ -143,10 +143,7 @@
 
         if($INSERT && sendMail($useremail,$code))
         {
-          ?>      
-          <script>alert("Verification mail sent. Please verify your email before logging in. Make sure to check your spam folder!")</script>
-          <?php
-          exit();
+         echo "r";
           
         }
 

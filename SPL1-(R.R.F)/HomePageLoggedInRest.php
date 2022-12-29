@@ -120,6 +120,13 @@ body{
 
 img {
     width: 180px;
+    height: 145px;
+    top: 300px;
+    left: 100px;
+}
+.logo .rrflogo{
+  width: 180px;
+  height: 80px;
     top: 300px;
     left: 100px;
 }
@@ -387,6 +394,8 @@ img {
         <button class="btnn" onclick="window.location.href='checkRange.php';"> Price Range</button>
         <button class="btnn" onclick="window.location.href='checkLocation.php';"> Location</button>
         <button class="btnn" onclick="window.location.href='checkCuisine.php';">Cuisine</button>
+        <button class="btnn" onclick="window.location.href='checkCategory.php';">Food Category</button>
+        <button class="btnn" onclick="window.location.href='checkSpice.php';">Spiciness</button>
         
     </div>
     <p class = heading1><b>Welcome, <?php  echo $_SESSION['restaurantname']; ?>!</b></p>
@@ -447,10 +456,11 @@ img {
             }
            }
         ?>
-        
-        <button class="cbtnn11" onclick="window.location.href='ViewReviewsRes.php?resid='. $sno .'';">Show Reviews</button>
-       <button class="cbtnn22" onclick="window.location.href='RestaurantMenu.php?resid='. $sno .'';">Menu</button>
-       
+        <?php
+        echo '
+           <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
+           <a class="cbtnn2" href="RestaurantMenu.php?resid='. $sno .'">Menu </a>';
+      ?>
 
           </div>
           </div>

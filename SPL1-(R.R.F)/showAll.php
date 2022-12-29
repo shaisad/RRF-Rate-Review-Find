@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 <!-- Bootstrap CSS -->
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@ body{
 
  .search{
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     position: relative;
     left: 30px ;
     
@@ -176,14 +176,20 @@ body{
   text-decoration : none;
 }
 
-
-
-
 img {
     width: 180px;
+    height: 145px;
     top: 300px;
     left: 100px;
 }
+
+.logo .rrflogo{
+  width: 180px;
+  height: 80px;
+    top: 300px;
+    left: 100px;
+}
+
 
 .sidebar {
   height: 100%;
@@ -253,17 +259,80 @@ img {
 } 
 
 .card{
-  height: 330px;
+  height: 370px;
 }
 
 
 .heading{
   position: relative;
   left: 220px;
-  top : 70px;
+  top : 80px;
   font-size: 25px;
   color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
 }
+.headingnan{
+  position: relative;
+  left: 220px;
+  top : 80px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingitalian{
+  position: relative;
+  left: 220px;
+  top : 20px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingpizza{
+  position: relative;
+  left: 220px;
+  top : 80px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingbengali{
+  position: relative;
+  left: 220px;
+  top : 55px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingburger{
+  position: relative;
+  left: 220px;
+  top : 15px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingfav{
+  position: relative;
+  left: 220px;
+  top : 50px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.headingall{
+  position: relative;
+  left: 220px;
+  
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
 
 .heading1{
   position: relative;
@@ -274,6 +343,7 @@ img {
   animation-name: example;
   animation-duration: 3s;
   animation-iteration-count: 1;
+  font-family: 'Times New Roman', Times, serif;
 
 }
 
@@ -283,21 +353,23 @@ img {
 }
 
 .cardifix{
-  height: 400px;
   position: relative;
   left: 200px;
   width: 80%;
   cursor : pointer;
+  bottom: 70px;
 }
 
 .cardifix .card {
-  height: 350px;
+  height: 415px;
+  position: relative;
 }
 
 .cardifix img {
   width: 180px;
   height: 120px;
 }
+
  .dropbtn {
   background-color:rgb(80, 31, 19);
   color: white;
@@ -344,7 +416,28 @@ img {
 }
 
 
+.card-body .card-text2 i{
+  color: rgba(248, 197, 70, 0.964);
+}
+.card-body .card-texti i{
+  color: rgba(248, 197, 70, 0.964);
+}
 
+.card .card-body .card-textrn {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(80, 31, 19);
+  font-weight: 600;
+  bottom: 20px;
+}
+.card .card-body .card-text1 i{
+    bottom: 50px;
+}
+
+.wholefix{
+  position: relative;
+  right: 80px;
+}
 
 
 </style>
@@ -361,18 +454,8 @@ img {
 
         <img class="rrflogo" src="cover.png" alt="logo">
 
-    
-
-        
-      
-
-  
-   
-       
-        
-    
-   
-    <p class = heading> All restaurants </p>
+</div>
+<div class="wholefix">
 
     <!-- card -->
    <div class="cardfix">
@@ -383,21 +466,36 @@ img {
 
       $query = "SELECT * FROM restaurant where status=1";
       $query_run = mysqli_query($db, $query);
-      $check_user = mysqli_num_rows($query_run) > 0;
+
       
-      if($check_user)
-      {
+      if (mysqli_num_rows($query_run) > 0) {
+        $row_cnt = $query_run->num_rows;
+    
+        
+        echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
         while($row = mysqli_fetch_assoc($query_run))
         {
           ?><?php
           $sno = $row['restaurantid'];
-          ?>
+          
+              $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+
+    ?>
           <div class="col-md-3 mt-3">
             <div class="card">
             
           <div class="card-body">
             <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
             <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+            <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
+
          
             <!-- image fetch -->
               <?php 
@@ -441,7 +539,9 @@ img {
     </div>
     </div>
     </div>
-    <p class = heading> All food items</p>
+    
+
+
     <div class="cardifix">
    <div class="container py-5">
     <div class="row mt-3">
@@ -450,25 +550,36 @@ img {
       // $sno = $_GET['resid'];
       $query = "SELECT * FROM food_new";
       $query_run = mysqli_query($db, $query);
-      $check_user = mysqli_num_rows($query_run) > 0;
-      
-      if($check_user)
-      {
+      if (mysqli_num_rows($query_run) > 0) {
+        $row_cnt = $query_run->num_rows;
+    
+        
+        echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt food items(s) found! </div>";
         while($row = mysqli_fetch_assoc($query_run))
         {
           ?>
           <?php
           $sno2 = $row['foodid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
           ?>
           
           <div class="col-md-3 mt-3">
             <div class="card">
             
           <div class="card-body">
-            <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
-            <p class="card-text" id="rlocation"><?php echo $row['frestaurantname']; ?></p>
-            <p class="card-text" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
-            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+            <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
+            <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
+            <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
+            <p class="card-textl" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+            <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
+
          
             <!-- image fetch -->
               <?php 
@@ -513,7 +624,21 @@ img {
     </div>
     </div>
     </div>
+
+    </div>
    
-    
 </body>
 </html>
+        
+      
+
+  
+   
+       
+        
+    
+   
+
+
+
+   

@@ -12,8 +12,7 @@
    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
    crossorigin="anonymous"
   />
-  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-    <title>RRF Filter By Price Range</title>
+    <title>RRF Filter By Spiciness</title>
 </head>
 
 <style>
@@ -239,9 +238,10 @@ img {
 
 .cardfix {
   position: relative;
-  left: 200px;
+  left: 100px;
   width: 80%;
   cursor : pointer;
+  top: 30px;
 }
 
 .card:hover {
@@ -256,10 +256,12 @@ img {
 
 .heading{
   position: relative;
-  left: 220px;
-  top : 70px;
+  left: 130px;
+  top : 60px;
   font-size: 25px;
   color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+
 }
 
 .heading1{
@@ -282,7 +284,7 @@ img {
 .cardifix{
   height: 400px;
   position: relative;
-  left: 200px;
+  left: 120px;
   width: 80%;
   cursor : pointer;
 }
@@ -339,51 +341,6 @@ img {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-.headingall{
-  position: relative;
-  left: 120px;
-  top : 30px;
-  font-size: 25px;
-  color: rgb(80, 31, 19);
-  font-family: 'Times New Roman', Times, serif;
-}
-
-
-.cardifix{
-  height: 400px;
-  position: relative;
-  left: 200px;
-  width: 80%;
-  cursor : pointer;
-}
-
-.cardifix .card {
-  height: 410px;
-  position: relative;
-  right: 100px;
-  bottom: 50px;
-}
-
-.cardifix img {
-  width: 180px;
-  height: 120px;
-}
-
-.card-body .card-text2 i{
-  color: rgba(248, 197, 70, 0.964);
-}
-.card-body .card-texti i{
-  color: rgba(248, 197, 70, 0.964);
-}
-
-.card .card-body .card-textrn {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 18px;
-  color: rgb(80, 31, 19);
-  font-weight: 600;
-}
-
-
 
 
 
@@ -398,60 +355,60 @@ img {
     <?php
 
     require 'dbConfig.php'; 
-  
-    $sort_option = "";
-    if(isset($_GET['sort_numeric']))
+
+  //   if(!empty($_POST['check_list'])) {
+  //     foreach($_POST['check_list'] as $check) {
+  //             //echoes the value set in the HTML form for each checked checkbox.
+  //                          //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
+  //                          //in your case, it would echo whatever $row['Report ID'] is equivalent to.
+  //     }
+  // }
+    
+    if(isset($_GET['spicelevel']))
     {
-        if($_GET['sort_numeric'] == "low-high"){
-            $sort_option = "ASC";
-        }elseif($_GET['sort_numeric'] == "high-low"){
-            $sort_option = "DESC";
-        }
-    }
+    ?><p class = heading> All restaurants </p><?php
+      foreach($_GET['spicelevel'] as $check) {
+    
+    
   
     
                                   ?>
                                   </div>
                                   </div>
                                   </div>
-                                  <p class = headingall> All food items sorted from <?php echo "$_GET[sort_numeric]";?></p>
-                                  <div class="cardifix">
-                                 <div class="container py-5">
-                                  <div class="row mt-3">
-                                     <?php 
-                                    require 'dbConfig.php';
-                                    // $sno = $_GET['resid'];
-                                    $query = "SELECT * FROM food_new ORDER BY price $sort_option";
+                                  
+
+<!-- card -->
+<div class="cardfix">
+<div class="container py-2">
+<div class="row mt-3">
+   <?php 
+  require 'dbConfig.php';
+
+  $query = "SELECT * FROM food_new where spicelevel = '$check' ";
                                     $query_run = mysqli_query($db, $query);
                                     $check_user = mysqli_num_rows($query_run) > 0;
                                 
-                                    if($check_user)
-                                    {
-                                      while($row = mysqli_fetch_assoc($query_run))
+                                    if (mysqli_num_rows($query_run) > 0) {
+                                      $row_cnt = $query_run->num_rows;
+                                  
+                                      
+                                      echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) of $check level found ! </div>";
                                       {
                                         ?>
                                         <?php
-      $sno2 = $row['foodid'];
-      $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
-$result = mysqli_query($db, $getr);
-$row2 = mysqli_fetch_array($result);
-
-$showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
-$result2 = mysqli_query($db, $showr);
-$row3 = mysqli_fetch_array($result2);
-      ?>
-      
+                                        $sno2 = $row['foodid'];
+                                        ?>
+                                        
                                         <div class="col-md-3 mt-3">
                                           <div class="card">
-                                          <div class="card-body">
-        <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
-        <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
-        <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
-        <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
-        <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-        ; ?></b></p>
-
-                                        
+                                          
+                                        <div class="card-body">
+                                          <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
+                                          <p class="card-text" id="rlocation"><?php echo $row['frestaurantname']; ?></p>
+                                         <p class="card-text" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
+                                          <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+                                       
                                           <!-- image fetch -->
                                             <?php 
                                         // Include the database configuration file  
@@ -485,18 +442,35 @@ $row3 = mysqli_fetch_array($result2);
                                 
                                         </div>
                                         </div>
-                                        </div>
+                                        </div>                     
+                                      
+                                      
+                              
+                                
+                                        
                               
                                         <?php
                                       }
                                     }
-                                    else{
-                                      ?>      
-                                      <script>alert("Error! Price sorting field must be filled!")</script>
-                                      <?php
+                                    else {
+                                      echo "
+                                        <div class='alert alert-danger mt-3 text-center' role='alert'>
+                                            No food item found!
+                                        </div>
+                                        ";
                                     
                                     }
                               
+                                  }
+                                  
+                                }
+                                else{
+                                  ?>      
+                                  <script>alert("Error! Cuisine field must be filled!")</script>
+                                  <?php
+                                
+                                }
+                                    
                                     
   
   ?>

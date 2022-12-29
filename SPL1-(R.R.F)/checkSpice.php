@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RRF Filter By Location</title>
+    <title>RRF Filter By Cuisine</title>
     </head>
 
     <style>
@@ -48,9 +48,9 @@ label {
   display: block;
   color: rgb(219, 216, 216);
   text-align: center;
-  padding: 8px;
+  padding: 10px;
   text-decoration:none;
-  font-size: 13px;
+  font-size: 15px;
   background-color: rgb(46, 16, 9);
   margin: 10px;
   border-radius: 5px;
@@ -60,22 +60,18 @@ label {
   top: 40px;
   left: 240px;
 }
-.banner form input[type="email"]{
-    width: 220px;
-    font-family: 'Times New Roman', Times, serif;
-}
 .banner form input[type="checkbox"]{
     width: 45px;
+    position: relative;
+    left: 10px;
 }
 .banner .check{
     font-family: 'Times New Roman', Times, serif;
     color: rgb(46, 16, 9);
     position: relative;
-    right: 20px;
+    right: 5px;
     top: 15px;
 }
-
-
 
     </style>
 
@@ -93,18 +89,21 @@ label {
 
         
 <!-- italian french bengali chinese -->
-  <form method = "GET" action = "submitLocation.php" >
+  <form method = "GET" action = "submitSpice.php" >
         <div class = "attribute">
-     <div class="check">  
-    <input type="checkbox" name="location[]" value="BoardBazar">
-    <label>BoardBazar</label>
-    <input type="checkbox" name="location[]" value="Joydebpur">
-    <label>Joydebpur</label>
-    <input type="checkbox" name="location[]" value="Kalameshwar">
-    <label>Kalameshwar</label>
+        <div class="check">
+    <input type="checkbox" name="spicelevel[]" value="Non-Spicy">
+    <label>Non-Spicy</label>
+    <input type="checkbox" name="spicelevel[]" value="Regular">
+    <label>Regular</label>
+    <input type="checkbox" name="spicelevel[]" value="Mild">
+    <label>Mild</label>
+    <input type="checkbox" name="spicelevel[]" value="Spicy">
+    <label>Spicy</label>
+    <input type="checkbox" name="spicelevel[]" value="Extremely Spicy">
+    <label>Extremely Spicy</label>
+    <input type="submit" name = "Submit" >
 </div>
-    <input type="submit" name = "submit" >
-
 </form>
                                       
 

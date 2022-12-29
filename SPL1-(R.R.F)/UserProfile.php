@@ -127,7 +127,7 @@ error_reporting();
              <a href="UserUpdate.html" target="_self">Update Profile</a>
              <div class="btn" id="btn">
             
-             <a href="UserCuisine.html" target="_self">Choose Favourite Cuisine</a>
+             <a href="UserCuisine.html" target="_self">Add Cuisine Preference</a>
           
         </div> 
           

@@ -184,6 +184,24 @@ echo '
           <option value="Drinks">Drinks</option>
           <option value="Naan">Naan</option>
           <option value="Chowmein">Chowmein</option>
+          <option value="Wings">Wings</option>
+          <option value="Steak">Steak</option>
+        </select>
+      </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="category">Spice Level</label>
+      </div>
+      <div class="col-75">
+        <select id="category" name="spicelevel">
+        <option value="Non-Spicy">Non-Spicy</option>
+        
+          <option value="Regular">Regular</option>
+          <option value="Mild">Mild</option>
+          <option value="Spicy">Spicy</option>
+          <option value="Extremely Spicy"> Extremely Spicy</option>
+
+          
         </select>
       </div>
     </div>
@@ -199,9 +217,7 @@ echo '
   
     <div class="row">
       <input type="submit" name="submit" value="Submit">
-      <div class="btn" id="btn">
-         <a href="HomePageLoggedInRest.php" target="_self">Exit</a>
-       </div>
+      
     </div>
    
  </form>

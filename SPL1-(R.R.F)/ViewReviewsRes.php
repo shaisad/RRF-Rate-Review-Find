@@ -64,7 +64,7 @@ a{
     padding: 10px 20px;
     position: relative;
     bottom: 10px;
-    right: 50px;
+    right: 100px;
 }
 .testimonial-box-container{
     position: relative;
@@ -156,7 +156,7 @@ font-size: 22px;
 color: rgb(80, 31, 19);
 font-family: 'Times New Roman', Times, serif;
 position: relative;
-right: 485px;
+right: 475px;
 bottom: 120px;
 }
  
@@ -166,7 +166,7 @@ font-size: 22px;
 color: rgb(80, 31, 19);
 font-family: 'Times New Roman', Times, serif;
 position: relative;
-right:525px;
+right:515px;
 bottom: 130px;
 }
 
@@ -184,9 +184,12 @@ bottom: 40px;
 
 .credentials .restlocation{
     position: relative;
-    left: 70px;
+    left: 35px;
 }
-
+u{
+    position: relative;
+    left: 50px;
+}
 
 </style>
 

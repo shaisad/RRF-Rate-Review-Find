@@ -12,6 +12,7 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 
+
     <title>RRF Home Page</title>
     
 
@@ -97,7 +98,7 @@ body{
   cursor: pointer;
   color: rgb(80, 31, 19);
   position: relative;
-  left: 125px;
+  left: 100px;
   border-radius: 10px;
   bottom: 80px;
 }
@@ -118,14 +119,15 @@ body{
 .cbtnn1 {
   border: none;
   outline: none;
-  padding: 6px 6px;
+  padding: 4px 4px;
   cursor: pointer;
   color: white;
   position: relative;
   text-decoration : none;
-  top: 10px;
-  border-radius: 4px;
+  top: 20px;
+  border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
+  right: 2px;
 }
 
 
@@ -137,14 +139,14 @@ body{
 .cbtnn2 {
   border: none;
   outline: none;
-  padding: 6px 6px;
+  padding: 4px 4px;
   cursor: pointer;
   color: white;
   position: relative;
   text-decoration : none;
   left: 6px;
-  top: 10px;
-  border-radius: 4px;
+  top: 20px;
+  border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
 }
 
@@ -154,10 +156,16 @@ body{
   text-decoration : none;
 }
 
-
-
 img {
     width: 180px;
+    height: 145px;
+    top: 300px;
+    left: 100px;
+}
+
+.logo .rrflogo{
+  width: 180px;
+  height: 80px;
     top: 300px;
     left: 100px;
 }
@@ -192,18 +200,21 @@ color: rgb(80, 31, 19);
   transform: translate3D(0,-1px,0) scale(1.03);
 }
 
+.card{
+  height: 335px;
+}
 
 .cardifix{
-  height: 400px;
+  height: 440px;
   position: relative;
   left: 2px;
-  bottom : 120px;
+  bottom : 140px;
   width: 90%;
   cursor : pointer;
 }
 
 .cardifix .card {
-  height: 330px;
+  height: 410px;
 }
 
 .cardifix img {
@@ -218,6 +229,81 @@ color: rgb(80, 31, 19);
   color: rgb(80, 31, 19);
   bottom:55px;
   font-family: 'Times New Roman', Times, serif;
+}
+.headingnan{
+  position: relative;
+  left: 20px;
+  bottom: 40px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingitalian{
+  position: relative;
+  left: 20px;
+  bottom: 100px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingpizza{
+  position: relative;
+  left: 20px;
+  bottom: 30px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingbengali{
+  position: relative;
+  left: 20px;
+  bottom: 60px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+.headingburger{
+  position: relative;
+  left: 20px;
+  bottom: 40px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.headingfav{
+  position: relative;
+  left: 220px;
+  top : 10px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.headingall{
+  position: relative;
+  left: 30px;
+  bottom: 70px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.card-body .card-text2 i{
+  color: rgba(248, 197, 70, 0.964);
+}
+.card-body .card-texti i{
+  color: rgba(248, 197, 70, 0.964);
+}
+
+.card .card-body .card-textrn {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(80, 31, 19);
+  font-weight: 600;
 }
 
 
@@ -280,12 +366,13 @@ color: rgb(80, 31, 19);
     </script>
 
        
-<button class="btnn show" onclick="window.location.href='showAll.php';"> Show all</button>
+<button class="btnn show" onclick="window.location.href='showAll.php';"> Show All</button>
         <button class="btnn" onclick="window.location.href='topRated.php';"> Top Rated</button>
         <button class="btnn" onclick="window.location.href='checkRange.php';"> Price Range</button>
         <button class="btnn" onclick="window.location.href='checkLocation.php';"> Location</button>
         <button class="btnn" onclick="window.location.href='checkCuisine.php';">Cuisine</button>
-        
+        <button class="btnn" onclick="window.location.href='checkCategory.php';">Food Category</button>
+        <button class="btnn" onclick="window.location.href='checkSpice.php';">Spiciness</button>
         <p class = heading> All restaurants </p>
 
 <!-- card -->
@@ -316,11 +403,11 @@ color: rgb(80, 31, 19);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
@@ -356,9 +443,7 @@ color: rgb(80, 31, 19);
     
 
     <!-- <form action="RestaurantInfo.php">
-
     <input type="submit" value="Show Details" onclick="passvalues();"/>
-
     </form> -->
 
       </div>
@@ -374,85 +459,8 @@ color: rgb(80, 31, 19);
 </div>
 </div>
 
-    <p class = heading> All food items</p>
-    <div class="cardifix">
-   <div class="container py-5">
-    <div class="row mt-3">
-       <?php 
-      require 'dbConfig.php';
-      // $sno = $_GET['resid'];
-      $query = "SELECT * FROM food_new";
-      $query_run = mysqli_query($db, $query);
-      $check_user = mysqli_num_rows($query_run) > 0;
-      
-      if($check_user)
-      {
-        while($row = mysqli_fetch_assoc($query_run))
-        {
-          ?>
-          <?php
-          $sno = $row['foodid'];
-          $sno2 = $row['foodid'];
-          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
-    $result = mysqli_query($db, $getr);
-    $row2 = mysqli_fetch_array($result);
-
-    $showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
-$result2 = mysqli_query($db, $showr);
-$row3 = mysqli_fetch_array($result2);
-          ?>
-          
-          <div class="col-md-3 mt-3">
-            <div class="card">
-            
-          <div class="card-body">
-            <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
-            <p class="card-text" id="rlocation"><?php echo $row['frestaurantname']; ?></p>
-            <p class="card-text" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
-            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
-            <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
-         
-            <!-- image fetch -->
-              <?php 
-          // Include the database configuration file  
-           require_once 'dbConfig.php'; 
-
-           $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
-           $queryy_run = mysqli_query($db, $queryy);
-           $check_userr = mysqli_num_rows($queryy_run) > 0;
-
-           if($check_userr){
-            while($row = mysqli_fetch_assoc($queryy_run)){
-              ?>
-                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
-                 
-              <?php
-            }
-           }
-           ?>
-
-          
-        <?php echo `<a href="ViewReviewsFood.php?fid='. $sno .'?resid='. $sno .'">Show all reviews</a>`?>
-        <!-- <button class="cbtnn1" onclick="window.location.href='ViewReviews.html';">Show all reviews</button> -->
-        
-        
-
-  
-          </div>
-          </div>
-          </div>
-
-          <?php
-        }
-      }
-
-      ?>
-    </div>
-    </div>
-    </div>
-
-    <p class = heading> Pizza </p>
+    
+    <p class = headingpizza> Pizza </p>
 
 <!-- card -->
 <div class="cardfix">
@@ -483,11 +491,11 @@ $row3 = mysqli_fetch_array($result2);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
@@ -523,9 +531,7 @@ $row3 = mysqli_fetch_array($result2);
     
 
     <!-- <form action="RestaurantInfo.php">
-
     <input type="submit" value="Show Details" onclick="passvalues();"/>
-
     </form> -->
 
       </div>
@@ -540,7 +546,7 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Burger </p>
+<p class = headingburger> Burger </p>
 
 <!-- card -->
 <div class="cardfix">
@@ -549,11 +555,11 @@ $row3 = mysqli_fetch_array($result2);
    <?php 
   require 'dbConfig.php';
 
-  $query = "select * from restaurant, food_new where restaurant.status=1 and food_new.category = 'Burger' and food_new.food_res_id = restaurant.restaurantid";
+  $query = "select * from restaurant, food_new where restaurant.status=1 and food_new.category = 'Burger' and food_new.food_res_id = restaurant.restaurantid group by food_new.category, restaurantname";
   $query_run = mysqli_query($db, $query);
-  $check_user = mysqli_num_rows($query_run) > 0;
+  $check_user = mysqli_num_rows($query_run);
   
-  if($check_user)
+  if($check_user = 1)
   {
     while($row = mysqli_fetch_assoc($query_run))
     {
@@ -573,15 +579,15 @@ $row3 = mysqli_fetch_array($result2);
       <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
       // Include the database configuration file  
        require_once 'dbConfig.php'; 
 
-       $queryy = "SELECT image, imageid,resimageid, category from images, restaurant, food_new where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and food_new.category = 'Burger'";
+       $queryy = "SELECT image, imageid,resimageid, category from images, restaurant, food_new where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and food_new.category = 'Pizza'";
        $queryy_run = mysqli_query($db, $queryy);
        $check_userr = mysqli_num_rows($queryy_run) > 0;
 
@@ -596,24 +602,15 @@ $row3 = mysqli_fetch_array($result2);
        ?>
 
     
-    <!-- <button class="cbtnn1" onclick="window.location.href='reviewsection.php'">All Reviews</button>
-    <button class="cbtnn2" onclick="window.location.href='RestaurantInfo.php?resid='. $sno .''">See Details</button> -->
-    <?php
-    echo '
-       <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">All Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">See Details</a>';
-       ?>
-    <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
-      <a href="RestaurantInfo.php"> See Details </a>
-      </button> -->
     
-    
-
-    <!-- <form action="RestaurantInfo.php">
-
-    <input type="submit" value="Show Details" onclick="passvalues();"/>
-
-    </form> -->
+<?php
+        echo '
+           <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+           <a class="cbtnn2" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
+           
+           
+           ';
+           ?>
 
       </div>
       </div>
@@ -627,7 +624,7 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Naan </p>
+<p class = headingnan> Naan </p>
 
 <!-- card -->
 <div class="cardfix">
@@ -657,11 +654,11 @@ $row3 = mysqli_fetch_array($result2);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
@@ -697,9 +694,7 @@ $row3 = mysqli_fetch_array($result2);
     
 
     <!-- <form action="RestaurantInfo.php">
-
     <input type="submit" value="Show Details" onclick="passvalues();"/>
-
     </form> -->
 
       </div>
@@ -714,11 +709,11 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
 </div>
-<p class = heading> Italian </p>
+<p class = headingitalian> Italian </p>
 
 <!-- card -->
 <div class="cardfix">
-<div class="container py-5">
+<div class="container py-0">
 <div class="row mt-3">
    <?php 
   require 'dbConfig.php';
@@ -744,11 +739,11 @@ $row3 = mysqli_fetch_array($result2);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
@@ -784,9 +779,7 @@ $row3 = mysqli_fetch_array($result2);
     
 
     <!-- <form action="RestaurantInfo.php">
-
     <input type="submit" value="Show Details" onclick="passvalues();"/>
-
     </form> -->
 
       </div>
@@ -803,11 +796,11 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </body>
 
-<p class = heading> Bengali </p>
+<p class = headingbengali> Bengali </p>
 
 <!-- card -->
 <div class="cardfix">
-<div class="container py-5">
+<div class="container py-4">
 <div class="row mt-3">
    <?php 
   require 'dbConfig.php';
@@ -833,11 +826,12 @@ $row3 = mysqli_fetch_array($result2);
       <div class="col-md-3 mt-3">
         <div class="card">
         
-      <div class="card-body">
+      
+        <div class="card-body">
         <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
         <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
-        <p class="card-text" id="rlocation"><i class="fas fa-star"><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
-            ; ?></i></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
      
         <!-- image fetch -->
           <?php 
@@ -873,9 +867,7 @@ $row3 = mysqli_fetch_array($result2);
     
 
     <!-- <form action="RestaurantInfo.php">
-
     <input type="submit" value="Show Details" onclick="passvalues();"/>
-
     </form> -->
 
       </div>
@@ -891,12 +883,91 @@ $row3 = mysqli_fetch_array($result2);
 </div>
 </div>
    
+<p class = headingall> All food items</p>
+    <div class="cardifix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
+      // $sno = $_GET['resid'];
+      $query = "SELECT * FROM food_new";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?>
+          <?php
+          $sno = $row['foodid'];
+          $sno2 = $row['foodid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+          ?>
+          
+          <div class="col-md-3 mt-3">
+            <div class="card">
+            
+            <div class="card-body">
+            <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
+            <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
+            <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
+            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+            <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
+
+            <!-- image fetch -->
+              <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+           $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+                 
+              <?php
+            }
+           }
+           ?>
+
+          
+<?php
+        echo '
+           <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>
+           <a class="cbtnn2" href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
+        ';
+           ?>
+     
+        
+
+  
+          </div>
+          </div>
+          </div>
+
+          <?php
+        }
+      }
+
+      ?>
+    </div>
+    </div>
+    </div>
+
        
     
 </body>
 
 
 </html>
-
-
-
