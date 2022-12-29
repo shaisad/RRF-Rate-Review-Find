@@ -15,7 +15,7 @@ $category = null;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 <!-- Bootstrap CSS -->
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -128,6 +128,7 @@ body{
 
 }
 
+
 .handrice{
   width: 150px;
   height: 150px;
@@ -146,6 +147,43 @@ body{
   left: 515px;
   bottom: 130px;
 }
+.card-body .card-text2 i{
+  color: rgba(248, 197, 70, 0.964);
+}
+.card-body .card-texti i{
+  color: rgba(248, 197, 70, 0.964);
+}
+
+.card .card-body .card-textrn {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(80, 31, 19);
+  font-weight: 600;
+}
+.cardifix{
+  position: relative;
+  left: 100px;
+  width: 80%;
+  cursor : pointer;
+  bottom: 220px;
+}
+
+.cardifix .card {
+  height: 420px;
+  position: relative;
+}
+
+.cardifix img {
+  width: 180px;
+  height: 120px;
+}
+.heading u{
+  position: relative;
+  left: 53px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
 
 </style>
 
@@ -187,9 +225,7 @@ body{
     <img class="rrflogo" src="cover.png" alt="logo">           
            
             
-        </p>
-        <p class = heading><u> Menu </p></u> 
-
+        
         <?php
 
 require 'dbConfig.php';
@@ -221,10 +257,9 @@ require 'dbConfig.php';
 
     
    <!-- card -->
-<<p class = heading><u> Menu </p></u> 
+<p class = heading><u> Menu </p></u> 
 
-  <p class = heading> Pizza </p> -->
-<div class="cardfix">
+<div class="cardifix">
    <div class="container py-5">
     <div class="row mt-3">
        <?php 
@@ -239,15 +274,32 @@ require 'dbConfig.php';
         while($row = mysqli_fetch_assoc($query_run))
         {
           ?>
+
+<?php
+          $sno = $row['restaurantid'];
+          $sno2 = $row['foodid'];
+          
+              $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+
+    ?>
           
           <div class="col-md-3 mt-3">
             <div class="card">
             
-          <div class="card-body">
-            <h5 class="card-title" id="rname"><?php echo $row['foodname']; ?></h5>
-            <p class="card-text" id="rlocation"><?php echo $row['subject']; ?></p>
-            <p class="card-text" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
-         
+            <div class="card-body">
+            <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
+            <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
+            <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
+            <p class="card-textl" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+            <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
+
             <!-- image fetch -->
               <?php 
           // Include the database configuration file  
@@ -269,8 +321,8 @@ require 'dbConfig.php';
            ?>
 
           
-        <button class="cbtnn1" onclick="window.location.href='reviewsection.php';">Write a review</button>
-        
+       
+        <a class="cbtnn1" href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
         
 
   
