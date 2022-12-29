@@ -13,8 +13,10 @@ if (isset($_POST['submitname']))
     $username = $_POST['username'];
 
     $query = "update user set username='$username' where username = '$_SESSION[username]'";
+    $query2 = "update food_reviews set food_reviews.rfusername='$username' where rfusername = '$_SESSION[username]'";
+    $query3 = "update res_reviews set res_reviews.rrusername='$username' where rrusername = '$_SESSION[username]'";
 
-    if ($db->query($query) === TRUE) {
+    if ($db->query($query) === TRUE && $db->query($query2) === TRUE && $db->query($query3) === TRUE) {
         echo "Record updated successfully! Click <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/UserSignInPage.html'> here to login </a> to ensure your name details are
         updated.";
       } else {
