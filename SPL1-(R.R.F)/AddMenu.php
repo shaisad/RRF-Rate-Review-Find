@@ -45,6 +45,15 @@ session_start();
       cursor: pointer;
       float: right;
     }
+    input[type=number] {
+      background-color:rgb(80, 31, 19);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
     
     input[type=submit]:hover {
       background-color: rgb(87, 57, 49)9;

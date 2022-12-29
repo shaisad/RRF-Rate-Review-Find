@@ -63,15 +63,17 @@
   {
     if (!filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
         
-      ?>      
-        <script>alert("Invalid Email!")</script>
-        <?php
-        exit();
+      header(Location:"popup10.html");
+      exit();
+
+
     }
     
     if (strlen($_POST['password']) > 15 || strlen($_POST['password']) < 8  || ctype_upper($_POST['password']) || ctype_lower($_POST['password']) || !preg_match("/[0-9]/", $_POST['password'])) {
-      ?><script>alert("Password must be between 8 and 15 characters long, contain uppercase, lowercase letters and a number!")</script><?php
+      header(Location:"popup11.html");
       exit();
+
+
     }
   
 
@@ -91,10 +93,9 @@
   $res = mysqli_query($conn, $sql);
 
   if(mysqli_num_rows($res) > 0){
-    ?>      
-          <script>alert("Email already exists! Kindly change your email to complete signup!")</script>
-          <?php
-          exit();
+    header(Location:"popup12.html");
+      exit();
+
   }
 
   
@@ -143,8 +144,10 @@
 
         if($INSERT && sendMail($useremail,$code))
         {
-         echo "r";
-          
+          header(Location:"popup13.html");
+          exit();
+    
+     
         }
 
         $conn->close();
@@ -153,19 +156,17 @@
     else
     {
       
-      ?>      
-          <script>alert("Password fields don't match!")</script>
-          <?php
-          exit();
-          
+      header(Location:"popup14.html");
+      exit();
+
+   
     }
   }
   else
   {
     
-    ?>      
-          <script>alert("All fields are required!")</script>
-          <?php
-          exit();
-    
+    header(Location:"popup15.html");
+      exit();
+
+
   }
