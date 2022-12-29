@@ -63,14 +63,14 @@
   {
     if (!filter_var($_POST['useremail'], FILTER_VALIDATE_EMAIL)) {
         
-      header(Location:'popup10.html');
+      header("Location:popup10.html");
       exit();
 
 
     }
     
     if (strlen($_POST['password']) > 15 || strlen($_POST['password']) < 8  || ctype_upper($_POST['password']) || ctype_lower($_POST['password']) || !preg_match("/[0-9]/", $_POST['password'])) {
-      header(Location:'popup11.html');
+      header("Location:popup11.html");
       exit();
 
 
@@ -144,7 +144,7 @@
 
         if($INSERT && sendMail($useremail,$code))
         {
-          header(Location:'popup13.html');
+          header("Location:popup13.html");
           exit();
     
      
@@ -156,7 +156,7 @@
     else
     {
       
-      header(Location:'popup14.html');
+      header("Location:popup14.html");
       exit();
 
    
@@ -165,7 +165,7 @@
   else
   {
     
-    header(Location:'popup15.html');
+    header("Location:popup15.html");
       exit();
 
 
