@@ -608,7 +608,7 @@ $row3 = mysqli_fetch_array($result2);
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT  restaurantname, location, ulocation, restaurantid FROM restaurant, user where restaurant.status=1 and restaurant.location = user.ulocation and user.ulocation = '$_SESSION[ulocation]' group by restaurant.location";
+      $query = "SELECT  * FROM restaurant, user where restaurant.status=1 and restaurant.location = user.ulocation and user.ulocation = '$_SESSION[ulocation]'";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -686,7 +686,7 @@ $row3 = mysqli_fetch_array($result2);
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT restaurantname, location, restaurantid, userfavcuisine, cuisine FROM restaurant, user where restaurant.status=1 and restaurant.cuisine = user.userfavcuisine 
+      $query = "SELECT restaurantname, restaurantid, userfavcuisine, cuisine,location FROM restaurant, user where restaurant.status=1 and restaurant.cuisine = user.userfavcuisine
       and user.userfavcuisine= '$_SESSION[userfavcuisine]'";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
@@ -765,7 +765,7 @@ $row3 = mysqli_fetch_array($result2);
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT restaurantname, location, reviewrid, restaurantid from user, res_reviews, restaurant where restaurant.status=1 and res_reviews.reviewrid = restaurant.restaurantid and res_reviews.rrusername = user.username and user.username = '$_SESSION[username]'";
+      $query = "SELECT restaurantname, location, reviewrid, restaurantid from user, res_reviews, restaurant where restaurant.status=1 and res_reviews.reviewrid = restaurant.restaurantid and res_reviews.rrusername = user.username and user.username = '$_SESSION[username]' group by restaurant.restaurantname";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -797,7 +797,7 @@ $row3 = mysqli_fetch_array($result2);
           // Include the database configuration file  
            require_once 'dbConfig.php'; 
 
-           $queryy = "SELECT image, imageid,resimageid from images, restaurant, user, res_reviews where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and res_reviews.rrusername = user.username and res_reviews.reviewrid= restaurant.restaurantid and user.username = '$_SESSION[username]'";
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant, user, res_reviews where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]' and res_reviews.rrusername = user.username and res_reviews.reviewrid= restaurant.restaurantid and user.username = '$_SESSION[username]' group by restaurant.restaurantname";
            $queryy_run = mysqli_query($db, $queryy);
            $check_userr = mysqli_num_rows($queryy_run) > 0;
 
@@ -843,7 +843,7 @@ $row3 = mysqli_fetch_array($result2);
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT foodname, reviewfid, foodid, price, frestaurantname, subject from food_new, user, food_reviews where food_reviews.reviewfid = food_new.foodid and food_reviews.rfusername = user.username and user.username = '$_SESSION[username]'";
+      $query = "SELECT foodname, reviewfid, foodid, price, frestaurantname, subject from food_new, user, food_reviews where food_reviews.reviewfid = food_new.foodid and food_reviews.rfusername = user.username and user.username = '$_SESSION[username]' group by food_new.foodname";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
