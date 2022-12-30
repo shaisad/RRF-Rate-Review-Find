@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .ancr{
+    text-decoration: none;
+    color: black;
+  }
+  </style>
+<body>
+  
 <?php
 
 
@@ -19,20 +35,21 @@ $sname= "localhost";
     $result = mysqli_query($conn, $query);
     $result2 = mysqli_query($conn, $query2);
 
-    // $query3 = "SELECT * FROM restaurant where status=1";
-    //   $query3_run = mysqli_query($conn, $query3);
-    //   $check_user = mysqli_num_rows($query3_run) > 0;
+    $query3 = "SELECT * FROM restaurant where status=1";
+      $query3_run = mysqli_query($conn, $query3);
+      $check_user = mysqli_num_rows($query3_run) > 0;
       
-    //   if($check_user)
-    //   {
-    //     while($row = mysqli_fetch_assoc($query3_run))
-    //     {
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query3_run))
+        {
           
-    //       $sno = $row['restaurantid'];
-    //     }
-    //   }
+          $sno = $row['restaurantid'];
+        }
+      }
     
   if (mysqli_num_rows($result) > 0) {
+    
     $row_cnt = $result->num_rows;
     echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
       while ($res = mysqli_fetch_array($result)) {
@@ -41,8 +58,8 @@ $sname= "localhost";
         
 
         
-        // echo  '<a href="RestaurantInfo.php?resid='.$sno.'">' . $res['restaurantname'] . '<br /></a>';
-        echo $res['restaurantname']. ','. ' '.$res['location']. "<br/>";
+        echo  '<a class="ancr" href="RestaurantInfo.php?resid='.$sno.'">' . $res['restaurantname'] . ','. ' '.$res['location']. '<br /></a>';
+        //echo $res['restaurantname']. ','. ' '.$res['location']. "<br/>";
       
       }
       
@@ -76,6 +93,8 @@ $sname= "localhost";
 
 }
 ?>
+</body>
+</html>
 
 
             

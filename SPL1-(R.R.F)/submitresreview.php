@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 ?>
 <?php
 
@@ -19,6 +20,7 @@ session_start();
   if (!empty($review) && !empty($rating)){
     if(isset($_POST["submitreview"])){
       $sno = $_GET['resid'];
+     // $sno3 = $_GET['resid'];
       
     
     $INSERT= "INSERT Into `res_reviews` (`rrusername`, `review`, `rating`, `reviewrid`) values ('$_SESSION[username]','$review','$rating', '$sno')";
@@ -28,7 +30,7 @@ session_start();
     if(mysqli_query($db, $INSERT))
      {
 
-      header("Location:pop16.html");
+      header("Location:pop16.php?resid='.$sno.'");
       exit();
   
      }

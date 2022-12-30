@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+
 ?>
 
 
@@ -217,7 +218,7 @@ u{
             require 'dbConfig.php';
            // $category = $_POST['category'];
       $sno = $_GET['resid'];
-      $query = "SELECT restaurantname, location, restaurantid FROM restaurant where status = 1 and restaurantid = $sno";
+      $query = "SELECT restaurantname, location, restaurantid FROM restaurant where status = 1 and restaurant.restaurantid = $sno";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       

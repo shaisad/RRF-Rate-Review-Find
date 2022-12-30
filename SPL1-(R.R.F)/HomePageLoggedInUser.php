@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,12 +81,12 @@ body{
 
 .search-btn {
     position: relative;
-    left: 550px;
-    bottom: 35px;
+    left: 610px;
+    bottom: 50px;
     height: 50px;
     width: 70px;
     color: rgb(80, 31, 19) ;
-
+    border-radius: 4px;
 }
 
 .search-btn:hover {
@@ -272,6 +273,15 @@ img {
   color: rgb(80, 31, 19);
   font-family: 'Times New Roman', Times, serif;
 }
+.headingtf{
+  position: relative;
+  left: 220px;
+  top : 10px;
+  font-size: 25px;
+  color: rgb(80, 31, 19);
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .headingnan{
   position: relative;
   left: 220px;
@@ -355,7 +365,7 @@ img {
 
 .cardifix{
   position: relative;
-  left: 200px;
+  left: 210px;
   width: 80%;
   cursor : pointer;
   bottom: 70px;
@@ -459,17 +469,23 @@ img {
         
       </div> 
 
-  
+      <?php
+        require 'dbConfig.php';
+    $sno = $_GET['resid'];
+    ?>
     <div class="container mt-5">
-        
+        <?php
+        echo '<form action = "searchresult.php?resid = '.$sno.'" method = "post">
             <div class="search">
               <div class="search-box"> 
                  <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food, restaurant, location...">
                     <div class="search-btn">
-                       <i class="fa fa-search"></i> </div>
+                    <input type ="submit" name = "submit" value="Search" class="btn btn-info btn-lg rounded-0">
+                    </div>
               </div>
         
          <div id="search_result"></div>
+         </form>';?>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -485,12 +501,12 @@ img {
                         },
                         success: function (data) {
                             $('#search_result').html(data);
-                            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
+                            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
                             $("#live_search").focusout(function () {
-                                $('#search_result').css('display', 'none').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
+                                $('#search_result').css('display', 'none').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
                             });
                             $("#live_search").focusin(function () {
-                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
+                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
                             });
                         }
                     });
@@ -498,7 +514,12 @@ img {
                     $('#search_result').css('display', 'none');
                 }
             });
-        });
+            $(document).on("click", "a", function () {
+      $("#live_search").val($(this).text());
+      $("#search_result").html("");
+    });
+  });
+        
     </script>
 
        
@@ -512,6 +533,187 @@ img {
         
     </div>
     <p class = heading1><b>Welcome, <?php  echo $_SESSION['username']; ?>!</b></p>
+
+  
+
+    <p class = heading> Top-Rated Restaurants </p>
+
+    <!-- card -->
+   <div class="cardfix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
+
+      $query = "select restaurantname, location, reviewrid, restaurantid, avg(rating) as overall_rating from restaurant, res_reviews where 
+      res_reviews.reviewrid = restaurant.restaurantid and restaurant.status=1 group by restaurantname order by overall_rating desc LIMIT 4";
+      
+//       SELECT ROWNUM as RANK, last_name, salary
+// FROM (SELECT last_name, salary
+// FROM employees
+// ORDER BY salary DESC)
+// WHERE ROWNUM <= 5;
+
+
+
+      
+      $query_run = mysqli_query($db, $query);
+      
+      $i = mysqli_num_rows($query_run) > 0;
+
+      
+      
+      if($i)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?><?php
+          $sno = $row['restaurantid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+$result = mysqli_query($db, $getr);
+$row2 = mysqli_fetch_array($result);
+
+$showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+
+          ?>
+          <div class="col-md-3 mt-3">
+            <div class="card">
+            
+            <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+        ; ?></b></p>
+
+            <!-- image fetch -->
+              <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+                 
+              <?php
+            }
+           }
+           ?>
+
+        
+<?php
+        echo '
+           <a class="cbtnn1" href="RateReviewRes.php?resid='. $sno .'">Review Here</a>
+           <a class="cbtnn2" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
+           <a class="cbtnn3" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
+           
+           ';
+           ?>
+
+        
+          </div>
+          </div>
+          </div>
+
+          <?php
+        }
+        
+        
+      }
+      
+
+      ?>
+    </div>
+    </div>
+    </div>
+    <p class = headingtf> Top-Rated Food Items</p>
+    <div class="cardifix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
+      // $sno = $_GET['resid'];
+      $query = "SELECT foodname, frestaurantname, price, subject, reviewfid, foodid, avg(rating) as overall_rating FROM food_new, food_reviews where 
+      food_reviews.reviewfid = food_new.foodid group by foodname order by overall_rating desc LIMIT 4";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?>
+          <?php
+          $sno2 = $row['foodid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+          ?>
+          
+          <div class="col-md-3 mt-3">
+            <div class="card">
+            
+            <div class="card-body">
+            <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
+            <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
+            <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
+            <p class="card-textl" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+            <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
+
+            <!-- image fetch -->
+              <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+           $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+                 
+              <?php
+            }
+           }
+           ?>
+
+          
+        
+        <?php
+        echo '
+           <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>
+           <a class="cbtnn2" href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
+        ';
+           ?>
+        
+        
+
+  
+          </div>
+          </div>
+          </div>
+
+          <?php
+        }
+      }
+
+      ?>
+    </div>
+    </div>
+    </div>
 
     <p class = heading> All restaurants </p>
 
@@ -608,7 +810,7 @@ $row3 = mysqli_fetch_array($result2);
        <?php 
       require 'dbConfig.php';
 
-      $query = "SELECT  * FROM restaurant, user where restaurant.status=1 and restaurant.location = user.ulocation and user.ulocation = '$_SESSION[ulocation]'";
+      $query = "SELECT  distinct location, restaurantname FROM restaurant, user where restaurant.status=1 and restaurant.location = user.ulocation and user.ulocation = '$_SESSION[ulocation]' ";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       

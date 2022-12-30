@@ -336,7 +336,7 @@ img {
 .card{
   height: 335px;
 }
-.cardifix{
+.cardfix{
   height: 360px;
   position: relative;
   top: 20px;
@@ -345,7 +345,10 @@ img {
   color: rgba(248, 197, 70, 0.964);
 }
 
-
+.ffix{
+  position: relative;
+  
+}
 </style>
 </head>
 
@@ -366,7 +369,7 @@ img {
         <a href="restaurantlogout.php"><i class="fa fa-fw fa-sign-out"></i>Log Out</a>
       </div> 
 
-  
+  <div class="ffix"> 
     <div class="container mt-5">
         
             <div class="search">
@@ -495,6 +498,8 @@ img {
     </div>
     </div>
     </div>
+    
+    
     <p class = heading> All restaurants </p>
     <!-- card -->
    <div class="cardfix">
@@ -569,7 +574,7 @@ $row3 = mysqli_fetch_array($result2);
     </div>
     </div>
    
-       
+    </div>
     
 </body>
 

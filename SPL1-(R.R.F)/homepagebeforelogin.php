@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+error_reporting(0);
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,23 +30,22 @@ body{
     overflow-x: hidden;
 }
 
- .search{
+.search{
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    position: relative;
     font-family: 'Times New Roman', Times, serif;
-    bottom: 85px;
+    position: relative;
+    left: 30px ;
+    
 }
 
 .search-box input[type="text"]{
     height: 100%;
-    width: 105%;
+    width: 100%;
     border: none;
     outline: none;
     background: #fff;
     font-size: 18px;
     padding: 0 60px 0 20px;
-    font-family: 'Times New Roman', Times, serif; 
 }
 
 .search-box {
@@ -53,7 +54,7 @@ body{
     color: #fff;
     position: relative;
     left: 100px;
-    bottom: 15px;
+    bottom: 105px;
 }
 
 
@@ -79,18 +80,17 @@ body{
 
 .search-btn {
     position: relative;
-    left: 590px;
-    bottom: 35px;
+    left: 610px;
+    bottom: 50px;
     height: 50px;
     width: 70px;
     color: rgb(80, 31, 19) ;
-
+    border-radius: 4px;
 }
 
 .search-btn:hover {
     color: rgb(100, 91, 148);
 }
-
 .btnn {
   border: none;
   outline: none;
@@ -127,7 +127,7 @@ body{
   top: 20px;
   border-radius: 5px;
   background-color: rgb(80, 31, 19) ;
-  right: 2px;
+  left: 10px;
 }
 
 
@@ -155,6 +155,27 @@ body{
   opacity: 0.7; 
   text-decoration : none;
 }
+
+.cbtnnd {
+  border: none;
+  outline: none;
+  padding: 4px 4px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  text-decoration : none;
+  left: 25px;
+  top: 20px;
+  border-radius: 5px;
+  background-color: rgb(80, 31, 19) ;
+}
+
+
+.cbtnnd a:hover {
+  opacity: 0.7; 
+  text-decoration : none;
+}
+
 
 img {
     width: 180px;
@@ -323,24 +344,25 @@ color: rgb(80, 31, 19);
         <img class="rrflogo" src="cover.png" alt="logo">
 
     
-  
+
+        <?php
+        require 'dbConfig.php';
+    $sno = $_GET['resid'];
+    ?>
     <div class="container mt-5">
-    <form action="details.php" method="post" class="p-3">
+        <?php
+        echo '<form action = "searchresult.php?resid = '.$sno.'" method = "post">
             <div class="search">
               <div class="search-box"> 
-                
                  <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food, restaurant, location...">
                     <div class="search-btn">
-                    <input type="submit" name="submit" value="Search" class="btn btn-info btn-lg rounded-0">
-                       <i class="fa fa-search"></i> </div>
+                    <input type ="submit" name = "submit" value="Search" class="btn btn-info btn-lg rounded-0">
+                    </div>
               </div>
-            
-            <div id="search_result"></div>
-
-        </form>
-        </div>
-         <!-- <div id="search_result"></div>
-    </div> -->
+        
+         <div id="search_result"></div>
+         </form>';?>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -348,31 +370,33 @@ color: rgb(80, 31, 19);
                 var query = $(this).val();
                 if (query != "") {
                     $.ajax({
-                        url: 'action.php',
+                        url: 'backend-search.php',
                         method: 'POST',
                         data: {
                             query: query
                         },
-                        
-                            success: function (response) {
-            $("#search_result").html(response);
-            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '630px').css('position', 'relative').css('left', '100px').css('bottom', '10px');
-            
-                           
-          }
-        });
-      } else {
-        $('#search_result').css('display', 'none');
-      }
-    });
-    // Set searched text in input field on click of search button
-    $(document).on("click", "a", function () {
+                        success: function (data) {
+                            $('#search_result').html(data);
+                            $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
+                            $("#live_search").focusout(function () {
+                                $('#search_result').css('display', 'none').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
+                            });
+                            $("#live_search").focusin(function () {
+                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
+                            });
+                        }
+                    });
+                } else {
+                    $('#search_result').css('display', 'none');
+                }
+            });
+            $(document).on("click", "a", function () {
       $("#live_search").val($(this).text());
       $("#search_result").html("");
     });
   });
+        
     </script>
-
        
 <button class="btnn show" onclick="window.location.href='showAll.php';"> Show All</button>
         <button class="btnn" onclick="window.location.href='topRated.php';"> Top Rated</button>
@@ -382,6 +406,184 @@ color: rgb(80, 31, 19);
         <button class="btnn" onclick="window.location.href='checkCategory.php';">Food Category</button>
         <button class="btnn" onclick="window.location.href='checkSpice.php';">Spiciness</button>
         
+
+        <p class = heading> Top-rated restaurants </p>
+
+    <!-- card -->
+   <div class="cardfix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
+
+      $query = "select restaurantname, location, reviewrid, restaurantid, avg(rating) as overall_rating from restaurant, res_reviews where 
+      res_reviews.reviewrid = restaurant.restaurantid and restaurant.status=1 group by restaurantname order by overall_rating desc LIMIT 4";
+      
+//       SELECT ROWNUM as RANK, last_name, salary
+// FROM (SELECT last_name, salary
+// FROM employees
+// ORDER BY salary DESC)
+// WHERE ROWNUM <= 5;
+
+
+
+      
+      $query_run = mysqli_query($db, $query);
+      
+      $i = mysqli_num_rows($query_run) > 0;
+
+      
+      
+      if($i)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?><?php
+          $sno = $row['restaurantid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+$result = mysqli_query($db, $getr);
+$row2 = mysqli_fetch_array($result);
+
+$showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+
+          ?>
+          <div class="col-md-3 mt-3">
+            <div class="card">
+            
+            <div class="card-body">
+        <h5 class="card-title" id="rname"><?php echo $row['restaurantname']; ?></h5>
+        <p class="card-text" id="rlocation"><?php echo $row['location']; ?></p>
+        <p class="card-texti" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+        ; ?></b></p>
+
+            <!-- image fetch -->
+              <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+           $queryy = "SELECT image, imageid,resimageid from images, restaurant where images.imageid=restaurant.resimageid and restaurant.restaurantname= '$row[restaurantname]'";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+                 
+              <?php
+            }
+           }
+           ?>
+
+        
+<?php
+        echo '
+           
+           <a class="cbtnn2" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
+           <a class="cbtnn1" href="RestaurantInfo.php?resid='. $sno .'">Details</a>
+           
+           ';
+           ?>
+
+        
+          </div>
+          </div>
+          </div>
+
+          <?php
+        }
+        
+        
+      }
+      
+
+      ?>
+    </div>
+    </div>
+    </div>
+    <p class = heading> Top-rated food items</p>
+    <div class="cardifix">
+   <div class="container py-5">
+    <div class="row mt-3">
+       <?php 
+      require 'dbConfig.php';
+      // $sno = $_GET['resid'];
+      $query = "SELECT foodname, frestaurantname, price, subject, reviewfid, foodid, avg(rating) as overall_rating FROM food_new, food_reviews where 
+      food_reviews.reviewfid = food_new.foodid group by foodname order by overall_rating desc LIMIT 4";
+      $query_run = mysqli_query($db, $query);
+      $check_user = mysqli_num_rows($query_run) > 0;
+      
+      if($check_user)
+      {
+        while($row = mysqli_fetch_assoc($query_run))
+        {
+          ?>
+          <?php
+          $sno2 = $row['foodid'];
+          $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
+    $result = mysqli_query($db, $getr);
+    $row2 = mysqli_fetch_array($result);
+
+    $showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
+$result2 = mysqli_query($db, $showr);
+$row3 = mysqli_fetch_array($result2);
+          ?>
+          
+          <div class="col-md-3 mt-3">
+            <div class="card">
+            
+            <div class="card-body">
+            <h5 class="card-title" id="rname"><?php echo $row['foodname'].','; ?></h5>
+            <p class="card-textrn" id="rname"><?php echo $row['frestaurantname']; ?></p>
+            <p class="card-text1" id="rlocation"><i><?php echo $row['subject']; ?></p></i>
+            <p class="card-textl" id="rlocation"><?php echo '৳'. $row['price']; ?></p>
+            <p class="card-text2" id="rlocation"><i class="fas fa-star"></i><b><?php echo sprintf('%0.1f',$row2['overall_rating']).'/5.0' .' '.'('.$row2['total_reviews'].'+'.')'
+            ; ?></b></p>
+
+            <!-- image fetch -->
+              <?php 
+          // Include the database configuration file  
+           require_once 'dbConfig.php'; 
+
+           $queryy = "SELECT image from foodimage, restaurant where foodname = '$row[foodname]' and foodimage.irestaurantname = restaurant.restaurantname and restaurant.status =1  ";
+           $queryy_run = mysqli_query($db, $queryy);
+           $check_userr = mysqli_num_rows($queryy_run) > 0;
+
+           if($check_userr){
+            while($row = mysqli_fetch_assoc($queryy_run)){
+              ?>
+                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" class="card-img-top" id="rimage"/>
+                 
+              <?php
+            }
+           }
+           ?>
+
+          
+        
+        <?php
+        echo '
+           <a class="cbtnn2" href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
+        ';
+           ?>
+        
+        
+
+  
+          </div>
+          </div>
+          </div>
+
+          <?php
+        }
+      }
+
+      ?>
+    </div>
+    </div>
+    </div>
         <p class = heading> All restaurants </p>
 
 <!-- card -->
@@ -443,7 +645,7 @@ color: rgb(80, 31, 19);
     <?php
     echo '
        <a class="cbtnn1" href="ViewReviewsRes.php?resid='. $sno .'">See Reviews</a>
-       <a class="cbtnn2" href="RestaurantInfo.php?resid='. $sno .'">Details</a>';
+       <a class="cbtnnd" href="RestaurantInfo2.php?resid='. $sno .'">Details</a>';
        ?>
     <!-- <button class="cbtnn2" id="btn2" onclick="passvalues();">
       <a href="RestaurantInfo.php"> See Details </a>
