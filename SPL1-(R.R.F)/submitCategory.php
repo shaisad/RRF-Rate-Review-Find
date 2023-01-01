@@ -164,6 +164,13 @@ img {
 .card .card-body .card-text1 i{
     bottom: 50px;
 }
+.rrflogo{
+  height:80px;
+
+}
+.wholefix{
+  left : 100px;
+}
 
 
 
@@ -173,6 +180,14 @@ img {
 </style>
 
 <body>
+<div class = "wholefix">
+<div class="logo">
+
+        
+<img class="rrflogo" src="cover.png" alt="logo">
+            
+
+    </div>
 
     <?php
 
@@ -215,7 +230,7 @@ img {
     $row_cnt = $query_run->num_rows;
 
     
-    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) of $check cuisine found ! </div>";
+    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt food item(s) of $check category found ! </div>";
         while($row = mysqli_fetch_assoc($query_run))
         {
           ?>
@@ -299,7 +314,7 @@ $row3 = mysqli_fetch_array($result2);
                                 }
                                 else{
                                   ?>      
-                                  <script>alert("Error! Cuisine field must be filled!")</script>
+                                  <script>alert("Error! Category field must be filled!")</script>
                                   <?php
                                 
                                 }
@@ -308,6 +323,6 @@ $row3 = mysqli_fetch_array($result2);
   
   ?>
   
-
+                              </div>
 </body>
 </html>

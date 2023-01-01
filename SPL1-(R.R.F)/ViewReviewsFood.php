@@ -63,7 +63,7 @@ a{
     padding: 10px 20px;
     position: relative;
     bottom: 10px;
-    right: 50px;
+    right: 80px;
 }
 .testimonial-box-container{
     position: relative;
@@ -155,8 +155,8 @@ font-size: 22px;
 color: rgb(80, 31, 19);
 font-family: 'Times New Roman', Times, serif;
 position: relative;
-right: 485px;
-bottom: 120px;
+right: 520px;
+bottom: 240px;
 }
  
 .totalreview{
@@ -165,8 +165,8 @@ font-size: 22px;
 color: rgb(80, 31, 19);
 font-family: 'Times New Roman', Times, serif;
 position: relative;
-right:485px;
-bottom: 130px;
+right:520px;
+bottom: 260px;
 }
 
 .totalrate i{
@@ -174,6 +174,7 @@ bottom: 130px;
 }
 .credentials{
 color: rgb(80, 31, 19);
+
 font-family: 'Times New Roman', Times, serif;
 position: relative;
 font-size: 25px;
@@ -183,7 +184,11 @@ bottom: 40px;
 
 .credentials .restlocation{
     position: relative;
-    left: 70px;
+    left: 30px;
+}
+.credentials .restlocation2{
+    position: relative;
+    left: 60px;
 }
 .totals{
     position: relative;
@@ -213,15 +218,40 @@ bottom: 40px;
 
 
         <?php
+        require 'dbConfig.php';
+        $sno2 = $_GET['fid'];
+$query = "SELECT * FROM food_new, restaurant where foodid ='$sno2' ";
+$query_run = mysqli_query($db, $query);
+$check_user = mysqli_num_rows($query_run) > 0;
+
+if($check_user)
+{
+  while($row = mysqli_fetch_assoc($query_run))
+  {
+    ?>
+
+<?php
+    $sno = $row['restaurantid'];
+    $foodname = $row['foodname'];
+    $restaurantname = $row['restaurantname'];
+    $location = $row['location'];
 
 
+  }
+}
+  ?>
+<div class=credentials>
+<h1 class="restname"> <?php echo $foodname; ?></h1> 
+            <h3 class="restlocation"> <?php echo $restaurantname; ?></h3> 
+            <h4 class="restlocation2"><?php echo $location; ?></h1>
+            
+    </div><?php
 
-  
-  
     require 'dbConfig.php';
-    $sno = $_GET['fid'];
+    $sno2 = $_GET['fid'];
+  
     
-    $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno'";
+    $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2' ";
     $result = mysqli_query($db, $getr);
 
     $row = mysqli_fetch_array($result);
@@ -229,7 +259,7 @@ bottom: 40px;
    // echo $row['overall_rating'].'/5'."<br/>";
     //echo 'Total:'.$row['total_reviews'].' '.'reviews'."<br/>";
 
-$showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno'  ORDER BY submitdate DESC";
+$showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
 $result = mysqli_query($db, $showr);
 
 ?>
@@ -242,7 +272,7 @@ $result = mysqli_query($db, $showr);
         
 <div class="totals">
 <div class="totalrate"> 
-  <p>Total Rating: <?php echo sprintf('%0.2f',$row['overall_rating']).'/5.00 '; ?><i class="fas fa-star"></i> </p>
+  <p>Total Rating: <?php echo sprintf('%0.1f',$row['overall_rating']).'/5.0 '; ?><i class="fas fa-star"></i> </p>
 </div>
 <?php
 
@@ -259,7 +289,7 @@ $result = mysqli_query($db, $showr);
         
 
 
-    while($row = mysqli_fetch_array($result)) {
+    while($row = mysqli_fetch_assoc($result)) {
                 
         
     

@@ -417,15 +417,16 @@ img {
 
     require 'dbConfig.php'; 
   
-    $sort_option = "";
-    if(isset($_GET['sort_numeric']))
+    
+    if(isset($_GET['sort_numeric']) && $_GET['sort_numeric'] != 'so')
     {
+      $sort_option = "";
         if($_GET['sort_numeric'] == "low-high"){
             $sort_option = "ASC";
         }elseif($_GET['sort_numeric'] == "high-low"){
             $sort_option = "DESC";
         }
-    }
+    
   
     
                                   ?>
@@ -506,6 +507,7 @@ $row3 = mysqli_fetch_array($result2);
                                         <?php
                                       }
                                     }
+                                  }
                                     else{
                                       ?>      
                                       <script>alert("Error! Price sorting field must be filled!")</script>

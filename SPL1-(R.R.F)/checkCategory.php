@@ -102,6 +102,8 @@ label {
     <label>Naan</label>
     <input type="checkbox" name="category[]" value="Wings">
     <label>Wings</label>
+    <input type="checkbox" name="category[]" value="Pasta">
+    <label>Pasta</label>
     <div>
     
     <input type="submit" name = "submit" >

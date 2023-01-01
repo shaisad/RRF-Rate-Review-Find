@@ -38,7 +38,7 @@ body{
 .cbtnn1 {
   border: none;
   outline: none;
-  padding: 8px 8px;
+  padding: 4px 4px;
   cursor: pointer;
   color: white;
   position: relative;
@@ -56,7 +56,7 @@ body{
 .cbtnn2 {
   border: none;
   outline: none;
-  padding: 8px 8px;
+  padding: 4px 4px;
   cursor: pointer;
   color: white;
   position: relative;
@@ -196,7 +196,7 @@ body{
             require 'dbConfig.php';
            // $category = $_POST['category'];
       $sno = $_GET['resid'];
-      $query = "SELECT restaurantname, location, restaurantid FROM restaurant where status = 1 and restaurantid = $sno";
+      $query = "SELECT restaurantname, location, restaurantid FROM restaurant where status = 1 and restaurantid = '$sno'";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -226,28 +226,7 @@ body{
            
             
         
-        <?php
-
-require 'dbConfig.php';
-        $query2 = "SELECT * from food_new";
-      $query2_run = mysqli_query($db, $query2);
-      $check_user2 = mysqli_num_rows($query2_run) > 0;
       
-      if($check_user2)
-      {
-        while($row = mysqli_fetch_assoc($query2_run))
-        {
-          
-          $category = $row['category'];
-        if ($row['category'] != $category ){
-              echo "<h1>$row[category]</h1>";
-              $category = $row['category'];
-        }
-         //echo $restaurantname;
-          
-         }
-       }
-       ?>
 
         <!-- while ($new_row = mysql_fetch_array($new_result)) {
     if ($new_row['category'] != $category) {
@@ -264,8 +243,9 @@ require 'dbConfig.php';
     <div class="row mt-3">
        <?php 
       require 'dbConfig.php';
+      //$snof = $_GET['fname'];
 
-      $query = "SELECT * FROM food_new, restaurant where frestaurantname = restaurantname and food_res_id = $sno";
+      $query = "SELECT * FROM food_new, restaurant where frestaurantname = restaurantname and food_res_id = '$sno'";
       $query_run = mysqli_query($db, $query);
       $check_user = mysqli_num_rows($query_run) > 0;
       
@@ -278,12 +258,14 @@ require 'dbConfig.php';
 <?php
           $sno = $row['restaurantid'];
           $sno2 = $row['foodid'];
+          //$snof = $row['foodname'];
           
-              $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM res_reviews WHERE reviewrid ='$sno'";
+          
+              $getr= "SELECT AVG(rating) AS overall_rating, COUNT(*) AS total_reviews FROM food_reviews WHERE reviewfid ='$sno2'";
     $result = mysqli_query($db, $getr);
     $row2 = mysqli_fetch_array($result);
 
-    $showr = "SELECT review, rating, rrusername, submitdate  FROM res_reviews WHERE reviewrid = '$sno'  ORDER BY submitdate DESC";
+    $showr = "SELECT review, rating, rfusername, submitdate  FROM food_reviews WHERE reviewfid = '$sno2'  ORDER BY submitdate DESC";
 $result2 = mysqli_query($db, $showr);
 $row3 = mysqli_fetch_array($result2);
 
@@ -321,8 +303,9 @@ $row3 = mysqli_fetch_array($result2);
            ?>
 
           
-       
-        <a class="cbtnn1" href="ViewReviewsFood.php?fid='. $sno2 .'">See Reviews</a>
+       <?php echo '<a class="cbtnn1" href="ViewReviewsFood.php?fid='. $sno2 .'">All Reviews</a>
+       <a class="cbtnn1" href="RateReviewFood.php?fid='. $sno2 .'">Review Here</a>'?>
+        
         
 
   

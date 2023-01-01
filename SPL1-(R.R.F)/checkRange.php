@@ -135,7 +135,7 @@ label {
   <form method = "GET" action = "submitrange.php" >
         <div class = "attribute">
         <select name="sort_numeric" class="form">
-                                            <option class="opt" value="">Select Option</option>
+                                            <option class="opt" value="so">Select Option</option>
                                             <option class="opt" value="low-high" <?php if(isset($_GET['sort_numeric']) && $_GET['sort_numeric'] == "low-high") { echo "selected"; } ?> > Low - High</option>
                                             <option class="opt" value="high-low" <?php if(isset($_GET['sort_numeric']) && $_GET['sort_numeric'] == "high-low") { echo "selected"; } ?> > High - Low</option>
                                         </select>

@@ -276,7 +276,7 @@ img {
       </div>
       </div>
       </div>
-      </div>                        
+                            
                                       
                                       
                               
@@ -297,15 +297,15 @@ img {
                               
                                   }
                                   
-                                }
-                                else{
-                                  ?>      
-                                  <script>alert("Error! Cuisine field must be filled!")</script>
-                                  <?php
                                 
-                                }
-                                    
-                                    
+                                 
+                              }   
+                              else{
+                                ?>      
+                                <script>alert("Error! Cuisine field must be filled!")</script>
+                                <?php
+                              
+                              }       
   
   ?>
   

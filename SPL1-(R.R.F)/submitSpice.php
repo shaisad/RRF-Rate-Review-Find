@@ -147,13 +147,28 @@ img {
 
 .alert {
   display:inline-block; 
+  top : 20px;
 }
+
+.rrflogo{
+  height:80px;
+
+}
+
 
 
 
 </style>
 
 <body>
+<div class="logo">
+
+        
+<img class="rrflogo" src="cover.png" alt="logo">
+            
+
+    </div>
+
 
     <?php
 
@@ -169,7 +184,7 @@ img {
     
     if(isset($_GET['spicelevel']))
     {
-    ?> <p class = heading> All restaurants </p><?php
+    ?> <p class = heading> All food items </p><?php
       foreach($_GET['spicelevel'] as $check) {
     
     
@@ -262,15 +277,23 @@ $row3 = mysqli_fetch_array($result2);
                                       }
                                     }
                                     else{
-                                      ?>      
-                                      <script>alert("Error! Spice level field must be filled!")</script>
-                                      <?php
+                                      echo "
+                                        <div class='alert alert-danger mt-3 text-center' role='alert'>
+                                            No restaurant of spice level : $check found!
+                                        </div>
+                                        ";
                                     
                                     }
                               
                                     
                                   }    
-                                }                          
+                                } 
+                                else{
+                                  ?>      
+                                  <script>alert("Error! Spice level field must be filled!")</script>
+                                  <?php
+                                
+                                }                         
   ?>
   
 

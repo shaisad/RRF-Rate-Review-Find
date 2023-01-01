@@ -16,6 +16,7 @@ error_reporting(0);
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
     <title>RRF User Home Page</title>
     
 
@@ -474,23 +475,23 @@ img {
     $sno = $_GET['resid'];
     ?>
     <div class="container mt-5">
-        <?php
-        echo '<form action = "searchresult.php?resid = '.$sno.'" method = "post">
+        
+        
             <div class="search">
               <div class="search-box"> 
                  <input type="text" class="form-control" name="live_search" id="live_search" autocomplete="off" placeholder="Search for food, restaurant, location...">
                     <div class="search-btn">
-                    <input type ="submit" name = "submit" value="Search" class="btn btn-info btn-lg rounded-0">
+                   
                     </div>
               </div>
         
          <div id="search_result"></div>
-         </form>';?>
+         
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#live_search").keyup(function () {
+            $('#live_search').keyup(function () {
                 var query = $(this).val();
                 if (query != "") {
                     $.ajax({
@@ -502,12 +503,12 @@ img {
                         success: function (data) {
                             $('#search_result').html(data);
                             $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
-                            $("#live_search").focusout(function () {
-                                $('#search_result').css('display', 'none').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
-                            });
-                            $("#live_search").focusin(function () {
-                                $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
-                            });
+                            // $("#live_search").focusout(function () {
+                            //     $('#search_result').css('display', 'none').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
+                            // });
+                            // $("#live_search").focusin(function () {
+                            //     $('#search_result').css('display', 'block').css('color', 'black').css('background-color', 'white').css('width', '600px').css('position', 'relative').css('left', '100px').css('bottom', '10px').css('text-decoration', 'none');
+                            // });
                         }
                     });
                 } else {

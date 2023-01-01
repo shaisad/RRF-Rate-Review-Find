@@ -30,40 +30,45 @@ $sname= "localhost";
   }
   
   if (isset($_POST['query'])) {
-    $query = "SELECT restaurantname, location FROM restaurant WHERE restaurantname LIKE '{$_POST['query']}%' OR location LIKE '{$_POST['query']}%'  LIMIT 100";
+    $query = "SELECT restaurantname, location, restaurantid FROM restaurant WHERE restaurantname LIKE '{$_POST['query']}%' OR location LIKE '{$_POST['query']}%'  LIMIT 100";
     $query2 = "SELECT foodname, frestaurantname FROM food_new WHERE foodname LIKE '{$_POST['query']}%' OR  frestaurantname LIKE '{$_POST['query']}%' LIMIT 100";
     $result = mysqli_query($conn, $query);
     $result2 = mysqli_query($conn, $query2);
 
-    $query3 = "SELECT * FROM restaurant where status=1";
-      $query3_run = mysqli_query($conn, $query3);
-      $check_user = mysqli_num_rows($query3_run) > 0;
-      
-      if($check_user)
+    
+    $check_user = mysqli_num_rows($result) > 0;
+    // if($check_user){
+    //   while($row = mysqli_fetch_assoc($query_run)){
+    //     $sno = $row['restaurantid'];
+    //   }
+    // }
+    if($check_user)
       {
-        while($row = mysqli_fetch_assoc($query3_run))
+        $row_cnt = $result->num_rows;
+    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
+        while($row = mysqli_fetch_assoc($result))
         {
           
-          $sno = $row['restaurantid'];
-        }
-      }
+          
+         $sno = $row['restaurantid'];
+         
+               //$sno = $row['restaurantid'];
+        
+      
     
-  if (mysqli_num_rows($result) > 0) {
-    
-    $row_cnt = $result->num_rows;
-    echo "<div class='alert alert-success mt-3 text-center' role='alert'>$row_cnt restaurant(s) found! </div>";
-      while ($res = mysqli_fetch_array($result)) {
+  
         
           
         
 
         
-        echo  '<a class="ancr" href="RestaurantInfo.php?resid='.$sno.'">' . $res['restaurantname'] . ','. ' '.$res['location']. '<br /></a>';
+        echo  '<a class="ancr" href="searchresult.php?resid='.$sno.'">' . $row['restaurantname'] . ','. ' '.$row['location']. '<br /></a>';
         //echo $res['restaurantname']. ','. ' '.$res['location']. "<br/>";
+  
       
-      }
-      
+        }
     }
+  }
     else{
       echo "
     <div class='alert alert-danger mt-3 text-center' role='alert'>
@@ -91,7 +96,7 @@ $sname= "localhost";
 
 
 
-}
+
 ?>
 </body>
 </html>

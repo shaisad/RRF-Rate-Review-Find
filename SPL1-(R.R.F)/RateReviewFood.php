@@ -175,6 +175,11 @@ img {
     right: 550px;
     bottom: 20px;
 }
+.credentials {
+  color: rgb(248, 229, 152);
+  position: relative;
+  bottom: 30px;
+}
 
 
   </style>
@@ -194,7 +199,7 @@ img {
     require 'dbConfig.php';
     $sno2 = $_GET['fid'];
     
-    $query = "SELECT * FROM food_new where foodid = '$sno2'";
+    $query = "SELECT * FROM food_new, restaurant where foodid = '$sno2'";
     $query_run = mysqli_query($db, $query);
     // $check_user = mysqli_num_rows($query_run) > 0;
     // if($check_user){
@@ -202,7 +207,31 @@ img {
     //     $sno2 = $row['foodid'];
     //   }
     // }
+
+    $check_user = mysqli_num_rows($query_run) > 0;
+
+if($check_user)
+{
+  while($row = mysqli_fetch_assoc($query_run))
+  {
     ?>
+
+<?php
+    $sno = $row['restaurantid'];
+    $foodname = $row['foodname'];
+    $restaurantname = $row['restaurantname'];
+    $location = $row['location'];
+
+
+  }
+}
+  ?>
+<div class=credentials>
+<h1 class="restname"> <?php echo $foodname; ?></h1> 
+            <h3 class="restlocation"> <?php echo $restaurantname; ?></h3> 
+            <h4 class="restlocation2"><?php echo $location; ?></h1>
+            
+    </div>
     
     <?php
 echo '
