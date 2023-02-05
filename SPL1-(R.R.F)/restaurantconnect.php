@@ -36,15 +36,15 @@
 
     $mail->Port = "587";
 
-    $mail->Username = "rrfratereviewfind@gmail.com";
+    $mail->Username = "";
 
-    $mail->Password = "etlcjkrbuqitxism";
+    $mail->Password = "";
 
     $mail->isHTML(true);
 
     $mail->Subject = "RRF - Verify Mail";
 
-    $mail->setFrom("rrfratereviewfind@gmail.com");
+    $mail->setFrom("");
 
     $mail->Body = "Dear restaurant, Thank you for registering. Click the link to verify your email
                    <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/restaurantverify.php?restaurantemail=$restaurantemail&code=$code'> Verify </a>";

@@ -35,15 +35,15 @@ if (!$conn) {
 
     $mail->Port = "587";
 
-    $mail->Username = "rrfratereviewfind@gmail.com";
+    $mail->Username = "";
 
-    $mail->Password = "izcofomssnnpgazg";
+    $mail->Password = "";
 
     $mail->isHTML(true);
 
     $mail->Subject = "RRF- Reset Password Mail";
 
-    $mail->setFrom("rrfratereviewfind@gmail.com");
+    $mail->setFrom("");
 
     $mail->Body = "Dear concerned, Here is the link to reset your password. 
                    <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/reset-pass-res.php?restaurantemail=$restaurantemail&code=$code'> Click here to reset </a>";
