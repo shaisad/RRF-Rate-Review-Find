@@ -1,0 +1,105 @@
+<?php
+session_start(); 
+
+$sname= "localhost";
+$uname= "root";
+$password = "";
+
+$db_name = "rrf";
+
+$conn = mysqli_connect($sname, $uname, $password, $db_name);
+
+if (!$conn) {
+	echo "Connection failed!";
+}
+
+  use PHPMailer\PHPMailer\PHPMailer;
+  use PHPMailer\PHPMailer\SMTP;
+  use PHPMailer\PHPMailer\Exception;
+
+  function sendMail($useremail,$code)
+  {
+    require ("PHPMailer/PHPMailer.php");
+    require ("PHPMailer/SMTP.php");
+    require ("PHPMailer/Exception.php");
+
+    $mail = new PHPMailer();
+
+    $mail->isSMTP();
+
+    $mail->Host = "smtp.gmail.com";
+
+    $mail->SMTPAuth = "true";
+
+    $mail->SMTPSecure = "tls";
+
+    $mail->Port = "587";
+
+    $mail->Username = "";
+
+    $mail->Password = "";
+
+    $mail->isHTML(true);
+
+    $mail->Subject = "RRF- Reset Password Mail";
+
+    $mail->setFrom("");
+
+    $mail->Body = "Dear concerned, Here is the link to reset your password. 
+                   <a href='http://localhost/SPL1--R.R.F-1/SPL1-(R.R.F)/customer/customerresetpassword.php?useremail=$useremail&code=$code'> Click here to reset </a>";
+
+    $mail->addAddress($useremail);
+
+    if($mail->Send()){
+        return true;
+    }else{
+        return false;
+    }
+
+    $mail->smtpClose();
+  }
+
+  $code = bin2hex(random_bytes(16));
+
+  $useremail = $_POST['useremail'];
+
+  if (isset($useremail) && $useremail == $_SESSION['useremail'])
+  {
+    
+    $update = "UPDATE user SET code = '$code' where useremail = '$useremail'";
+   // $update2 = "UPDATE restaurant SET code = '$code' where email = '$email'";
+
+    $result = mysqli_query($conn, $update);
+   // $result2 = mysqli_query($conn, $update2);
+
+   if ($result && sendMail($useremail, $code))
+   {
+     ?>      
+     <script>alert("Mail sent to reset password! Please reset your password before logging in. Make sure to check your spam folder!")</script>
+     <?php
+     exit();
+     
+   }
+   
+   else
+   {
+   
+       ?>      
+       <script>alert("Password could not be updated!")</script>
+       <?php
+       exit();
+   }
+ }
+
+ else
+ {
+   
+   ?>      
+ <script>alert("Wrong email entered! Make sure to enter the right email!")</script>
+ <?php
+ exit();
+ }
+
+
+
+?>
